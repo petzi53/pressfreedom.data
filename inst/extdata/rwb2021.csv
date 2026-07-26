@@ -1,0 +1,181 @@
+Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with the exactions;Score exactions;Rank N-1;Score N-1;Rank evolution;FR_country;EN_country;ES_country;AR_country;FA_country;Zone
+2021;NOR;1;9328;9328;9451;100;1;9216;0;NorvÃ¨ge;Norway;Noruega;Ø§ÙÙØ±ÙÙØ¬;ÙØ±ÙÚ;UE Balkans
+2021;FIN;2;9301;9301;944;100;2;9207;0;Finlande;Finland;Finlandia;ÙÙÙÙØ¯Ø§;ÙÙÙØ§ÙØ¯;UE Balkans
+2021;SWE;3;9276;9276;9417;100;4;9075;1;SuÃ¨de;Sweden;Suecia;Ø§ÙØ³ÙÙØ¯;Ø³ÙØ¦Ø¯;UE Balkans
+2021;DNK;4;9143;9143;9321;100;3;9187;-1;Danemark;Denmark;Dinamarca;Ø§ÙØ¯ÙÙØ§Ø±Ù;Ø¯Ø§ÙÙØ§Ø±Ú©;UE Balkans
+2021;CRI;5;9124;9179;9124;8901;7;8947;2;Costa Rica;Costa Rica;Costa Rica;ÙÙØ³ØªØ§Ø±ÙÙØ§;Ú©Ø§Ø³ØªØ§Ø±ÛÚ©Ø§;AmÃ©riques
+2021;NLD;6;9033;9126;9033;8614;5;9004;-1;Pays-Bas;Netherlands;PaÃ­ses Bajos;ÙÙÙÙØ¯Ø§;ÙÙÙØ¯;UE Balkans
+2021;JAM;7;9004;9004;9209;100;6;8949;-1;JamaÃ¯que;Jamaica;Jamaica;Ø¬Ø§ÙØ§ÙÙØ§;Ø¬Ø§ÙØ§Ø¦ÛÚ©Ø§;AmÃ©riques
+2021;NZL;8;8996;8996;918;100;9;8931;1;Nouvelle-ZÃ©lande;New Zealand;Nueva Zelanda;ÙÙÙØ²ÙÙØ§ÙØ¯Ø§;Ø²ÙØ§ÙØ¯ ÙÙ;Asie-Pacifique
+2021;PRT;9;8989;8989;9201;100;10;8817;1;Portugal;Portugal;Portugal;Ø§ÙØ¨Ø±ØªØºØ§Ù;Ù¾Ø±ØªØºØ§Ù;UE Balkans
+2021;CHE;10;8945;8945;9028;9307;8;8938;-2;Suisse;Switzerland;Suiza;Ø³ÙÙØ³Ø±Ø§;Ø³ÙÙÛØ³;UE Balkans
+2021;BEL;11;8831;8831;8931;9307;12;8743;1;Belgique;Belgium;BÃ©lgica;Ø¨ÙØ¬ÙÙØ§;Ø¨ÙÚÛÚ©;UE Balkans
+2021;IRL;12;8809;8809;9042;100;13;874;1;Irlande;Ireland;Irlanda;Ø£ÙØ±ÙÙØ¯Ø§;Ø§ÛØ±ÙÙØ¯;UE Balkans
+2021;DEU;13;8476;9175;8476;5669;11;8784;-2;Allemagne;Germany;Alemania;Ø£ÙÙØ§ÙÙØ§;Ø¢ÙÙØ§Ù;UE Balkans
+2021;CAN;14;8475;8475;8794;100;16;8471;2;Canada;Canada;CanadÃ¡;ÙÙØ¯Ø§;Ú©Ø§ÙØ§Ø¯Ø§;AmÃ©riques
+2021;EST;15;8475;8475;8771;100;14;8739;-1;Estonie;Estonia;Estonia;Ø¥Ø³ØªÙÙÙØ§;Ø§Ø³ØªÙÙÛ;UE Balkans
+2021;ISL;16;8463;8463;8791;100;15;8488;-1;Islande;Iceland;Islandia;Ø£ÙØ³ÙÙØ¯Ø§;Ø§ÛØ³ÙÙØ¯;UE Balkans
+2021;AUT;17;8366;8366;8478;8901;18;8422;1;Autriche;Austria;Austria;Ø§ÙÙÙØ³Ø§;Ø§ØªØ±ÛØ´;UE Balkans
+2021;URY;18;8362;8362;8693;100;19;8421;1;Uruguay;Uruguay;Uruguay;Ø£ÙØ±ÙØºÙØ§Ù;Ø§Ø±ÙÚ¯ÙÙÙ;AmÃ©riques
+2021;SUR;19;8305;8305;8659;100;20;825;1;Suriname;Suriname;Surinam;Ø³ÙØ±ÙÙØ§Ù;Ø³ÙØ±ÛÙØ§Ù;AmÃ©riques
+2021;LUX;20;8244;8244;8608;100;17;8454;-3;Luxembourg;Luxembourg;Luxemburgo;ÙÙÙØ³ÙØ¨ÙØ±Øº;ÙÙÚ©Ø²Ø§ÙØ¨ÙØ±Ú¯;UE Balkans
+2021;WSM;21;8076;8076;8479;100;21;8175;0;Samoa;Samoa;Samoa;Ø³Ø§ÙÙØ§;Ø³Ø§ÙÙØ¢;Asie-Pacifique
+2021;LVA;22;8074;8074;8472;100;22;8144;0;Lettonie;Latvia;Letonia;ÙØ§ØªÙÙØ§;ÙØªÙØ§ÙÛ;UE Balkans
+2021;LIE;23;8051;8051;8436;100;24;8048;1;Liechtenstein;Liechtenstein;Liechtenstein;ÙÙØ®ØªÙØ´ØªØ§ÙÙ;ÙÛØ®ØªÙâØ§Ø´ØªØ§ÛÙ;UE Balkans
+2021;NAM;24;8028;8028;8206;8901;23;8075;-1;Namibie;Namibia;Namibia;ÙØ§ÙÙØ¨ÙØ§;ÙØ§ÙÛØ¨ÛØ§;Afrique
+2021;AUS;25;8021;8021;8424;100;26;7979;1;Australie;Australia;Australia;Ø£Ø³ØªØ±Ø§ÙÙØ§;Ø§Ø³ØªØ±Ø§ÙÛØ§;Asie-Pacifique
+2021;CYP;26;8015;8015;8102;8391;27;7955;1;Chypre;Cyprus;Chipre;ÙØ¨Ø±Øµ;ÙØ¨Ø±Ø³;UE Balkans
+2021;CPV;27;7991;7991;8402;100;25;7985;-2;Cap-Vert;Cape Verde;Cabo Verde;Ø§ÙØ±Ø£Ø³ Ø§ÙØ£Ø®Ø¶Ø±;Ú©ÛÙ¾ÙØ±Ø¯;Afrique
+2021;LTU;28;7985;7985;8392;100;28;7881;0;Lituanie;Lithuania;Lituania;ÙÙØªÙØ§ÙÙØ§;ÙÛØªÙØ§ÙÛ;UE Balkans
+2021;ESP;29;7956;803;7956;7602;29;7784;0;Espagne;Spain;EspaÃ±a;Ø¥Ø³Ø¨Ø§ÙÙØ§;Ø§Ø³Ù¾Ø§ÙÛØ§;UE Balkans
+2021;GHA;30;7867;7867;795;8208;30;7774;0;Ghana;Ghana;Ghana;ØºØ§ÙØ§;ØºÙØ§;Afrique
+2021;TTO;31;7845;7845;83;100;36;7678;5;TrinitÃ©-et-Tobago;Trinidad and Tobago;Trinidad y Tobago;ØªØ±ÙÙÙØ¯Ø§Ø¯ ÙØªÙØ¨Ø§ØºÙ;ØªØ±ÙØªÛ Ù ØªÙØ¨ÙÚ¯Ù;AmÃ©riques
+2021;GBR;33;7841;7835;8006;8614;35;7707;2;Royaume-Uni;United Kingdom;Reino Unido;Ø§ÙÙÙÙÙØ© Ø§ÙÙØªØ­Ø¯Ø©;Ø¨Ø±ÛØªØ§ÙÛØ§;UE Balkans
+2021;ZAF;32;7841;8439;7835;5436;31;7759;-1;Afrique du Sud;South Africa;SudÃ¡frica;Ø¬ÙÙØ¨ Ø£ÙØ±ÙÙÙØ§;Ø¢ÙØ±ÛÙØ§Û Ø¬ÙÙØ¨Û;Afrique
+2021;FRA;34;774;8211;774;581;34;7708;0;France;France;Francia;ÙØ±ÙØ³Ø§;ÙØ±Ø§ÙØ³Ù;UE Balkans
+2021;SVK;35;7698;7698;8178;100;33;7733;-2;Slovaquie;Slovakia;Eslovaquia;Ø³ÙÙÙØ§ÙÙØ§;Ø§Ø³ÙÙØ§Ú©Û;UE Balkans
+2021;SVN;36;769;769;8034;9307;32;7736;-4;SlovÃ©nie;Slovenia;Eslovenia;Ø³ÙÙÙÙÙÙØ§;Ø§Ø³ÙÙØ§ÙÛ;UE Balkans
+2021;BFA;37;7683;7683;8026;9307;38;7653;1;Burkina Faso;Burkina Faso;Burkina Faso;Ø¨ÙØ±ÙÙÙØ§ ÙØ§Ø³Ù;Ø¨ÙØ±Ú©ÛÙØ§ÙØ§Ø³Ù;Afrique
+2021;BWA;38;7675;7675;8008;9307;39;7644;1;Botswana;Botswana;Botsuana;Ø¨ÙØªØ³ÙØ§ÙØ§;Ø¨ÙØ³ØªØ§ÙØ§ÙØ§;Afrique
+2021;AND;39;7668;7668;8138;100;37;7677;-2;Andorre;Andorra;Andorra;Ø£ÙØ¯ÙØ±Ø§;Ø¢ÙØ¯ÙØ±;UE Balkans
+2021;CZE;40;7662;7662;8146;100;40;7643;0;RÃ©publique tchÃ¨que;Czech Republic;RepÃºblica Checa;Ø¬ÙÙÙØ±ÙØ© Ø§ÙØªØ´ÙÙ;Ø¬ÙÙÙØ±Û ÚÚ©;UE Balkans
+2021;ITA;41;7661;7737;7661;7227;41;7631;0;Italie;Italy;Italia;Ø¥ÙØ·Ø§ÙÙØ§;Ø§ÛØªØ§ÙÛØ§;UE Balkans
+2021;KOR;42;7657;7657;8145;100;42;763;0;CorÃ©e du Sud;South Korea;Corea del Sur;ÙÙØ±ÙØ§ Ø§ÙØ¬ÙÙØ¨ÙØ©;Ú©Ø±Ù Ø¬ÙÙØ¨Û;Asie-Pacifique
+2021;TWN;43;7614;7614;8109;100;43;7624;0;TaÃ¯wan;Taiwan;TaiwÃ¡n;ØªØ§ÙÙØ§Ù;ØªØ§ÛÙØ§Ù;Asie-Pacifique
+2021;USA;44;7607;7997;7607;603;45;7615;1;Ãtats-Unis;United States;Estados Unidos;Ø§ÙÙÙØ§ÙØ§Øª Ø§ÙÙØªØ­Ø¯Ø©;Ø§ÛØ§ÙØ§Øª ÙØªØ­Ø¯Ù Ø§ÙØ±ÛÚ©Ø§;AmÃ©riques
+2021;XCD;45;7602;7603;8105;100;44;7622;-1;OECS;OECS;OECS;Ø§ÙÙØ§Ø±ÙØ¨Ù;Ø¬Ø²Ø§ÛØ± Ú©Ø§Ø±Ø§Ø¦ÛØ¨ Ø´Ø±ÙÛ;AmÃ©riques
+2021;TON;46;7541;7541;8064;100;50;7273;4;Tonga;Tonga;Tonga;ØªÙÙØºØ§;ØªÙÙÚ¯Ø§;Asie-Pacifique
+2021;PNG;47;7512;7512;8014;100;46;7607;-1;Papouasie-Nouvelle-GuinÃ©e;Papua New Guinea;PapÃºa Nueva Guinea;Ø¨Ø§Ø¨ÙØ§ ØºÙÙÙØ§ Ø§ÙØ¬Ø¯ÙØ¯Ø©;Ù¾Ø§Ù¾ÙØ¢ Ú¯ÛÙÙ ÙÙ;Asie-Pacifique
+2021;ROU;48;7509;7509;8025;100;48;7409;0;Roumanie;Romania;Rumania;Ø±ÙÙØ§ÙÙØ§;Ø±ÙÙØ§ÙÛ;UE Balkans
+2021;SEN;49;7478;7538;7478;7167;47;7601;-2;SÃ©nÃ©gal;Senegal;Senegal;Ø§ÙØ³ÙØºØ§Ù;Ø³ÙÚ¯Ø§Ù;Afrique
+2021;DOM;50;744;744;7851;9307;55;721;5;RÃ©publique dominicaine;Dominican Republic;RepÃºblica Dominicana;Ø¬ÙÙÙØ±ÙØ© Ø§ÙØ¯ÙÙÙÙÙÙØ§Ù;Ø¬ÙÙÙØ±Û Ø¯ÙÙÛÙÛÚ©;AmÃ©riques
+2021;GUY;51;7439;7439;797;100;49;7337;-2;Guyana;Guyana;Guyana;ØºÙÙØ§ÙØ§;Ú¯ÛØ§ÙØ§;AmÃ©riques
+2021;SYC;52;7434;7434;7943;100;63;7134;11;Seychelles;Seychelles;Seychelles;Ø³ÙØ´ÙÙ;Ø³ÛâØ´Ù;Afrique
+2021;BLZ;53;7239;7239;7811;100;53;725;0;BÃ©lize;Belize;Belice;Ø¨ÙÙØ²;Ø¨ÙÛØ²;AmÃ©riques
+2021;CHL;54;7211;7264;7211;6955;51;7269;-3;Chili;Chile;Chile;ØªØ´ÙÙÙ;Ø´ÛÙÛ;AmÃ©riques
+2021;FJI;55;7208;7208;7779;100;52;7259;-3;Fidji;Fiji;Fiyi;ÙÙØ¬Ù;ÙÛØ¬Û;Asie-Pacifique
+2021;HRV;56;7205;7205;7782;100;59;7149;3;Croatie;Croatia;Croacia;ÙØ±ÙØ§ØªÙØ§;Ú©Ø±ÙØ§Ø³Û;UE Balkans
+2021;MDG;57;7176;7176;7736;100;54;7232;-3;Madagascar;Madagascar;Madagascar;ÙØ¯ØºØ´ÙØ±;ÙØ§Ø¯Ø§Ú¯Ø§Ø³Ú©Ø§Ø±;Afrique
+2021;BIH;58;7166;7166;7535;8901;58;7149;0;Bosnie-HerzÃ©govine;Bosnia and Herzegovina;Bosnia-Herzegovina;Ø§ÙØ¨ÙØ³ÙØ© ÙØ§ÙÙØ±Ø³Ù;Ø¨ÙØ³ÙÛ ÙØ±Ø²ÙÚ¯ÙÛÙ;UE Balkans
+2021;NER;59;7156;7156;7466;8614;57;7175;-2;Niger;Niger;Niger;Ø§ÙÙÙØ¬Ø±;ÙÛØ¬Ø±;Afrique
+2021;GEO;60;7136;7136;7734;100;60;7141;0;GÃ©orgie;Georgia;Georgia;Ø¬ÙØ±Ø¬ÙØ§;Ú¯Ø±Ø¬Ø³ØªØ§Ù;EEAC
+2021;MUS;61;7126;7126;7714;100;56;72;-5;Maurice;Mauritius;Mauricio;ÙÙØ±ÙØ´ÙÙØ³;ÙÙØ±ÛØ³;Afrique
+2021;MWI;62;712;712;7335;8208;69;7068;7;Malawi;Malawi;Malaui;ÙØ§ÙØ§ÙÙ;ÙØ§ÙØ§ÙÛ;Afrique
+2021;ARM;63;7117;7117;74;8391;61;714;-2;ArmÃ©nie;Armenia;Armenia;Ø£Ø±ÙÙÙÙØ§;Ø§Ø±ÙÙØ³ØªØ§Ù;EEAC
+2021;POL;64;7116;7198;7116;6668;62;7135;-2;Pologne;Poland;Polonia;Ø¨ÙÙÙØ¯Ø§;ÙÙØ³ØªØ§Ù;UE Balkans
+2021;BTN;65;7114;7114;7707;100;67;711;2;Bhoutan;Bhutan;ButÃ¡n;Ø¨ÙØªØ§Ù;Ø¨ÙØªØ§Ù;Asie-Pacifique
+2021;CIV;66;7113;7113;7358;8208;68;7106;2;CÃ´te d'Ivoire;Ivory Coast;Costa de Marfil;Ø³Ø§Ø­Ù Ø§ÙØ¹Ø§Ø¬;Ø³Ø§Ø­Ù Ø¹Ø§Ø¬;Afrique
+2021;JPN;67;7112;7112;7695;100;66;7114;-1;Japon;Japan;JapÃ³n;Ø§ÙÙØ§Ø¨Ø§Ù;ÚØ§Ù¾Ù;Asie-Pacifique
+2021;MNG;68;7103;7103;7686;100;73;7039;5;Mongolie;Mongolia;Mongolia;ÙÙØºÙÙÙØ§;ÙØºÙÙØ³ØªØ§Ù;Asie-Pacifique
+2021;ARG;69;7101;7101;7469;8901;64;7122;-5;Argentine;Argentina;Argentina;Ø§ÙØ£Ø±Ø¬ÙØªÙÙ;Ø¢Ø±ÚØ§ÙØªÛÙ;AmÃ©riques
+2021;GRC;70;7099;7157;7099;6781;65;712;-5;GrÃ¨ce;Greece;Grecia;Ø§ÙÙÙÙØ§Ù;ÛÙÙØ§Ù;UE Balkans
+2021;TLS;71;7089;7089;7712;100;78;701;7;Timor oriental;East Timor;Timor Oriental;ØªÙÙÙØ± Ø§ÙØ´Ø±ÙÙØ©;ØªÛÙÙØ± Ø´Ø±ÙÛ;Asie-Pacifique
+2021;MDV;72;7087;7087;7666;100;79;7007;7;Maldives;Maldives;Maldivas;Ø§ÙÙØ§ÙØ¯ÙÙ;ÙØ§ÙØ¯ÛÙ;Asie-Pacifique
+2021;TUN;73;7047;7047;7624;100;72;7055;-1;Tunisie;Tunisia;TÃºnez;ØªÙÙØ³;ØªÙÙØ³;MENA
+2021;TGO;74;7041;7041;7658;100;71;7067;-3;Togo;Togo;Togo;ØªÙØºÙ;ØªÙÚ¯Ù;Afrique
+2021;SLE;75;7039;7039;7283;8208;85;6972;10;Sierra Leone;Sierra Leone;Sierra Leona;Ø³ÙØ±Ø§ÙÙÙÙ;Ø³Ø¦ÛØ±Ø§ÙØ¦ÙÙ;Afrique
+2021;CTU;76;7018;7018;763;100;77;7021;1;Chypre (partie Nord);Cyprus North;Chipre Norte;ÙØ¨Ø±Øµ (Ø§ÙØ¬Ø²Ø¡ Ø§ÙØ´ÙØ§ÙÙ);ÙØ¨Ø±Ø³ (Ø´ÙØ§ÙÛ);UE Balkans
+2021;PAN;77;7006;7006;7617;100;76;7022;-1;Panama;Panama;PanamÃ¡;Ø¨ÙÙØ§;Ù¾Ø§ÙØ§ÙØ§;AmÃ©riques
+2021;XKO;78;6968;6968;7221;8054;70;7067;-8;Kosovo;Kosovo;Kosovo;ÙÙØ³ÙÙÙ;Ú©ÙØ³ÙÙÙ;UE Balkans
+2021;KGZ;79;6963;6964;7222;8054;82;6981;3;Kirghizstan;Kyrgyzstan;KirguistÃ¡n;ÙØ±ØºÙØ²Ø³ØªØ§Ù;ÙØ±ÙÛØ²Ø³ØªØ§Ù;EEAC
+2021;HKG;80;6956;6956;7314;8614;80;6999;0;Hong-Kong;Hong Kong;Hong Kong;ÙÙÙØº ÙÙÙØº;ÙÙÚ¯ Ú©ÙÚ¯;Asie-Pacifique
+2021;MLT;81;6954;6954;7599;100;81;6984;0;Malte;Malta;Malta;ÙØ§ÙØ·Ø§;ÙØ§ÙØª;UE Balkans
+2021;SLV;82;6951;6951;7592;100;74;703;-8;El Salvador;El Salvador;El Salvador;Ø§ÙØ³ÙÙØ§Ø¯ÙØ±;Ø§ÙâØ³Ø§ÙÙØ§Ø¯ÙØ±;AmÃ©riques
+2021;ALB;83;6941;6941;7102;7602;84;6975;1;Albanie;Albania;Albania;Ø£ÙØ¨Ø§ÙÙØ§;Ø¢ÙØ¨Ø§ÙÛ;UE Balkans
+2021;COM;84;6935;6935;7443;9307;75;7023;-9;Comores;Comoros;Comoras;Ø¬Ø²Ø± Ø§ÙÙÙØ±;Ú©ÙÙÙØ±;Afrique
+2021;GMB;85;6924;6924;7431;9307;87;6938;2;Gambie;Gambia;Gambia;ØºØ§ÙØ¨ÙØ§;Ú¯Ø§ÙØ¨ÛØ§;Afrique
+2021;ISR;86;691;7222;691;5593;88;6916;2;IsraÃ«l;Israel;Israel;Ø¥Ø³Ø±Ø§Ø¦ÙÙ;Ø§Ø³Ø±Ø§Ø¦ÛÙ;MENA
+2021;HTI;87;6888;6888;7488;100;83;698;-4;HaÃ¯ti;Haiti;HaitÃ­;ÙØ§ÙØªÙ;ÙØ§ÙÛØªÛ;AmÃ©riques
+2021;LSO;88;6839;6846;725;8901;86;6955;-2;Lesotho;Lesotho;Lesoto;ÙÙØ³ÙØªÙ;ÙØ³ÙâØªÙ;Afrique
+2021;MDA;89;6839;6839;7359;9307;91;6884;2;Moldavie;Moldova;Moldavia;ÙÙÙØ¯ÙÙØ§;ÙÙÙØ¯Ø§ÙÛ;EEAC
+2021;MKD;90;6833;6833;751;100;92;6872;2;MacÃ©doine du Nord;North Macedonia;RepÃºblica de Macedonia del Norte;ÙÙØ¯ÙÙÙØ§ Ø§ÙØ´ÙØ§ÙÙØ©;ÙÙØ¯ÙÙÛÙ Ø´ÙØ§ÙÛ ;UE Balkans
+2021;PER;91;6829;6829;7145;8614;90;6906;-1;PÃ©rou;Peru;Peru;Ø¨ÙØ±Ù;Ù¾Ø±Ù;AmÃ©riques
+2021;HUN;92;6824;6824;7488;100;89;6916;-3;Hongrie;Hungary;HungrÃ­a;Ø§ÙÙØ¬Ø±;ÙØ¬Ø§Ø±Ø³ØªØ§Ù;UE Balkans
+2021;SRB;93;6797;6797;6829;6822;93;6838;0;Serbie;Serbia;Serbia;ØµØ±Ø¨ÙØ§;ØµØ±Ø¨Ø³ØªØ§Ù;UE Balkans
+2021;MRT;94;6775;6775;7427;100;97;6746;3;Mauritanie;Mauritania;Mauritania;ÙÙØ±ÙØªØ§ÙÙØ§;ÙÙØ±ÛØªØ§ÙÛ;Afrique
+2021;GNB;95;6732;6732;7398;100;94;6794;-1;GuinÃ©e-Bissau;Guinea-Bissau;Guinea-BisÃ¡u;ØºÙÙÙØ§ Ø¨ÙØ³Ø§Ù;Ú¯ÛÙÙ Ø¨ÛØ³Ø§Ø¦Ù;Afrique
+2021;ECU;96;6717;6717;7008;8054;98;6738;2;Ãquateur;Ecuador;Ecuador;Ø§ÙØ¥ÙÙØ§Ø¯ÙØ±;Ø§Ú©ÙØ§ØªÙØ±;AmÃ©riques
+2021;UKR;97;6704;7163;6704;4807;96;6748;-1;Ukraine;Ukraine;Ucrania;Ø£ÙÙØ±Ø§ÙÙØ§;Ø§ÙÚ©Ø±Ø§ÙÙ;EEAC
+2021;LBR;98;6664;6664;6828;7227;95;6775;-3;Liberia;Liberia;Liberia;ÙÙØ¨ÙØ±ÙØ§;ÙÛØ¨Ø±ÛØ§;Afrique
+2021;MLI;99;665;665;7198;9307;108;6588;9;Mali;Mali;MalÃ­;ÙØ§ÙÙ;ÙØ§ÙÛ;Afrique
+2021;PRY;100;6648;6901;6648;55;100;6703;0;Paraguay;Paraguay;Paraguay;Ø¨Ø§Ø±Ø§ØºÙØ§Ù;Ù¾Ø§Ø±Ø§Ú¯ÙØ¦Ù;AmÃ©riques
+2021;ETH;101;6637;6637;6695;6909;99;6718;-2;Ãthiopie;Ethiopia;EtiopÃ­a;Ø£Ø«ÙÙØ¨ÙØ§;Ø§ØªÛÙÙ¾Û;Afrique
+2021;KEN;102;6635;6635;6911;7921;103;6628;1;Kenya;Kenya;Kenia;ÙÙÙÙØ§;Ú©ÙÛØ§;Afrique
+2021;AGO;103;6594;6594;6758;7435;106;6608;3;Angola;Angola;Angola;Ø£ÙØºÙÙØ§;Ø¢ÙÚ¯ÙÙØ§;Afrique
+2021;MNE;104;6567;6567;6866;7803;105;6617;1;MontÃ©nÃ©gro;Montenegro;Montenegro;Ø§ÙØ¬Ø¨Ù Ø§ÙØ£Ø³ÙØ¯;ÙÙÙØªÙâÙÚ¯Ø±Ù;UE Balkans
+2021;KWT;105;6564;6564;7263;100;109;657;4;KoweÃ¯t;Kuwait;Kuwait;Ø§ÙÙÙÙØª;Ú©ÙÛØª;MENA
+2021;NPL;106;6538;6538;6822;7921;112;649;6;NÃ©pal;Nepal;Nepal;ÙÙØ¨Ø§Ù;ÙÙ¾Ø§Ù;Asie-Pacifique
+2021;LBN;107;6507;678;6507;529;102;6681;-5;Liban;Lebanon;LÃ­bano;ÙØ¨ÙØ§Ù;ÙØ¨ÙØ§Ù;MENA
+2021;MOZ;108;6461;6461;6915;8614;104;6621;-4;Mozambique;Mozambique;Mozambique;ÙÙØ²ÙØ¨ÙÙ;ÙÙØ²Ø§ÙØ¨ÛÚ©;Afrique
+2021;GIN;109;6458;6458;6809;8208;110;6566;1;GuinÃ©e;Guinea;Guinea;ØºÙÙÙØ§;Ú¯ÛÙÙ;Afrique
+2021;BOL;110;6453;6453;6626;7227;114;6463;4;Bolivie;Bolivia;Bolivia;Ø¨ÙÙÙÙÙØ§;Ø¨ÙÛÙÛ;AmÃ©riques
+2021;BRA;111;6375;6375;6592;7602;107;6595;-4;BrÃ©sil;Brazil;Brasil;Ø§ÙØ¨Ø±Ø§Ø²ÙÙ;Ø¨Ø±Ø²ÛÙ;AmÃ©riques
+2021;BGR;112;6271;6271;6554;7515;111;6494;-1;Bulgarie;Bulgaria;Bulgaria;Ø¨ÙØºØ§Ø±ÙØ§;Ø¨ÙØºØ§Ø±Ø³ØªØ§Ù;UE Balkans
+2021;IDN;113;626;626;7015;100;119;6318;6;IndonÃ©sie;Indonesia;Indonesia;Ø£ÙØ¯ÙÙÙØ³ÙØ§;Ø§ÙØ¯ÙÙØ²Û;Asie-Pacifique
+2021;BEN;114;6182;6182;6976;100;113;6489;-1;BÃ©nin;Benin;BenÃ­n;Ø¨ÙÙÙ;Ø¨ÙÛÙ;Afrique
+2021;ZMB;115;6179;6179;6987;100;120;63;5;Zambie;Zambia;Zambia;Ø²Ø§ÙØ¨ÙØ§;Ø²Ø§ÙØ¨ÛØ§;Afrique
+2021;GTM;116;6155;6155;6688;8614;116;6426;0;Guatemala;Guatemala;Guatemala;ØºÙØ§ØªÙÙØ§ÙØ§;Ú¯ÙØ§ØªÙØ§ÙØ§;AmÃ©riques
+2021;GAB;117;614;614;6931;100;121;628;4;Gabon;Gabon;RepÃºblica Gabonesa;Ø§ÙØºØ§Ø¨ÙÙ;Ú¯Ø§Ø¨ÙÙ;Afrique
+2021;COG;118;6117;6117;6443;7602;118;6344;0;Congo;Congo;RepÃºblica del Congo;Ø§ÙÙÙÙØºÙ;Ú©ÙÚ¯Ù;Afrique
+2021;MYS;119;6053;6053;6891;100;101;6688;-18;Malaisie;Malaysia;Malasia;ÙØ§ÙÙØ²ÙØ§;ÙØ§ÙØ²Û;Asie-Pacifique
+2021;NGA;120;6031;6262;5939;4499;115;6437;-5;Nigeria;Nigeria;Nigeria;ÙÙØ¬ÙØ±ÙØ§;ÙÛØ¬Ø±ÛÙ;Afrique
+2021;NIC;121;6002;6002;629;7292;117;6419;-4;Nicaragua;Nicaragua;Nicaragua;ÙÙÙØ§Ø±Ø§ØºÙØ§;ÙÛÚ©Ø§Ø±Ø§Ú¯ÙØ¦Ù;AmÃ©riques
+2021;AFG;122;5981;656;5981;3672;122;623;0;Afghanistan;Afghanistan;AfganistÃ¡n;Ø£ÙØºØ§ÙØ³ØªØ§Ù;Ø§ÙØºØ§ÙØ³ØªØ§Ù;Asie-Pacifique
+2021;TCD;123;598;598;6035;6216;123;603;0;Tchad;Chad;Chad;ØªØ´Ø§Ø¯;ÚØ§Ø¯;Afrique
+2021;TZA;124;5931;5931;6779;100;124;5975;0;Tanzanie;Tanzania;Tanzania;ØªÙØ²Ø§ÙÙØ§;ØªØ§ÙØ²Ø§ÙÛØ§;Afrique
+2021;UGA;125;5881;5881;5968;6068;125;5905;0;Ouganda;Uganda;Uganda;Ø£ÙØºÙØ¯Ø§;Ø§ÙÚ¯Ø§ÙØ¯Ø§;Afrique
+2021;CAF;126;5808;5808;6675;100;132;5713;6;RÃ©publique centrafricaine;Central African Republic;RepÃºblica Centroafricana;Ø¬ÙÙÙØ±ÙØ© Ø£ÙØ±ÙÙÙØ§ Ø§ÙÙØ³Ø·Ù;Ø¬ÙÙÙØ±Û Ø¢ÙØ±ÛÙØ§Û ÙØ±Ú©Ø²Û;Afrique
+2021;LKA;127;578;5436;5748;7056;127;5806;0;Sri Lanka;Sri Lanka;Sri Lanka;Ø³Ø±Ù ÙØ§ÙÙØ§;Ø³Ø±ÛÙØ§ÙÚ©Ø§;Asie-Pacifique
+2021;QAT;128;574;574;6608;100;129;5749;1;Qatar;Qatar;Catar;ÙØ·Ø±;ÙØ·Ø±;MENA
+2021;JOR;129;5711;5711;6077;7292;128;5792;-1;Jordanie;Jordan;Jordania;Ø§ÙØ£Ø±Ø¯Ù;Ø§Ø±Ø¯Ù;MENA
+2021;ZWE;130;5688;5688;5887;6534;126;5905;-4;Zimbabwe;Zimbabwe;Zimbabue;Ø²ÙÙØ¨Ø§Ø¨ÙÙ;Ø²ÛÙØ¨Ø§Ø¨ÙÙ;Afrique
+2021;ARE;131;5687;5687;5902;6445;131;5731;0;Ãmirats arabes unis;United Arab Emirates;Emiratos Ãrabes Unidos;Ø§ÙØ¥ÙØ§Ø±Ø§Øª Ø§ÙØ¹Ø±Ø¨ÙØ© Ø§ÙÙØªØ­Ø¯Ø©;Ø§ÙØ§Ø±Ø§Øª ÙØªØ­Ø¯Ù Ø¹Ø±Ø¨Û;MENA
+2021;PSE;132;5682;5682;5973;7056;137;5591;5;Palestine;Palestine;Palestina;ÙÙØ³Ø·ÙÙ;ÙÙØ³Ø·ÛÙ;MENA
+2021;OMN;133;5663;5663;6544;100;135;5658;2;Oman;Oman;OmÃ¡n;Ø¹ÙØ§Ù;Ø¹ÙØ§Ù;MENA
+2021;COL;134;5626;5656;5626;5436;130;5734;-4;Colombie;Colombia;Colombia;ÙÙÙÙÙØ¨ÙØ§;Ú©ÙÙØ¨ÛØ§;AmÃ©riques
+2021;CMR;135;5622;5622;5652;5643;134;5672;-1;Cameroun;Cameroon;CamerÃºn;Ø§ÙÙØ§ÙÙØ±ÙÙ;Ú©Ø§ÙØ±ÙÙ;Afrique
+2021;MAR;136;5606;5814;557;4479;133;5712;-3;Maroc;Morocco;Marruecos;Ø§ÙÙØºØ±Ø¨;ÙØ±Ø§Ú©Ø´;MENA
+2021;THA;137;5478;5585;5478;4702;140;5506;3;ThaÃ¯lande;Thailand;Tailandia;ØªØ§ÙÙØ§ÙØ¯;ØªØ§ÛÙÙØ¯;Asie-Pacifique
+2021;PHL;138;5436;5711;5436;4103;136;5646;-2;Philippines;Philippines;Filipinas;Ø§ÙÙÙØ¨ÙÙ;ÙÙÛÙ¾ÛÙ;Asie-Pacifique
+2021;SSD;139;5422;5422;5757;6955;138;5551;-1;Soudan du Sud;South Sudan;SudÃ¡n del Sur;Ø¬ÙÙÙØ±ÙØ© Ø¬ÙÙØ¨ Ø§ÙØ³ÙØ¯Ø§Ù;Ø³ÙØ¯Ø§Ù Ø¬ÙÙØ¨Û;Afrique
+2021;MMR;140;5386;5386;5715;6909;139;5523;-1;Birmanie;Myanmar;Birmania;Ø¨ÙØ±ÙØ§;Ø¨Ø±ÙÙ;Asie-Pacifique
+2021;SWZ;141;5366;5366;5825;7515;141;5485;0;Eswatini;Eswatini;Esuatini;Ø¥Ø³ÙØ§ØªÙÙÙ;Ø§Ø³ÙØ§ØªÛÙÛ ;Afrique
+2021;IND;142;5344;5653;5344;3927;142;5467;0;Inde;India;India;Ø§ÙÙÙØ¯;ÙÙØ¯;Asie-Pacifique
+2021;MEX;143;5329;5816;5329;3275;143;5455;0;Mexique;Mexico;MÃ©xico;Ø§ÙÙÙØ³ÙÙ;ÙÚ©Ø²ÛÚ©;AmÃ©riques
+2021;KHM;144;5316;5316;5633;6668;144;5454;0;Cambodge;Cambodia;Camboya;ÙÙØ¨ÙØ¯ÙØ§;Ú©Ø§ÙØ¨ÙØ¬;Asie-Pacifique
+2021;PAK;145;5314;5584;5314;4036;145;5448;0;Pakistan;Pakistan;PakistÃ¡n;Ø¨Ø§ÙØ³ØªØ§Ù;Ù¾Ø§Ú©Ø³ØªØ§Ù;Asie-Pacifique
+2021;DZA;146;5274;5274;5513;6445;146;5448;0;AlgÃ©rie;Algeria;Argelia;Ø§ÙØ¬Ø²Ø§Ø¦Ø±;Ø§ÙØ¬Ø²Ø§ÛØ±;MENA
+2021;BDI;147;5243;5243;5441;6068;160;4467;13;Burundi;Burundi;Burundi;Ø¨ÙØ±ÙÙØ¯Ù;Ø¨Ø±ÙÙØ¯Û;Afrique
+2021;VEN;148;524;5384;524;4571;147;5434;-1;Venezuela;Venezuela;Venezuela;ÙÙØ²ÙÙÙØ§;ÙÙØ²ÙØ¦ÙØ§;AmÃ©riques
+2021;COD;149;5141;5141;5256;5618;150;5091;1;RD Congo;The Democratic Republic Of The Congo;RD Congo;Ø¬ÙÙÙØ±ÙØ© Ø§ÙÙÙÙØºÙ Ø§ÙØ¯ÙÙÙØ±Ø§Ø·ÙØ©;Ø¬ÙÙÙØ±Û Ø¯ÙÚ©Ø±Ø§ØªÛÚ© Ú©ÙÚ¯Ù;Afrique
+2021;RUS;150;5129;52;5129;4702;149;5108;-1;Russie;Russian Federation;Rusia;Ø±ÙØ³ÙØ§;Ø±ÙØ³ÛÙ;EEAC
+2021;HND;151;5065;5217;5065;433;148;518;-3;Honduras;Honduras;Honduras;ÙÙØ¯ÙØ±Ø§Ø³;ÙÙØ¯ÙØ±Ø§Ø³;AmÃ©riques
+2021;BGD;152;5029;5029;5052;4894;151;5063;-1;Bangladesh;Bangladesh;BangladÃ©s;Ø¨ÙØºÙØ§Ø¯ÙØ´;Ø¨ÙÚ¯ÙØ§Ø¯Ø´;Asie-Pacifique
+2021;TUR;153;5021;5386;5021;3388;154;4998;1;Turquie;Turkey;TurquÃ­a;ØªØ±ÙÙØ§;ØªØ±Ú©ÛÙ;EEAC
+2021;BRN;154;5009;5009;6023;100;152;5035;-2;Brunei;Brunei Darussalam;BrunÃ©i;Ø¨Ø±ÙÙØ§Ù;Ø¨Ø±ÙÙÛ;Asie-Pacifique
+2021;KAZ;155;4972;4972;5735;8614;157;4589;2;Kazakhstan;Kazakhstan;KazajistÃ¡n;ÙØ§Ø²Ø§Ø®Ø³ØªØ§Ù;ÙØ²Ø§ÙØ³ØªØ§Ù;EEAC
+2021;RWA;156;4934;4934;5369;6955;155;4966;-1;Rwanda;Rwanda;Ruanda;Ø±ÙØ§ÙØ¯Ø§;Ø±ÙÙØ¯Ø§;Afrique
+2021;UZB;157;4926;4926;5688;8614;156;4693;-1;OuzbÃ©kistan;Uzbekistan;UzbekistÃ¡n;Ø£ÙØ²Ø¨ÙØ³ØªØ§Ù;Ø§ÙØ²Ø¨Ú©Ø³ØªØ§Ù;EEAC
+2021;BLR;158;4918;5176;4918;3832;153;5025;-5;BÃ©larus;Belarus;BelarÃºs;Ø±ÙØ³ÙØ§ Ø§ÙØ¨ÙØ¶Ø§Ø¡;Ø±ÙØ³ÛÙ Ø³ÙÛØ¯;EEAC
+2021;SDN;159;4707;4707;5174;6955;159;4467;0;Soudan;Sudan;SudÃ¡n;Ø§ÙØ³ÙØ¯Ø§Ù;Ø³ÙØ¯Ø§Ù;Afrique
+2021;SGP;160;448;448;5605;100;158;4477;-2;Singapour;Singapore;Singapur;Ø³ÙØºØ§ÙÙØ±Ø©;Ø³ÙÚ¯Ø§Ù¾ÙØ±;Asie-Pacifique
+2021;SOM;161;4453;4453;4671;5457;163;4455;2;Somalie;Somalia;Somalia;Ø§ÙØµÙÙØ§Ù;Ø³ÙÙØ§ÙÛ;Afrique
+2021;TJK;162;4448;4448;4643;5264;161;4466;-1;Tadjikistan;Tajikistan;TayikistÃ¡n;Ø·Ø§Ø¬ÙÙØ³ØªØ§Ù;ØªØ§Ø¬ÛÚ©Ø³ØªØ§Ù;EEAC
+2021;IRQ;163;4443;4643;4443;3529;162;4463;-1;Irak;Iraq;Irak;Ø§ÙØ¹Ø±Ø§Ù;Ø¹Ø±Ø§Ù;MENA
+2021;GNQ;164;4433;4433;5518;100;165;4362;1;GuinÃ©e Ã©quatoriale;Equatorial Guinea;Guinea Ecuatorial;ØºÙÙÙØ§ Ø§ÙØ§Ø³ØªÙØ§Ø¦ÙØ©;Ú¯ÛÙÙ Ø§Ú©ÙØ§Ø¯ÙØ±;Afrique
+2021;LBY;165;4427;4427;4648;5395;164;4423;-1;Libye;Libya;Libia;ÙÙØ¨ÙØ§;ÙÛØ¨Û;MENA
+2021;EGY;166;4383;4533;4383;3587;166;4318;0;Ãgypte;Egypt;Egipto;ÙØµØ±;ÙØµØ±;MENA
+2021;AZE;167;4123;4123;4318;4976;168;4152;1;AzerbaÃ¯djan;Azerbaijan;AzerbaiyÃ¡n;Ø£Ø°Ø±Ø¨ÙØ¬Ø§Ù;Ø¢Ø°Ø±Ø¨Ø§ÛØ¬Ø§Ù;EEAC
+2021;BHR;168;389;3989;389;3509;169;3987;1;BahreÃ¯n;Bahrain;BarÃ©in;Ø§ÙØ¨Ø­Ø±ÙÙ;Ø¨Ø­Ø±ÛÙ;MENA
+2021;YEM;169;3765;3765;3971;4667;167;4175;-2;YÃ©men;Yemen;Yemen;Ø§ÙÙÙÙ;ÛÙÙ;MENA
+2021;SAU;170;3727;3885;3727;2893;170;3786;0;Arabie saoudite;Saudi Arabia;Arabia Saudita;Ø§ÙÙÙÙÙØ© Ø§ÙØ¹Ø±Ø¨ÙØ© Ø§ÙØ³Ø¹ÙØ¯ÙØ©;Ø¹Ø±Ø¨Ø³ØªØ§Ù Ø³Ø¹ÙØ¯Û;MENA
+2021;CUB;171;3606;3607;4864;100;171;3619;0;Cuba;Cuba;Cuba;ÙÙØ¨Ø§;Ú©ÙØ¨Ø§;AmÃ©riques
+2021;LAO;172;2944;2944;3215;4247;172;3572;0;Laos;Lao People's Democratic Republic;Laos;ÙØ§ÙØ³;ÙØ§Ø¦ÙØ³;Asie-Pacifique
+2021;SYR;173;2937;3189;2937;1741;174;2743;1;Syrie;Syrian Arab Republic;Siria;Ø³ÙØ±ÙØ§;Ø³ÙØ±ÛÙ;MENA
+2021;IRN;174;273;2989;3058;3261;173;3519;-1;Iran;Islamic Republic of Iran;IrÃ¡n;Ø¥ÙØ±Ø§Ù;Ø§ÛØ±Ø§Ù;MENA
+2021;VNM;175;2154;2482;2611;3196;175;2529;0;ViÃªt Nam;Vietnam;Vietnam;ÙÙØªÙØ§Ù;ÙÛØªÙØ§Ù;Asie-Pacifique
+2021;DJI;176;2138;2138;3496;8901;176;2327;0;Djibouti;Djibouti;Yibuti;Ø¬ÙØ¨ÙØªÙ;Ø¬ÛØ¨ÙØªÛ;Afrique
+2021;CHN;177;2128;219;2128;1823;177;2152;0;Chine;China;China;Ø§ÙØµÙÙ;ÚÛÙ;Asie-Pacifique
+2021;TKM;178;1997;1997;3609;100;179;1456;1;TurkmÃ©nistan;Turkmenistan;TurkmenistÃ¡n;ØªØ±ÙÙØ§ÙØ³ØªØ§Ù;ØªØ±Ú©ÙÙØ³ØªØ§Ù;EEAC
+2021;PRK;179;1872;1872;2455;4807;180;1418;1;CorÃ©e du Nord;Democratic People's Republic of Korea;Corea del Norte;ÙÙØ±ÙØ§ Ø§ÙØ´ÙØ§ÙÙØ©;Ú©Ø±Ù Ø´ÙØ§ÙÛ;Asie-Pacifique
+2021;ERI;180;1855;1795;1971;2695;178;165;-2;ÃrythrÃ©e;Eritrea;Eritrea;Ø¥Ø±ÙØªØ±ÙØ§;Ø§Ø±ÛØªØ±Ù;Afrique

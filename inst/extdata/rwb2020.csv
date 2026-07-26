@@ -1,0 +1,181 @@
+Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with the exactions;Score exactions;Rank N-1;Score N-1;Rank evolution;FR_country;EN_country;ES_country;AR_country;FA_country;Zone
+2020;NOR;1;9216;9216;9373;100;1;9218;0;NorvÃ¨ge;Norway;Noruega;Ø§ÙÙØ±ÙÙØ¬;ÙØ±ÙÚ;UE Balkans
+2020;FIN;2;9207;9207;9365;100;2;921;0;Finlande;Finland;Finlandia;ÙÙÙÙØ¯Ø§;ÙÙÙØ§ÙØ¯;UE Balkans
+2020;DNK;3;9187;9187;935;100;5;9013;2;Danemark;Denmark;Dinamarca;Ø§ÙØ¯ÙÙØ§Ø±Ù;Ø¯Ø§ÙÙØ§Ø±Ú©;UE Balkans
+2020;SWE;4;9075;9075;926;100;3;9169;-1;SuÃ¨de;Sweden;Suecia;Ø§ÙØ³ÙÙØ¯;Ø³ÙØ¦Ø¯;UE Balkans
+2020;NLD;5;9004;9004;9203;100;4;9137;-1;Pays-Bas;Netherlands;PaÃ­ses Bajos;ÙÙÙÙØ¯Ø§;ÙÙÙØ¯;UE Balkans
+2020;JAM;6;8949;8949;9159;100;8;8887;2;JamaÃ¯que;Jamaica;Jamaica;Ø¬Ø§ÙØ§ÙÙØ§;Ø¬Ø§ÙØ§Ø¦ÛÚ©Ø§;AmÃ©riques
+2020;CRI;7;8947;8947;9158;100;10;8776;3;Costa Rica;Costa Rica;Costa Rica;ÙÙØ³ØªØ§Ø±ÙÙØ§;Ú©Ø§Ø³ØªØ§Ø±ÛÚ©Ø§;AmÃ©riques
+2020;CHE;8;8938;8938;9151;100;6;8948;-2;Suisse;Switzerland;Suiza;Ø³ÙÙØ³Ø±Ø§;Ø³ÙÙÛØ³;UE Balkans
+2020;NZL;9;8931;8931;9145;100;7;8925;-2;Nouvelle-ZÃ©lande;New Zealand;Nueva Zelanda;ÙÙÙØ²ÙÙØ§ÙØ¯Ø§;Ø²ÙØ§ÙØ¯ ÙÙ;Asie-Pacifique
+2020;PRT;10;8817;8817;9054;100;12;8737;2;Portugal;Portugal;Portugal;Ø§ÙØ¨Ø±ØªØºØ§Ù;Ù¾Ø±ØªØºØ§Ù;UE Balkans
+2020;DEU;11;8784;8966;8784;100;13;854;2;Allemagne;Germany;Alemania;Ø£ÙÙØ§ÙÙØ§;Ø¢ÙÙØ§Ù;UE Balkans
+2020;BEL;12;8743;8743;8994;100;9;8793;-3;Belgique;Belgium;BÃ©lgica;Ø¨ÙØ¬ÙÙØ§;Ø¨ÙÚÛÚ©;UE Balkans
+2020;IRL;13;874;874;8992;100;15;85;2;Irlande;Ireland;Irlanda;Ø£ÙØ±ÙÙØ¯Ø§;Ø§ÛØ±ÙÙØ¯;UE Balkans
+2020;EST;14;8739;8739;8991;100;11;8773;-3;Estonie;Estonia;Estonia;Ø¥Ø³ØªÙÙÙØ§;Ø§Ø³ØªÙÙÛ;UE Balkans
+2020;ISL;15;8488;8488;8791;100;14;8529;-1;Islande;Iceland;Islandia;Ø£ÙØ³ÙÙØ¯Ø§;Ø§ÛØ³ÙÙØ¯;UE Balkans
+2020;CAN;16;8471;8471;8777;100;18;8431;2;Canada;Canada;CanadÃ¡;ÙÙØ¯Ø§;Ú©Ø§ÙØ§Ø¯Ø§;AmÃ©riques
+2020;LUX;17;8454;8454;8764;100;17;8434;0;Luxembourg;Luxembourg;Luxemburgo;ÙÙÙØ³ÙØ¨ÙØ±Øº;ÙÙÚ©Ø²Ø§ÙØ¨ÙØ±Ú¯;UE Balkans
+2020;AUT;18;8422;8422;8738;100;16;8467;-2;Autriche;Austria;Austria;Ø§ÙÙÙØ³Ø§;Ø§ØªØ±ÛØ´;UE Balkans
+2020;URY;19;8421;8421;8737;100;19;8394;0;Uruguay;Uruguay;Uruguay;Ø£ÙØ±ÙØºÙØ§Ù;Ø§Ø±ÙÚ¯ÙÙÙ;AmÃ©riques
+2020;SUR;20;825;825;86;100;20;8362;0;Suriname;Suriname;Surinam;Ø³ÙØ±ÙÙØ§Ù;Ø³ÙØ±ÛÙØ§Ù;AmÃ©riques
+2020;WSM;21;8175;8175;854;100;22;8175;1;Samoa;Samoa;Samoa;Ø³Ø§ÙÙØ§;Ø³Ø§ÙÙØ¢;Asie-Pacifique
+2020;LVA;22;8144;8144;8515;100;24;8047;2;Lettonie;Latvia;Letonia;ÙØ§ØªÙÙØ§;ÙØªÙØ§ÙÛ;UE Balkans
+2020;NAM;23;8075;8075;846;100;23;8105;0;Namibie;Namibia;Namibia;ÙØ§ÙÙØ¨ÙØ§;ÙØ§ÙÛØ¨ÛØ§;Afrique
+2020;LIE;24;8048;8048;8439;100;26;7951;2;Liechtenstein;Liechtenstein;Liechtenstein;ÙÙØ®ØªÙØ´ØªØ§ÙÙ;ÙÛØ®ØªÙâØ§Ø´ØªØ§ÛÙ;UE Balkans
+2020;CPV;25;7985;7985;8388;100;25;8019;0;Cap-Vert;Cape Verde;Cabo Verde;Ø§ÙØ±Ø£Ø³ Ø§ÙØ£Ø®Ø¶Ø±;Ú©ÛÙ¾ÙØ±Ø¯;Afrique
+2020;AUS;26;7979;7979;8062;8390562088;21;8345;-5;Australie;Australia;Australia;Ø£Ø³ØªØ±Ø§ÙÙØ§;Ø§Ø³ØªØ±Ø§ÙÛØ§;Asie-Pacifique
+2020;CYP;27;7955;7955;8364;100;28;7826;1;Chypre;Cyprus;Chipre;ÙØ¨Ø±Øµ;ÙØ¨Ø±Ø³;UE Balkans
+2020;LTU;28;7881;7881;8304;100;30;7794;2;Lituanie;Lithuania;Lituania;ÙÙØªÙØ§ÙÙØ§;ÙÛØªÙØ§ÙÛ;UE Balkans
+2020;ESP;29;7784;8152;7784;100;29;7801;0;Espagne;Spain;EspaÃ±a;Ø¥Ø³Ø¨Ø§ÙÙØ§;Ø§Ø³Ù¾Ø§ÙÛØ§;UE Balkans
+2020;GHA;30;7774;8392;7774;5299519634;27;7919;-3;Ghana;Ghana;Ghana;ØºØ§ÙØ§;ØºÙØ§;Afrique
+2020;ZAF;31;7759;7759;7885;8390562088;31;7781;0;Afrique du Sud;South Africa;SudÃ¡frica;Ø¬ÙÙØ¨ Ø£ÙØ±ÙÙÙØ§;Ø¢ÙØ±ÛÙØ§Û Ø¬ÙÙØ¨Û;Afrique
+2020;SVN;32;7736;7736;8189;100;34;7769;2;SlovÃ©nie;Slovenia;Eslovenia;Ø³ÙÙÙÙÙÙØ§;Ø§Ø³ÙÙØ§ÙÛ;UE Balkans
+2020;SVK;33;7733;7733;8186;100;35;7642;2;Slovaquie;Slovakia;Eslovaquia;Ø³ÙÙÙØ§ÙÙØ§;Ø§Ø³ÙÙØ§Ú©Û;UE Balkans
+2020;FRA;34;7708;8251;7708;5534091881;32;7779;-2;France;France;Francia;ÙØ±ÙØ³Ø§;ÙØ±Ø§ÙØ³Ù;UE Balkans
+2020;GBR;35;7707;8259;7707;550019033;33;7777;-2;Royaume-Uni;United Kingdom;Reino Unido;Ø§ÙÙÙÙÙØ© Ø§ÙÙØªØ­Ø¯Ø©;Ø¨Ø±ÛØªØ§ÙÛØ§;UE Balkans
+2020;TTO;36;7678;7678;8142;100;39;7526;3;TrinitÃ©-et-Tobago;Trinidad and Tobago;Trinidad y Tobago;ØªØ±ÙÙÙØ¯Ø§Ø¯ ÙØªÙØ¨Ø§ØºÙ;ØªØ±ÙØªÛ Ù ØªÙØ¨ÙÚ¯Ù;AmÃ©riques
+2020;AND;37;7677;7677;8141;100;37;7537;0;Andorre;Andorra;Andorra;Ø£ÙØ¯ÙØ±Ø§;Ø¢ÙØ¯ÙØ±;UE Balkans
+2020;BFA;38;7653;7653;8122;100;36;7547;-2;Burkina Faso;Burkina Faso;Burkina Faso;Ø¨ÙØ±ÙÙÙØ§ ÙØ§Ø³Ù;Ø¨ÙØ±Ú©ÛÙØ§ÙØ§Ø³Ù;Afrique
+2020;BWA;39;7644;7644;8116;100;44;7491;5;Botswana;Botswana;Botsuana;Ø¨ÙØªØ³ÙØ§ÙØ§;Ø¨ÙØ³ØªØ§ÙØ§ÙØ§;Afrique
+2020;CZE;40;7643;7643;8114;100;40;7511;0;RÃ©publique tchÃ¨que;Czech Republic;RepÃºblica Checa;Ø¬ÙÙÙØ±ÙØ© Ø§ÙØªØ´ÙÙ;Ø¬ÙÙÙØ±Û ÚÚ©;UE Balkans
+2020;ITA;41;7631;7631;7966;9306852819;43;7502;2;Italie;Italy;Italia;Ø¥ÙØ·Ø§ÙÙØ§;Ø§ÛØªØ§ÙÛØ§;UE Balkans
+2020;KOR;42;763;763;8104;100;41;7506;-1;CorÃ©e du Sud;South Korea;Corea del Sur;ÙÙØ±ÙØ§ Ø§ÙØ¬ÙÙØ¨ÙØ©;Ú©Ø±Ù Ø¬ÙÙØ¨Û;Asie-Pacifique
+2020;TWN;43;7624;7624;81;100;42;7502;-1;TaÃ¯wan;Taiwan;TaiwÃ¡n;ØªØ§ÙÙØ§Ù;ØªØ§ÛÙØ§Ù;Asie-Pacifique
+2020;XCD;44;7622;7622;8097;100;50;7396;6;OECS;OECS;OECS;Ø§ÙÙØ§Ø±ÙØ¨Ù;Ø¬Ø²Ø§ÛØ± Ú©Ø§Ø±Ø§Ø¦ÛØ¨ Ø´Ø±ÙÛ;AmÃ©riques
+2020;USA;45;7615;7615;7703;8054089851;48;7431;3;Ãtats-Unis;United States;Estados Unidos;Ø§ÙÙÙØ§ÙØ§Øª Ø§ÙÙØªØ­Ø¯Ø©;Ø§ÛØ§ÙØ§Øª ÙØªØ­Ø¯Ù Ø§ÙØ±ÛÚ©Ø§;AmÃ©riques
+2020;PNG;46;7607;7607;8086;100;38;753;-8;Papouasie-Nouvelle-GuinÃ©e;Papua New Guinea;PapÃºa Nueva Guinea;Ø¨Ø§Ø¨ÙØ§ ØºÙÙÙØ§ Ø§ÙØ¬Ø¯ÙØ¯Ø©;Ù¾Ø§Ù¾ÙØ¢ Ú¯ÛÙÙ ÙÙ;Asie-Pacifique
+2020;SEN;47;7601;7601;7861;8901387711;49;7419;2;SÃ©nÃ©gal;Senegal;Senegal;Ø§ÙØ³ÙØºØ§Ù;Ø³ÙÚ¯Ø§Ù;Afrique
+2020;ROU;48;7409;7409;7927;100;47;7433;-1;Roumanie;Romania;Rumania;Ø±ÙÙØ§ÙÙØ§;Ø±ÙÙØ§ÙÛ;UE Balkans
+2020;GUY;49;7337;7337;787;100;51;7337;2;Guyana;Guyana;Guyana;ØºÙÙØ§ÙØ§;Ú¯ÛØ§ÙØ§;AmÃ©riques
+2020;TON;50;7273;7273;7819;100;45;7459;-5;Tonga;Tonga;Tonga;ØªÙÙØºØ§;ØªÙÙÚ¯Ø§;Asie-Pacifique
+2020;CHL;51;7269;7269;7538;100;46;7435;-5;Chili;Chile;Chile;ØªØ´ÙÙÙ;Ø´ÛÙÛ;AmÃ©riques
+2020;FJI;52;7259;7259;7807;100;52;7282;0;Fidji;Fiji;Fiyi;ÙÙØ¬Ù;ÙÛØ¬Û;Asie-Pacifique
+2020;BLZ;53;725;725;78;100;53;725;0;BÃ©lize;Belize;Belice;Ø¨ÙÙØ²;Ø¨ÙÛØ²;AmÃ©riques
+2020;MDG;54;7232;7232;7785;100;54;7224;0;Madagascar;Madagascar;Madagascar;ÙØ¯ØºØ´ÙØ±;ÙØ§Ø¯Ø§Ú¯Ø§Ø³Ú©Ø§Ø±;Afrique
+2020;DOM;55;721;721;7768;100;55;721;0;RÃ©publique dominicaine;Dominican Republic;RepÃºblica Dominicana;Ø¬ÙÙÙØ±ÙØ© Ø§ÙØ¯ÙÙÙÙÙÙØ§Ù;Ø¬ÙÙÙØ±Û Ø¯ÙÙÛÙÛÚ©;AmÃ©riques
+2020;MUS;56;72;72;776;100;58;7154;2;Maurice;Mauritius;Mauricio;ÙÙØ±ÙØ´ÙÙØ³;ÙÙØ±ÛØ³;Afrique
+2020;NER;57;7175;7175;774;100;66;7074;9;Niger;Niger;Niger;Ø§ÙÙÙØ¬Ø±;ÙÛØ¬Ø±;Afrique
+2020;BIH;58;7149;7149;7719;751509335;63;7098;5;Bosnie-HerzÃ©govine;Bosnia and Herzegovina;Bosnia-Herzegovina;Ø§ÙØ¨ÙØ³ÙØ© ÙØ§ÙÙØ±Ø³Ù;Ø¨ÙØ³ÙÛ ÙØ±Ø²ÙÚ¯ÙÛÙ;UE Balkans
+2020;HRV;59;7149;7149;7719;100;64;7097;5;Croatie;Croatia;Croacia;ÙØ±ÙØ§ØªÙØ§;Ú©Ø±ÙØ§Ø³Û;UE Balkans
+2020;GEO;60;7141;732;7169;6566012796;60;7102;0;GÃ©orgie;Georgia;Georgia;Ø¬ÙØ±Ø¬ÙØ§;Ú¯Ø±Ø¬Ø³ØªØ§Ù;EEAC
+2020;ARM;61;714;714;7712;100;61;7102;0;ArmÃ©nie;Armenia;Armenia;Ø£Ø±ÙÙÙÙØ§;Ø§Ø±ÙÙØ³ØªØ§Ù;EEAC
+2020;POL;62;7135;7135;7708;100;59;7111;-3;Pologne;Poland;Polonia;Ø¨ÙÙÙØ¯Ø§;ÙÙØ³ØªØ§Ù;UE Balkans
+2020;SYC;63;7134;7134;7707;100;69;7059;6;Seychelles;Seychelles;Seychelles;Ø³ÙØ´ÙÙ;Ø³ÛâØ´Ù;Afrique
+2020;ARG;64;7122;7122;7698;100;57;717;-7;Argentine;Argentina;Argentina;Ø§ÙØ£Ø±Ø¬ÙØªÙÙ;Ø¢Ø±ÚØ§ÙØªÛÙ;AmÃ©riques
+2020;GRC;65;712;712;7696;100;65;7092;0;GrÃ¨ce;Greece;Grecia;Ø§ÙÙÙÙØ§Ù;ÛÙÙØ§Ù;UE Balkans
+2020;JPN;66;7114;7114;7691;100;67;7064;1;Japon;Japan;JapÃ³n;Ø§ÙÙØ§Ø¨Ø§Ù;ÚØ§Ù¾Ù;Asie-Pacifique
+2020;BTN;67;711;711;7688;100;80;7019;13;Bhoutan;Bhutan;ButÃ¡n;Ø¨ÙØªØ§Ù;Ø¨ÙØªØ§Ù;Asie-Pacifique
+2020;CIV;68;7106;7106;7363;9306852819;71;7048;3;CÃ´te d'Ivoire;Ivory Coast;Costa de Marfil;Ø³Ø§Ø­Ù Ø§ÙØ¹Ø§Ø¬;Ø³Ø§Ø­Ù Ø¹Ø§Ø¬;Afrique
+2020;MWI;69;7068;7068;7515;9306852819;68;7064;-1;Malawi;Malawi;Malaui;ÙØ§ÙØ§ÙÙ;ÙØ§ÙØ§ÙÛ;Afrique
+2020;XKO;70;7067;7067;7654;100;75;7032;5;Kosovo;Kosovo;Kosovo;ÙÙØ³ÙÙÙ;Ú©ÙØ³ÙÙÙ;UE Balkans
+2020;TGO;71;7067;7067;7653;100;76;7031;5;Togo;Togo;Togo;ØªÙØºÙ;ØªÙÚ¯Ù;Afrique
+2020;TUN;72;7055;7055;7644;100;72;7039;0;Tunisie;Tunisia;TÃºnez;ØªÙÙØ³;ØªÙÙØ³;MENA
+2020;MNG;73;7039;7039;7631;100;70;7049;-3;Mongolie;Mongolia;Mongolia;ÙÙØºÙÙÙØ§;ÙØºÙÙØ³ØªØ§Ù;Asie-Pacifique
+2020;SLV;74;703;703;7624;100;81;7019;7;El Salvador;El Salvador;El Salvador;Ø§ÙØ³ÙÙØ§Ø¯ÙØ±;Ø§ÙâØ³Ø§ÙÙØ§Ø¯ÙØ±;AmÃ©riques
+2020;COM;75;7023;7023;7179;8901387711;56;7209;-19;Comores;Comoros;Comoras;Ø¬Ø²Ø± Ø§ÙÙÙØ±;Ú©ÙÙÙØ±;Afrique
+2020;PAN;76;7022;7022;7617;100;79;7022;3;Panama;Panama;PanamÃ¡;Ø¨ÙÙØ§;Ù¾Ø§ÙØ§ÙØ§;AmÃ©riques
+2020;CTU;77;7021;7021;7616;100;74;7033;-3;Chypre (partie Nord);Cyprus North;Chipre Norte;ÙØ¨Ø±Øµ (Ø§ÙØ¬Ø²Ø¡ Ø§ÙØ´ÙØ§ÙÙ);ÙØ¨Ø±Ø³ (Ø´ÙØ§ÙÛ);UE Balkans
+2020;TLS;78;701;701;7608;100;84;7007;6;Timor oriental;East Timor;Timor Oriental;ØªÙÙÙØ± Ø§ÙØ´Ø±ÙÙØ©;ØªÛÙÙØ± Ø´Ø±ÙÛ;Asie-Pacifique
+2020;MDV;79;7007;7007;7606;100;98;6784;19;Maldives;Maldives;Maldivas;Ø§ÙÙØ§ÙØ¯ÙÙ;ÙØ§ÙØ¯ÛÙ;Asie-Pacifique
+2020;HKG;80;6999;704;7023;6955477562;73;7035;-7;Hong-Kong;Hong Kong;Hong Kong;ÙÙÙØº ÙÙÙØº;ÙÙÚ¯ Ú©ÙÚ¯;Asie-Pacifique
+2020;MLT;81;6984;6984;7587;100;77;7026;-4;Malte;Malta;Malta;ÙØ§ÙØ·Ø§;ÙØ§ÙØª;UE Balkans
+2020;KGZ;82;6981;6981;7585;100;83;7008;1;Kirghizstan;Kyrgyzstan;KirguistÃ¡n;ÙØ±ØºÙØ²Ø³ØªØ§Ù;ÙØ±ÙÛØ²Ø³ØªØ§Ù;EEAC
+2020;HTI;83;698;7358;698;5467400507;62;71;-21;HaÃ¯ti;Haiti;HaitÃ­;ÙØ§ÙØªÙ;ÙØ§ÙÛØªÛ;AmÃ©riques
+2020;ALB;84;6975;6999;721;8613705639;82;7016;-2;Albanie;Albania;Albania;Ø£ÙØ¨Ø§ÙÙØ§;Ø¢ÙØ¨Ø§ÙÛ;UE Balkans
+2020;SLE;85;6972;6972;7578;100;86;6964;1;Sierra Leone;Sierra Leone;Sierra Leona;Ø³ÙØ±Ø§ÙÙÙÙ;Ø³Ø¦ÛØ±Ø§ÙØ¦ÙÙ;Afrique
+2020;LSO;86;6955;6955;7564;100;78;7026;-8;Lesotho;Lesotho;Lesoto;ÙÙØ³ÙØªÙ;ÙØ³ÙâØªÙ;Afrique
+2020;GMB;87;6938;6938;7412;9306852819;92;6865;5;Gambie;Gambia;Gambia;ØºØ§ÙØ¨ÙØ§;Ú¯Ø§ÙØ¨ÛØ§;Afrique
+2020;HUN;89;6916;6916;7532;100;87;6956;-2;Hongrie;Hungary;HungrÃ­a;Ø§ÙÙØ¬Ø±;ÙØ¬Ø§Ø±Ø³ØªØ§Ù;UE Balkans
+2020;ISR;88;6916;7227;692;5695934907;88;692;0;IsraÃ«l;Israel;Israel;Ø¥Ø³Ø±Ø§Ø¦ÙÙ;Ø§Ø³Ø±Ø§Ø¦ÛÙ;MENA
+2020;PER;90;6906;6906;7045;7602104727;85;6978;-5;PÃ©rou;Peru;Peru;Ø¨ÙØ±Ù;Ù¾Ø±Ù;AmÃ©riques
+2020;MDA;91;6884;6884;7047;7697414907;91;6879;0;Moldavie;Moldova;Moldavia;ÙÙÙØ¯ÙÙØ§;ÙÙÙØ¯Ø§ÙÛ;EEAC
+2020;MKD;92;6872;6872;7497;100;95;6834;3;MacÃ©doine du Nord;North Macedonia;RepÃºblica de Macedonia del Norte;ÙÙØ¯ÙÙÙØ§ Ø§ÙØ´ÙØ§ÙÙØ©;ÙÙØ¯ÙÙÛÙ Ø´ÙØ§ÙÛ ;UE Balkans
+2020;SRB;93;6838;6838;7471;100;90;6882;-3;Serbie;Serbia;Serbia;ØµØ±Ø¨ÙØ§;ØµØ±Ø¨Ø³ØªØ§Ù;UE Balkans
+2020;GNB;94;6794;6794;7436;100;89;6905;-5;GuinÃ©e-Bissau;Guinea-Bissau;Guinea-BisÃ¡u;ØºÙÙÙØ§ Ø¨ÙØ³Ø§Ù;Ú¯ÛÙÙ Ø¨ÛØ³Ø§Ø¦Ù;Afrique
+2020;LBR;95;6775;6775;7282;9306852819;93;6851;-2;Liberia;Liberia;Liberia;ÙÙØ¨ÙØ±ÙØ§;ÙÛØ¨Ø±ÛØ§;Afrique
+2020;UKR;96;6748;7087;6748;5394829814;102;6754;6;Ukraine;Ukraine;Ucrania;Ø£ÙÙØ±Ø§ÙÙØ§;Ø§ÙÚ©Ø±Ø§ÙÙ;EEAC
+2020;MRT;97;6746;7049;6746;5534091881;94;6835;-3;Mauritanie;Mauritania;Mauritania;ÙÙØ±ÙØªØ§ÙÙØ§;ÙÙØ±ÛØªØ§ÙÛ;Afrique
+2020;ECU;98;6738;6738;739;100;97;6812;-1;Ãquateur;Ecuador;Ecuador;Ø§ÙØ¥ÙÙØ§Ø¯ÙØ±;Ø§Ú©ÙØ§ØªÙØ±;AmÃ©riques
+2020;ETH;99;6718;6718;6985;8613705639;110;6489;11;Ãthiopie;Ethiopia;EtiopÃ­a;Ø£Ø«ÙÙØ¨ÙØ§;Ø§ØªÛÙÙ¾Û;Afrique
+2020;PRY;100;6703;6703;704;8390562088;99;676;-1;Paraguay;Paraguay;Paraguay;Ø¨Ø§Ø±Ø§ØºÙØ§Ù;Ù¾Ø§Ø±Ø§Ú¯ÙØ¦Ù;AmÃ©riques
+2020;MYS;101;6688;6688;735;100;123;6326;22;Malaisie;Malaysia;Malasia;ÙØ§ÙÙØ²ÙØ§;ÙØ§ÙØ²Û;Asie-Pacifique
+2020;LBN;102;6681;6682;6885;7697414907;101;6756;-1;Liban;Lebanon;LÃ­bano;ÙØ¨ÙØ§Ù;ÙØ¨ÙØ§Ù;MENA
+2020;KEN;103;6628;6628;6887;7920558458;100;6756;-3;Kenya;Kenya;Kenia;ÙÙÙÙØ§;Ú©ÙÛØ§;Afrique
+2020;MOZ;104;6621;6621;7159;9306852819;103;6734;-1;Mozambique;Mozambique;Mozambique;ÙÙØ²ÙØ¨ÙÙ;ÙÙØ²Ø§ÙØ¨ÛÚ©;Afrique
+2020;MNE;105;6617;6617;7294;100;104;6726;-1;MontÃ©nÃ©gro;Montenegro;Montenegro;Ø§ÙØ¬Ø¨Ù Ø§ÙØ£Ø³ÙØ¯;ÙÙÙØªÙâÙÚ¯Ø±Ù;UE Balkans
+2020;AGO;106;6608;6608;7067;100;109;6504;3;Angola;Angola;Angola;Ø£ÙØºÙÙØ§;Ø¢ÙÚ¯ÙÙØ§;Afrique
+2020;BRA;107;6595;6608;6758;100;105;6721;-2;BrÃ©sil;Brazil;Brasil;Ø§ÙØ¨Ø±Ø§Ø²ÙÙ;Ø¨Ø±Ø²ÛÙ;AmÃ©riques
+2020;MLI;108;6588;6588;727;100;112;6477;4;Mali;Mali;MalÃ­;ÙØ§ÙÙ;ÙØ§ÙÛ;Afrique
+2020;KWT;109;657;657;7256;100;108;6614;-1;KoweÃ¯t;Kuwait;Kuwait;Ø§ÙÙÙÙØª;Ú©ÙÛØª;MENA
+2020;GIN;110;6566;6566;6814;8208240531;107;6651;-3;GuinÃ©e;Guinea;Guinea;ØºÙÙÙØ§;Ú¯ÛÙÙ;Afrique
+2020;BGR;111;6494;6494;7196;100;111;6489;0;Bulgarie;Bulgaria;Bulgaria;Ø¨ÙØºØ§Ø±ÙØ§;Ø¨ÙØºØ§Ø±Ø³ØªØ§Ù;UE Balkans
+2020;NPL;112;649;649;6972;8901387711;106;666;-6;NÃ©pal;Nepal;Nepal;ÙÙØ¨Ø§Ù;ÙÙ¾Ø§Ù;Asie-Pacifique
+2020;BEN;113;6489;6489;7192;100;96;6826;-17;BÃ©nin;Benin;BenÃ­n;Ø¨ÙÙÙ;Ø¨ÙÛÙ;Afrique
+2020;BOL;114;6463;6463;6849;8390562088;113;6462;-1;Bolivie;Bolivia;Bolivia;Ø¨ÙÙÙÙÙØ§;Ø¨ÙÛÙÛ;AmÃ©riques
+2020;NGA;115;6437;6739;6437;5229315376;120;635;5;Nigeria;Nigeria;Nigeria;ÙÙØ¬ÙØ±ÙØ§;ÙÛØ¬Ø±ÛÙ;Afrique
+2020;GTM;116;6426;6426;7141;100;116;6406;0;Guatemala;Guatemala;Guatemala;ØºÙØ§ØªÙÙØ§ÙØ§;Ú¯ÙØ§ØªÙØ§ÙØ§;AmÃ©riques
+2020;NIC;117;6419;6427;6443;682194617;114;6447;-3;Nicaragua;Nicaragua;Nicaragua;ÙÙÙØ§Ø±Ø§ØºÙØ§;ÙÛÚ©Ø§Ø±Ø§Ú¯ÙØ¦Ù;AmÃ©riques
+2020;COG;118;6344;6344;6753;9306852819;117;6396;-1;Congo;Congo;RepÃºblica del Congo;Ø§ÙÙÙÙØºÙ;Ú©ÙÚ¯Ù;Afrique
+2020;IDN;119;6318;6318;6696;8208240531;124;6323;5;IndonÃ©sie;Indonesia;Indonesia;Ø£ÙØ¯ÙÙÙØ³ÙØ§;Ø§ÙØ¯ÙÙØ²Û;Asie-Pacifique
+2020;ZMB;120;63;63;6763;8613705639;119;6362;-1;Zambie;Zambia;Zambia;Ø²Ø§ÙØ¨ÙØ§;Ø²Ø§ÙØ¨ÛØ§;Afrique
+2020;GAB;121;628;628;6804;8901387711;115;644;-6;Gabon;Gabon;RepÃºblica Gabonesa;Ø§ÙØºØ§Ø¨ÙÙ;Ú¯Ø§Ø¨ÙÙ;Afrique
+2020;AFG;122;623;6817;623;3890752417;121;6345;-1;Afghanistan;Afghanistan;AfganistÃ¡n;Ø£ÙØºØ§ÙØ³ØªØ§Ù;Ø§ÙØºØ§ÙØ³ØªØ§Ù;Asie-Pacifique
+2020;TCD;123;603;6224;6073;5467400507;122;6329;-1;Tchad;Chad;Chad;ØªØ´Ø§Ø¯;ÚØ§Ø¯;Afrique
+2020;TZA;124;5975;5975;6503;8613705639;118;6372;-6;Tanzanie;Tanzania;Tanzania;ØªÙØ²Ø§ÙÙØ§;ØªØ§ÙØ²Ø§ÙÛØ§;Afrique
+2020;UGA;125;5905;5905;6285;8208240531;125;6058;0;Ouganda;Uganda;Uganda;Ø£ÙØºÙØ¯Ø§;Ø§ÙÚ¯Ø§ÙØ¯Ø§;Afrique
+2020;ZWE;126;5905;5905;6196;736094267;127;5777;1;Zimbabwe;Zimbabwe;Zimbabue;Ø²ÙÙØ¨Ø§Ø¨ÙÙ;Ø²ÛÙØ¨Ø§Ø¨ÙÙ;Afrique
+2020;LKA;127;5806;5806;6506;9306852819;126;6039;-1;Sri Lanka;Sri Lanka;Sri Lanka;Ø³Ø±Ù ÙØ§ÙÙØ§;Ø³Ø±ÛÙØ§ÙÚ©Ø§;Asie-Pacifique
+2020;JOR;128;5792;5792;6244;8054089851;130;5689;2;Jordanie;Jordan;Jordania;Ø§ÙØ£Ø±Ø¯Ù;Ø§Ø±Ø¯Ù;MENA
+2020;QAT;129;5749;5749;6599;100;128;5749;-1;Qatar;Qatar;Catar;ÙØ·Ø±;ÙØ·Ø±;MENA
+2020;COL;130;5734;5816;5734;540488015;129;5718;-1;Colombie;Colombia;Colombia;ÙÙÙÙÙØ¨ÙØ§;Ú©ÙÙØ¨ÛØ§;AmÃ©riques
+2020;ARE;131;5731;589;5731;5094725222;133;5637;2;Ãmirats arabes unis;United Arab Emirates;Emiratos Ãrabes Unidos;Ø§ÙØ¥ÙØ§Ø±Ø§Øª Ø§ÙØ¹Ø±Ø¨ÙØ© Ø§ÙÙØªØ­Ø¯Ø©;Ø§ÙØ§Ø±Ø§Øª ÙØªØ­Ø¯Ù Ø¹Ø±Ø¨Û;MENA
+2020;CAF;132;5713;5713;6351;8901387711;145;5273;13;RÃ©publique centrafricaine;Central African Republic;RepÃºblica Centroafricana;Ø¬ÙÙÙØ±ÙØ© Ø£ÙØ±ÙÙÙØ§ Ø§ÙÙØ³Ø·Ù;Ø¬ÙÙÙØ±Û Ø¢ÙØ±ÛÙØ§Û ÙØ±Ú©Ø²Û;Afrique
+2020;MAR;133;5712;5925;5721;4924826185;135;5602;2;Maroc;Morocco;Marruecos;Ø§ÙÙØºØ±Ø¨;ÙØ±Ø§Ú©Ø´;MENA
+2020;CMR;134;5672;5683;5799;6336438354;131;5668;-3;Cameroun;Cameroon;CamerÃºn;Ø§ÙÙØ§ÙÙØ±ÙÙ;Ú©Ø§ÙØ±ÙÙ;Afrique
+2020;OMN;135;5658;5658;6526;100;132;5658;-3;Oman;Oman;OmÃ¡n;Ø¹ÙØ§Ù;Ø¹ÙØ§Ù;MENA
+2020;PHL;136;5646;5959;5646;4394197934;134;5609;-2;Philippines;Philippines;Filipinas;Ø§ÙÙÙØ¨ÙÙ;ÙÙÛÙ¾ÛÙ;Asie-Pacifique
+2020;PSE;137;5591;5725;568;5534091881;137;5532;0;Palestine;Palestine;Palestina;ÙÙØ³Ø·ÙÙ;ÙÙØ³Ø·ÛÙ;MENA
+2020;SSD;138;5551;5551;6025;8390562088;139;5435;1;Soudan du Sud;South Sudan;SudÃ¡n del Sur;Ø¬ÙÙÙØ±ÙØ© Ø¬ÙÙØ¨ Ø§ÙØ³ÙØ¯Ø§Ù;Ø³ÙØ¯Ø§Ù Ø¬ÙÙØ¨Û;Afrique
+2020;MMR;139;5523;5523;5732;6566012796;138;5508;-1;Birmanie;Myanmar;Birmania;Ø¨ÙØ±ÙØ§;Ø¨Ø±ÙÙ;Asie-Pacifique
+2020;THA;140;5506;5651;5506;4924826185;136;559;-4;ThaÃ¯lande;Thailand;Tailandia;ØªØ§ÙÙØ§ÙØ¯;ØªØ§ÛÙÙØ¯;Asie-Pacifique
+2020;SWZ;141;5485;5485;6388;100;147;5091;6;Eswatini;Eswatini;Esuatini;Ø¥Ø³ÙØ§ØªÙÙÙ;Ø§Ø³ÙØ§ØªÛÙÛ ;Afrique
+2020;IND;142;5467;5482;5758;7004267726;140;5433;-2;Inde;India;India;Ø§ÙÙÙØ¯;ÙÙØ¯;Asie-Pacifique
+2020;MEX;143;5455;5864;5455;3817915093;144;5322;1;Mexique;Mexico;MÃ©xico;Ø§ÙÙÙØ³ÙÙ;ÙÚ©Ø²ÛÚ©;AmÃ©riques
+2020;KHM;144;5454;5454;5903;8613705639;143;541;-1;Cambodge;Cambodia;Camboya;ÙÙØ¨ÙØ¯ÙØ§;Ú©Ø§ÙØ¨ÙØ¬;Asie-Pacifique
+2020;DZA;146;5448;5448;5759;7004267726;141;5425;-5;AlgÃ©rie;Algeria;Argelia;Ø§ÙØ¬Ø²Ø§Ø¦Ø±;Ø§ÙØ¬Ø²Ø§ÛØ±;MENA
+2020;PAK;145;5448;5872;5448;3757776735;142;5417;-3;Pakistan;Pakistan;PakistÃ¡n;Ø¨Ø§ÙØ³ØªØ§Ù;Ù¾Ø§Ú©Ø³ØªØ§Ù;Asie-Pacifique
+2020;VEN;147;5434;5456;5515;5841116917;148;509;1;Venezuela;Venezuela;Venezuela;ÙÙØ²ÙÙÙØ§;ÙÙØ²ÙØ¦ÙØ§;AmÃ©riques
+2020;HND;148;518;5308;518;4681880006;146;5147;-2;Honduras;Honduras;Honduras;ÙÙØ¯ÙØ±Ø§Ø³;ÙÙØ¯ÙØ±Ø§Ø³;AmÃ©riques
+2020;RUS;149;5108;528;5157;4691732303;149;4969;0;Russie;Russian Federation;Rusia;Ø±ÙØ³ÙØ§;Ø±ÙØ³ÛÙ;EEAC
+2020;COD;150;5091;5143;5155;5281501129;154;4829;4;RD Congo;The Democratic Republic Of The Congo;RD Congo;Ø¬ÙÙÙØ±ÙØ© Ø§ÙÙÙÙØºÙ Ø§ÙØ¯ÙÙÙØ±Ø§Ø·ÙØ©;Ø¬ÙÙÙØ±Û Ø¯ÙÚ©Ø±Ø§ØªÛÚ© Ú©ÙÚ¯Ù;Afrique
+2020;BGD;151;5063;5063;5363;6908957547;150;4926;-1;Bangladesh;Bangladesh;BangladÃ©s;Ø¨ÙØºÙØ§Ø¯ÙØ´;Ø¨ÙÚ¯ÙØ§Ø¯Ø´;Asie-Pacifique
+2020;BRN;152;5035;5035;6028;100;152;4852;0;Brunei;Brunei Darussalam;BrunÃ©i;Ø¨Ø±ÙÙØ§Ù;Ø¨Ø±ÙÙÛ;Asie-Pacifique
+2020;BLR;153;5025;5025;602;100;153;4834;0;BÃ©larus;Belarus;BelarÃºs;Ø±ÙØ³ÙØ§ Ø§ÙØ¨ÙØ¶Ø§Ø¡;Ø±ÙØ³ÛÙ Ø³ÙÛØ¯;EEAC
+2020;TUR;154;4998;5454;4998;3179983635;157;4719;3;Turquie;Turkey;TurquÃ­a;ØªØ±ÙÙØ§;ØªØ±Ú©ÛÙ;EEAC
+2020;RWA;155;4966;4966;546;100;155;4757;0;Rwanda;Rwanda;Ruanda;Ø±ÙØ§ÙØ¯Ø§;Ø±ÙÙØ¯Ø§;Afrique
+2020;UZB;156;4693;4693;5755;100;160;4648;4;OuzbÃ©kistan;Uzbekistan;UzbekistÃ¡n;Ø£ÙØ²Ø¨ÙØ³ØªØ§Ù;Ø§ÙØ²Ø¨Ú©Ø³ØªØ§Ù;EEAC
+2020;KAZ;157;4589;4589;4837;582561273;158;4718;1;Kazakhstan;Kazakhstan;KazajistÃ¡n;ÙØ§Ø²Ø§Ø®Ø³ØªØ§Ù;ÙØ²Ø§ÙØ³ØªØ§Ù;EEAC
+2020;SGP;158;4477;4477;5582;100;151;4859;-7;Singapour;Singapore;Singapur;Ø³ÙØºØ§ÙÙØ±Ø©;Ø³ÙÚ¯Ø§Ù¾ÙØ±;Asie-Pacifique
+2020;BDI;160;4467;4467;5007;7920558458;159;4711;-1;Burundi;Burundi;Burundi;Ø¨ÙØ±ÙÙØ¯Ù;Ø¨Ø±ÙÙØ¯Û;Afrique
+2020;SDN;159;4467;4476;4728;5737320123;175;2755;16;Soudan;Sudan;SudÃ¡n;Ø§ÙØ³ÙØ¯Ø§Ù;Ø³ÙØ¯Ø§Ù;Afrique
+2020;TJK;161;4466;447;4738;5905655438;161;4598;0;Tadjikistan;Tajikistan;TayikistÃ¡n;Ø·Ø§Ø¬ÙÙØ³ØªØ§Ù;ØªØ§Ø¬ÛÚ©Ø³ØªØ§Ù;EEAC
+2020;IRQ;162;4463;463;4537;4200907346;156;474;-6;Irak;Iraq;Irak;Ø§ÙØ¹Ø±Ø§Ù;Ø¹Ø±Ø§Ù;MENA
+2020;SOM;163;4455;4507;4458;4309640546;164;4276;1;Somalie;Somalia;Somalia;Ø§ÙØµÙÙØ§Ù;Ø³ÙÙØ§ÙÛ;Afrique
+2020;LBY;164;4423;4423;45;4807043149;162;4423;-2;Libye;Libya;Libia;ÙÙØ¨ÙØ§;ÙÛØ¨Û;MENA
+2020;GNQ;165;4362;4362;5351;9306852819;165;4165;0;GuinÃ©e Ã©quatoriale;Equatorial Guinea;Guinea Ecuatorial;ØºÙÙÙØ§ Ø§ÙØ§Ø³ØªÙØ§Ø¦ÙØ©;Ú¯ÛÙÙ Ø§Ú©ÙØ§Ø¯ÙØ±;Afrique
+2020;EGY;166;4318;4619;4318;3127871899;163;4353;-3;Ãgypte;Egypt;Egipto;ÙØµØ±;ÙØµØ±;MENA
+2020;YEM;167;4175;4227;4278;4519361077;168;3834;1;YÃ©men;Yemen;Yemen;Ø§ÙÙÙÙ;ÛÙÙ;MENA
+2020;AZE;168;4152;4287;4268;4200907346;166;4087;-2;AzerbaÃ¯djan;Azerbaijan;AzerbaiyÃ¡n;Ø£Ø°Ø±Ø¨ÙØ¬Ø§Ù;Ø¢Ø°Ø±Ø¨Ø§ÛØ¬Ø§Ù;EEAC
+2020;BHR;169;3987;3987;475;8208240531;167;3869;-2;BahreÃ¯n;Bahrain;BarÃ©in;Ø§ÙØ¨Ø­Ø±ÙÙ;Ø¨Ø­Ø±ÛÙ;MENA
+2020;SAU;170;3786;3892;3786;3370636747;172;3412;2;Arabie saoudite;Saudi Arabia;Arabia Saudita;Ø§ÙÙÙÙÙØ© Ø§ÙØ¹Ø±Ø¨ÙØ© Ø§ÙØ³Ø¹ÙØ¯ÙØ©;Ø¹Ø±Ø¨Ø³ØªØ§Ù Ø³Ø¹ÙØ¯Û;MENA
+2020;CUB;171;3619;3619;4328;7166786656;169;3619;-2;Cuba;Cuba;Cuba;ÙÙØ¨Ø§;Ú©ÙØ¨Ø§;AmÃ©riques
+2020;LAO;172;3572;3572;3723;4326676733;171;3551;-1;Laos;Lao People's Democratic Republic;Laos;ÙØ§ÙØ³;ÙØ§Ø¦ÙØ³;Asie-Pacifique
+2020;IRN;173;3519;3559;3519;3419360863;170;3559;-3;Iran;Islamic Republic of Iran;IrÃ¡n;Ø¥ÙØ±Ø§Ù;Ø§ÛØ±Ø§Ù;MENA
+2020;SYR;174;2743;2981;2743;1908372588;174;2822;0;Syrie;Syrian Arab Republic;Siria;Ø³ÙØ±ÙØ§;Ø³ÙØ±ÛÙ;MENA
+2020;VNM;175;2529;2529;2727;3521490358;176;2507;1;ViÃªt Nam;Vietnam;Vietnam;ÙÙØªÙØ§Ù;ÙÛØªÙØ§Ù;Asie-Pacifique
+2020;DJI;176;2327;2327;3723;9306852819;173;2864;-3;Djibouti;Djibouti;Yibuti;Ø¬ÙØ¨ÙØªÙ;Ø¬ÛØ¨ÙØªÛ;Afrique
+2020;CHN;177;2152;2332;2257;195665783;177;2108;0;Chine;China;China;Ø§ÙØµÙÙ;ÚÛÙ;Asie-Pacifique
+2020;ERI;178;165;165;1873;2797338803;178;1974;0;ÃrythrÃ©e;Eritrea;Eritrea;Ø¥Ø±ÙØªØ±ÙØ§;Ø§Ø±ÛØªØ±Ù;Afrique
+2020;TKM;179;1456;1456;3164;100;180;1456;1;TurkmÃ©nistan;Turkmenistan;TurkmenistÃ¡n;ØªØ±ÙÙØ§ÙØ³ØªØ§Ù;ØªØ±Ú©ÙÙØ³ØªØ§Ù;EEAC
+2020;PRK;180;1418;1418;2096;4807043149;179;166;-1;CorÃ©e du Nord;Democratic People's Republic of Korea;Corea del Norte;ÙÙØ±ÙØ§ Ø§ÙØ´ÙØ§ÙÙØ©;Ú©Ø±Ù Ø´ÙØ§ÙÛ;Asie-Pacifique

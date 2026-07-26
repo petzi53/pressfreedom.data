@@ -1,0 +1,180 @@
+Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with the exactions;Score exactions;Rank N-1;Score N-1;Rank evolution;FR_country;EN_country;ES_country;AR_country;FA_country;Zone
+2011-12;FIN;1;-10;;;;1;0;0;Finlande;Finland;Finlandia;ÙÙÙÙØ¯Ø§;ÙÙÙØ§ÙØ¯;UE Balkans
+2011-12;NOR;2;-10;;;;3;0;1;NorvÃ¨ge;Norway;Noruega;Ø§ÙÙØ±ÙÙØ¬;ÙØ±ÙÚ;UE Balkans
+2011-12;EST;3;-9;;;;9;2;6;Estonie;Estonia;Estonia;Ø¥Ø³ØªÙÙÙØ§;Ø§Ø³ØªÙÙÛ;UE Balkans
+2011-12;NLD;4;-9;;;;4;0;0;Pays-Bas;Netherlands;PaÃ­ses Bajos;ÙÙÙÙØ¯Ø§;ÙÙÙØ¯;UE Balkans
+2011-12;AUT;5;-8;;;;7;0,5;2;Autriche;Austria;Austria;Ø§ÙÙÙØ³Ø§;Ø§ØªØ±ÛØ´;UE Balkans
+2011-12;ISL;6;-7;;;;2;0;-4;Islande;Iceland;Islandia;Ø£ÙØ³ÙÙØ¯Ø§;Ø§ÛØ³ÙÙØ¯;UE Balkans
+2011-12;LUX;7;-7;;;;15;4;8;Luxembourg;Luxembourg;Luxemburgo;ÙÙÙØ³ÙØ¨ÙØ±Øº;ÙÙÚ©Ø²Ø§ÙØ¨ÙØ±Ú¯;UE Balkans
+2011-12;CHE;8;-62;;;;6;0;-2;Suisse;Switzerland;Suiza;Ø³ÙÙØ³Ø±Ø§;Ø³ÙÙÛØ³;UE Balkans
+2011-12;CPV;9;-6;;;;26;8;17;Cap-Vert;Cape Verde;Cabo Verde;Ø§ÙØ±Ø£Ø³ Ø§ÙØ£Ø®Ø¶Ø±;Ú©ÛÙ¾ÙØ±Ø¯;Afrique
+2011-12;CAN;10;-567;;;;21;7;11;Canada;Canada;CanadÃ¡;ÙÙØ¯Ø§;Ú©Ø§ÙØ§Ø¯Ø§;AmÃ©riques
+2011-12;DNK;11;-567;;;;11;2,5;0;Danemark;Denmark;Dinamarca;Ø§ÙØ¯ÙÙØ§Ø±Ù;Ø¯Ø§ÙÙØ§Ø±Ú©;UE Balkans
+2011-12;SWE;12;-55;;;;5;0;-7;SuÃ¨de;Sweden;Suecia;Ø§ÙØ³ÙÙØ¯;Ø³ÙØ¦Ø¯;UE Balkans
+2011-12;NZL;13;-533;;;;8;1,5;-5;Nouvelle-ZÃ©lande;New Zealand;Nueva Zelanda;ÙÙÙØ²ÙÙØ§ÙØ¯Ø§;Ø²ÙØ§ÙØ¯ ÙÙ;Asie-Pacifique
+2011-12;CZE;14;-5;;;;24;7,5;10;RÃ©publique tchÃ¨que;Czech Republic;RepÃºblica Checa;Ø¬ÙÙÙØ±ÙØ© Ø§ÙØªØ´ÙÙ;Ø¬ÙÙÙØ±Û ÚÚ©;UE Balkans
+2011-12;IRL;15;-4;;;;10;2;-5;Irlande;Ireland;Irlanda;Ø£ÙØ±ÙÙØ¯Ø§;Ø§ÛØ±ÙÙØ¯;UE Balkans
+2011-12;CYP;16;-3;;;;45;13,4;29;Chypre;Cyprus;Chipre;ÙØ¨Ø±Øµ;ÙØ¨Ø±Ø³;UE Balkans
+2011-12;JAM;17;-3;;;;25;7,67;8;JamaÃ¯que;Jamaica;Jamaica;Ø¬Ø§ÙØ§ÙÙØ§;Ø¬Ø§ÙØ§Ø¦ÛÚ©Ø§;AmÃ©riques
+2011-12;DEU;18;-3;;;;17;4,25;-1;Allemagne;Germany;Alemania;Ø£ÙÙØ§ÙÙØ§;Ø¢ÙÙØ§Ù;UE Balkans
+2011-12;CRI;19;-225;;;;29;8,08;10;Costa Rica;Costa Rica;Costa Rica;ÙÙØ³ØªØ§Ø±ÙÙØ§;Ú©Ø§Ø³ØªØ§Ø±ÛÚ©Ø§;AmÃ©riques
+2011-12;BEL;20;-2;;;;14;4;-6;Belgique;Belgium;BÃ©lgica;Ø¨ÙØ¬ÙÙØ§;Ø¨ÙÚÛÚ©;UE Balkans
+2011-12;NAM;21;-2;;;;22;7;1;Namibie;Namibia;Namibia;ÙØ§ÙÙØ¨ÙØ§;ÙØ§ÙÛØ¨ÛØ§;Afrique
+2011-12;JPN;22;-1;;;;12;2,5;-10;Japon;Japan;JapÃ³n;Ø§ÙÙØ§Ø¨Ø§Ù;ÚØ§Ù¾Ù;Asie-Pacifique
+2011-12;SUR;23;-1;;;;36;11,5;13;Suriname;Suriname;Surinam;Ø³ÙØ±ÙÙØ§Ù;Ø³ÙØ±ÛÙØ§Ù;AmÃ©riques
+2011-12;POL;24;-67;;;;32;8,88;8;Pologne;Poland;Polonia;Ø¨ÙÙÙØ¯Ø§;ÙÙØ³ØªØ§Ù;UE Balkans
+2011-12;MLI;25;0;;;;28;8;3;Mali;Mali;MalÃ­;ÙØ§ÙÙ;ÙØ§ÙÛ;Afrique
+2011-12;XCD;26;0;;;;57;16,5;31;OECS;OECS;OECS;Ø§ÙÙØ§Ø±ÙØ¨Ù;Ø¬Ø²Ø§ÛØ± Ú©Ø§Ø±Ø§Ø¦ÛØ¨ Ø´Ø±ÙÛ;AmÃ©riques
+2011-12;SVK;27;0;;;;35;11,5;8;Slovaquie;Slovakia;Eslovaquia;Ø³ÙÙÙØ§ÙÙØ§;Ø§Ø³ÙÙØ§Ú©Û;UE Balkans
+2011-12;GBR;28;2;;;;19;6;-9;Royaume-Uni;United Kingdom;Reino Unido;Ø§ÙÙÙÙÙØ© Ø§ÙÙØªØ­Ø¯Ø©;Ø¨Ø±ÛØªØ§ÙÛØ§;UE Balkans
+2011-12;NER;29;25;;;;106;28,5;77;Niger;Niger;Niger;Ø§ÙÙÙØ¬Ø±;ÙÛØ¬Ø±;Afrique
+2011-12;AUS;30;4;;;;18;5,38;-12;Australie;Australia;Australia;Ø£Ø³ØªØ±Ø§ÙÙØ§;Ø§Ø³ØªØ±Ø§ÙÛØ§;Asie-Pacifique
+2011-12;LTU;31;4;;;;13;2,5;-18;Lituanie;Lithuania;Lituania;ÙÙØªÙØ§ÙÙØ§;ÙÛØªÙØ§ÙÛ;UE Balkans
+2011-12;URY;32;425;;;;37;11,75;5;Uruguay;Uruguay;Uruguay;Ø£ÙØ±ÙØºÙØ§Ù;Ø§Ø±ÙÚ¯ÙÙÙ;AmÃ©riques
+2011-12;PRT;33;533;;;;40;12,36;7;Portugal;Portugal;Portugal;Ø§ÙØ¨Ø±ØªØºØ§Ù;Ù¾Ø±ØªØºØ§Ù;UE Balkans
+2011-12;TZA;34;6;;;;41;13;7;Tanzanie;Tanzania;Tanzania;ØªÙØ²Ø§ÙÙØ§;ØªØ§ÙØ²Ø§ÙÛØ§;Afrique
+2011-12;PNG;35;9;;;;43;13,33;8;Papouasie-Nouvelle-GuinÃ©e;Papua New Guinea;PapÃºa Nueva Guinea;Ø¨Ø§Ø¨ÙØ§ ØºÙÙÙØ§ Ø§ÙØ¬Ø¯ÙØ¯Ø©;Ù¾Ø§Ù¾ÙØ¢ Ú¯ÛÙÙ ÙÙ;Asie-Pacifique
+2011-12;SVN;36;914;;;;46;13,44;10;SlovÃ©nie;Slovenia;Eslovenia;Ø³ÙÙÙÙÙÙØ§;Ø§Ø³ÙÙØ§ÙÛ;UE Balkans
+2011-12;SLV;37;93;;;;51;15,83;14;El Salvador;El Salvador;El Salvador;Ø§ÙØ³ÙÙØ§Ø¯ÙØ±;Ø§ÙâØ³Ø§ÙÙØ§Ø¯ÙØ±;AmÃ©riques
+2011-12;FRA;38;95;;;;44;13,38;6;France;France;Francia;ÙØ±ÙØ³Ø§;ÙØ±Ø§ÙØ³Ù;UE Balkans
+2011-12;ESP;39;975;;;;39;12,25;0;Espagne;Spain;EspaÃ±a;Ø¥Ø³Ø¨Ø§ÙÙØ§;Ø§Ø³Ù¾Ø§ÙÛØ§;UE Balkans
+2011-12;HUN;40;10;;;;23;7,5;-17;Hongrie;Hungary;HungrÃ­a;Ø§ÙÙØ¬Ø±;ÙØ¬Ø§Ø±Ø³ØªØ§Ù;UE Balkans
+2011-12;GHA;41;11;;;;27;8;-14;Ghana;Ghana;Ghana;ØºØ§ÙØ§;ØºÙØ§;Afrique
+2011-12;ZAF;42;12;;;;38;12;-4;Afrique du Sud;South Africa;SudÃ¡frica;Ø¬ÙÙØ¨ Ø£ÙØ±ÙÙÙØ§;Ø¢ÙØ±ÛÙØ§Û Ø¬ÙÙØ¨Û;Afrique
+2011-12;BWA;43;12;;;;62;17,5;19;Botswana;Botswana;Botsuana;Ø¨ÙØªØ³ÙØ§ÙØ§;Ø¨ÙØ³ØªØ§ÙØ§ÙØ§;Afrique
+2011-12;KOR;44;1267;;;;42;13,33;-2;CorÃ©e du Sud;South Korea;Corea del Sur;ÙÙØ±ÙØ§ Ø§ÙØ¬ÙÙØ¨ÙØ©;Ú©Ø±Ù Ø¬ÙÙØ¨Û;Asie-Pacifique
+2011-12;COM;45;13;;;;72;19;27;Comores;Comoros;Comoras;Ø¬Ø²Ø± Ø§ÙÙÙØ±;Ú©ÙÙÙØ±;Afrique
+2011-12;TWN;46;13;;;;48;14,5;2;TaÃ¯wan;Taiwan;TaiwÃ¡n;ØªØ§ÙÙØ§Ù;ØªØ§ÛÙØ§Ù;Asie-Pacifique
+2011-12;USA2;47;14;;;;20;6,75;-27;Ãtats-Unis (territoire amÃ©ricain);United States (US territory);Estados Unidos (territorio estadounidense);Ø§ÙÙÙØ§ÙØ§Øª Ø§ÙÙØªØ­Ø¯Ø© (Ø§ÙØ£Ø±Ø§Ø¶Ù Ø§ÙØ£ÙØ±ÙÙÙØ©);Ø§ÛØ§ÙØ§Øª ÙØªØ­Ø¯Ù Ø§ÙØ±ÛÚ©Ø§ (Ø¯Ø± Ø³Ø±Ø²ÙÛÙ Ø§ÛØ§ÙØ§Øª ÙØªØ­Ø¯Ù Ø§ÙØ±ÛÚ©Ø§);AmÃ©riques
+2011-12;ARG;48;14;;;;55;16,35;7;Argentine;Argentina;Argentina;Ø§ÙØ£Ø±Ø¬ÙØªÙÙ;Ø¢Ø±ÚØ§ÙØªÛÙ;AmÃ©riques
+2011-12;ROU;49;14;;;;53;16;4;Roumanie;Romania;Rumania;Ø±ÙÙØ§ÙÙØ§;Ø±ÙÙØ§ÙÛ;UE Balkans
+2011-12;LVA;50;15;;;;30;8,5;-20;Lettonie;Latvia;Letonia;ÙØ§ØªÙÙØ§;ÙØªÙØ§ÙÛ;UE Balkans
+2011-12;TTO;51;15;;;;30;8,5;-21;TrinitÃ©-et-Tobago;Trinidad and Tobago;Trinidad y Tobago;ØªØ±ÙÙÙØ¯Ø§Ø¯ ÙØªÙØ¨Ø§ØºÙ;ØªØ±ÙØªÛ Ù ØªÙØ¨ÙÚ¯Ù;AmÃ©riques
+2011-12;HTI;52;1567;;;;56;16,38;4;HaÃ¯ti;Haiti;HaitÃ­;ÙØ§ÙØªÙ;ÙØ§ÙÛØªÛ;AmÃ©riques
+2011-12;MDA;53;16;;;;75;19,13;22;Moldavie;Moldova;Moldavia;ÙÙÙØ¯ÙÙØ§;ÙÙÙØ¯Ø§ÙÛ;EEAC
+2011-12;HKG;54;17;;;;34;10,75;-20;Hong-Kong;Hong Kong;Hong Kong;ÙÙÙØº ÙÙÙØº;ÙÙÚ¯ Ú©ÙÚ¯;Asie-Pacifique
+2011-12;MUS;55;17;;;;65;18;10;Maurice;Mauritius;Mauricio;ÙÙØ±ÙØ´ÙÙØ³;ÙÙØ±ÛØ³;Afrique
+2011-12;WSM;56;17;;;;111;33;55;Samoa;Samoa;Samoa;Ø³Ø§ÙÙØ§;Ø³Ø§ÙÙØ¢;Asie-Pacifique
+2011-12;USA1;57;19;;;;99;27;42;Ãtats-Unis (hors territoire amÃ©ricain);United States (outside US territory);Estados Unidos (fuera del territorio estadounidense);Ø§ÙÙÙØ§ÙØ§Øª Ø§ÙÙØªØ­Ø¯Ø© (Ø¨Ø§Ø³ØªØ«ÙØ§Ø¡ Ø§ÙØ£Ø±Ø§Ø¶Ù Ø§ÙØ£ÙØ±ÙÙÙØ©);Ø§ÛØ§ÙØ§Øª ÙØªØ­Ø¯Ù Ø§ÙØ±ÛÚ©Ø§ (Ø®Ø§Ø±Ø¬ Ø§Ø² Ø³Ø±Ø²ÙÛÙâ Ø§ÛØ§ÙØ§Øª ÙØªØ­Ø¯Ù Ø§ÙØ±ÛÚ©Ø§);AmÃ©riques
+2011-12;MLT;58;195;;;;16;4;-42;Malte;Malta;Malta;ÙØ§ÙØ·Ø§;ÙØ§ÙØª;UE Balkans
+2011-12;BIH;59;195;;;;47;13,5;-12;Bosnie-HerzÃ©govine;Bosnia and Herzegovina;Bosnia-Herzegovina;Ø§ÙØ¨ÙØ³ÙØ© ÙØ§ÙÙØ±Ø³Ù;Ø¨ÙØ³ÙÛ ÙØ±Ø²ÙÚ¯ÙÛÙ;UE Balkans
+2011-12;GUY;60;195;;;;59;16,63;-1;Guyana;Guyana;Guyana;ØºÙÙØ§ÙØ§;Ú¯ÛØ§ÙØ§;AmÃ©riques
+2011-12;ITA;61;1967;;;;50;15;-11;Italie;Italy;Italia;Ø¥ÙØ·Ø§ÙÙØ§;Ø§ÛØªØ§ÙÛØ§;UE Balkans
+2011-12;CAF;62;20;;;;69;18,5;7;RÃ©publique centrafricaine;Central African Republic;RepÃºblica Centroafricana;Ø¬ÙÙÙØ±ÙØ© Ø£ÙØ±ÙÙÙØ§ Ø§ÙÙØ³Ø·Ù;Ø¬ÙÙÙØ±Û Ø¢ÙØ±ÛÙØ§Û ÙØ±Ú©Ø²Û;Afrique
+2011-12;LSO;63;21;;;;90;24;27;Lesotho;Lesotho;Lesoto;ÙÙØ³ÙØªÙ;ÙØ³ÙâØªÙ;Afrique
+2011-12;SLE;64;21;;;;91;24,25;27;Sierra Leone;Sierra Leone;Sierra Leona;Ø³ÙØ±Ø§ÙÙÙÙ;Ø³Ø¦ÛØ±Ø§ÙØ¦ÙÙ;Afrique
+2011-12;TON;65;21;;;;89;23,75;24;Tonga;Tonga;Tonga;ØªÙÙØºØ§;ØªÙÙÚ¯Ø§;Asie-Pacifique
+2011-12;MOZ;66;215;;;;98;26,5;32;Mozambique;Mozambique;Mozambique;ÙÙØ²ÙØ¨ÙÙ;ÙÙØ²Ø§ÙØ¨ÛÚ©;Afrique
+2011-12;MRT;67;222;;;;95;25,38;28;Mauritanie;Mauritania;Mauritania;ÙÙØ±ÙØªØ§ÙÙØ§;ÙÙØ±ÛØªØ§ÙÛ;Afrique
+2011-12;HRV;68;2333;;;;63;17,5;-5;Croatie;Croatia;Croacia;ÙØ±ÙØ§ØªÙØ§;Ú©Ø±ÙØ§Ø³Û;UE Balkans
+2011-12;BFA;69;2333;;;;49;15;-20;Burkina Faso;Burkina Faso;Burkina Faso;Ø¨ÙØ±ÙÙÙØ§ ÙØ§Ø³Ù;Ø¨ÙØ±Ú©ÛÙØ§ÙØ§Ø³Ù;Afrique
+2011-12;BTN;70;24;;;;64;17,75;-6;Bhoutan;Bhutan;ButÃ¡n;Ø¨ÙØªØ§Ù;Ø¨ÙØªØ§Ù;Asie-Pacifique
+2011-12;GRC;71;24;;;;73;19;2;GrÃ¨ce;Greece;Grecia;Ø§ÙÙÙÙØ§Ù;ÛÙÙØ§Ù;UE Balkans
+2011-12;NIC;72;2433;;;;83;22,33;11;Nicaragua;Nicaragua;Nicaragua;ÙÙÙØ§Ø±Ø§ØºÙØ§;ÙÛÚ©Ø§Ø±Ø§Ú¯ÙØ¦Ù;AmÃ©riques
+2011-12;MDV;73;25;;;;52;16;-21;Maldives;Maldives;Maldivas;Ø§ÙÙØ§ÙØ¯ÙÙ;ÙØ§ÙØ¯ÛÙ;Asie-Pacifique
+2011-12;SYC;74;25;;;;66;18;-8;Seychelles;Seychelles;Seychelles;Ø³ÙØ´ÙÙ;Ø³ÛâØ´Ù;Afrique
+2011-12;GNB;75;26;;;;67;18,25;-8;GuinÃ©e-Bissau;Guinea-Bissau;Guinea-BisÃ¡u;ØºÙÙÙØ§ Ø¨ÙØ³Ø§Ù;Ú¯ÛÙÙ Ø¨ÛØ³Ø§Ø¦Ù;Afrique
+2011-12;SEN;76;26;;;;93;25;17;SÃ©nÃ©gal;Senegal;Senegal;Ø§ÙØ³ÙØºØ§Ù;Ø³ÙÚ¯Ø§Ù;Afrique
+2011-12;ARM;77;27;;;;101;27,5;24;ArmÃ©nie;Armenia;Armenia;Ø£Ø±ÙÙÙÙØ§;Ø§Ø±ÙÙØ³ØªØ§Ù;EEAC
+2011-12;KWT;78;28;;;;88;23,75;10;KoweÃ¯t;Kuwait;Kuwait;Ø§ÙÙÙÙØª;Ú©ÙÛØª;MENA
+2011-12;TGO;79;285;;;;60;17;-19;Togo;Togo;Togo;ØªÙØºÙ;ØªÙÚ¯Ù;Afrique
+2011-12;SRB;80;29;;;;85;23;5;Serbie;Serbia;Serbia;ØµØ±Ø¨ÙØ§;ØµØ±Ø¨Ø³ØªØ§Ù;UE Balkans
+2011-12;BGR;81;29;;;;71;19;-10;Bulgarie;Bulgaria;Bulgaria;Ø¨ÙØºØ§Ø±ÙØ§;Ø¨ÙØºØ§Ø±Ø³ØªØ§Ù;UE Balkans
+2011-12;CHL;82;29;;;;33;10,5;-49;Chili;Chile;Chile;ØªØ´ÙÙÙ;Ø´ÛÙÛ;AmÃ©riques
+2011-12;PRY;83;29;;;;54;16,25;-29;Paraguay;Paraguay;Paraguay;Ø¨Ø§Ø±Ø§ØºÙØ§Ù;Ù¾Ø§Ø±Ø§Ú¯ÙØ¦Ù;AmÃ©riques
+2011-12;KEN;84;295;;;;74;19;-10;Kenya;Kenya;Kenia;ÙÙÙÙØ§;Ú©ÙÛØ§;Afrique
+2011-12;MDG;85;295;;;;116;34,88;31;Madagascar;Madagascar;Madagascar;ÙØ¯ØºØ´ÙØ±;ÙØ§Ø¯Ø§Ú¯Ø§Ø³Ú©Ø§Ø±;Afrique
+2011-12;GIN;86;30;;;;113;33,5;27;GuinÃ©e;Guinea;Guinea;ØºÙÙÙØ§;Ú¯ÛÙÙ;Afrique
+2011-12;XKO;87;30;;;;92;24,83;5;Kosovo;Kosovo;Kosovo;ÙÙØ³ÙÙÙ;Ú©ÙØ³ÙÙÙ;UE Balkans
+2011-12;TLS;88;30;;;;94;25;6;Timor oriental;East Timor;Timor Oriental;ØªÙÙÙØ± Ø§ÙØ´Ø±ÙÙØ©;ØªÛÙÙØ± Ø´Ø±ÙÛ;Asie-Pacifique
+2011-12;ZMB;89;30;;;;82;22;-7;Zambie;Zambia;Zambia;Ø²Ø§ÙØ¨ÙØ§;Ø²Ø§ÙØ¨ÛØ§;Afrique
+2011-12;COG;90;3038;;;;114;33,6;24;Congo;Congo;RepÃºblica del Congo;Ø§ÙÙÙÙØºÙ;Ú©ÙÚ¯Ù;Afrique
+2011-12;BEN;91;31;;;;70;19;-21;BÃ©nin;Benin;BenÃ­n;Ø¨ÙÙÙ;Ø¨ÙÛÙ;Afrique
+2011-12;ISR1;92;3125;;;;86;23,25;-6;IsraÃ«l (territoire israÃ©lien);Israel (Israeli territory);Israel (territorio israelÃ­);Ø¥Ø³Ø±Ø§Ø¦ÙÙ (Ø§ÙØ£Ø±Ø§Ø¶Ù Ø§ÙØ¥Ø³Ø±Ø§Ø¦ÙÙÙØ©);Ø§Ø³Ø±Ø§Ø¦ÛÙ (Ø¯Ø± Ø³Ø±Ø²ÙÛÙ Ø§Ø³Ø±Ø§Ø¦ÛÙ);MENA
+2011-12;LBN;93;315;;;;78;20,5;-15;Liban;Lebanon;LÃ­bano;ÙØ¨ÙØ§Ù;ÙØ¨ÙØ§Ù;MENA
+2011-12;MKD;94;3167;;;;68;18,4;-26;MacÃ©doine du Nord;North Macedonia;RepÃºblica de Macedonia del Norte;ÙÙØ¯ÙÙÙØ§ Ø§ÙØ´ÙØ§ÙÙØ©;ÙÙØ¯ÙÙÛÙ Ø´ÙØ§ÙÛ ;UE Balkans
+2011-12;DOM;95;3325;;;;97;26,13;2;RÃ©publique dominicaine;Dominican Republic;RepÃºblica Dominicana;Ø¬ÙÙÙØ±ÙØ© Ø§ÙØ¯ÙÙÙÙÙÙØ§Ù;Ø¬ÙÙÙØ±Û Ø¯ÙÙÛÙÛÚ©;AmÃ©riques
+2011-12;ALB;96;3444;;;;80;21,5;-16;Albanie;Albania;Albania;Ø£ÙØ¨Ø§ÙÙØ§;Ø¢ÙØ¨Ø§ÙÛ;UE Balkans
+2011-12;CMR;97;35;;;;129;44,3;32;Cameroun;Cameroon;CamerÃºn;Ø§ÙÙØ§ÙÙØ±ÙÙ;Ú©Ø§ÙØ±ÙÙ;Afrique
+2011-12;GTM;98;35;;;;77;20,25;-21;Guatemala;Guatemala;Guatemala;ØºÙØ§ØªÙÙØ§ÙØ§;Ú¯ÙØ§ØªÙØ§ÙØ§;AmÃ©riques
+2011-12;BRA;99;3533;;;;58;16,6;-41;BrÃ©sil;Brazil;Brasil;Ø§ÙØ¨Ø±Ø§Ø²ÙÙ;Ø¨Ø±Ø²ÛÙ;AmÃ©riques
+2011-12;MNG;100;3575;;;;76;19,42;-24;Mongolie;Mongolia;Mongolia;ÙÙØºÙÙÙØ§;ÙØºÙÙØ³ØªØ§Ù;Asie-Pacifique
+2011-12;GAB;101;365;;;;107;28,75;6;Gabon;Gabon;RepÃºblica Gabonesa;Ø§ÙØºØ§Ø¨ÙÙ;Ú¯Ø§Ø¨ÙÙ;Afrique
+2011-12;CTU;102;37;;;;61;17,25;-41;Chypre (partie Nord);Cyprus North;Chipre Norte;ÙØ¨Ø±Øµ (Ø§ÙØ¬Ø²Ø¡ Ø§ÙØ´ÙØ§ÙÙ);ÙØ¨Ø±Ø³ (Ø´ÙØ§ÙÛ);UE Balkans
+2011-12;TCD;103;3767;;;;112;33,17;9;Tchad;Chad;Chad;ØªØ´Ø§Ø¯;ÚØ§Ø¯;Afrique
+2011-12;ECU;104;38;;;;102;27,5;-2;Ãquateur;Ecuador;Ecuador;Ø§ÙØ¥ÙÙØ§Ø¯ÙØ±;Ø§Ú©ÙØ§ØªÙØ±;AmÃ©riques
+2011-12;GEO;105;38;;;;100;27;-5;GÃ©orgie;Georgia;Georgia;Ø¬ÙØ±Ø¬ÙØ§;Ú¯Ø±Ø¬Ø³ØªØ§Ù;EEAC
+2011-12;NPL;106;3875;;;;119;36,38;13;NÃ©pal;Nepal;Nepal;ÙÙØ¨Ø§Ù;ÙÙ¾Ø§Ù;Asie-Pacifique
+2011-12;MNE;107;39;;;;105;28,5;-2;MontÃ©nÃ©gro;Montenegro;Montenegro;Ø§ÙØ¬Ø¨Ù Ø§ÙØ£Ø³ÙØ¯;ÙÙÙØªÙâÙÚ¯Ø±Ù;UE Balkans
+2011-12;BOL;108;40;;;;103;28,13;-5;Bolivie;Bolivia;Bolivia;Ø¨ÙÙÙÙÙØ§;Ø¨ÙÛÙÛ;AmÃ©riques
+2011-12;KGZ;109;40;;;;159;63;50;Kirghizstan;Kyrgyzstan;KirguistÃ¡n;ÙØ±ØºÙØ²Ø³ØªØ§Ù;ÙØ±ÙÛØ²Ø³ØªØ§Ù;EEAC
+2011-12;LBR;110;405;;;;84;22,5;-26;Liberia;Liberia;Liberia;ÙÙØ¨ÙØ±ÙØ§;ÙÛØ¨Ø±ÛØ§;Afrique
+2011-12;SSD;111;4125;;;;;;;Soudan du Sud;South Sudan;SudÃ¡n del Sur;Ø¬ÙÙÙØ±ÙØ© Ø¬ÙÙØ¨ Ø§ÙØ³ÙØ¯Ø§Ù;Ø³ÙØ¯Ø§Ù Ø¬ÙÙØ¨Û;Afrique
+2011-12;ARE;112;45;;;;87;23,75;-25;Ãmirats arabes unis;United Arab Emirates;Emiratos Ãrabes Unidos;Ø§ÙØ¥ÙØ§Ø±Ø§Øª Ø§ÙØ¹Ø±Ø¨ÙØ© Ø§ÙÙØªØ­Ø¯Ø©;Ø§ÙØ§Ø±Ø§Øª ÙØªØ­Ø¯Ù Ø¹Ø±Ø¨Û;MENA
+2011-12;PAN;113;4567;;;;81;21,83;-32;Panama;Panama;PanamÃ¡;Ø¨ÙÙØ§;Ù¾Ø§ÙØ§ÙØ§;AmÃ©riques
+2011-12;QAT;114;46;;;;121;38;7;Qatar;Qatar;Catar;ÙØ·Ø±;ÙØ·Ø±;MENA
+2011-12;PER;115;5125;;;;109;30;-6;PÃ©rou;Peru;Peru;Ø¨ÙØ±Ù;Ù¾Ø±Ù;AmÃ©riques
+2011-12;UKR;116;54;;;;131;46,83;15;Ukraine;Ukraine;Ucrania;Ø£ÙÙØ±Ø§ÙÙØ§;Ø§ÙÚ©Ø±Ø§ÙÙ;EEAC
+2011-12;KHM;117;55;;;;128;43,83;11;Cambodge;Cambodia;Camboya;ÙÙØ¨ÙØ¯ÙØ§;Ú©Ø§ÙØ¨ÙØ¬;Asie-Pacifique
+2011-12;FJI;118;55;;;;149;52,75;31;Fidji;Fiji;Fiyi;ÙÙØ¬Ù;ÙÛØ¬Û;Asie-Pacifique
+2011-12;OMN;119;55;;;;124;40,25;5;Oman;Oman;OmÃ¡n;Ø¹ÙØ§Ù;Ø¹ÙØ§Ù;MENA
+2011-12;VEN;120;55;;;;134;47,33;14;Venezuela;Venezuela;Venezuela;ÙÙØ²ÙÙÙØ§;ÙÙØ²ÙØ¦ÙØ§;AmÃ©riques
+2011-12;ZWE;121;55;;;;123;39,5;2;Zimbabwe;Zimbabwe;Zimbabue;Ø²ÙÙØ¨Ø§Ø¨ÙÙ;Ø²ÛÙØ¨Ø§Ø¨ÙÙ;Afrique
+2011-12;DZA;122;56;;;;133;47,33;11;AlgÃ©rie;Algeria;Argelia;Ø§ÙØ¬Ø²Ø§Ø¦Ø±;Ø§ÙØ¬Ø²Ø§ÛØ±;MENA
+2011-12;TJK;123;56;;;;115;34,5;-8;Tadjikistan;Tajikistan;TayikistÃ¡n;Ø·Ø§Ø¬ÙÙØ³ØªØ§Ù;ØªØ§Ø¬ÛÚ©Ø³ØªØ§Ù;EEAC
+2011-12;MYS;124;56;;;;141;50,75;17;Malaisie;Malaysia;Malasia;ÙØ§ÙÙØ²ÙØ§;ÙØ§ÙØ²Û;Asie-Pacifique
+2011-12;BRN;125;562;;;;142;51;17;Brunei;Brunei Darussalam;BrunÃ©i;Ø¨Ø±ÙÙØ§Ù;Ø¨Ø±ÙÙÛ;Asie-Pacifique
+2011-12;NGA;126;564;;;;146;51,5;20;Nigeria;Nigeria;Nigeria;ÙÙØ¬ÙØ±ÙØ§;ÙÛØ¬Ø±ÛÙ;Afrique
+2011-12;ETH;127;566;;;;139;49,38;12;Ãthiopie;Ethiopia;EtiopÃ­a;Ø£Ø«ÙÙØ¨ÙØ§;Ø§ØªÛÙÙ¾Û;Afrique
+2011-12;JOR;128;568;;;;120;37;-8;Jordanie;Jordan;Jordania;Ø§ÙØ£Ø±Ø¯Ù;Ø§Ø±Ø¯Ù;MENA
+2011-12;BGD;129;57;;;;126;42,5;-3;Bangladesh;Bangladesh;BangladÃ©s;Ø¨ÙØºÙØ§Ø¯ÙØ´;Ø¨ÙÚ¯ÙØ§Ø¯Ø´;Asie-Pacifique
+2011-12;BDI;130;5775;;;;108;28,88;-22;Burundi;Burundi;Burundi;Ø¨ÙØ±ÙÙØ¯Ù;Ø¨Ø±ÙÙØ¯Û;Afrique
+2011-12;IND;131;58;;;;122;38,75;-9;Inde;India;India;Ø§ÙÙÙØ¯;ÙÙØ¯;Asie-Pacifique
+2011-12;AGO;132;5843;;;;104;28,5;-28;Angola;Angola;Angola;Ø£ÙØºÙÙØ§;Ø¢ÙÚ¯ÙÙØ§;Afrique
+2011-12;ISR2;133;59;;;;132;47;-1;IsraÃ«l (hors territoire israÃ©lien);Israel (outside Israeli territory);Israel (fuera del territorio israelÃ­);Ø¥Ø³Ø±Ø§Ø¦ÙÙ (Ø¨Ø§Ø³ØªØ«ÙØ§Ø¡ Ø§ÙØ£Ø±Ø§Ø¶Ù Ø§ÙØ¥Ø³Ø±Ø§Ø¦ÙÙÙØ©);Ø§Ø³Ø±Ø§Ø¦ÛÙ (Ø®Ø§Ø±Ø¬ Ø§Ø²Ø³Ø±Ø²ÙÛÙ Ø§Ø³Ø±Ø§Ø¦ÛÙ);MENA
+2011-12;TUN;134;6025;;;;164;72,5;30;Tunisie;Tunisia;TÃºnez;ØªÙÙØ³;ØªÙÙØ³;MENA
+2011-12;SGP;135;61;;;;137;47,5;2;Singapour;Singapore;Singapur;Ø³ÙØºØ§ÙÙØ±Ø©;Ø³ÙÚ¯Ø§Ù¾ÙØ±;Asie-Pacifique
+2011-12;HND;136;61;;;;143;51,13;7;Honduras;Honduras;Honduras;ÙÙØ¯ÙØ±Ø§Ø³;ÙÙØ¯ÙØ±Ø§Ø³;AmÃ©riques
+2011-12;THA;137;615;;;;153;56,83;16;ThaÃ¯lande;Thailand;Tailandia;ØªØ§ÙÙØ§ÙØ¯;ØªØ§ÛÙÙØ¯;Asie-Pacifique
+2011-12;MAR;138;6329;;;;135;47,4;-3;Maroc;Morocco;Marruecos;Ø§ÙÙØºØ±Ø¨;ÙØ±Ø§Ú©Ø´;MENA
+2011-12;UGA;139;64;;;;96;25,5;-43;Ouganda;Uganda;Uganda;Ø£ÙØºÙØ¯Ø§;Ø§ÙÚ¯Ø§ÙØ¯Ø§;Afrique
+2011-12;PHL;140;645;;;;156;60;16;Philippines;Philippines;Filipinas;Ø§ÙÙÙØ¨ÙÙ;ÙÙÛÙ¾ÛÙ;Asie-Pacifique
+2011-12;GMB;141;655;;;;125;40,5;-16;Gambie;Gambia;Gambia;ØºØ§ÙØ¨ÙØ§;Ú¯Ø§ÙØ¨ÛØ§;Afrique
+2011-12;RUS;142;66;;;;140;49,9;-2;Russie;Russian Federation;Rusia;Ø±ÙØ³ÙØ§;Ø±ÙØ³ÛÙ;EEAC
+2011-12;COL;143;665;;;;145;51,5;2;Colombie;Colombia;Colombia;ÙÙÙÙÙØ¨ÙØ§;Ú©ÙÙØ¨ÛØ§;AmÃ©riques
+2011-12;SWZ;144;67;;;;155;57,5;11;Eswatini;Eswatini;Esuatini;Ø¥Ø³ÙØ§ØªÙÙÙ;Ø§Ø³ÙØ§ØªÛÙÛ ;Afrique
+2011-12;COD;145;6767;;;;148;51,83;3;RD Congo;The Democratic Republic Of The Congo;RD Congo;Ø¬ÙÙÙØ±ÙØ© Ø§ÙÙÙÙØºÙ Ø§ÙØ¯ÙÙÙØ±Ø§Ø·ÙØ©;Ø¬ÙÙÙØ±Û Ø¯ÙÚ©Ø±Ø§ØªÛÚ© Ú©ÙÚ¯Ù;Afrique
+2011-12;IDN;146;68;;;;117;35,83;-29;IndonÃ©sie;Indonesia;Indonesia;Ø£ÙØ¯ÙÙÙØ³ÙØ§;Ø§ÙØ¯ÙÙØ²Û;Asie-Pacifique
+2011-12;MWI;147;68;;;;79;21;-68;Malawi;Malawi;Malaui;ÙØ§ÙØ§ÙÙ;ÙØ§ÙØ§ÙÛ;Afrique
+2011-12;TUR;148;70;;;;138;49,25;-10;Turquie;Turkey;TurquÃ­a;ØªØ±ÙÙØ§;ØªØ±Ú©ÛÙ;EEAC
+2011-12;MEX;149;7267;;;;136;47,5;-13;Mexique;Mexico;MÃ©xico;Ø§ÙÙÙØ³ÙÙ;ÙÚ©Ø²ÛÚ©;AmÃ©riques
+2011-12;AFG;150;74;;;;147;51,67;-3;Afghanistan;Afghanistan;AfganistÃ¡n;Ø£ÙØºØ§ÙØ³ØªØ§Ù;Ø§ÙØºØ§ÙØ³ØªØ§Ù;Asie-Pacifique
+2011-12;PAK;151;75;;;;151;56,17;0;Pakistan;Pakistan;PakistÃ¡n;Ø¨Ø§ÙØ³ØªØ§Ù;Ù¾Ø§Ú©Ø³ØªØ§Ù;Asie-Pacifique
+2011-12;IRQ;152;7536;;;;130;45,58;-22;Irak;Iraq;Irak;Ø§ÙØ¹Ø±Ø§Ù;Ø¹Ø±Ø§Ù;MENA
+2011-12;PSE;153;76;;;;150;56,13;-3;Palestine;Palestine;Palestina;ÙÙØ³Ø·ÙÙ;ÙÙØ³Ø·ÛÙ;MENA
+2011-12;KAZ;154;775;;;;162;68,5;8;Kazakhstan;Kazakhstan;KazajistÃ¡n;ÙØ§Ø²Ø§Ø®Ø³ØªØ§Ù;ÙØ²Ø§ÙØ³ØªØ§Ù;EEAC
+2011-12;LBY;155;775;;;;160;63,5;5;Libye;Libya;Libia;ÙÙØ¨ÙØ§;ÙÛØ¨Û;MENA
+2011-12;RWA;156;81;;;;169;81;13;Rwanda;Rwanda;Ruanda;Ø±ÙØ§ÙØ¯Ø§;Ø±ÙÙØ¯Ø§;Afrique
+2011-12;UZB;157;83;;;;163;71,5;6;OuzbÃ©kistan;Uzbekistan;UzbekistÃ¡n;Ø£ÙØ²Ø¨ÙØ³ØªØ§Ù;Ø§ÙØ²Ø¨Ú©Ø³ØªØ§Ù;EEAC
+2011-12;SAU;158;8325;;;;157;61,5;-1;Arabie saoudite;Saudi Arabia;Arabia Saudita;Ø§ÙÙÙÙÙØ© Ø§ÙØ¹Ø±Ø¨ÙØ© Ø§ÙØ³Ø¹ÙØ¯ÙØ©;Ø¹Ø±Ø¨Ø³ØªØ§Ù Ø³Ø¹ÙØ¯Û;MENA
+2011-12;CIV;159;835;;;;118;36;-41;CÃ´te d'Ivoire;Ivory Coast;Costa de Marfil;Ø³Ø§Ø­Ù Ø§ÙØ¹Ø§Ø¬;Ø³Ø§Ø­Ù Ø¹Ø§Ø¬;Afrique
+2011-12;DJI;160;835;;;;110;30,5;-50;Djibouti;Djibouti;Yibuti;Ø¬ÙØ¨ÙØªÙ;Ø¬ÛØ¨ÙØªÛ;Afrique
+2011-12;GNQ;161;86;;;;167;79;6;GuinÃ©e Ã©quatoriale;Equatorial Guinea;Guinea Ecuatorial;ØºÙÙÙØ§ Ø§ÙØ§Ø³ØªÙØ§Ø¦ÙØ©;Ú¯ÛÙÙ Ø§Ú©ÙØ§Ø¯ÙØ±;Afrique
+2011-12;AZE;162;8725;;;;152;56,38;-10;AzerbaÃ¯djan;Azerbaijan;AzerbaiyÃ¡n;Ø£Ø°Ø±Ø¨ÙØ¬Ø§Ù;Ø¢Ø°Ø±Ø¨Ø§ÛØ¬Ø§Ù;EEAC
+2011-12;LKA;163;875;;;;158;62,5;-5;Sri Lanka;Sri Lanka;Sri Lanka;Ø³Ø±Ù ÙØ§ÙÙØ§;Ø³Ø±ÛÙØ§ÙÚ©Ø§;Asie-Pacifique
+2011-12;SOM;164;8833;;;;161;66;-3;Somalie;Somalia;Somalia;Ø§ÙØµÙÙØ§Ù;Ø³ÙÙØ§ÙÛ;Afrique
+2011-12;LAO;165;89;;;;168;80,5;3;Laos;Lao People's Democratic Republic;Laos;ÙØ§ÙØ³;ÙØ§Ø¦ÙØ³;Asie-Pacifique
+2011-12;EGY;166;975;;;;127;43,33;-39;Ãgypte;Egypt;Egipto;ÙØµØ±;ÙØµØ±;MENA
+2011-12;CUB;167;9883;;;;166;78;-1;Cuba;Cuba;Cuba;ÙÙØ¨Ø§;Ú©ÙØ¨Ø§;AmÃ©riques
+2011-12;BLR;168;99;;;;154;57;-14;BÃ©larus;Belarus;BelarÃºs;Ø±ÙØ³ÙØ§ Ø§ÙØ¨ÙØ¶Ø§Ø¡;Ø±ÙØ³ÛÙ Ø³ÙÛØ¯;EEAC
+2011-12;MMR;169;100;;;;174;94,5;5;Birmanie;Myanmar;Birmania;Ø¨ÙØ±ÙØ§;Ø¨Ø±ÙÙ;Asie-Pacifique
+2011-12;SDN;170;10075;;;;172;85,33;2;Soudan;Sudan;SudÃ¡n;Ø§ÙØ³ÙØ¯Ø§Ù;Ø³ÙØ¯Ø§Ù;Afrique
+2011-12;YEM;171;101;;;;170;82,13;-1;YÃ©men;Yemen;Yemen;Ø§ÙÙÙÙ;ÛÙÙ;MENA
+2011-12;VNM;172;114;;;;165;75,75;-7;ViÃªt Nam;Vietnam;Vietnam;ÙÙØªÙØ§Ù;ÙÛØªÙØ§Ù;Asie-Pacifique
+2011-12;BHR;173;125;;;;144;51,38;-29;BahreÃ¯n;Bahrain;BarÃ©in;Ø§ÙØ¨Ø­Ø±ÙÙ;Ø¨Ø­Ø±ÛÙ;MENA
+2011-12;CHN;174;136;;;;171;84,67;-3;Chine;China;China;Ø§ÙØµÙÙ;ÚÛÙ;Asie-Pacifique
+2011-12;IRN;175;1366;;;;175;94,56;0;Iran;Islamic Republic of Iran;IrÃ¡n;Ø¥ÙØ±Ø§Ù;Ø§ÛØ±Ø§Ù;MENA
+2011-12;SYR;176;138;;;;173;91,5;-3;Syrie;Syrian Arab Republic;Siria;Ø³ÙØ±ÙØ§;Ø³ÙØ±ÛÙ;MENA
+2011-12;TKM;177;14067;;;;176;95,33;-1;TurkmÃ©nistan;Turkmenistan;TurkmenistÃ¡n;ØªØ±ÙÙØ§ÙØ³ØªØ§Ù;ØªØ±Ú©ÙÙØ³ØªØ§Ù;EEAC
+2011-12;PRK;178;141;;;;177;104,75;-1;CorÃ©e du Nord;Democratic People's Republic of Korea;Corea del Norte;ÙÙØ±ÙØ§ Ø§ÙØ´ÙØ§ÙÙØ©;Ú©Ø±Ù Ø´ÙØ§ÙÛ;Asie-Pacifique
+2011-12;ERI;179;142;;;;178;105;-1;ÃrythrÃ©e;Eritrea;Eritrea;Ø¥Ø±ÙØªØ±ÙØ§;Ø§Ø±ÛØªØ±Ù;Afrique
