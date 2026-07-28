@@ -73,3 +73,90 @@ Always use explicit print commands to avoid truncation:
 - **Personas:** Default to Data Scientist (unless explicitly requested: Bayesian or Coder)
 - **Memory files:** This file serves as the project-level memory
 - **Do not reference:** Contents of `_archive/` folder unless explicitly asked
+
+---
+
+## pressfreedom.data Project
+
+### Overview
+
+R package for downloading, cleaning, and standardizing press freedom data from Reporters Sans Frontières (RSF, 2002–2026).
+
+### Data Structure
+
+Dataset spans 24 years (2002–2026, with 2011 intentionally missing). Three distinct periods due to RSF methodology changes:
+
+| Period | Years | Characteristics |
+|--------|-------|-----------------|
+| **1** | 2002–2012 | 16 columns; non-comparable scores; multiple language variants |
+| **2** | 2013–2021 | 16 columns; comparable scores (0–100); same structure as Period 1 |
+| **3** | 2022–2026 | 22–25 columns; dimensions added (Political, Economic, Legal, Social, Safety); year-specific score naming |
+
+### Workflow: Four Phases
+
+| Phase | Task | Input | Output | Status |
+|-------|------|-------|--------|--------|
+| **A** | Download | URLs | `data/raw/` (24 CSV files) | ✅ Complete |
+| **B** | Normalize columns | `data/raw/` | `data/cleaned/period_X/` (25 RDS) | ✅ Complete |
+| **C** | Combine periods | `data/cleaned/period_X/` | `data/processed/rwb_combined.rds` | ✅ Complete |
+| **D** | Standardize countries | `rwb_combined.rds` | `rwb_standardized.rds` | Ready |
+
+### Phase B: Normalization
+
+**Output:** 25 RDS files normalized to 20-column unified structure
+```
+year_n, iso, country_en, score, rank,
+political_context, rank_pol, economic_context, rank_eco,
+legal_context, rank_leg, social_context, rank_soc,
+safety, rank_saf, zone, rank_n_1, rank_evolution,
+score_n_1, score_evolution
+```
+
+**Key transformations:**
+- Column name normalization
+- Factor → character conversion (iso, country_en, zone)
+- Decimal separator conversion (comma → period)
+- Special case handling:
+  - 2012: "2011-12" → year 2012
+  - 2025–2026: "Score YYYY" → "score"
+  - 2024+: Drop "Situation" column
+  - 2023–2026: Apply decimal conversion to score_evolution
+
+**Functions:** `clean_period_1/2/3()`, `clean_rwb_single()`, `clean_all_rwb_years()`
+
+### Phase C: Combination
+
+**Output:** `data/processed/rwb_combined.rds`
+- 4,200 rows (all periods merged)
+- 20 columns (unified)
+- Sorted by year_n, country_en
+
+**Function:** `combine_cleaned_periods()` in `R/combine.R`
+
+### Phase D: Standardization (NEXT)
+
+**Input:** `rwb_combined.rds`  
+**Output:** `rwb_standardized.rds`
+
+**Planned scope:**
+1. Normalize country names (remove accents)
+2. Handle special countries (Taiwan, Kosovo, Palestine, etc.)
+3. Assign ISO 3-letter codes via `countrycode`
+4. Validate output
+
+**Function:** `standardize_rwb_countries()` (to create)
+
+### Key Design Decisions
+
+- **Early combination:** Combine in Phase C (not after standardization) for single standardization pass
+- **Period organization:** Separate period_1/2/3 directories in Phase B output for auditability
+- **20-column structure:** Unified across all periods (NA for unavailable data)
+- **Character not factor:** User preference; avoids level ordering issues
+- **Keep raw files:** Auditability; always preserve original data
+
+### Documentation
+
+- `2026-07-28-phase-b-normalization.md` — Phase B details
+- `2026-07-28-phase-c-combination.md` — Phase C completion
+- `2026-07-28-phase-d-standardization.md` — Phase D plan
+- `2026-07-28-workflow.md` — Complete workflow overview

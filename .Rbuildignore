@@ -5,3 +5,5 @@
 ^dev$
 ^_archive$
 ^AGENTS\.md$
+^\.posit$
+^\.posit/assistant$

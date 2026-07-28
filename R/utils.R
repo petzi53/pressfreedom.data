@@ -134,3 +134,150 @@ get_years_to_download <- function(input_dir = "inst/extdata", all_years = 2002:2
   # Return years that don't exist yet
   setdiff(all_years, existing_years)
 }
+
+
+#' Standardize Decimal Separators
+#'
+#' Converts comma decimal separators to periods for Period 1–2 data
+#' (ISO-8859-1 encoded data used commas as decimal separators).
+#'
+#' @param df Data frame to process
+#' @param cols Character vector of column names to standardize
+#'
+#' @return Data frame with decimal separators converted from comma to period
+#'
+#' @details
+#' This function targets numeric columns that may contain comma separators.
+#' It is primarily for Period 1–2 data where European number formatting was used.
+#'
+#' @keywords internal
+#'
+#' @export
+standardize_decimal_separators <- function(df, cols) {
+  df |>
+    dplyr::mutate(
+      dplyr::across(
+        dplyr::all_of(cols),
+        ~stringr::str_replace_all(as.character(.), ",", ".")
+      )
+    )
+}
+
+
+#' Convert Factor Columns to Character
+#'
+#' Converts specified factor columns to character vectors.
+#' Used to standardize iso, country_en, and zone columns to character type.
+#'
+#' @param df Data frame to process
+#' @param cols Character vector of column names to convert
+#'
+#' @return Data frame with specified columns converted to character
+#'
+#' @keywords internal
+#'
+#' @export
+convert_factors_to_character <- function(df, cols) {
+  df |>
+    dplyr::mutate(
+      dplyr::across(
+        dplyr::all_of(cols),
+        ~as.character(.)
+      )
+    )
+}
+
+
+#' Detect Score Column Name for Period 3
+#'
+#' Period 3 (2022-2026) uses varying score column names.
+#' Some years use "Score", others use "Score YYYY".
+#' This function detects which pattern is present.
+#'
+#' @param df Data frame to inspect
+#' @param year Numeric. Year of the data
+#'
+#' @return Character. Name of the score column (e.g., "Score" or "Score 2026")
+#'
+#' @details
+#' Detection logic:
+#' - Check for "Score YYYY" pattern first (e.g., "Score 2026")
+#' - Fall back to "Score" if year-specific name not found
+#' - Return NA if neither found
+#'
+#' @keywords internal
+#'
+#' @export
+detect_score_column <- function(df, year) {
+  # Try year-specific name first (e.g., "Score 2026")
+  year_col <- paste("Score", year)
+  if (year_col %in% names(df)) {
+    return(year_col)
+  }
+
+  # Fall back to generic "Score"
+  if ("Score" %in% names(df)) {
+    return("Score")
+  }
+
+  # Not found
+  NA_character_
+}
+
+
+#' Normalize Column Names to Target Structure
+#'
+#' Applies period-specific column mappings to raw data.
+#' Renames columns and adds NA columns for missing data.
+#'
+#' @param df Data frame to normalize
+#' @param period Character. One of "1", "2", or "3"
+#' @param year Numeric. Year of the data (used for Period 3 score detection)
+#' @param mapping List. Column mapping dictionary
+#'
+#' @return Data frame with normalized column names in target order
+#'
+#' @details
+#' This function:
+#' 1. Detects the score column name for Period 3
+#' 2. Renames raw columns to target names
+#' 3. Adds NA columns for missing data
+#' 4. Reorders to match target column order
+#'
+#' @keywords internal
+#'
+#' @export
+normalize_column_names <- function(df, period, year, mapping) {
+  # Handle Period 3 score column detection
+  if (period == "3") {
+    score_col <- detect_score_column(df, year)
+    if (!is.na(score_col)) {
+      mapping$score <- score_col
+    }
+  }
+
+  # Separate NA mappings from real mappings
+  all_mapping_values <- unlist(mapping)
+  real_cols <- names(mapping)[!is.na(all_mapping_values)]
+  na_cols <- names(mapping)[is.na(all_mapping_values)]
+
+  # Rename existing columns one by one to avoid issues with all_of
+  # Only rename columns that actually exist in the dataframe
+  for (target_col in real_cols) {
+    raw_col <- mapping[[target_col]]
+    if (!is.na(raw_col) && raw_col %in% names(df)) {
+      df <- df |> dplyr::rename(!!target_col := !!rlang::sym(raw_col))
+    }
+  }
+
+  # Add NA columns for all missing columns
+  # This includes both explicitly NA-mapped columns and columns not found in raw data
+  for (target_col in target_columns) {
+    if (!target_col %in% names(df)) {
+      df[[target_col]] <- NA_real_
+    }
+  }
+
+  # Reorder to target column order
+  df |> dplyr::select(dplyr::all_of(target_columns))
+}
