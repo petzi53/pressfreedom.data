@@ -1,0 +1,78 @@
+#' Standardized Reporters Sans Frontières Press Freedom Index (2002–2026)
+#'
+#' A comprehensive dataset of press freedom indicators from Reporters Sans Frontières (RSF),
+#' standardized and cleaned by the pressfreedom.data package pipeline.
+#'
+#' @format A data frame with 4,192 rows and 20 columns:
+#' \describe{
+#'   \item{year_n}{Numeric year (2002–2026, excluding 2011)}
+#'   \item{iso}{ISO 3166-1 alpha-3 country code}
+#'   \item{country_en}{Standardized country name in English}
+#'   \item{score}{Press freedom score (0–100; lower = more free). Comparable only within periods.}
+#'   \item{rank}{Rank within the year (1 = most free)}
+#'   \item{political_context}{Sub-index: Political context (if available)}
+#'   \item{rank_pol}{Rank within political context (if available)}
+#'   \item{economic_context}{Sub-index: Economic context (if available)}
+#'   \item{rank_eco}{Rank within economic context (if available)}
+#'   \item{legal_context}{Sub-index: Legal context (if available)}
+#'   \item{rank_leg}{Rank within legal context (if available)}
+#'   \item{social_context}{Sub-index: Social context (if available)}
+#'   \item{rank_soc}{Rank within social context (if available)}
+#'   \item{safety}{Sub-index: Safety (if available)}
+#'   \item{rank_saf}{Rank within safety (if available)}
+#'   \item{zone}{Geographic zone assigned by RSF}
+#'   \item{rank_n_1}{Previous year's rank (year_n - 1)}
+#'   \item{rank_evolution}{Change in rank from previous year}
+#'   \item{score_n_1}{Previous year's score (year_n - 1)}
+#'   \item{score_evolution}{Change in score from previous year}
+#' }
+#'
+#' @details
+#' ## Data Cleaning Pipeline
+#'
+#' This dataset is the output of a comprehensive 4-phase data pipeline implemented
+#' in the pressfreedom.data package:
+#'
+#' - **Phase A (Download):** Raw CSV files from RSF website
+#' - **Phase B (Normalize):** Column names and data types standardized across periods
+#' - **Phase C (Combine):** All periods merged into unified structure
+#' - **Phase D (Standardize):** Country names consolidated, ISO codes assigned, duplicates resolved
+#'
+#' ## Important Notes
+#'
+#' **Audit Trail:** The full audit trail (including `country_name_original` and
+#' `consolidation_flag` columns) is preserved in the source RDS file
+#' (`data/processed/rwb_standardized.rds`) within the pressfreedom.data package.
+#' This exported dataset contains only the 20 core columns for analysis.
+#'
+#' **Score Comparability:** Scores are only comparable within their respective periods:
+#' - **Period 1 (2002–2012):** Non-comparable scores; use ranks for trends
+#' - **Period 2 (2013–2021):** Comparable scores (0–100 scale)
+#' - **Period 3 (2022–2026):** New methodology; different dimensions tracked
+#'
+#' **Missing Data:** Sub-indices (political, economic, legal, social, safety contexts)
+#' are only available in Period 3 (2022–2026). Periods 1–2 have NA values for these columns.
+#'
+#' **Cyprus:** Tracked as two separate entities:
+#' - "Cyprus" (ISO: CYP) — Republic of Cyprus
+#' - "Northern Cyprus" (ISO: CXX) — Turkish Republic of Northern Cyprus
+#'
+#' @source Reporters Sans Frontières, https://rsf.org
+#'
+#' @examples
+#' \dontrun{
+#' # Load the dataset
+#' data(rwb_standardized)
+#'
+#' # Basic summary
+#' head(rwb_standardized)
+#'
+#' # Countries included
+#' length(unique(rwb_standardized$country_en))
+#'
+#' # Years covered
+#' range(rwb_standardized$year_n)
+#' }
+#'
+#' @keywords datasets
+"rwb_standardized"

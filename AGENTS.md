@@ -133,18 +133,30 @@ score_n_1, score_evolution
 
 **Function:** `combine_cleaned_periods()` in `R/combine.R`
 
-### Phase D: Standardization (NEXT)
+### Phase D: Standardization ✅ COMPLETE
 
-**Input:** `rwb_combined.rds`  
-**Output:** `rwb_standardized.rds`
+**Input:** `rwb_combined.rds` (4,200 rows, 207 countries)  
+**Output:** `rwb_standardized.rds` (4,192 rows, 191 countries)
 
-**Planned scope:**
-1. Normalize country names (remove accents)
-2. Handle special countries (Taiwan, Kosovo, Palestine, etc.)
-3. Assign ISO 3-letter codes via `countrycode`
-4. Validate output
+**Completed scope:**
+1. ✅ Consolidated 14 country name pairs (official changes + RSF methodology)
+2. ✅ Handled territorial variants (Israel, US, Cyprus)
+3. ✅ Assigned ISO 3-letter codes (100% coverage)
+4. ✅ Applied ASCII normalization (removed accents)
+5. ✅ Validated output (all checks pass)
 
-**Function:** `standardize_rwb_countries()` (to create)
+**Key Results:**
+- Consolidated countries: Czech Republic→Czechia, Turkey→Turkiye, Ivory Coast→Cote d'Ivoire, etc.
+- Territorial variants: Deleted 8 rows (Israel occupied, US in Iraq/outside); consolidated Israel/US variants
+- Cyprus distinction: Kept Cyprus (CYP) and Northern Cyprus (CXX) separate (different entities)
+- Consolidation flag: 246 rows marked as consolidated; full audit trail preserved
+- ISO codes: All 4,192 rows have valid ISO codes
+
+**Functions Created:**
+- `R/standardize.R`: `consolidate_and_standardize_countries()`, `standardize_rwb_countries()`, `validate_standardization()`
+- `data-raw/consolidation_mapping.csv`: Maintainable consolidation pairs (updates only when RSF methodology changes)
+
+**Report:** `2026-07-29-phase-d-standardization-report.md`
 
 ### Key Design Decisions
 
