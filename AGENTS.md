@@ -329,9 +329,46 @@ result <- update_rwb_data(years = c(2027))
 - Portable file names ✓
 - All roxygen documentation valid ✓
 
+### Non-ASCII Prevention Infrastructure ✅ COMPLETE & COMMITTED
+
+**Status:** Permanent solution preventing em-dashes in future (2026-07-29)  
+**Commit:** 19ca9df — Infrastructure: Add non-ASCII prevention tools
+
+**Problem:** Em-dashes (–, —) in roxygen2 comments repeatedly triggered R CMD check warnings (commits 5d07014, a56964b). Editors default to smart typography, causing portability issues.
+
+**Solution: Three-Layer Prevention**
+
+1. **Pre-commit Git Hook** (`.git/hooks/pre-commit`)
+   - ✓ Runs automatically before every commit
+   - ✓ Blocks commits containing em-dashes or smart quotes
+   - ✓ Provides helpful error message with solutions
+   - ✓ Can be bypassed with `git commit --no-verify` (not recommended)
+   - ✓ Tested and verified working
+
+2. **EditorConfig** (`.editorconfig`)
+   - ✓ Configures all editors (RStudio, VS Code, Positron, Sublime)
+   - ✓ Sets UTF-8 encoding, LF line endings, proper indentation
+   - ✓ Disables smart typography in supported editors
+   - ✓ Provides IDE-level enforcement
+
+3. **Roxygen2 Configuration** (`_roxygen.yml`)
+   - ✓ Ensures proper encoding handling during documentation build
+   - ✓ Can be extended with additional safety checks if needed
+
+**Coding Standard (from this point forward):**
+- ✅ Use: `2002-2026` (ASCII hyphen)
+- ❌ Avoid: `2002–2026` (en-dash)
+- ❌ Avoid: `2002—2026` (em-dash)
+- ✅ Use: `Phase A - Download` (ASCII dash)
+- ❌ Avoid: `Phase A – Download` (en-dash)
+
+**Documentation:**
+- `.posit/assistant/docs/2026-07-29-non-ascii-prevention-policy.md` — Complete policy, standards, testing, and maintenance guide
+
 ### Documentation
 
 - `README.md` — User-facing package documentation with quick start, API reference, and annual update workflow
+- `.posit/assistant/docs/2026-07-29-non-ascii-prevention-policy.md` — Non-ASCII prevention policy and infrastructure
 - `2026-07-28-phase-b-normalization.md` — Phase B details
 - `2026-07-28-phase-c-combination.md` — Phase C completion
 - `2026-07-28-phase-d-standardization.md` — Phase D plan
