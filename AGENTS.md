@@ -154,6 +154,26 @@ score_n_1, score_evolution
 
 ---
 
+## Package Qualification Patterns ✅ REFINED
+
+**Key Learning (2026-07-29):** Maintain package qualification while using dynamic evaluation contexts (cli, glue) by pre-computing values.
+
+**Pattern:**
+```r
+# ✅ Compute with qualified calls
+n_values <- dplyr::n_distinct(df$col)
+
+# ✅ Then interpolate the variable
+cli::cli_inform("Count: {n_values}")
+```
+
+This avoids both `library()` calls and environment scoping issues. See `.posit/assistant/docs/2026-07-29-package-qualification-with-cli.md` for full guidance.
+
+**Commits:**
+- 5d07014 — Applied pattern to standardize.R, removed library() from update.R
+
+---
+
 ## Update Automation ✅ IMPLEMENTED & TESTED
 
 **Status:** Specialized yearly update function complete, tested, and committed  
