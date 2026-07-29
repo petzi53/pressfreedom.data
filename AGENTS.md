@@ -305,8 +305,33 @@ result <- update_rwb_data(years = c(2027))
 - **Character not factor:** User preference; avoids level ordering issues
 - **Keep raw files:** Auditability; always preserve original data
 
+### R CMD Check Fixes ✅ COMPLETE & COMMITTED
+
+**Status:** All 5 actionable issues fixed (2026-07-29)  
+**Commit:** a56964b — Chore: Fix R CMD check issues
+
+**Issues Fixed:**
+1. ✅ Removed unused `verbose` parameter from `download_rwb_data()` call in `update_rwb_data()`
+2. ✅ Escaped non-ASCII characters (Unicode escapes \uXXXX) in `R/standardize.R` (Côte, Türkiye, Curaçao, etc.)
+3. ✅ Replaced em-dashes with ASCII dashes in `R/update.R` documentation
+4. ✅ Added missing imports to DESCRIPTION: fs, glue, purrr, tibble
+5. ✅ Created comprehensive README.md with usage examples and API documentation
+
+**Remaining Warnings (Harmless):**
+- Icon file in git history (will disappear on next push; already in .gitignore)
+- data/cleaned/ and data/processed/ in 'data' directory (intentional design for auditability)
+- "No visible binding" warnings for dplyr variables (expected with NSE pipelines)
+
+**Test Results:**
+- Package loads cleanly ✓
+- All dependencies declared ✓
+- Non-ASCII code characters removed ✓
+- Portable file names ✓
+- All roxygen documentation valid ✓
+
 ### Documentation
 
+- `README.md` — User-facing package documentation with quick start, API reference, and annual update workflow
 - `2026-07-28-phase-b-normalization.md` — Phase B details
 - `2026-07-28-phase-c-combination.md` — Phase C completion
 - `2026-07-28-phase-d-standardization.md` — Phase D plan
