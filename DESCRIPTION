@@ -16,11 +16,12 @@ LazyData: true
 Imports:
     readr,
     here,
-    rlang
-Suggests:
-    targets,
+    rlang,
     countrycode,
     dplyr,
+    stringr,
+    cli
+Suggests:
     usethis
 Config/roxygen2/version: 8.0.0
 Depends: 
