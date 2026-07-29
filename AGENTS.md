@@ -24,6 +24,23 @@
 - Use qualified calls (`pkg::fn()`) in code instead
 - When using tidymodels: comment extensively as it's a newer approach for this author
 
+### Dynamic Evaluation Contexts (cli, glue, etc.)
+
+**Problem:** Functions used in cli/glue string interpolation (e.g., `{dplyr::n_distinct(...)}`) may fail if called from non-qualified contexts, due to R's environment scoping rules.
+
+**Solution:** Pre-compute values with qualified calls, then interpolate the computed variables:
+
+```r
+# ❌ AVOID: Function call in interpolation string
+cli::cli_inform("Count: {dplyr::n_distinct(df$col)}")
+
+# ✅ DO: Pre-compute, then interpolate
+n_distinct_col <- dplyr::n_distinct(df$col)
+cli::cli_inform("Count: {n_distinct_col}")
+```
+
+This maintains package qualification throughout the code while avoiding environment scoping issues.
+
 ### ggplot2
 
 - Default visualization tool for all plots

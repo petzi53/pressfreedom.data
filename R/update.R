@@ -150,10 +150,6 @@ update_rwb_data <- function(
       }
     }
 
-    # Load dplyr into environment (needed for n_distinct in standardize function)
-    # This makes n_distinct available for cli interpolation strings
-    library("dplyr", warn.conflicts = FALSE)
-
     # =====================================================================
     # PHASE 0: DETECTION
     # =====================================================================

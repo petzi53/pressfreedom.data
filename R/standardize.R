@@ -12,7 +12,7 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
   # Load default consolidation mapping if not provided
   if (is.null(consolidation_mapping)) {
     consolidation_mapping <- readr::read_csv(
-      system.file("extdata", "consolidation_mapping.csv", 
+      system.file("extdata", "consolidation_mapping.csv",
                   package = "pressfreedom.data"),
       show_col_types = FALSE
     )
@@ -150,7 +150,7 @@ standardize_rwb_countries <- function(
   # Load consolidation mapping (use default if not provided)
   if (is.null(mapping_file)) {
     mapping <- readr::read_csv(
-      system.file("extdata", "consolidation_mapping.csv", 
+      system.file("extdata", "consolidation_mapping.csv",
                   package = "pressfreedom.data"),
       show_col_types = FALSE
     )
@@ -167,10 +167,17 @@ standardize_rwb_countries <- function(
   # Save output
   saveRDS(standardized, output_file)
 
-  cli::cli_alert_success("Standardization complete: {nrow(standardized)} rows")
-  cli::cli_alert_info("Unique countries (before): {n_distinct(combined$country_en)}")
-  cli::cli_alert_info("Unique countries (after): {n_distinct(standardized$country_en)}")
-  cli::cli_alert_info("Rows with consolidation_flag=TRUE: {sum(standardized$consolidation_flag, na.rm = TRUE)}")
+  # Pre-compute values for cli messaging (avoids environment scoping issues
+  # while maintaining package-qualified function calls)
+  n_rows <- nrow(standardized)
+  n_countries_before <- dplyr::n_distinct(combined$country_en)
+  n_countries_after <- dplyr::n_distinct(standardized$country_en)
+  n_consolidations <- sum(standardized$consolidation_flag, na.rm = TRUE)
+
+  cli::cli_alert_success("Standardization complete: {n_rows} rows")
+  cli::cli_alert_info("Unique countries (before): {n_countries_before}")
+  cli::cli_alert_info("Unique countries (after): {n_countries_after}")
+  cli::cli_alert_info("Rows with consolidation_flag=TRUE: {n_consolidations}")
   cli::cli_alert_info("Output file: {output_file}")
 
   invisible(output_file)
