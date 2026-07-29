@@ -74,5 +74,8 @@
 #' range(rwb_standardized$year_n)
 #' }
 #'
+#' @seealso
+#' - \code{\link{update_rwb_data}} for updating the dataset annually
+#'
 #' @keywords datasets
 "rwb_standardized"

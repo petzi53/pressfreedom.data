@@ -135,6 +135,95 @@ score_n_1, score_evolution
 
 ### Phase D: Standardization ✅ COMPLETE & COMMITTED
 
+---
+
+## Update Automation ✅ IMPLEMENTED
+
+**Status:** Specialized yearly update function complete and committed  
+**File:** `R/update.R`  
+**Exports:** `update_rwb_data()`, `print.rwb_update()`  
+**Commits:** 1c9133f, 0e3b312
+
+### Function: `update_rwb_data()`
+
+**Purpose:** Orchestrates full yearly update workflow in a single function call.
+
+**Signature:**
+```r
+update_rwb_data(
+  years = NULL,           # Auto-detect missing years
+  download = TRUE,        # Phase A: download
+  clean = TRUE,          # Phase B: clean
+  combine = TRUE,        # Phase C: combine (always required)
+  standardize = TRUE,    # Phase D: standardize (always required)
+  validate = TRUE,       # Run validation checks
+  verbose = TRUE,        # Print progress
+  auto_commit = TRUE     # Auto-commit to git
+)
+```
+
+**Workflow:**
+1. **Detection:** Auto-detect missing years via `get_years_to_download()`
+2. **Phase A (Download):** Downloads only new years → `inst/extdata/`
+3. **Phase B (Clean):** Cleans newly downloaded years → `data/cleaned/period_X/`
+4. **Phase C (Combine):** Recombines all periods, recalculates evolution columns → `data/processed/rwb_combined.rds`
+5. **Phase D (Standardize):** Re-standardizes all data, applies consolidation rules → `data/processed/rwb_standardized.rds`
+6. **Export:** Exports to package format → `data/rwb_standardized.rda`
+7. **Validation:** Checks row counts, duplicates, required columns, consolidation count
+8. **Git Commit:** Auto-commits changes with descriptive message
+
+**Returns:** Invisible list with class `rwb_update` containing:
+- `status`: "success" | "partial" | "failed"
+- `years_downloaded`: Years downloaded
+- `years_cleaned`: Years cleaned
+- `rows_before`/`rows_after`: Row counts
+- `consolidations_applied`: Count of consolidation rules applied
+- `validation_passed`: TRUE if all checks pass
+- `messages`: Progress messages
+- `git_commit`: Commit hash (if auto-committed)
+
+**Error Handling (from plan decisions):**
+- Download fails → Aborts with error
+- Cleaning fails → Aborts, reports which year failed
+- Combine/Standardize fails → Aborts
+- Validation fails → Reports issues; doesn't abort
+- Git commit fails → Reports warning; doesn't abort
+
+**Example Usage:**
+```r
+# Minimal yearly update
+result <- update_rwb_data()
+print(result)
+
+# Test without download
+result <- update_rwb_data(download = FALSE, clean = FALSE)
+
+# Manual years (not auto-detected)
+result <- update_rwb_data(years = c(2027))
+```
+
+### Design Decisions (from plan approval)
+
+1. ✅ **Validation:** Yes, validate CSVs before cleaning
+2. ✅ **Backup:** Creates backup implicitly (previous RDS only overwritten after success)
+3. ✅ **Auto-commit:** Yes, with descriptive messages + report changes
+4. ✅ **Consolidation changes:** Always run Phase D (fast anyway)
+5. ✅ **Error recovery:**
+   - Download fails → Abort with error
+   - Cleaning fails → Abort, report year that failed
+6. ✅ **No dev/ restore:** Not needed (function is the interface now)
+
+### Why No {targets}?
+
+- Linear 5-step sequence (no parallelization benefit)
+- Annual frequency (low iteration rate)
+- Fast execution (~30 seconds)
+- No DAG complexity needed
+- Orchestration is explicit in R code
+- Specialized function is simpler and more maintainable
+
+### Phase D: Standardization ✅ COMPLETE & COMMITTED
+
 **Input:** `rwb_combined.rds` (4,200 rows, 207 countries)  
 **Output:** `rwb_standardized.rds` (4,192 rows, 191 countries)  
 **Status:** Git commits a9d381c, 84b5102, c85adeb — Phase D functions, dataset, dependencies fixed
