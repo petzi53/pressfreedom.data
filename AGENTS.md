@@ -99,7 +99,7 @@ Dataset spans 24 years (2002–2026, with 2011 intentionally missing). Three dis
 | **A** | Download | URLs | `data/raw/` (24 CSV files) | ✅ Complete |
 | **B** | Normalize columns | `data/raw/` | `data/cleaned/period_X/` (25 RDS) | ✅ Complete |
 | **C** | Combine periods | `data/cleaned/period_X/` | `data/processed/rwb_combined.rds` | ✅ Complete |
-| **D** | Standardize countries | `rwb_combined.rds` | `rwb_standardized.rds` | Ready |
+| **D** | Standardize countries | `rwb_combined.rds` | `rwb_standardized.rds` | ✅ Complete |
 
 ### Phase B: Normalization
 
@@ -137,7 +137,7 @@ score_n_1, score_evolution
 
 **Input:** `rwb_combined.rds` (4,200 rows, 207 countries)  
 **Output:** `rwb_standardized.rds` (4,192 rows, 191 countries)  
-**Status:** Git commit a9d381c — Phase D functions, dataset, and report delivered
+**Status:** Git commits a9d381c, 84b5102, c85adeb — Phase D functions, dataset, dependencies fixed
 
 **Completed scope:**
 1. ✅ Consolidated 14 country name pairs (official changes + RSF methodology)
@@ -156,9 +156,14 @@ score_n_1, score_evolution
 - Dataset available: `rwb_standardized` exported in both `.rds` and `.rda` formats
 
 **Functions Created & Exported:**
-- `R/standardize.R`: `consolidate_and_standardize_countries()`, `standardize_rwb_countries()`, `validate_standardization()`
+- `R/standardize.R`: `consolidate_and_standardize_countries()`, `standardize_rwb_countries()`, `validate_standardization()` (requires {countrycode}, {dplyr}, {stringr}, {cli})
 - `R/data.R`: `rwb_standardized` dataset documentation
 - `inst/extdata/consolidation_mapping.csv`: Maintainable consolidation pairs (updates only when RSF methodology changes)
+
+**Package Dependencies Fixed (Commit c85adeb):**
+- ✅ Added {countrycode}, {dplyr}, {stringr}, {cli} to Imports (were missing or in Suggests)
+- ✅ Removed unused {targets} from Suggests
+- Exported functions now have all required dependencies declared
 
 **Documentation:**
 - `2026-07-29-phase-d-standardization-report.md` — Comprehensive standardization report
