@@ -44,23 +44,23 @@
 #'    - If \code{years = NULL}, detect missing years via \code{get_years_to_download()}
 #'    - If no years missing, report and return early (unless \code{standardize = TRUE})
 #'
-#' 2. **Download (Phase A)** — Only if \code{download = TRUE}
+#' 2. **Download (Phase A)** - Only if \code{download = TRUE}
 #'    - Downloads CSVs for detected missing years to \code{inst/extdata/}
 #'    - Validates each CSV before saving
 #'    - On download failure: aborts update with error message
 #'
-#' 3. **Clean (Phase B)** — Only if \code{clean = TRUE} and years detected
+#' 3. **Clean (Phase B)** - Only if \code{clean = TRUE} and years detected
 #'    - Cleans newly downloaded years via \code{clean_rwb_single()}
 #'    - Outputs normalized RDS to \code{data/cleaned/period_X/}
 #'    - On cleaning failure: aborts update and reports which year failed
 #'
-#' 4. **Combine (Phase C)** — Always runs (required)
+#' 4. **Combine (Phase C)** - Always runs (required)
 #'    - Recombines all cleaned periods via \code{combine_cleaned_periods()}
 #'    - Recalculates evolution columns (rank_n_1, score_n_1, etc.)
 #'    - Output: \code{data/processed/rwb_combined.rds}
 #'    - Cost: ~1-2 seconds
 #'
-#' 5. **Standardize (Phase D)** — Always runs (required)
+#' 5. **Standardize (Phase D)** - Always runs (required)
 #'    - Re-standardizes all rows via \code{standardize_rwb_countries()}
 #'    - Applies consolidation rules from \code{inst/extdata/consolidation_mapping.csv}
 #'    - Output: \code{data/processed/rwb_standardized.rds}
@@ -70,13 +70,13 @@
 #'    - Regenerates \code{rwb_standardized.rda} via \code{data-raw/rwb_standardized.R}
 #'    - Cost: <1 second
 #'
-#' 7. **Validation** — Only if \code{validate = TRUE}
+#' 7. **Validation** - Only if \code{validate = TRUE}
 #'    - Checks row count increase matches expectations
 #'    - Verifies no duplicate rows
 #'    - Ensures all required columns present
 #'    - On validation failure: reports issues but doesn't abort
 #'
-#' 8. **Git Commit** — Only if \code{auto_commit = TRUE}
+#' 8. **Git Commit** - Only if \code{auto_commit = TRUE}
 #'    - Stages updated RDS files
 #'    - Creates commit with message describing what changed
 #'    - On commit failure: reports warning but doesn't abort update
@@ -88,11 +88,11 @@
 #' - \code{verbose = TRUE}: Recommended for interactive use
 #'
 #' **Error Handling:**
-#' - Download fails → Aborts with error
-#' - Cleaning fails → Aborts and reports which year failed
-#' - Combine/Standardize fail → Aborts (indicates data corruption)
-#' - Validation fails → Reports issues; doesn't abort
-#' - Git commit fails → Reports warning; doesn't abort update
+#' - Download fails -> Aborts with error
+#' - Cleaning fails -> Aborts and reports which year failed
+#' - Combine/Standardize fail -> Aborts (indicates data corruption)
+#' - Validation fails -> Reports issues; doesn't abort
+#' - Git commit fails -> Reports warning; doesn't abort update
 #'
 #' **Example: Minimal yearly update**
 #' ```r
@@ -194,8 +194,7 @@ update_rwb_data <- function(
       download_rwb_data(
         years = years,
         output_dir = "inst/extdata",
-        skip_missing = TRUE,
-        verbose = verbose
+        skip_missing = TRUE
       )
 
       msg_dl_done <- sprintf("Phase A: Downloaded %d year(s)", length(years))
@@ -412,7 +411,7 @@ update_rwb_data <- function(
     result$status <- "success"
 
     msg_final <- sprintf(
-      "Update complete. Added %d row(s) (%d → %d total rows)",
+      "Update complete. Added %d row(s) (%d -> %d total rows)",
       result$rows_after - result$rows_before,
       result$rows_before,
       result$rows_after

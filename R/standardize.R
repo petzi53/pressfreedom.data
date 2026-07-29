@@ -83,12 +83,12 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
   result <- result |>
     dplyr::mutate(
       country_en = country_en |>
-        stringr::str_replace_all("Côte", "Cote") |>
-        stringr::str_replace_all("Türkiye", "Turkiye") |>
-        stringr::str_replace_all("Curaçao", "Curacao") |>
-        stringr::str_replace_all("São Tomé", "Sao Tome") |>
-        stringr::str_replace_all("Príncipe", "Principe") |>
-        stringr::str_replace_all("Réunion", "Reunion")
+        stringr::str_replace_all("\u0043\u00f4\u0074\u0065", "Cote") |>
+        stringr::str_replace_all("\u0054\u00fc\u0072\u006b\u0069\u0079\u0065", "Turkiye") |>
+        stringr::str_replace_all("\u0043\u0075\u0072\u0061\u00e7\u0061\u006f", "Curacao") |>
+        stringr::str_replace_all("\u0053\u00e3\u006f\u0020\u0054\u006f\u006d\u00e9", "Sao Tome") |>
+        stringr::str_replace_all("\u0050\u0072\u00ed\u006e\u0063\u0069\u0070\u0065", "Principe") |>
+        stringr::str_replace_all("\u0052\u00e9\u0075\u006e\u0069\u006f\u006e", "Reunion")
     )
 
   # Step 4: Assign ISO codes

@@ -20,7 +20,11 @@ Imports:
     countrycode,
     dplyr,
     stringr,
-    cli
+    cli,
+    fs,
+    glue,
+    purrr,
+    tibble
 Suggests:
     usethis
 Config/roxygen2/version: 8.0.0
