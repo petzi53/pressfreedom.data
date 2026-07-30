@@ -353,14 +353,14 @@ WEEK 6 (Sept 3+)
 
 ## Detailed Task Checklist
 
-### Vignette (Phase 1)
+### Vignette (Phase 1) ✅ COMPLETE (2026-07-30)
 
-- [ ] Create `vignettes/` directory if not exists
-- [ ] Write `pressfreedom-introduction.Rmd` with all sections
-- [ ] Test code examples locally
-- [ ] Run `devtools::build_vignettes()` and verify output
-- [ ] Add vignette metadata to DESCRIPTION (if needed): `Suggests: knitr, rmarkdown`
-- [ ] Commit: "docs: Add package vignette"
+- [x] Create `vignettes/` directory if not exists
+- [x] Write `pressfreedom-introduction.Rmd` with all sections (383 lines, ~3,200 words)
+- [x] Test code examples locally (12/12 examples executable, all pass)
+- [x] Run `devtools::build_vignettes()` and verify output (builds without errors)
+- [x] Add vignette metadata to DESCRIPTION (if needed): `Suggests: knitr, rmarkdown`
+- [x] Commit: "docs: Add package vignette" (commit 8e2f351, c11ee76, 7ce23c3)
 
 ### pkgdown (Phase 2)
 
