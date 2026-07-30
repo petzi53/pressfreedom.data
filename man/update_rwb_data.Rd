@@ -114,11 +114,11 @@ because evolution columns depend on year N-1's data.
 - \code{verbose = TRUE}: Recommended for interactive use
 
 **Error Handling:**
-- Download fails → Aborts with error
-- Cleaning fails → Aborts and reports which year failed
-- Combine/Standardize fail → Aborts (indicates data corruption)
-- Validation fails → Reports issues; doesn't abort
-- Git commit fails → Reports warning; doesn't abort update
+- Download fails -> Aborts with error
+- Cleaning fails -> Aborts and reports which year failed
+- Combine/Standardize fail -> Aborts (indicates data corruption)
+- Validation fails -> Reports issues; doesn't abort
+- Git commit fails -> Reports warning; doesn't abort update
 
 **Example: Minimal yearly update**
 ```r

@@ -21,7 +21,7 @@ Handles ISO-8859-1 encoding, decimal separator conversion, and column mapping.
 \details{
 Processing steps:
 1. Read file with ISO-8859-1 encoding
-2. Convert decimal separators (comma → period)
+2. Convert decimal separators (comma -> period)
 3. Rename columns per Period 1 mapping
 4. Convert iso, country_en, zone to character
 5. Convert numeric columns to numeric type

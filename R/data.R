@@ -1,6 +1,6 @@
-#' Standardized Reporters Sans Frontières Press Freedom Index (2002-2026)
+#' Standardized Reporters Sans Frontieres Press Freedom Index (2002-2026)
 #'
-#' A comprehensive dataset of press freedom indicators from Reporters Sans Frontières (RSF),
+#' A comprehensive dataset of press freedom indicators from Reporters Sans Frontieres (RSF),
 #' standardized and cleaned by the pressfreedom.data package pipeline.
 #'
 #' @format A data frame with 4,192 rows and 20 columns:
@@ -57,7 +57,7 @@
 #' - "Cyprus" (ISO: CYP) - Republic of Cyprus
 #' - "Northern Cyprus" (ISO: CXX) - Turkish Republic of Northern Cyprus
 #'
-#' @source Reporters Sans Frontières, https://rsf.org
+#' @source Reporters Sans Frontieres, https://rsf.org
 #'
 #' @examples
 #' \dontrun{

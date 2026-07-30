@@ -329,41 +329,49 @@ result <- update_rwb_data(years = c(2027))
 - Portable file names ✓
 - All roxygen documentation valid ✓
 
-### Non-ASCII Prevention Infrastructure ✅ COMPLETE & COMMITTED
+### Non-ASCII Prevention Infrastructure v2 (root cause fix) - COMPLETE & COMMITTED (2026-07-30)
 
-**Status:** Permanent solution preventing em-dashes in future (2026-07-29)  
-**Commit:** 19ca9df — Infrastructure: Add non-ASCII prevention tools
+**Status:** v1 hook was silently broken (false positives on plain ASCII quotes, never version-controlled). Replaced with a robust Python-based checker.
+**Superseded doc:** `.posit/assistant/docs/2026-07-29-non-ascii-prevention-policy.md` (kept for history)
+**Current doc:** `.posit/assistant/docs/2026-07-30-non-ascii-prevention-v2.md`
 
-**Problem:** Em-dashes (–, —) in roxygen2 comments repeatedly triggered R CMD check warnings (commits 5d07014, a56964b). Editors default to smart typography, causing portability issues.
+**What was wrong with v1:** the "smart quotes" bash character class `["'']` had
+silently degraded into matching plain ASCII quotes, flagging almost every normal
+R string literal. This trained the habit of `git commit --no-verify`, which meant
+real violations could slip through unnoticed. The hook also only lived in
+`.git/hooks/` (never tracked by git), so a fresh clone had no protection at all.
 
-**Solution: Three-Layer Prevention**
+**v2 solution:**
 
-1. **Pre-commit Git Hook** (`.git/hooks/pre-commit`)
-   - ✓ Runs automatically before every commit
-   - ✓ Blocks commits containing em-dashes or smart quotes
-   - ✓ Provides helpful error message with solutions
-   - ✓ Can be bypassed with `git commit --no-verify` (not recommended)
-   - ✓ Tested and verified working
+1. **`.githooks/check_ascii.py`** - core scanner, pure Python. Flags any
+   character with `ord(ch) > 127` (numeric comparison, nothing for an editor
+   or shell to corrupt) rather than matching an enumerated, hand-typed list of
+   "bad" characters. Reports line/column, Unicode name, and a suggested ASCII
+   replacement for each violation. Checks staged content via `git show :path`
+   so partially-staged files are validated correctly.
+2. **`.githooks/pre-commit`** - thin wrapper (`exec python3 ... --staged`),
+   versioned in the repo. Enable per-clone with:
+   ```bash
+   git config core.hooksPath .githooks
+   ```
+3. **Scope:** only `*.R`, `*.Rmd`, `*.Rnw`, `*.Rd`, `*.qmd`, `DESCRIPTION`,
+   `NAMESPACE` - i.e. only what actually matters for R CMD check/CRAN.
+   Explicitly excludes `inst/extdata/` (raw RSF data, legitimately
+   non-ASCII), `data-raw/`, `data/`, `renv.lock`, and `.posit/` (internal
+   planning notes, not shipped with the package).
 
-2. **EditorConfig** (`.editorconfig`)
-   - ✓ Configures all editors (RStudio, VS Code, Positron, Sublime)
-   - ✓ Sets UTF-8 encoding, LF line endings, proper indentation
-   - ✓ Disables smart typography in supported editors
-   - ✓ Provides IDE-level enforcement
+**Verification:** false-positive regression test (plain ASCII quotes pass),
+true-positive test (en-dash/em-dash/curly quotes/accents/arrows all caught
+with diagnostics), end-to-end `git commit` block test, and a full-codebase
+scan that surfaced and fixed real pre-existing violations in `R/clean.R`,
+`R/data.R`, and stale generated `.Rd` files that v1's narrow character list
+had missed entirely.
 
-3. **Roxygen2 Configuration** (`_roxygen.yml`)
-   - ✓ Ensures proper encoding handling during documentation build
-   - ✓ Can be extended with additional safety checks if needed
-
-**Coding Standard (from this point forward):**
-- ✅ Use: `2002-2026` (ASCII hyphen)
-- ❌ Avoid: `2002–2026` (en-dash)
-- ❌ Avoid: `2002—2026` (em-dash)
-- ✅ Use: `Phase A - Download` (ASCII dash)
-- ❌ Avoid: `Phase A – Download` (en-dash)
-
-**Documentation:**
-- `.posit/assistant/docs/2026-07-29-non-ascii-prevention-policy.md` — Complete policy, standards, testing, and maintenance guide
+**Coding standard (unchanged):**
+- Use `2002-2026` (ASCII hyphen), not en-dash or em-dash
+- Use `Phase A - Download` (ASCII dash)
+- Use `->` for arrows, not the Unicode arrow character
+- Use straight quotes `"..."`, not curly quotes
 
 ### Documentation & Publishing Strategy ✅ PLANNED & APPROVED (2026-07-30)
 

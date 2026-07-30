@@ -1,0 +1,16 @@
+#!/bin/bash
+# Pre-commit hook: block non-ASCII characters in R package source files.
+#
+# All detection logic lives in check_ascii.py (pure Python, numeric
+# ord() > 127 comparison). This wrapper intentionally contains no
+# character-class literals: that is exactly the pattern that silently
+# corrupted the previous version of this hook (see
+# .posit/assistant/docs/2026-07-30-non-ascii-prevention-v2.md).
+#
+# This hook is versioned in .githooks/ (not .git/hooks/) so it survives
+# fresh clones. It is wired up via: git config core.hooksPath .githooks
+
+set -e
+
+REPO_ROOT=$(git rev-parse --show-toplevel)
+exec python3 "$REPO_ROOT/.githooks/check_ascii.py" --staged
