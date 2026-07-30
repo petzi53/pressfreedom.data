@@ -138,7 +138,7 @@ get_years_to_download <- function(input_dir = "inst/extdata", all_years = 2002:2
 
 #' Standardize Decimal Separators
 #'
-#' Converts comma decimal separators to periods for Period 1–2 data
+#' Converts comma decimal separators to periods for Period 1-2 data
 #' (ISO-8859-1 encoded data used commas as decimal separators).
 #'
 #' @param df Data frame to process
@@ -148,7 +148,7 @@ get_years_to_download <- function(input_dir = "inst/extdata", all_years = 2002:2
 #'
 #' @details
 #' This function targets numeric columns that may contain comma separators.
-#' It is primarily for Period 1–2 data where European number formatting was used.
+#' It is primarily for Period 1-2 data where European number formatting was used.
 #'
 #' @keywords internal
 #'

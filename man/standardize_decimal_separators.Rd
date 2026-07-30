@@ -15,11 +15,11 @@ standardize_decimal_separators(df, cols)
 Data frame with decimal separators converted from comma to period
 }
 \description{
-Converts comma decimal separators to periods for Period 1–2 data
+Converts comma decimal separators to periods for Period 1-2 data
 (ISO-8859-1 encoded data used commas as decimal separators).
 }
 \details{
 This function targets numeric columns that may contain comma separators.
-It is primarily for Period 1–2 data where European number formatting was used.
+It is primarily for Period 1-2 data where European number formatting was used.
 }
 \keyword{internal}

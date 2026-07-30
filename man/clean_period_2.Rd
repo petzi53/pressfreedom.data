@@ -2,7 +2,7 @@
 % Please edit documentation in R/clean.R
 \name{clean_period_2}
 \alias{clean_period_2}
-\title{Clean Period 2 Data (2013–2021)}
+\title{Clean Period 2 Data (2013-2021)}
 \usage{
 clean_period_2(filepath, year)
 }
@@ -17,6 +17,6 @@ Data frame with 20 columns, standardized types (character, numeric)
 \description{
 Normalizes Period 2 raw data to the unified 20-column structure.
 Identical structure to Period 1 (same columns, encoding).
-Scores are comparable across 2013–2021 due to methodology introduced in 2013.
+Scores are comparable across 2013-2021 due to methodology introduced in 2013.
 }
 \keyword{internal}

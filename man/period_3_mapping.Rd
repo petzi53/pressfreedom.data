@@ -2,7 +2,7 @@
 % Please edit documentation in R/column_mappings.R
 \name{period_3_mapping}
 \alias{period_3_mapping}
-\title{Column Mapping for Period 3 (2022–2026)}
+\title{Column Mapping for Period 3 (2022-2026)}
 \usage{
 period_3_mapping
 }

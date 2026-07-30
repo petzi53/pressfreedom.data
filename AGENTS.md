@@ -365,6 +365,70 @@ result <- update_rwb_data(years = c(2027))
 **Documentation:**
 - `.posit/assistant/docs/2026-07-29-non-ascii-prevention-policy.md` — Complete policy, standards, testing, and maintenance guide
 
+### Documentation & Publishing Strategy ✅ PLANNED & APPROVED (2026-07-30)
+
+**Status:** Multi-level documentation architecture approved, implementation plan created
+
+**Four-level documentation approach:**
+
+1. **Package Vignette** (`vignettes/pressfreedom-introduction.Rmd`)
+   - File: `vignettes/pressfreedom-introduction.Rmd`
+   - Purpose: Quick-start guide for package users
+   - Audience: CRAN users, R practitioners
+   - Content: Installation, data overview, common patterns, annual updates
+   - Scope: ~2,500-3,500 words, 15-20 min read
+
+2. **pkgdown Website** (https://petzi53.github.io/pressfreedom.data)
+   - Config: `pkgdown/_pkgdown.yml`
+   - Purpose: Official public documentation
+   - Audience: CRAN users, GitHub visitors, researchers
+   - Includes: README (home), function reference, vignette, optional articles
+   - Deploy: GitHub Actions auto-deploy to GitHub Pages
+
+3. **Quarto Book** (https://petzi53.github.io/pressfreedom.data-book)
+   - Repo: Separate GitHub repo `pressfreedom.data-book`
+   - Purpose: Deep-dive on design, decisions, failures, and AI collaboration
+   - Audience: Developers, data engineers, AI enthusiasts, learning community
+   - Content: 10 chapters (~15,000-20,000 words)
+     - Ch. 01: Introduction & Context
+     - Ch. 02-05: Phases A-D (design, failures, iterations)
+     - Ch. 06: Orchestration (update_rwb_data design)
+     - Ch. 07: Posit Assistant collaboration (summaries + key decisions)
+     - Ch. 08: QA & Validation
+     - Ch. 09: Appendix (full session transcripts as reference)
+     - Ch. 10: Epilogue (reflections, lessons, next steps)
+   - Deploy: GitHub Actions auto-deploy to GitHub Pages
+
+4. **Blog Posts** (https://www.peter-baumgartner.net/)
+   - Platform: Personal blog (repo: https://github.com/petzi53/petzi53.github.io/)
+   - Purpose: Standalone articles for broader audience
+   - Topics (priority order):
+     1. "Building a Data Pipeline for 24 Years of Evolving Data"
+     2. "How I Used AI to Build a Production R Package" (AI-focused, consider Dev.to)
+     3. "Consolidating 200+ Country Names: The Data Cleaning Problem"
+     4. (Optional) "Press Freedom Trends 2002-2026: A First Look"
+   - Scope: 1,500-2,500 words each, linked to pressfreedom.data docs
+
+**Timeline (6 weeks):**
+- Week 1: Vignette + pkgdown setup
+- Week 2: Quarto book repo setup + Ch. 01
+- Weeks 3-5: Book Ch. 02-10 (parallel with blog posts)
+- Week 6+: Polish, deploy, publish
+
+**Key decisions:**
+- ✅ Vignette & pkgdown: In pressfreedom.data repo
+- ✅ Book: Separate GitHub repo (independent release cycles)
+- ✅ Blog: Personal blog at peter-baumgartner.net
+- ✅ Transcripts: Summaries + key decisions in chapters; full transcripts in appendix (separate `.qmd` files) for reference
+- ✅ Vignette-Book links: Vignette standalone (no links); after book launch, add one link to book home in pkgdown footer
+- ✅ Book appendix: Index chapter (Ch. 09) with links to `appendix/*.qmd` transcript files
+- ✅ Dev.to cross-posting: Decision postponed; revisit after vignette complete
+- ✅ Timeline: Keep 6-week target; reassess after Week 1 vignette completion
+
+**Documentation files:**
+- `.posit/assistant/plans/2026-07-30-1310-documentation-strategy.md` — Strategic overview & product definitions
+- `.posit/assistant/plans/2026-07-30-1400-implementation-plan.md` — Detailed task list, timeline, checklist
+
 ### Documentation
 
 - `README.md` — User-facing package documentation with quick start, API reference, and annual update workflow

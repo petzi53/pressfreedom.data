@@ -1,10 +1,10 @@
-# Column name mappings for Period 1–3 data
+# Column name mappings for Period 1-3 data
 # Maps raw column names to unified 20-column output structure
 
-#' Column Mapping for Period 1 (2002–2012)
+#' Column Mapping for Period 1 (2002-2012)
 #' @description
 #' Period 1 raw columns mapped to unified 20-column structure.
-#' Periods 1–2 omit dimension columns and score history columns (set as NA).
+#' Periods 1-2 omit dimension columns and score history columns (set as NA).
 #' Named in target column order.
 #'
 #' @keywords internal
@@ -31,7 +31,7 @@ period_1_mapping <- list(
   score_evolution = NA
 )
 
-#' Column Mapping for Period 2 (2013–2021)
+#' Column Mapping for Period 2 (2013-2021)
 #' @description
 #' Period 2 raw columns mapped to unified 20-column structure.
 #' Identical to Period 1 except methodology changed in 2013 (scores comparable).
@@ -39,7 +39,7 @@ period_1_mapping <- list(
 #' @keywords internal
 period_2_mapping <- period_1_mapping
 
-#' Column Mapping for Period 3 (2022–2026)
+#' Column Mapping for Period 3 (2022-2026)
 #' @description
 #' Period 3 raw columns mapped to unified 20-column structure.
 #' Note: Score column names vary by year (Score, Score 2022, etc.)

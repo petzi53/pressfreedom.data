@@ -1,4 +1,4 @@
-#' Clean Period 1 Data (2002–2012)
+#' Clean Period 1 Data (2002-2012)
 #'
 #' Normalizes Period 1 raw data to the unified 20-column structure.
 #' Handles ISO-8859-1 encoding, decimal separator conversion, and column mapping.
@@ -80,11 +80,11 @@ clean_period_1 <- function(filepath, year) {
 }
 
 
-#' Clean Period 2 Data (2013–2021)
+#' Clean Period 2 Data (2013-2021)
 #'
 #' Normalizes Period 2 raw data to the unified 20-column structure.
 #' Identical structure to Period 1 (same columns, encoding).
-#' Scores are comparable across 2013–2021 due to methodology introduced in 2013.
+#' Scores are comparable across 2013-2021 due to methodology introduced in 2013.
 #'
 #' @param filepath Character. Path to raw CSV file
 #' @param year Numeric. Year of the data
@@ -145,7 +145,7 @@ clean_period_2 <- function(filepath, year) {
 }
 
 
-#' Clean Period 3 Data (2022–2026)
+#' Clean Period 3 Data (2022-2026)
 #'
 #' Normalizes Period 3 raw data to the unified 20-column structure.
 #' Handles UTF-8 encoding, year-specific score column naming,

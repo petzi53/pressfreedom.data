@@ -1,9 +1,19 @@
+# Development environment
 ^renv$
 ^renv\.lock$
+
+# IDE configuration (RStudio project files)
 ^.*\.Rproj$
 ^\.Rproj\.user$
+
+# Development and archived code
 ^dev$
 ^_archive$
+
+# Project documentation and AI agent files
 ^AGENTS\.md$
 ^\.posit$
-^\.posit/assistant$
+
+# Intermediate data processing files (Phase B, C; kept in git for reproducibility)
+^data/cleaned$
+^data/processed$

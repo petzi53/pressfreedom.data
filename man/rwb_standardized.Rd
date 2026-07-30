@@ -3,14 +3,14 @@
 \docType{data}
 \name{rwb_standardized}
 \alias{rwb_standardized}
-\title{Standardized Reporters Sans Frontières Press Freedom Index (2002–2026)}
+\title{Standardized Reporters Sans Frontières Press Freedom Index (2002-2026)}
 \format{
 A data frame with 4,192 rows and 20 columns:
 \describe{
-  \item{year_n}{Numeric year (2002–2026, excluding 2011)}
+  \item{year_n}{Numeric year (2002-2026, excluding 2011)}
   \item{iso}{ISO 3166-1 alpha-3 country code}
   \item{country_en}{Standardized country name in English}
-  \item{score}{Press freedom score (0–100; lower = more free). Comparable only within periods.}
+  \item{score}{Press freedom score (0-100; lower = more free). Comparable only within periods.}
   \item{rank}{Rank within the year (1 = most free)}
   \item{political_context}{Sub-index: Political context (if available)}
   \item{rank_pol}{Rank within political context (if available)}
@@ -58,16 +58,16 @@ in the pressfreedom.data package:
 This exported dataset contains only the 20 core columns for analysis.
 
 **Score Comparability:** Scores are only comparable within their respective periods:
-- **Period 1 (2002–2012):** Non-comparable scores; use ranks for trends
-- **Period 2 (2013–2021):** Comparable scores (0–100 scale)
-- **Period 3 (2022–2026):** New methodology; different dimensions tracked
+- **Period 1 (2002-2012):** Non-comparable scores; use ranks for trends
+- **Period 2 (2013-2021):** Comparable scores (0-100 scale)
+- **Period 3 (2022-2026):** New methodology; different dimensions tracked
 
 **Missing Data:** Sub-indices (political, economic, legal, social, safety contexts)
-are only available in Period 3 (2022–2026). Periods 1–2 have NA values for these columns.
+are only available in Period 3 (2022-2026). Periods 1-2 have NA values for these columns.
 
 **Cyprus:** Tracked as two separate entities:
-- "Cyprus" (ISO: CYP) — Republic of Cyprus
-- "Northern Cyprus" (ISO: CXX) — Turkish Republic of Northern Cyprus
+- "Cyprus" (ISO: CYP) - Republic of Cyprus
+- "Northern Cyprus" (ISO: CXX) - Turkish Republic of Northern Cyprus
 }
 \examples{
 \dontrun{

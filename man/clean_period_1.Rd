@@ -2,7 +2,7 @@
 % Please edit documentation in R/clean.R
 \name{clean_period_1}
 \alias{clean_period_1}
-\title{Clean Period 1 Data (2002–2012)}
+\title{Clean Period 1 Data (2002-2012)}
 \usage{
 clean_period_1(filepath, year)
 }
