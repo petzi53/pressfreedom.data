@@ -131,6 +131,31 @@ python3 .githooks/check_ascii.py $(git ls-files 'R/*.R' 'man/*.Rd' 'vignettes/*.
 
 ---
 
+## Complementary Layer: `.editorconfig`
+
+This fix focuses on **hard enforcement** (the hook). If your package has `.editorconfig`, that provides a **soft preventative layer** (editor defaults):
+
+| Tool | Purpose | Layer | When |
+|------|---------|-------|------|
+| `.editorconfig` | Set editor defaults (UTF-8, line endings, indentation) | Soft prevention | When saving a file |
+| `.githooks/check_ascii.py` | Detect & block non-ASCII at commit | Hard enforcement | When running `git commit` |
+
+**Relationship:** Complementary, not redundant.
+- If you have `.editorconfig`: Great. Keep it. It helps prevent violations in the first place.
+- If you don't have `.editorconfig`: The hook alone is sufficient (and the critical protection).
+- Either way: The hook is the enforcement layer that matters for CRAN compliance.
+
+If you want to add `.editorconfig` to an existing package, ensure it specifies `charset = utf-8` for R-related files:
+
+```editorconfig
+[*.{R,Rmd,qmd,Rd}]
+charset = utf-8
+# ... other settings
+# Note: Actual non-ASCII prevention is enforced by .githooks/check_ascii.py
+```
+
+---
+
 ## Coding Standard (unchanged from v1)
 
 Still applies: prefer ASCII alternatives for dashes, quotes, and arrows in

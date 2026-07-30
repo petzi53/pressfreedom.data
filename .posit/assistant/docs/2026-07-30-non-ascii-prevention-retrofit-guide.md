@@ -156,6 +156,8 @@ mkdir -p .github/workflows
 git add .github/workflows/ci-ascii-check.yaml
 ```
 
+**Note:** If your package has `.editorconfig`, that's already providing a soft layer (editor defaults). The hook now adds hard enforcement at commit time. If you don't have `.editorconfig`, the hook alone is sufficient, but adding `.editorconfig` later is a good best practice.
+
 ### Step 7: Update Documentation
 
 Add to `README.md` (Development section):
@@ -416,6 +418,7 @@ Once a hook is in place:
 - If violations found → Fix them (30-60 min)
 - Add hook infrastructure (15 min)
 - Update README.md (5 min)
+- (Optional) Add or verify `.editorconfig` (5 min)
 - Commit (2 min)
 - **Total: 1-2 hours max**
 

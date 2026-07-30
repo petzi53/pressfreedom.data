@@ -240,6 +240,8 @@ mkdir -p .githooks
 chmod +x .githooks/pre-commit
 ```
 
+**Note:** If your package already has `.editorconfig`, that's good—it sets editor defaults for UTF-8 encoding and line endings. The hook provides the actual enforcement at commit time. They work together as complementary layers.
+
 ### Step 2: Enable Hooks on First Clone
 
 This is a **per-clone configuration** (hooks are versioned but not auto-enabled):
@@ -345,6 +347,22 @@ The scanner explicitly **skips**:
 - **Extensibility:** Easy to add file-specific rules, custom replacements
 
 Bash character classes (`grep '[""'']'`) corrupt silently when copy-pasted or edited by different editors. This learned mistake (from pressfreedom.data) is why Python is the right choice.
+
+### Why Both `.editorconfig` and the Hook?
+
+They serve **complementary purposes**, not the same one:
+
+- **`.editorconfig`:** Sets editor defaults (UTF-8 encoding, line endings, indentation)
+  - Works when you save a file (soft prevention)
+  - Helps across all EditorConfig-compatible editors
+  - Cannot detect or block violations by itself
+
+- **`.githooks/check_ascii.py`:** Detects and blocks non-ASCII at commit time (hard enforcement)
+  - Works when you run `git commit` (prevents violations from entering history)
+  - Catches violations that `.editorconfig` defaults didn't prevent
+  - Provides diagnostic feedback (character code, name, suggestion)
+
+**Recommendation:** Include both. `.editorconfig` in your package is a bonus—if you already have it, keep it. If not, you can add it later. The hook is the critical enforcement layer.
 
 ### Why `.githooks/` Directory?
 

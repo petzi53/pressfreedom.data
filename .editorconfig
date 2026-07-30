@@ -1,5 +1,7 @@
 # EditorConfig for pressfreedom.data
-# Ensures consistent file encoding and formatting across editors
+# Ensures consistent file encoding, line endings, and indentation across editors.
+# Note: Actual non-ASCII character prevention is enforced by .githooks/check_ascii.py
+# (EditorConfig sets defaults; the hook enforces at commit time)
 # https://editorconfig.org/
 
 root = true
