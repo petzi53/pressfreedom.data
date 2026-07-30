@@ -87,6 +87,89 @@ clean_period_1 <- function(filepath, year) {
 }
 
 
+#' Resolve Missing-Trailing-Zero Score Scaling
+#'
+#' RSF's 2013+ exports store score/dimension percentages (0-100, 2 implied
+#' decimal places) as bare digit strings with no decimal point (e.g. "9189"
+#' means 91.89). Values ending in one or two zeros have those trailing
+#' zeros silently dropped somewhere in RSF's own export pipeline (e.g. "844"
+#' means 84.40, not 8.44; "87" means 87.00, not 0.87), which is
+#' indistinguishable from a genuinely low sub-10 score for the
+#' worst-ranked countries (e.g. "46" for a rank-180 country can legitimately
+#' mean 0.46).
+#'
+#' @param raw_chr Character vector. Raw digit strings from the source CSV
+#'   (no decimal point; may have a leading "-" for Period 1 legacy values).
+#' @param rank_chr Character vector, same length as `raw_chr`. The
+#'   corresponding rank column, used to disambiguate short values by
+#'   comparing against neighboring, unambiguous (4+ digit) values at nearby
+#'   ranks (scores are approximately monotonic in rank).
+#'
+#' @return Numeric vector of resolved percentages (0-100 scale).
+#'
+#' @details
+#' Values with 4 or more digits are unambiguous ("confirmed"): a 4-digit
+#' value is divided by 100 (2 implied decimals), and a small number of
+#' 2025 rows have 5-digit values (RSF apparently breaks near-tied ranks
+#' with a third decimal place, e.g. "65487" means 65.487, not 654.87), so
+#' n-digit confirmed values are divided by `10^(n_digits - 2)` generally.
+#' For shorter (2-3 digit) values, two candidates are computed:
+#' right-padding with zeros to 4 digits before dividing by 100 (the
+#' "dropped trailing zero" interpretation), and dividing the raw digits by
+#' 100 directly (the "already complete, genuinely low score"
+#' interpretation). The candidate closer to a rank-based linear
+#' interpolation of neighboring confirmed values is selected. Missing rank
+#' or missing value inputs fall back to the zero-padded interpretation.
+#'
+#' @keywords internal
+#'
+#' @export
+resolve_percent_scaling <- function(raw_chr, rank_chr) {
+  sign <- ifelse(stringr::str_starts(raw_chr, "-"), -1, 1)
+  digits <- stringr::str_remove(raw_chr, "^-")
+  n_digits <- nchar(digits)
+  rank <- suppressWarnings(as.numeric(rank_chr))
+
+  confirmed <- n_digits >= 4 & !is.na(digits) & digits != ""
+  value <- rep(NA_real_, length(raw_chr))
+  value[confirmed] <- as.numeric(digits[confirmed]) / 10^(n_digits[confirmed] - 2)
+
+  # Reference points for interpolation: (rank, value) pairs from unambiguous
+  # entries only, ordered by rank
+  has_rank <- !is.na(rank)
+  rank_order <- order(rank[has_rank])
+  ref_rank <- rank[has_rank][rank_order][confirmed[has_rank][rank_order]]
+  ref_value <- value[has_rank][rank_order][confirmed[has_rank][rank_order]]
+
+  for (i in which(!confirmed)) {
+    d <- digits[i]
+    if (is.na(d) || d == "") next
+
+    n_d <- nchar(d)
+    cand_padded <- as.numeric(paste0(d, strrep("0", 4 - n_d))) / 100
+    cand_direct <- as.numeric(d) / 100
+
+    expected <- if (is.na(rank[i]) || length(ref_rank) < 2) {
+      NA_real_
+    } else {
+      suppressWarnings(
+        stats::approx(ref_rank, ref_value, xout = rank[i], rule = 2)$y
+      )
+    }
+
+    value[i] <- if (is.na(expected)) {
+      cand_padded
+    } else if (abs(cand_padded - expected) <= abs(cand_direct - expected)) {
+      cand_padded
+    } else {
+      cand_direct
+    }
+  }
+
+  sign * value
+}
+
+
 #' Clean Period 2 Data (2013-2021)
 #'
 #' Normalizes Period 2 raw data to the unified 20-column structure.
@@ -135,9 +218,24 @@ clean_period_2 <- function(filepath, year) {
   # Convert factor columns to character
   df <- convert_factors_to_character(df, c("iso", "country_en", "zone"))
 
-  # Convert numeric columns to numeric type
+  # "score" is always on the 2013+ comparable scale and needs trailing-zero
+  # resolution. "score_n_1" only needs it from 2014 onward: for year 2013,
+  # score_n_1 carries Period 1's non-comparable legacy value verbatim (see
+  # AGENTS.md), which has no implied 2-decimal scaling to resolve
+  df <- df |>
+    dplyr::mutate(
+      score = resolve_percent_scaling(.data$score, .data$rank),
+      score_n_1 = if (year > 2013) {
+        resolve_percent_scaling(.data$score_n_1, .data$rank_n_1)
+      } else {
+        suppressWarnings(as.numeric(.data$score_n_1))
+      }
+    )
+
+  # Convert remaining numeric columns to numeric type (score/score_n_1
+  # already resolved above)
   numeric_target_cols <- c(
-    "year_n", "score", "rank", "rank_n_1", "score_n_1", "rank_evolution",
+    "year_n", "rank", "rank_n_1", "rank_evolution",
     "political_context", "rank_pol", "economic_context", "rank_eco",
     "legal_context", "rank_leg", "social_context", "rank_soc",
     "safety", "rank_saf"
@@ -250,12 +348,35 @@ clean_period_3 <- function(filepath, year) {
   # Convert factor columns to character
   df <- convert_factors_to_character(df, c("iso", "country_en", "zone"))
 
+  # "score" and the five dimension columns are stored as bare digit strings
+  # with an implied 2-decimal scaling (e.g. "9189" = 91.89) and need
+  # trailing-zero resolution before generic numeric conversion. score_n_1
+  # (2022 only, carried from 2021's Period 2 comparable scale via
+  # normalize_column_names) is left to the generic path below: it's either
+  # already NA (2022) or, for later years, a full 4-digit raw string
+  # resolved the same way as "score" -- but keeping it out of this block
+  # avoids double-processing when it's still a raw character copy of a
+  # prior clean_period_2() output rather than this file's own raw column.
+  percent_cols <- c(
+    "score", "political_context", "economic_context",
+    "legal_context", "social_context", "safety"
+  )
+  rank_for_col <- c(
+    score = "rank", political_context = "rank_pol",
+    economic_context = "rank_eco", legal_context = "rank_leg",
+    social_context = "rank_soc", safety = "rank_saf"
+  )
+  for (col in percent_cols) {
+    if (col %in% names(df)) {
+      df[[col]] <- resolve_percent_scaling(df[[col]], df[[rank_for_col[[col]]]])
+    }
+  }
+
   # Convert numeric columns to numeric type
   numeric_target_cols <- c(
-    "year_n", "score", "rank", "rank_n_1", "score_n_1", "rank_evolution",
-    "political_context", "rank_pol", "economic_context", "rank_eco",
-    "legal_context", "rank_leg", "social_context", "rank_soc",
-    "safety", "rank_saf", "score_evolution"
+    "year_n", "rank", "rank_n_1", "score_n_1", "rank_evolution",
+    "rank_pol", "rank_eco", "rank_leg", "rank_soc", "rank_saf",
+    "score_evolution"
   )
   # Only convert columns that exist
   numeric_to_convert <- numeric_target_cols[numeric_target_cols %in% names(df)]

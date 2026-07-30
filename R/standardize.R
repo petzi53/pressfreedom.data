@@ -88,8 +88,47 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
         stringr::str_replace_all("\u0043\u0075\u0072\u0061\u00e7\u0061\u006f", "Curacao") |>
         stringr::str_replace_all("\u0053\u00e3\u006f\u0020\u0054\u006f\u006d\u00e9", "Sao Tome") |>
         stringr::str_replace_all("\u0050\u0072\u00ed\u006e\u0063\u0069\u0070\u0065", "Principe") |>
-        stringr::str_replace_all("\u0052\u00e9\u0075\u006e\u0069\u006f\u006e", "Reunion")
+        stringr::str_replace_all("\u0052\u00e9\u0075\u006e\u0069\u006f\u006e", "Reunion"),
+      # "zone" has the same issue as country_en, plus a double-encoding
+      # mojibake variant (some Period-1 files' UTF-8 bytes were decoded
+      # as Latin-1 and re-encoded once more); normalize both variants to
+      # the same ASCII value so "Ameriques" isn't split into two zones.
+      zone = .data$zone |>
+        stringr::str_replace_all(
+          "\u0041\u006d\u00c3\u0083\u00c2\u00a9\u0072\u0069\u0071\u0075\u0065\u0073",
+          "Ameriques"
+        ) |>
+        stringr::str_replace_all(
+          "\u0041\u006d\u00e9\u0072\u0069\u0071\u0075\u0065\u0073",
+          "Ameriques"
+        )
     )
+
+  # Step 3b: Fix the 2022 zone classification anomaly
+  # RSF's 2022 export used two non-standard zone labels ("Europe - Asie
+  # centrale" and "Maghreb - Moyen-Orient") found in no other year. Remap
+  # each affected country to whichever zone it uses in every other year,
+  # so the dataset has a consistent six-zone classification throughout.
+  zone_lookup <- result |>
+    dplyr::filter(.data$year_n != 2022, !is.na(.data$zone)) |>
+    dplyr::count(.data$country_en, .data$zone, name = "n_years") |>
+    dplyr::group_by(.data$country_en) |>
+    dplyr::slice_max(.data$n_years, n = 1, with_ties = FALSE) |>
+    dplyr::ungroup() |>
+    dplyr::select("country_en", mapped_zone = "zone")
+
+  result <- result |>
+    dplyr::left_join(zone_lookup, by = "country_en") |>
+    dplyr::mutate(
+      zone = dplyr::if_else(
+        .data$year_n == 2022 &
+          .data$zone %in% c("Europe - Asie centrale", "Maghreb - Moyen-Orient") &
+          !is.na(.data$mapped_zone),
+        .data$mapped_zone,
+        .data$zone
+      )
+    ) |>
+    dplyr::select(-"mapped_zone")
 
   # Step 4: Assign ISO codes
   result <- result |>

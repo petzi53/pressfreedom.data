@@ -145,6 +145,14 @@ Dataset spans 24 years (2002–2026, with 2011 intentionally missing). Three dis
 | **2** | 2013–2021 | 16 columns; comparable scores (0–100); same structure as Period 1 |
 | **3** | 2022–2026 | 22–25 columns; dimensions added (Political, Economic, Legal, Social, Safety); year-specific score naming |
 
+> **⚠️ ESSENTIAL: `score` is only comparable from 2013 onward.** RSF changed its
+> scoring methodology in 2013; `score` (and, from 2022+, the dimension columns
+> `political_context`/`economic_context`/`legal_context`/`social_context`/`safety`)
+> for **2002–2012 use a different, non-comparable metric**. Any trend analysis,
+> mean-by-year calculation, or cross-period comparison of `score` must filter to
+> `year_n >= 2013` first — do not average or plot `score` across the 2002–2012 /
+> 2013+ boundary.
+
 ### Workflow: Four Phases
 
 | Phase | Task | Input | Output | Status |
