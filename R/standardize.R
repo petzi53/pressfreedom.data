@@ -20,9 +20,9 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
   # Copy original country names for audit trail
   result <- combined_df |>
     dplyr::mutate(
-      country_name_original = country_en,
+      country_name_original = .data$country_en,
       consolidation_flag = FALSE,
-      .after = country_en
+      .after = "country_en"
     )
 
   # Step 1: Handle territorial variants (pre-processing)
@@ -30,41 +30,41 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
     dplyr::mutate(
       country_en_clean = dplyr::case_when(
         # DELETE: Israel occupied territories
-        country_en == "Israel (occupied territories)" ~ NA_character_,
+        .data$country_en == "Israel (occupied territories)" ~ NA_character_,
         # DELETE: US in Iraq
-        country_en == "US (in Iraq)" ~ NA_character_,
+        .data$country_en == "US (in Iraq)" ~ NA_character_,
         # DELETE: US outside territory
-        country_en == "US (outside US territory)" ~ NA_character_,
+        .data$country_en == "US (outside US territory)" ~ NA_character_,
         # CONSOLIDATE: Israel variants to "Israel"
-        country_en %in% c("Israel (Israeli territory)", "Israel (outside Israeli territory)") ~ "Israel",
+        .data$country_en %in% c("Israel (Israeli territory)", "Israel (outside Israeli territory)") ~ "Israel",
         # CONSOLIDATE: US variants to "United States"
-        country_en == "US (US territory)" ~ "United States",
+        .data$country_en == "US (US territory)" ~ "United States",
         # Keep all others as-is for now
-        TRUE ~ country_en
+        TRUE ~ .data$country_en
       ),
-      was_consolidated_territorial = country_en != country_en_clean & !is.na(country_en_clean)
+      was_consolidated_territorial = .data$country_en != .data$country_en_clean & !is.na(.data$country_en_clean)
     )
 
   # Remove rows with NA country_en_clean (deleted territorial variants)
   result <- result |>
-    dplyr::filter(!is.na(country_en_clean))
+    dplyr::filter(!is.na(.data$country_en_clean))
 
   # When consolidating territorial variants, keep only the primary entry per year+cleaned_country
   # (when multiple variants map to same year+country, keep first, mark as consolidated)
   result <- result |>
-    dplyr::group_by(year_n, country_en_clean) |>
+    dplyr::group_by(.data$year_n, .data$country_en_clean) |>
     dplyr::mutate(
-      consolidation_flag = consolidation_flag | was_consolidated_territorial,
+      consolidation_flag = .data$consolidation_flag | .data$was_consolidated_territorial,
       keep_row = dplyr::row_number() == 1
     ) |>
     dplyr::ungroup() |>
-    dplyr::filter(keep_row) |>
-    dplyr::select(-keep_row, -was_consolidated_territorial)
+    dplyr::filter(.data$keep_row) |>
+    dplyr::select(-"keep_row", -"was_consolidated_territorial")
 
   # Update country_en with cleaned values
   result <- result |>
-    dplyr::select(-country_en) |>
-    dplyr::rename(country_en = country_en_clean)
+    dplyr::select(-"country_en") |>
+    dplyr::rename(country_en = "country_en_clean")
 
   # Step 2: Apply name consolidations from mapping table
   for (i in seq_len(nrow(consolidation_mapping))) {
@@ -73,8 +73,8 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
 
     result <- result |>
       dplyr::mutate(
-        consolidation_flag = consolidation_flag | (country_en == old_name),
-        country_en = dplyr::if_else(country_en == old_name, new_name, country_en)
+        consolidation_flag = .data$consolidation_flag | (.data$country_en == old_name),
+        country_en = dplyr::if_else(.data$country_en == old_name, new_name, .data$country_en)
       )
   }
 
@@ -82,7 +82,7 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
   # Use explicit gsub replacements for known problematic characters
   result <- result |>
     dplyr::mutate(
-      country_en = country_en |>
+      country_en = .data$country_en |>
         stringr::str_replace_all("\u0043\u00f4\u0074\u0065", "Cote") |>
         stringr::str_replace_all("\u0054\u00fc\u0072\u006b\u0069\u0079\u0065", "Turkiye") |>
         stringr::str_replace_all("\u0043\u0075\u0072\u0061\u00e7\u0061\u006f", "Curacao") |>
@@ -95,7 +95,7 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
   result <- result |>
     dplyr::mutate(
       iso = countrycode::countrycode(
-        sourcevar = country_en,
+        sourcevar = .data$country_en,
         origin = "country.name",
         destination = "iso3c",
         warn = FALSE,
@@ -103,26 +103,26 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
       ),
       # Handle special cases not caught by countrycode
       iso = dplyr::case_when(
-        country_en == "Cyprus" ~ "CYP",
-        country_en == "Northern Cyprus" ~ "CXX",  # Non-standard code for Turkish Republic of Northern Cyprus
-        country_en == "Congo-Brazzaville" ~ "COG",
-        country_en == "DR Congo" ~ "COD",
-        country_en == "Bosnia-Herzegovina" ~ "BIH",
-        country_en == "North Korea" ~ "PRK",
-        country_en == "Federal Republic of Yugoslavia" ~ "YUG",
-        country_en == "Serbia-Montenegro" ~ "SCG",
-        country_en == "Kosovo" ~ "XXK",
-        country_en == "Morocco / Western Sahara " ~ "MAR",  # Primary mapping to Morocco
-        country_en == "OECS" ~ "XXX",  # Organization of Eastern Caribbean States (regional, not country)
+        .data$country_en == "Cyprus" ~ "CYP",
+        .data$country_en == "Northern Cyprus" ~ "CXX",  # Non-standard code for Turkish Republic of Northern Cyprus
+        .data$country_en == "Congo-Brazzaville" ~ "COG",
+        .data$country_en == "DR Congo" ~ "COD",
+        .data$country_en == "Bosnia-Herzegovina" ~ "BIH",
+        .data$country_en == "North Korea" ~ "PRK",
+        .data$country_en == "Federal Republic of Yugoslavia" ~ "YUG",
+        .data$country_en == "Serbia-Montenegro" ~ "SCG",
+        .data$country_en == "Kosovo" ~ "XXK",
+        .data$country_en == "Morocco / Western Sahara " ~ "MAR",  # Primary mapping to Morocco
+        .data$country_en == "OECS" ~ "XXX",  # Organization of Eastern Caribbean States (regional, not country)
         # Catch corrupted Turkiye encoding variants
-        grepl("rk.*ye", country_en, ignore.case = TRUE) ~ "TUR",
-        TRUE ~ iso
+        grepl("rk.*ye", .data$country_en, ignore.case = TRUE) ~ "TUR",
+        TRUE ~ .data$iso
       )
     )
 
   # Step 5: Ensure iso column is in correct position
   result <- result |>
-    dplyr::relocate(iso, .after = year_n)
+    dplyr::relocate("iso", .after = "year_n")
 
   return(result)
 }
@@ -220,7 +220,7 @@ validate_standardization <- function(standardized, original_row_count) {
 
   # Check for duplicate (year_n, country_en) pairs
   duplicates <- standardized |>
-    dplyr::group_by(year_n, country_en) |>
+    dplyr::group_by(.data$year_n, .data$country_en) |>
     dplyr::filter(dplyr::n() > 1) |>
     nrow()
   if (duplicates > 0) {
@@ -231,9 +231,9 @@ validate_standardization <- function(standardized, original_row_count) {
   n_missing_iso <- sum(is.na(standardized$iso))
   if (n_missing_iso > 0) {
     missing_countries <- standardized |>
-      dplyr::filter(is.na(iso)) |>
-      dplyr::distinct(country_en) |>
-      dplyr::pull(country_en)
+      dplyr::filter(is.na(.data$iso)) |>
+      dplyr::distinct(.data$country_en) |>
+      dplyr::pull("country_en")
     issues <- c(issues, paste("Missing ISO codes for:", paste(missing_countries, collapse = ", ")))
   }
 

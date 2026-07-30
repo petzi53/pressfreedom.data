@@ -89,7 +89,7 @@ combine_cleaned_periods <- function(
 
   # Arrange by year and country for consistency
   combined_data <- combined_data |>
-    dplyr::arrange(year_n, country_en)
+    dplyr::arrange(.data$year_n, .data$country_en)
 
   # Save combined file
   saveRDS(combined_data, output_file)

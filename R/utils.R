@@ -1,11 +1,6 @@
-# Suppress R CMD check NOTEs for variable names used only inside dplyr's
-# non-standard evaluation (NSE) pipelines (e.g. df |> dplyr::filter(year_n == ...)).
-# These are not undefined globals; they are column names resolved at
-# data-masking time. See: https://dplyr.tidyverse.org/articles/programming.html
-utils::globalVariables(c(
-  "year_n", "country_en", "country_en_clean", "consolidation_flag",
-  "was_consolidated_territorial", "keep_row", "iso", ":="
-))
+#' @importFrom rlang .data
+#' @importFrom rlang :=
+NULL
 
 #' Detect RSF Data Period by Year
 #'

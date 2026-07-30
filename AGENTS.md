@@ -41,6 +41,41 @@ cli::cli_inform("Count: {n_distinct_col}")
 
 This maintains package qualification throughout the code while avoiding environment scoping issues.
 
+### dplyr NSE and R CMD check ("no visible binding for global variable")
+
+**Problem:** Bare column names inside dplyr data-masking verbs (`mutate()`, `filter()`,
+`arrange()`, `group_by()`, `case_when()`) trigger `R CMD check` NOTEs because static
+analysis can't see that they resolve against the data frame at runtime.
+
+**Solution:** Use the `.data` pronoun for data-masking verbs, quoted strings for
+tidyselect verbs (`select()`, `rename()`, `relocate()`, `pull()`) — never
+`utils::globalVariables()`, which is an unstructured, ever-growing list disconnected
+from where each name is actually used:
+
+```r
+# Data-masking verb: use .data$col
+df |> dplyr::filter(.data$year_n == 2024)
+
+# Tidyselect verb: use a quoted string
+df |> dplyr::select(-"keep_row")
+```
+
+Requires one-time `NAMESPACE` imports (in `R/utils.R`):
+
+```r
+#' @importFrom rlang .data
+#' @importFrom rlang :=
+NULL
+```
+
+`:=` needs its own import (not `.data$`) because it's a genuine `rlang` function used as
+an infix operator for dynamic renames (`!!target := !!value`), not a column-name
+resolution issue. These `@importFrom` tags are `NAMESPACE` metadata (like `Imports:` in
+`DESCRIPTION`), not a violation of the "qualified calls" rule — they don't attach a
+whole namespace or make other functions callable unqualified, and `:=`/`.data` can't be
+written as `pkg::fn()` in the syntactic positions dplyr requires. Full rationale and
+before/after examples: `.posit/assistant/docs/2026-07-30-data-pronoun-refactor.md`.
+
 ### ggplot2
 
 - Default visualization tool for all plots
