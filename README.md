@@ -165,6 +165,15 @@ Press Freedom Index: https://rsf.org/en/ranking
 
 Data available for 24 years (2002–2026, with 2011 missing due to RSF not publishing that year).
 
+## Development
+
+After cloning, enable the versioned git hooks (blocks accidental non-ASCII
+characters in R source/documentation, which break `R CMD check` portability):
+
+```bash
+git config core.hooksPath .githooks
+```
+
 ## License
 
 MIT License. See LICENSE file for details.
