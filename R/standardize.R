@@ -1,3 +1,48 @@
+#' Repair Mojibake and Normalize Text to ASCII
+#'
+#' Repairs character strings that were corrupted by one or more rounds of
+#' incorrect Latin-1-as-UTF-8 decoding (a recurring artifact in RSF's source
+#' files), then transliterates any remaining accented characters to their
+#' closest ASCII equivalent. Detection and repair are byte-level and
+#' generic, so this handles corruption depth (single or double mojibake) and
+#' new corrupted values automatically, without needing a hand-maintained
+#' list of known-bad strings.
+#'
+#' @param x Character vector, potentially containing mojibake and/or
+#'   accented characters
+#' @param max_passes Maximum number of mojibake-repair passes to attempt
+#'   (guards against pathological input; real-world cases resolve in 1-2
+#'   passes)
+#'
+#' @return Character vector, ASCII-only
+#' @keywords internal
+repair_and_asciify <- function(x, max_passes = 3) {
+  # A "\u00c3" or "\u00c2" character immediately followed by a Latin-1
+  # continuation-range character is the telltale sign of UTF-8 bytes that
+  # were decoded as Latin-1
+  looks_mojibake <- function(s) {
+    !is.na(s) & grepl("[\u00c2\u00c3][\u0080-\u00bf]", s, perl = TRUE)
+  }
+
+  for (i in seq_len(max_passes)) {
+    suspicious <- looks_mojibake(x)
+    if (!any(suspicious)) break
+
+    repaired <- x
+    # Re-encode the (wrongly decoded) characters back to their original
+    # bytes, then reinterpret those bytes as UTF-8
+    latin1_bytes <- iconv(x[suspicious], from = "UTF-8", to = "latin1", sub = "byte")
+    Encoding(latin1_bytes) <- "UTF-8"
+    is_valid <- !is.na(latin1_bytes) & validUTF8(latin1_bytes)
+    repaired[suspicious][is_valid] <- latin1_bytes[is_valid]
+
+    if (identical(repaired, x)) break
+    x <- repaired
+  }
+
+  stringi::stri_trans_general(x, "Latin-ASCII")
+}
+
 #' Consolidate and Standardize Country Names and Assign ISO Codes
 #'
 #' Generic consolidation engine that applies country name consolidations,
@@ -78,30 +123,22 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
       )
   }
 
-  # Step 3: Remove diacritics (ASCII normalization)
-  # Use explicit gsub replacements for known problematic characters
+  # Step 3: Repair mojibake and remove diacritics (ASCII normalization)
+  # Both country_en and zone can arrive with UTF-8 bytes that were decoded
+  # as Latin-1 one or more times by upstream tools (RSF source files,
+  # readr::guess_encoding() misfires, etc.). repair_and_asciify() detects
+  # and reverses that byte-level corruption generically -- however many
+  # passes deep -- and then transliterates any genuinely accented
+  # characters to ASCII. This replaces a previous approach of hand-listing
+  # every known corrupted string as a regex substitution, which silently
+  # missed variants (e.g. a single-pass mojibake of "Ameriques" was left
+  # unrepaired because only the double-pass and already-correct forms had
+  # been enumerated) and required a code change every time a new RSF
+  # export introduced a new corrupted value.
   result <- result |>
     dplyr::mutate(
-      country_en = .data$country_en |>
-        stringr::str_replace_all("\u0043\u00f4\u0074\u0065", "Cote") |>
-        stringr::str_replace_all("\u0054\u00fc\u0072\u006b\u0069\u0079\u0065", "Turkiye") |>
-        stringr::str_replace_all("\u0043\u0075\u0072\u0061\u00e7\u0061\u006f", "Curacao") |>
-        stringr::str_replace_all("\u0053\u00e3\u006f\u0020\u0054\u006f\u006d\u00e9", "Sao Tome") |>
-        stringr::str_replace_all("\u0050\u0072\u00ed\u006e\u0063\u0069\u0070\u0065", "Principe") |>
-        stringr::str_replace_all("\u0052\u00e9\u0075\u006e\u0069\u006f\u006e", "Reunion"),
-      # "zone" has the same issue as country_en, plus a double-encoding
-      # mojibake variant (some Period-1 files' UTF-8 bytes were decoded
-      # as Latin-1 and re-encoded once more); normalize both variants to
-      # the same ASCII value so "Ameriques" isn't split into two zones.
-      zone = .data$zone |>
-        stringr::str_replace_all(
-          "\u0041\u006d\u00c3\u0083\u00c2\u00a9\u0072\u0069\u0071\u0075\u0065\u0073",
-          "Ameriques"
-        ) |>
-        stringr::str_replace_all(
-          "\u0041\u006d\u00e9\u0072\u0069\u0071\u0075\u0065\u0073",
-          "Ameriques"
-        )
+      country_en = repair_and_asciify(.data$country_en),
+      zone = repair_and_asciify(.data$zone)
     )
 
   # Step 3b: Fix the 2022 zone classification anomaly

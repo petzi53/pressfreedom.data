@@ -26,7 +26,8 @@ Imports:
     fs,
     glue,
     purrr,
-    tibble
+    tibble,
+    stringi
 Suggests:
     usethis,
     knitr,
