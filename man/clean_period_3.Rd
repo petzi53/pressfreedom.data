@@ -21,7 +21,9 @@ dimension columns, and decimal separator conversion for score_evolution.
 }
 \details{
 Processing steps:
-1. Read file with UTF-8 encoding
+1. Detect file encoding (RSF has silently switched between UTF-8 and
+   ISO-8859-1 across Period 3 years, e.g. 2025-2026 exports arrived as
+   Latin-1 even though 2022-2024 were UTF-8) and read accordingly
 2. Detect score column name (Score, Score YYYY, etc.)
 3. Drop problematic columns (Situation, etc.)
 4. Rename columns per Period 3 mapping

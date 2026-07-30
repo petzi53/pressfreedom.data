@@ -9,6 +9,14 @@
 # Development and archived code
 ^dev$
 ^_archive$
+^data-raw$
+
+# Editor/tooling configuration and git hooks (not part of the package)
+^\.editorconfig$
+^\.githooks$
+
+# macOS Finder custom-icon artifact (untracked, but present locally)
+^Icon$
 
 # Project documentation and AI agent files
 ^AGENTS\.md$

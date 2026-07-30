@@ -10,7 +10,8 @@
 #'
 #' @details
 #' Processing steps:
-#' 1. Read file with ISO-8859-1 encoding
+#' 1. Detect file encoding (RSF's 2002-2021 exports are actually UTF-8,
+#'    not ISO-8859-1 as originally assumed) and read accordingly
 #' 2. Convert decimal separators (comma -> period)
 #' 3. Rename columns per Period 1 mapping
 #' 4. Convert iso, country_en, zone to character
@@ -23,13 +24,19 @@
 #'
 #' @export
 clean_period_1 <- function(filepath, year) {
-  # Read with ISO-8859-1 encoding, all columns as character
+  # Detect encoding rather than assuming ISO-8859-1: RSF's Period 1-2 exports
+  # are actually UTF-8, and hardcoding ISO-8859-1 here (paired with a
+  # read/write round-trip at download time) previously double-encoded
+  # accented characters and corrupted comma-decimal numbers
+  detected_encoding <- detect_csv_encoding(filepath)
+
+  # Read with detected encoding, all columns as character
   # (readr auto-parses numeric columns which breaks comma decimal handling)
   df <- readr::read_delim(
     filepath,
     delim = ";",
     col_types = readr::cols(.default = readr::col_character()),
-    locale = readr::locale(encoding = "ISO-8859-1")
+    locale = readr::locale(encoding = detected_encoding)
   )
 
   # Identify numeric columns (score and rank columns) before renaming
@@ -95,13 +102,15 @@ clean_period_1 <- function(filepath, year) {
 #'
 #' @export
 clean_period_2 <- function(filepath, year) {
-  # Process identically to Period 1 (same column names, encoding, structure)
-  # Read with ISO-8859-1 encoding, all columns as character
+  # Process identically to Period 1 (same column names, structure); detect
+  # encoding per file rather than assuming ISO-8859-1 (see clean_period_1())
+  detected_encoding <- detect_csv_encoding(filepath)
+
   df <- readr::read_delim(
     filepath,
     delim = ";",
     col_types = readr::cols(.default = readr::col_character()),
-    locale = readr::locale(encoding = "ISO-8859-1")
+    locale = readr::locale(encoding = detected_encoding)
   )
 
   # Identify numeric columns (score and rank columns) before renaming
@@ -145,6 +154,46 @@ clean_period_2 <- function(filepath, year) {
 }
 
 
+#' Detect CSV File Encoding
+#'
+#' Guesses whether a raw RSF CSV file is UTF-8 or a Latin-1 variant.
+#' Used by clean_period_1(), clean_period_2(), and clean_period_3() because
+#' RSF has switched export encoding across years without notice (e.g.
+#' 2002-2021 exports are UTF-8 despite once being assumed ISO-8859-1, and
+#' 2025-2026 arrived as ISO-8859-1 while 2022-2024 were UTF-8).
+#'
+#' @param filepath Character. Path to raw CSV file
+#'
+#' @return Character. Either "UTF-8" or "ISO-8859-1"
+#'
+#' @details
+#' Uses readr::guess_encoding(), which ranks candidate encodings by
+#' confidence. Falls back to "UTF-8" if detection is inconclusive, since
+#' that has been the more common case historically.
+#'
+#' @keywords internal
+#'
+#' @export
+detect_csv_encoding <- function(filepath) {
+  guesses <- readr::guess_encoding(filepath)
+
+  if (nrow(guesses) == 0) {
+    return("UTF-8")
+  }
+
+  top_guess <- guesses$encoding[1]
+
+  # Normalize any Latin-1/Windows-1252 family guess to ISO-8859-1, which
+  # readr's locale() understands and which covers the accented characters
+  # RSF's exports use
+  if (grepl("^(ISO-8859-1|windows-1252|latin1)$", top_guess, ignore.case = TRUE)) {
+    return("ISO-8859-1")
+  }
+
+  "UTF-8"
+}
+
+
 #' Clean Period 3 Data (2022-2026)
 #'
 #' Normalizes Period 3 raw data to the unified 20-column structure.
@@ -158,7 +207,9 @@ clean_period_2 <- function(filepath, year) {
 #'
 #' @details
 #' Processing steps:
-#' 1. Read file with UTF-8 encoding
+#' 1. Detect file encoding (RSF has silently switched between UTF-8 and
+#'    ISO-8859-1 across Period 3 years, e.g. 2025-2026 exports arrived as
+#'    Latin-1 even though 2022-2024 were UTF-8) and read accordingly
 #' 2. Detect score column name (Score, Score YYYY, etc.)
 #' 3. Drop problematic columns (Situation, etc.)
 #' 4. Rename columns per Period 3 mapping
@@ -172,12 +223,17 @@ clean_period_2 <- function(filepath, year) {
 #'
 #' @export
 clean_period_3 <- function(filepath, year) {
-  # Read with UTF-8 encoding, all columns as character
+  # RSF has changed export encoding across Period 3 years without notice
+  # (2022-2024 files are UTF-8; 2025-2026 arrived as ISO-8859-1/Latin-1).
+  # Detect encoding per file instead of assuming UTF-8, so silent switches
+  # don't produce strings mismarked as UTF-8 that later fail nchar()/View().
+  detected_encoding <- detect_csv_encoding(filepath)
+
   df <- readr::read_delim(
     filepath,
     delim = ";",
     col_types = readr::cols(.default = readr::col_character()),
-    locale = readr::locale(encoding = "UTF-8")
+    locale = readr::locale(encoding = detected_encoding)
   )
 
   # Drop problematic columns (Situation, etc.)

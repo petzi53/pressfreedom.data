@@ -33,11 +33,20 @@ RSF publishes press freedom index data at:
 \url{https://rsf.org/sites/default/files/import_classement/<year>.csv}
 
 **Encoding Handling:**
-Files are read and written using period-aware encoding:
-- Periods 1-2 (2002-2021): ISO-8859-1 (Latin-1)
-- Period 3 (2022-2026): UTF-8
+Files are downloaded as raw bytes (\code{utils::download.file(mode = "wb")})
+and written to disk unmodified. No parsing, re-encoding, or re-serialization
+happens at download time, so whatever bytes RSF serves (RSF has used both
+UTF-8 and ISO-8859-1/Latin-1 depending on the year, without warning) are
+preserved exactly as-is. Encoding is detected later, per file, when the data
+is cleaned (see \code{detect_csv_encoding()}).
 
-This preserves the original encoding as provided by RSF.
+An earlier version of this function read each file with
+\code{readr::read_delim()} using a period-based encoding guess and then
+re-wrote it with \code{readr::write_delim()}. That round-trip silently
+corrupted the 2002-2021 files (which are actually UTF-8, not ISO-8859-1 as
+assumed): text was double-encoded and numeric columns like \code{Score N}
+were mis-parsed (commas treated as thousands separators, e.g. "92,48"
+became 9248). Downloading raw bytes avoids this class of bug entirely.
 
 Year 2011 is not available; no imputation is performed. If
 \code{skip_missing = TRUE}, the function automatically filters out 2011

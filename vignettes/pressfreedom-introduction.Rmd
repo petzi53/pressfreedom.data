@@ -82,8 +82,8 @@ str(rwb_standardized)
 - `year_n` - Year (2002-2026; 2011 missing)
 - `iso` - ISO 3166-1 alpha-3 country code
 - `country_en` - Country name (English, ASCII-normalized)
-- `score` - Press freedom score (0-100; higher = less free)
-- `rank` - Ranking among countries that year
+- `score` - Press freedom score (0-100; lower = less free)
+- `rank` - Ranking among countries that year (lower = more free)
 - Dimension columns (available 2022+): `political_context`, `economic_context`, `legal_context`, `social_context`, `safety`
 - Evolution columns: `rank_evolution`, `score_evolution` (change vs. previous year)
 

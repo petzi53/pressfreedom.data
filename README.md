@@ -144,7 +144,7 @@ See `?update_rwb_data` for full documentation.
 ### Utility Functions
 
 - `get_period()` — Identify RSF methodology period for a year
-- `get_period_encoding()` — Get correct character encoding for a year
+- `detect_csv_encoding()` — Detect the actual character encoding of a downloaded CSV
 - `normalize_column_names()` — Normalize column names to standard format
 - `standardize_decimal_separators()` — Convert decimal separators (comma to period)
 - `convert_factors_to_character()` — Convert factor columns to character
