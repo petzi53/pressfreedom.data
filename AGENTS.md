@@ -369,6 +369,34 @@ result <- update_rwb_data(years = c(2027))
 
 **Status:** Multi-level documentation architecture approved, implementation plan created
 
+#### Phase 1: Package Vignette ✅ COMPLETE & COMMITTED (2026-07-30)
+
+**Deliverable:** `vignettes/pressfreedom-introduction.Rmd`  
+**Commit:** 8e2f351  
+**Word count:** ~3,200 words  
+**Status:** All code examples tested and executable
+
+**Sections completed:**
+- Introduction & motivation (why the package exists)
+- Installation & quick start (loading data, exploring)
+- Understanding the data structure (columns, data types, key notes)
+- Common usage patterns (6 detailed examples with code)
+- Annual updates (update_rwb_data() function, manual control)
+- Working with analysis packages (ggplot2, broom, tsibble examples)
+- Data quality notes (missing years, country consolidation, territorial variants, ISO codes)
+- FAQ & troubleshooting (7 common questions)
+
+**Dependencies added to DESCRIPTION:**
+- Added `knitr` and `rmarkdown` to Suggests (required for vignette rendering)
+
+**Implementation notes:**
+- All R code examples execute without errors
+- Vignette builds cleanly via `devtools::build_vignettes()`
+- ASCII-only characters per non-ASCII prevention policy
+- Examples cover both basic and intermediate usage patterns
+
+**Next phase:** pkgdown website setup (Phase 2)
+
 **Four-level documentation approach:**
 
 1. **Package Vignette** (`vignettes/pressfreedom-introduction.Rmd`)
