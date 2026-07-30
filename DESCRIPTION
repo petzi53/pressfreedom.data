@@ -26,7 +26,9 @@ Imports:
     purrr,
     tibble
 Suggests:
-    usethis
+    usethis,
+    knitr,
+    rmarkdown
 Config/roxygen2/version: 8.0.0
 Depends: 
     R (>= 3.5)

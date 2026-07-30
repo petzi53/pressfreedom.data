@@ -1,0 +1,383 @@
+---
+title: "Getting Started with pressfreedom.data"
+author: "Peter Baumgartner"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with pressfreedom.data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 5
+)
+```
+
+## Introduction
+
+The Reporters Without Borders Press Freedom Index measures press freedom across countries annually. This vignette introduces **pressfreedom.data**, an R package that automates downloading, cleaning, and standardizing this data for analysis.
+
+### Why This Package?
+
+The RSF index spans 24 years (2002-2026) with evolving data structures:
+
+- **2002-2012:** 16 columns, non-comparable scores
+- **2013-2021:** 16 columns, comparable 0-100 scale  
+- **2022-2026:** 22-25 columns with new dimensions (Political, Economic, Legal, Social, Safety)
+
+Additionally, countries have been renamed (Turkey -> Turkey (now Turkiye), Ivory Coast -> Ivory Coast (now Cote d'Ivoire)), making historical analysis complex.
+
+This package handles all these challenges automatically, providing a single, clean dataset ready for analysis.
+
+## Installation
+
+Install from source:
+
+```r
+devtools::install()
+```
+
+Or load the package directly:
+
+```r
+library(pressfreedom.data)
+```
+
+## Quick Start
+
+### Load the Data
+
+```{r load}
+library(pressfreedom.data)
+
+# Load the standardized dataset
+data(rwb_standardized)
+
+# View the first few rows
+head(rwb_standardized, n = 10)
+```
+
+The dataset contains 4,192 rows representing 191 countries across 24 years:
+
+```{r structure}
+dim(rwb_standardized)
+```
+
+### Understanding the Data
+
+Each row represents one country in one year:
+
+```{r summary}
+# View column descriptions
+str(rwb_standardized)
+```
+
+**Key columns:**
+
+- `year_n` - Year (2002-2026; 2011 missing)
+- `iso` - ISO 3166-1 alpha-3 country code
+- `country_en` - Country name (English, ASCII-normalized)
+- `score` - Press freedom score (0-100; higher = less free)
+- `rank` - Ranking among countries that year
+- Dimension columns (available 2022+): `political_context`, `economic_context`, `legal_context`, `social_context`, `safety`
+- Evolution columns: `rank_evolution`, `score_evolution` (change vs. previous year)
+
+## Common Usage Patterns
+
+### 1. Check Data Availability
+
+```{r availability}
+# Years available
+unique(sort(rwb_standardized$year_n))
+
+# Number of countries per year
+rwb_standardized |>
+  dplyr::group_by(year_n) |>
+  dplyr::summarise(
+    n_countries = dplyr::n_distinct(country_en),
+    .groups = "drop"
+  )
+```
+
+### 2. Track a Specific Country
+
+```{r country_track}
+# Track Germany's press freedom over time
+germany <- rwb_standardized |>
+  dplyr::filter(country_en == "Germany") |>
+  dplyr::select(year_n, country_en, score, rank) |>
+  dplyr::arrange(year_n)
+
+head(germany)
+```
+
+### 3. Compare Countries in a Year
+
+```{r year_compare}
+# Top 10 most free countries in 2026 (lowest scores)
+top_2026 <- rwb_standardized |>
+  dplyr::filter(year_n == 2026) |>
+  dplyr::slice_min(score, n = 10) |>
+  dplyr::select(rank, country_en, score) |>
+  dplyr::arrange(rank)
+
+top_2026
+```
+
+### 4. Analyze Press Freedom Trends
+
+```{r trends}
+# Average press freedom score by decade
+rwb_standardized |>
+  dplyr::filter(!is.na(score)) |>
+  dplyr::mutate(decade = floor(year_n / 10) * 10) |>
+  dplyr::group_by(decade) |>
+  dplyr::summarise(
+    avg_score = mean(score),
+    n_countries = dplyr::n_distinct(country_en),
+    .groups = "drop"
+  )
+```
+
+### 5. Work with Dimensions (2022+)
+
+The dimensions (Political, Economic, Legal, Social, Safety) are only available from 2022 onward:
+
+```{r dimensions}
+# Check dimension availability
+rwb_standardized |>
+  dplyr::filter(year_n >= 2022) |>
+  dplyr::select(
+    year_n, country_en, 
+    political_context, economic_context, legal_context, 
+    social_context, safety
+  ) |>
+  head()
+```
+
+### 6. Regional Analysis
+
+For earlier years, geographical zone data is available:
+
+```{r zones}
+# Zone distribution in 2010
+rwb_standardized |>
+  dplyr::filter(year_n == 2010, !is.na(zone)) |>
+  dplyr::count(zone, sort = TRUE)
+```
+
+## Annual Updates
+
+When RSF publishes new data (typically in spring), update the package with:
+
+```r
+# Auto-detects missing years, downloads, and processes
+result <- update_rwb_data()
+
+# View the result
+print(result)
+```
+
+The function automatically:
+
+1. Detects which years are missing
+2. Downloads CSV files from RSF
+3. Normalizes column names across periods
+4. Combines into a unified structure
+5. Standardizes country names and ISO codes
+6. Validates the output
+7. (Optionally) Commits changes to git
+
+### Manual Control
+
+For fine-grained control, you can run specific phases:
+
+```r
+# Skip download and cleaning, just recombine and standardize
+result <- update_rwb_data(
+  download = FALSE,
+  clean = FALSE,
+  standardize = TRUE,
+  validate = TRUE
+)
+
+# Download and clean specific years
+result <- update_rwb_data(
+  years = c(2027),
+  combine = TRUE,
+  standardize = TRUE
+)
+```
+
+See `?update_rwb_data` for all options and return values.
+
+## Working with Analysis Packages
+
+### Visualization with ggplot2
+
+```r
+library(ggplot2)
+
+# Plot press freedom trends for selected countries
+rwb_standardized |>
+  dplyr::filter(country_en %in% c("Germany", "France", "United States", "China")) |>
+  ggplot(aes(x = year_n, y = score, color = country_en)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Press Freedom Trends",
+    x = "Year",
+    y = "Score (0=most free, 100=least free)",
+    color = "Country"
+  ) +
+  theme_minimal()
+```
+
+### Regression Analysis with broom
+
+```r
+library(broom)
+
+# Does a country's rank improve or decline?
+germany_model <- rwb_standardized |>
+  dplyr::filter(country_en == "Germany", !is.na(score)) |>
+  lm(score ~ year_n, data = _)
+
+broom::tidy(germany_model)
+```
+
+### Time Series with tsibble
+
+```r
+library(tsibble)
+
+# Convert to tsibble for time series analysis
+ts_data <- rwb_standardized |>
+  dplyr::filter(country_en == "Germany") |>
+  dplyr::select(year_n, score) |>
+  tsibble::as_tsibble(index = year_n)
+
+ts_data
+```
+
+## Data Quality Notes
+
+### Missing Years
+
+Year 2011 is missing because RSF did not publish data that year. No imputation is performed.
+
+### Country Consolidation
+
+Fourteen country names have been consolidated to reflect official changes or RSF methodology updates:
+
+- Turkey -> Turkey (now Turkiye)
+- Ivory Coast -> Ivory Coast (now Cote d'Ivoire)
+- Czech Republic -> Czechia
+- And 11 others
+
+Each consolidation is tracked in the `consolidated` column (TRUE if the row represents a consolidated entity).
+
+### Territorial Variants
+
+Cyprus and Northern Cyprus are kept separate because they are distinct political entities. Other territorial variants (e.g., U.S. bases in Iraq) have been removed.
+
+### ISO Codes
+
+All 4,192 rows have valid ISO 3166-1 alpha-3 country codes. You can use these for joining with other datasets.
+
+## Accessing the Data
+
+### Within R
+
+Load the bundled dataset:
+
+```r
+data(rwb_standardized)
+```
+
+### Direct File Access
+
+For external use, the standardized dataset is also available as an R data file:
+
+```r
+# Path to the data file
+system.file("data", "rwb_standardized.rda", package = "pressfreedom.data")
+```
+
+## FAQ & Troubleshooting
+
+### Q: Why is 2011 missing?
+
+**A:** RSF did not publish a Press Freedom Index for 2011. The package preserves this gap rather than imputing values.
+
+### Q: Can I use ISO codes to join with other datasets?
+
+**A:** Yes. All rows have valid ISO 3166-1 alpha-3 codes in the `iso` column. This is the standard for country joins.
+
+### Q: Are dimensions available for all years?
+
+**A:** No. The new dimensions (Political, Economic, Legal, Social, Safety) are only available from 2022 onward. Earlier years have NA values.
+
+### Q: What character encoding is used?
+
+**A:** The data is normalized to ASCII, with special characters removed (e.g., Ivory Coast (now Cote d'Ivoire), Turkey (now Turkiye)). This ensures compatibility across platforms.
+
+### Q: How do I contribute corrections or suggestions?
+
+**A:** Open an issue on GitHub: https://github.com/petzi53/pressfreedom.data/issues
+
+### Q: Where can I learn more about the data source?
+
+**A:** Visit the Reporters Without Borders Press Freedom Index: https://rsf.org/en/ranking
+
+### Q: Can I use this data in published research?
+
+**A:** Yes. Please cite both the package and the original data source:
+
+```
+@software{baumgartner2026pressfreedom,
+  author = {Baumgartner, Peter},
+  title = {pressfreedom.data: Download and Process Reporters Without Borders 
+           Press Freedom Index Data},
+  year = {2026},
+  url = {https://github.com/petzi53/pressfreedom.data},
+  note = {R package version 0.1.0}
+}
+```
+
+And cite RSF:
+
+```
+@organization{rsf2026,
+  title = {Press Freedom Index 2026},
+  author = {Reporters Without Borders},
+  year = {2026},
+  url = {https://rsf.org/en/ranking}
+}
+```
+
+## Summary
+
+**pressfreedom.data** provides:
+
+[OK] Clean, standardized press freedom data for 24 years (2002-2026)  
+[OK] Automatic handling of methodological changes  
+[OK] Country name consolidation and ISO codes  
+[OK] Annual update automation  
+[OK] Full data pipeline transparency  
+
+For more details, see the function documentation:
+
+```r
+?update_rwb_data
+?rwb_standardized
+?download_rwb_data
+?standardize_rwb_countries
+```
+
+Happy analyzing!
