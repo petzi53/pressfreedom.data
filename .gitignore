@@ -4,3 +4,4 @@
 .Ruserdata
 .DS_Store
 Icon*
+# .posit/assistant is intentionally tracked (dev history); if re-added, remove and re-commit

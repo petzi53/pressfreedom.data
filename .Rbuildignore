@@ -13,6 +13,7 @@
 # Project documentation and AI agent files
 ^AGENTS\.md$
 ^\.posit$
+# already covers .posit/assistant/ — ignore if Posit Assistant re-adds that line too
 
 # Intermediate data processing files (Phase B, C; kept in git for reproducibility)
 ^data/cleaned$

@@ -90,6 +90,7 @@ Always use explicit print commands to avoid truncation:
 - **Personas:** Default to Data Scientist (unless explicitly requested: Bayesian or Coder)
 - **Memory files:** This file serves as the project-level memory
 - **Do not reference:** Contents of `_archive/` folder unless explicitly asked
+- **Posit Assistant Configuration:** `.posit/assistant/` is intentionally tracked in git (dev history, kept until package is done). If Posit Assistant re-adds `.posit/assistant` to `.gitignore` or `.Rbuildignore`, just revert: `git checkout .Rbuildignore .gitignore`. See `.posit/assistant/docs/2026-07-30-preventing-rbuildignore-gitignore-interference.md`.
 
 ---
 
