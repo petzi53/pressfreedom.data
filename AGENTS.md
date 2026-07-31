@@ -386,6 +386,47 @@ result <- update_rwb_data(years = c(2027))
 - **Character not factor:** User preference; avoids level ordering issues
 - **Keep raw files:** Auditability; always preserve original data
 
+### Zone Column: French → English Translation ✅ COMPLETE (2026-07-31)
+
+**What:** `zone` shipped with six French-language values inherited from RSF's
+raw exports (`Afrique`, `Ameriques`, `Asie-Pacifique`, `EEAC`, `MENA`, `UE
+Balkans`) -- the only non-English column in `rwb_standardized`. Translated to
+English so every column is consistently English:
+
+| Old (French) | New (English) |
+|---|---|
+| `Afrique` | `Africa` |
+| `Ameriques` | `Americas` |
+| `Asie-Pacifique` | `Asia-Pacific` |
+| `EEAC` | `Eastern Europe & Central Asia` |
+| `MENA` | `Middle East & North Africa` |
+| `UE Balkans` | `EU & Balkans` |
+
+**Where:** New "Step 3c" in `consolidate_and_standardize_countries()`
+(`R/standardize.R`), applied *after* the existing Step 3b 2022 zone-anomaly
+fix (which keys off the original French labels) and *after*
+`repair_and_asciify()`. Mapping lives in `inst/extdata/zone_mapping.csv`
+(same pattern as `consolidation_mapping.csv`). A hard validation check
+(`cli::cli_abort()`) runs immediately after translation and fails the
+pipeline if any non-`NA` `zone` value isn't one of the six approved English
+names.
+
+**Why this also fixes the recurring zone mojibake bug:** none of the six
+English names contain diacritics, so there is nothing left for an
+upstream Latin-1-as-UTF-8 encoding glitch to corrupt -- this closes the root
+cause rather than continuing to rely on `repair_and_asciify()`'s
+detect-and-repair heuristic for `zone` specifically (still used for
+`country_en`).
+
+**This is a breaking change to shipped data values** -- documented in
+`NEWS.md`. Any code filtering on old French zone values (e.g. `zone ==
+"MENA"`) needs updating.
+
+**Files touched:** `inst/extdata/zone_mapping.csv` (new),
+`R/standardize.R`, `vignettes/visualizing-trends.Rmd` (zone glossary
+headers), `data/processed/rwb_standardized.rds`,
+`data/rwb_standardized.rda`, `NEWS.md` (new).
+
 ### R CMD Check Fixes ✅ COMPLETE & COMMITTED
 
 **Status:** All 5 actionable issues fixed (2026-07-29)  

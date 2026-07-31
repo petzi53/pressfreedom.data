@@ -10,7 +10,7 @@ A data frame with 4,192 rows and 20 columns:
   \item{year_n}{Numeric year (2002-2026, excluding 2011)}
   \item{iso}{ISO 3166-1 alpha-3 country code}
   \item{country_en}{Standardized country name in English}
-  \item{score}{Press freedom score (0-100; lower = more free). Comparable only within periods.}
+  \item{score}{Press freedom score (0-100; higher = more free). Comparable only within periods.}
   \item{rank}{Rank within the year (1 = most free)}
   \item{political_context}{Sub-index: Political context (if available)}
   \item{rank_pol}{Rank within political context (if available)}

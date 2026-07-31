@@ -167,6 +167,40 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
     ) |>
     dplyr::select(-"mapped_zone")
 
+  # Step 3c: Translate zone values from French to English
+  # RSF's raw exports use six French-language zone labels. Every other
+  # column in this dataset is English, so translate zone here to match --
+  # this also permanently removes the recurring "zone mojibake" risk
+  # (see repair_and_asciify() above): none of the six English names contain
+  # a diacritic, so there is nothing left for an encoding glitch to corrupt.
+  zone_mapping <- readr::read_csv(
+    system.file("extdata", "zone_mapping.csv", package = "pressfreedom.data"),
+    show_col_types = FALSE
+  )
+  zone_translation <- rlang::set_names(zone_mapping$new_name, zone_mapping$old_name)
+
+  result <- result |>
+    dplyr::mutate(
+      zone = dplyr::if_else(
+        .data$zone %in% names(zone_translation),
+        unname(zone_translation[.data$zone]),
+        .data$zone
+      )
+    )
+
+  # Hard validation: fail loudly if any non-NA zone value isn't one of the
+  # six approved English names, rather than letting an unrecognized value
+  # slip through silently.
+  approved_zones <- zone_mapping$new_name
+  unexpected_zones <- result$zone[!is.na(result$zone) & !(result$zone %in% approved_zones)]
+  if (length(unexpected_zones) > 0) {
+    cli::cli_abort(c(
+      "Unexpected {.field zone} value{?s} found after translation.",
+      "x" = "Unrecognized: {unique(unexpected_zones)}",
+      "i" = "Approved values: {approved_zones}"
+    ))
+  }
+
   # Step 4: Assign ISO codes
   result <- result |>
     dplyr::mutate(

@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 ## Why This Package?
 
 The Reporters Without Borders (RSF) Press Freedom Index measures press freedom
-across countries annually. **pressfreedom.data** automates downloading,
+across countries annually. {pressfreedom.data} automates downloading,
 cleaning, and standardizing this data for analysis in R.
 
 The RSF index spans 24 years (2002-2026, with 2011 missing because RSF did not

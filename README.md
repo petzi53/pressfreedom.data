@@ -200,5 +200,5 @@ If you use this package in research, please cite:
 
 ## Related Projects
 
-- **pressfreedom** — Interactive Shiny dashboard built on this package
+- {pressfreedom} — Interactive Shiny dashboard built on this package
 - RSF Official Rankings: https://rsf.org/en/ranking
