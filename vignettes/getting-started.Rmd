@@ -47,22 +47,10 @@ inside the package source, though it is not part of the exported
 `rwb_standardized` dataset described below.
 
 Every row in the exported dataset has a valid ISO 3166-1 alpha-3 country
-code, so you can join it with other datasets without extra cleanup.
-
-### Data Quality: A Critical Fix
-
-During package development, we discovered a significant scaling bug in the RSF
-source data: RSF exports percentage scores as bare digits with 2 implied decimal
-places (e.g., "9189" means 91.89%), with trailing zeros silently dropped (e.g.,
-"844" means 84.40%, not 8.44%). Worse, some 2025 rows used 3 decimal places
-instead. Previous cleaning pipelines only converted commas to periods, leaving
-many 2013-2026 scores **100x too large** (e.g., 91.89 became 9189).
-
-We implemented `resolve_percent_scaling()`, a rank-based disambiguation algorithm
-that detects the correct scaling per year and column by analyzing the distribution
-of values and matching them against expected percentile patterns. This ensures
-that all exported scores are on the correct 0-100 scale. The fix is automatic
-and transparent to users.
+code, so you can join it with other datasets without extra cleanup. We also
+found and fixed a subtle scaling bug in RSF's raw score exports that had
+silently inflated many 2013-2026 scores by 100x (see the FAQ below for
+details).
 
 This package handles all of the above automatically, providing a single,
 clean dataset ready for analysis.
@@ -180,22 +168,6 @@ See `?update_rwb_data` for all options and return values.
 **A:** RSF did not publish a Press Freedom Index for 2011. The package
 preserves this gap rather than imputing values.
 
-### Q: Can I use ISO codes to join with other datasets?
-
-**A:** Yes. All rows have valid ISO 3166-1 alpha-3 codes in the `iso`
-column. This is the standard for country joins.
-
-### Q: Are dimensions available for all years?
-
-**A:** No. The new dimensions (Political, Economic, Legal, Social, Safety)
-are only available from 2022 onward. Earlier years have `NA` values.
-
-### Q: What character encoding is used?
-
-**A:** The data is normalized to ASCII, with special characters removed
-(e.g., Cote d'Ivoire, Turkiye). This ensures compatibility across
-platforms.
-
 ### Q: Are scores comparable across all 24 years?
 
 **A:** No. RSF changed its scoring methodology in 2013, so scores from
@@ -203,38 +175,40 @@ platforms.
 over time, restrict comparisons to the 2013-2026 period unless you are
 specifically studying methodology effects.
 
-### Q: Why are the scores on a 0-100 scale? Was this always the case?
+### Q: Are dimensions available for all years?
 
-**A:** During package development, we discovered a critical scaling bug in
-the RSF source data. RSF exports percentage scores as bare digit strings with
-2 implied decimal places (e.g., "9189" = 91.89%), and trailing zeros are
-silently dropped in many cells (e.g., "844" = 84.40%, not 8.44%). Some 2025
-rows even use 3 decimal places.
+**A:** No. The new dimensions (Political, Economic, Legal, Social, Safety)
+are only available from 2022 onward. Earlier years have `NA` values.
 
-Previous cleaning pipelines only converted commas to periods, leaving scores
-from 2013-2026 up to **100x too large**. For example, Germany's 2024 score
-was stored as "8239" but was being read as 8239 instead of 82.39.
+### Q: Was there a scaling issue in the raw scores?
 
-We implemented `resolve_percent_scaling()`, an algorithm that detects the
-correct scaling per year and column by analyzing the distribution of values
-and matching them against expected percentile patterns. This ensures that
-all exported scores are on the correct 0-100 scale. **The fix is automatic
-and was applied to all 2013-2026 data** during package assembly. Scores
-from 2002-2012 use a different (non-comparable) methodology entirely and are
-not affected by this bug.
+**A:** Yes. RSF's source files store percentages as bare digits with implied
+decimals (e.g., "9189" means 91.89%) and drop trailing zeros inconsistently,
+which had left many 2013-2026 scores up to 100x too large in earlier
+cleaning attempts. This is now corrected automatically via
+`resolve_percent_scaling()` before export, so the `score` values you see are
+already on the correct 0-100 scale.
 
-### Q: How do I contribute corrections or suggestions?
+### Q: Can I use ISO codes to join with other datasets?
 
-**A:** Open an issue on GitHub: <https://github.com/petzi53/pressfreedom.data/issues>
+**A:** Yes. All rows have valid ISO 3166-1 alpha-3 codes in the `iso`
+column. This is the standard for country joins.
 
-### Q: Where can I learn more about the data source?
+### Q: Can I use the data on different platforms?
 
-**A:** Visit the Reporters Without Borders Press Freedom Index:
-<https://rsf.org/en/ranking>
+**A:** Yes. The data is normalized to ASCII, with special characters removed
+(e.g., Cote d'Ivoire, Turkiye), so it loads and joins correctly regardless of
+your operating system or locale settings.
 
 ### Q: Can I use this data in published research?
 
-**A:** Yes. Please cite both the package and the original data source:
+**A:** Yes. RSF publishes the Press Freedom Index publicly to support
+journalism, research, and policy analysis, and does not restrict reuse for
+these purposes. See the next entry for citation templates.
+
+### Q: How should I cite this data?
+
+**A:** Please cite both the package and the original data source:
 
 ```
 @software{baumgartner2026pressfreedom,
@@ -258,14 +232,20 @@ And cite RSF:
 }
 ```
 
-## Summary
+### Q: How do I contribute corrections or suggestions?
 
-**pressfreedom.data** provides a clean, standardized press freedom dataset
-spanning 24 years, with automatic handling of methodological changes,
-country name consolidation, ISO codes, and annual update automation. For
-chart-based examples, see the companion vignette
-`vignette("visualizing-trends", package = "pressfreedom.data")`. For full
-function documentation, visit the package website:
-<https://www.peter-baumgartner.net/pressfreedom.data>.
+**A:** Open an issue on GitHub: <https://github.com/petzi53/pressfreedom.data/issues>
 
-Happy analyzing!
+### Q: Where can I learn more about the data?
+
+**A:** There are different places to learn more about the data:
+
+- For background information on the RSF Press Freedom Index itself, visit
+<https://rsf.org>. 
+- For chart-based examples using this package,
+see the companion vignette `vignette("visualizing-trends", package =
+"pressfreedom.data")`. 
+- Full function documentation will be available on the
+package website, <https://www.peter-baumgartner.net/pressfreedom.data> (once
+published); until then, use `?function_name` in R or browse the README on
+GitHub.
