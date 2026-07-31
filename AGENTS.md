@@ -153,6 +153,43 @@ Dataset spans 24 years (2002–2026, with 2011 intentionally missing). Three dis
 > `year_n >= 2013` first — do not average or plot `score` across the 2002–2012 /
 > 2013+ boundary.
 
+#### Pre-Aggregation Checklist (run before ANY code that aggregates, averages, ranks, or plots `score`/dimension columns)
+
+This checklist exists because the 2013 boundary has been violated multiple times
+in past sessions — not because the rule was forgotten, but because it wasn't
+re-checked at the point of writing aggregation code. Run through it explicitly,
+every time, even mid-session, even when reusing objects that already look
+filtered:
+
+1. **Name the columns involved.** Is `score`, `political_context`,
+   `economic_context`, `legal_context`, `social_context`, or `safety` part of
+   this computation (directly, or via a derived object built from one of
+   them)? If no -> checklist doesn't apply. If yes -> continue.
+2. **Trace the data source, don't assume.** If building on an
+   already-existing R object (e.g. something already in the environment like
+   `yearly_mean`, `zone_means`, `eu_safety`, `eu_safety_change`,
+   `global_safety_change`, `compare_df`, `germany_dims`,
+   `germany_rank_global`), do not trust its name or prior usage as proof it's
+   filtered. Re-derive it from `rwb_standardized` with an explicit
+   `dplyr::filter(.data$year_n >= 2013)`, or inspect it
+   (`range(obj$year_n)`) to confirm no rows predate 2013 before reusing it.
+3. **Filter first, aggregate second.** The filter step must appear in the
+   pipeline *before* any `group_by()`/`summarise()`/`mean()`/`arrange()` by
+   rank on these columns — never filter after the fact as a correction.
+4. **Dimension columns only exist from 2022+.** `political_context`,
+   `economic_context`, `legal_context`, `social_context`, `safety` are `NA`
+   for 2013–2021 (Period 2 had no dimensions) and non-comparable for
+   2002–2012 (Period 1). A `year_n >= 2013` filter is necessary but not
+   sufficient for dimension columns — also expect/handle `NA` for
+   2013–2021 rather than silently dropping or zero-filling.
+5. **State the filter in the output.** When presenting a result derived from
+   these columns (text, table, or plot), say explicitly which years it
+   covers (e.g., "2013–2026" or "2022–2026 for dimensions") so the boundary
+   is visible to Peter, not just enforced silently in code.
+6. **Before reusing a plotting object** (`p1`-`p7` or similar), check the
+   data frame it was built from met steps 1–4 — a plot object doesn't carry
+   forward a visible warning if its source data was wrong.
+
 ### Workflow: Four Phases
 
 | Phase | Task | Input | Output | Status |
