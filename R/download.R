@@ -51,7 +51,7 @@
 #' download_rwb_data(years = 2020:2026, output_dir = "inst/extdata")
 #' }
 #'
-#' @export
+#' @keywords internal
 #'
 download_rwb_data <- function(years = 2002:2026,
                               output_dir = "inst/extdata",

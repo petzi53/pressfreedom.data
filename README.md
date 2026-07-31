@@ -57,43 +57,11 @@ rwb_standardized |>
 
 ## Annual Updates
 
-When new RSF data is published (typically in 2–3 weeks), update the package with a single function call:
-
-```r
-library(pressfreedom.data)
-
-# Auto-detects missing years, downloads, cleans, combines, standardizes
-result <- update_rwb_data()
-
-# Check the result
-print(result)
-```
-
-The `update_rwb_data()` function:
-- Automatically detects which years are missing
-- Downloads CSVs from RSF
-- Normalizes column names (Phase B)
-- Combines into a unified structure (Phase C)
-- Standardizes country names and ISO codes (Phase D)
-- Validates the output
-- Commits changes to git (if enabled)
-
-For manual control over which phases to run:
-
-```r
-# Dry-run (combine and standardize only, no download)
-result <- update_rwb_data(
-  download = FALSE,
-  clean = FALSE,
-  standardize = TRUE,
-  validate = TRUE
-)
-
-# Download specific years only
-result <- update_rwb_data(years = 2027:2028)
-```
-
-See `?update_rwb_data` for full documentation.
+Updating the dataset with new RSF data is a maintainer-only task, not part of
+the package's public API (see [Functions](#functions) below). It is
+performed via the runbook script `data-raw/update-data.R`, which requires a
+full development checkout (`devtools::load_all()`) rather than an installed
+copy of the package.
 
 ## Data Structure
 
@@ -132,30 +100,20 @@ See `?update_rwb_data` for full documentation.
 
 ## Functions
 
-### Data Processing Functions
-
-- `download_rwb_data()` — Download CSVs from RSF
-- `clean_period_1()`, `clean_period_2()`, `clean_period_3()` — Clean period-specific data
-- `clean_all_rwb_years()` — Clean all years
-- `combine_cleaned_periods()` — Combine cleaned periods
-- `standardize_rwb_countries()` — Standardize country names and ISO codes
-- `update_rwb_data()` — Annual update orchestration (recommended)
-
-### Utility Functions
-
-- `get_period()` — Identify RSF methodology period for a year
-- `detect_csv_encoding()` — Detect the actual character encoding of a downloaded CSV
-- `normalize_column_names()` — Normalize column names to standard format
-- `standardize_decimal_separators()` — Convert decimal separators (comma to period)
-- `convert_factors_to_character()` — Convert factor columns to character
-
-See function documentation for details:
+The package's public API is limited to the `rwb_standardized` dataset
+itself:
 
 ```r
-?update_rwb_data
-?download_rwb_data
 ?rwb_standardized
 ```
+
+Data collection and update tooling (downloading, cleaning, combining, and
+standardizing new RSF releases) are internal (maintainer-only) functions,
+not part of the documented user-facing interface. They cannot run against an
+installed copy of this package -- they hard-code paths that only resolve
+inside a development checkout, and the update workflow performs a `git
+commit`. See `data-raw/update-data.R` for the maintainer runbook, or
+`pressfreedom.data:::update_rwb_data` etc. for advanced/development use.
 
 ## Data Source
 

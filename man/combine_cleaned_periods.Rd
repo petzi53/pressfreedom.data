@@ -21,3 +21,4 @@ Invisibly returns the path to the output file
 Reads all cleaned RDS files from period_1, period_2, and period_3
 directories and combines them into a single data frame.
 }
+\keyword{internal}

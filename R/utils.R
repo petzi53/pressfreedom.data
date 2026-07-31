@@ -42,8 +42,6 @@ NULL
 #' get_period(2024)   # "period_3"
 #' get_period(2011)   # NA
 #' }
-#'
-#' @export
 get_period <- function(year) {
   if (year == 2011) {
     return(NA_character_)
@@ -76,8 +74,6 @@ get_period <- function(year) {
 #'   \code{"UTF-8"} for Period 3.
 #'
 #' @keywords internal
-#'
-#' @export
 get_period_encoding <- function(year) {
   period <- get_period(year)
   if (is.na(period)) {
@@ -121,8 +117,6 @@ get_period_encoding <- function(year) {
 #' missing_years <- get_years_to_download()
 #' missing_years
 #' }
-#'
-#' @export
 get_years_to_download <- function(input_dir = "inst/extdata", all_years = 2002:2026) {
   # Exclude 2011 (no official RSF data)
   all_years <- setdiff(all_years, 2011)
@@ -157,8 +151,6 @@ get_years_to_download <- function(input_dir = "inst/extdata", all_years = 2002:2
 #' It is primarily for Period 1-2 data where European number formatting was used.
 #'
 #' @keywords internal
-#'
-#' @export
 standardize_decimal_separators <- function(df, cols) {
   df |>
     dplyr::mutate(
@@ -181,8 +173,6 @@ standardize_decimal_separators <- function(df, cols) {
 #' @return Data frame with specified columns converted to character
 #'
 #' @keywords internal
-#'
-#' @export
 convert_factors_to_character <- function(df, cols) {
   df |>
     dplyr::mutate(
@@ -212,8 +202,6 @@ convert_factors_to_character <- function(df, cols) {
 #' - Return NA if neither found
 #'
 #' @keywords internal
-#'
-#' @export
 detect_score_column <- function(df, year) {
   # Try year-specific name first (e.g., "Score 2026")
   year_col <- paste("Score", year)
@@ -251,8 +239,6 @@ detect_score_column <- function(df, year) {
 #' 4. Reorders to match target column order
 #'
 #' @keywords internal
-#'
-#' @export
 normalize_column_names <- function(df, period, year, mapping) {
   # Handle Period 3 score column detection
   if (period == "3") {

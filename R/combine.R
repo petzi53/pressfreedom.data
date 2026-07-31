@@ -8,7 +8,7 @@
 #'
 #' @return Invisibly returns the path to the output file
 #'
-#' @export
+#' @keywords internal
 combine_cleaned_periods <- function(
     input_dir = here::here("data", "cleaned"),
     output_file = here::here("data", "processed", "rwb_combined.rds")

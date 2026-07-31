@@ -115,7 +115,7 @@
 #' - \code{\link{standardize_rwb_countries}} for Phase D details
 #' - \code{\link{get_years_to_download}} for missing year detection
 #'
-#' @export
+#' @keywords internal
 update_rwb_data <- function(
     years = NULL,
     download = TRUE,
@@ -446,8 +446,7 @@ update_rwb_data <- function(
 #' @param ... Additional arguments (unused)
 #'
 #' @keywords internal
-#'
-#' @export
+#' @exportS3Method
 print.rwb_update <- function(x, ...) {
 
   cat("\n")

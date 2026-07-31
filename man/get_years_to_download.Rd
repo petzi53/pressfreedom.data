@@ -36,6 +36,5 @@ in the \code{all_years} range.
 missing_years <- get_years_to_download()
 missing_years
 }
-
 }
 \keyword{internal}

@@ -21,3 +21,4 @@ Data frame with standardized country names, ISO codes, and metadata
 Generic consolidation engine that applies country name consolidations,
 removes diacritics, and assigns ISO 3-letter codes.
 }
+\keyword{internal}

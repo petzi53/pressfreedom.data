@@ -52,7 +52,7 @@ repair_and_asciify <- function(x, max_passes = 3) {
 #' @param consolidation_mapping Data frame with columns: old_name, new_name, iso_code, reason
 #'
 #' @return Data frame with standardized country names, ISO codes, and metadata
-#' @export
+#' @keywords internal
 consolidate_and_standardize_countries <- function(combined_df, consolidation_mapping = NULL) {
   # Load default consolidation mapping if not provided
   if (is.null(consolidation_mapping)) {
@@ -248,7 +248,7 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
 #' @param mapping_file Path to consolidation mapping CSV
 #'
 #' @return Invisibly returns the path to the output file
-#' @export
+#' @keywords internal
 standardize_rwb_countries <- function(
     input_file = here::here("data", "processed", "rwb_combined.rds"),
     output_file = here::here("data", "processed", "rwb_standardized.rds"),
@@ -301,6 +301,7 @@ standardize_rwb_countries <- function(
 #' @param original_row_count Original number of rows (before consolidation)
 #'
 #' @return Invisibly returns TRUE if all checks pass
+#' @keywords internal
 validate_standardization <- function(standardized, original_row_count) {
   issues <- c()
 

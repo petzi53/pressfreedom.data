@@ -17,3 +17,4 @@ Invisibly returns TRUE if all checks pass
 \description{
 Check that standardization preserved data integrity and produced expected results.
 }
+\keyword{internal}

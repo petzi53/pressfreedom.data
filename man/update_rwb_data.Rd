@@ -141,3 +141,4 @@ result <- update_rwb_data(years = NULL, download = FALSE, clean = FALSE)
 - \code{\link{standardize_rwb_countries}} for Phase D details
 - \code{\link{get_years_to_download}} for missing year detection
 }
+\keyword{internal}

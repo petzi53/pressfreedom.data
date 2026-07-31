@@ -67,3 +67,4 @@ download_rwb_data(years = 2020:2026, output_dir = "inst/extdata")
 }
 
 }
+\keyword{internal}

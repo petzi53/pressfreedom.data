@@ -21,8 +21,6 @@
 #' 8. Reorder to target 20-column structure
 #'
 #' @keywords internal
-#'
-#' @export
 clean_period_1 <- function(filepath, year) {
   # Detect encoding rather than assuming ISO-8859-1: RSF's Period 1-2 exports
   # are actually UTF-8, and hardcoding ISO-8859-1 here (paired with a
@@ -122,8 +120,6 @@ clean_period_1 <- function(filepath, year) {
 #' or missing value inputs fall back to the zero-padded interpretation.
 #'
 #' @keywords internal
-#'
-#' @export
 resolve_percent_scaling <- function(raw_chr, rank_chr) {
   sign <- ifelse(stringr::str_starts(raw_chr, "-"), -1, 1)
   digits <- stringr::str_remove(raw_chr, "^-")
@@ -182,8 +178,6 @@ resolve_percent_scaling <- function(raw_chr, rank_chr) {
 #' @return Data frame with 20 columns, standardized types (character, numeric)
 #'
 #' @keywords internal
-#'
-#' @export
 clean_period_2 <- function(filepath, year) {
   # Process identically to Period 1 (same column names, structure); detect
   # encoding per file rather than assuming ISO-8859-1 (see clean_period_1())
@@ -270,8 +264,6 @@ clean_period_2 <- function(filepath, year) {
 #' that has been the more common case historically.
 #'
 #' @keywords internal
-#'
-#' @export
 detect_csv_encoding <- function(filepath) {
   guesses <- readr::guess_encoding(filepath)
 
@@ -318,8 +310,6 @@ detect_csv_encoding <- function(filepath) {
 #' 9. Reorder to target 20-column structure
 #'
 #' @keywords internal
-#'
-#' @export
 clean_period_3 <- function(filepath, year) {
   # RSF has changed export encoding across Period 3 years without notice
   # (2022-2024 files are UTF-8; 2025-2026 arrived as ISO-8859-1/Latin-1).
@@ -419,8 +409,6 @@ clean_period_3 <- function(filepath, year) {
 #' 5. Returns invisible filepath (for logging/progress tracking)
 #'
 #' @keywords internal
-#'
-#' @export
 clean_rwb_single <- function(filepath, year, output_dir) {
   # Detect period
   period <- get_period(year)
@@ -500,8 +488,6 @@ clean_rwb_single <- function(filepath, year, output_dir) {
 #' Skips years without data files.
 #'
 #' @keywords internal
-#'
-#' @export
 clean_all_rwb_years <- function(
     input_dir = here::here("inst/extdata"),
     output_dir = here::here("data/cleaned")) {

@@ -45,6 +45,5 @@ get_period(2015)   # "period_2"
 get_period(2024)   # "period_3"
 get_period(2011)   # NA
 }
-
 }
 \keyword{internal}

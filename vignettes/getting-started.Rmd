@@ -116,51 +116,6 @@ rwb_standardized |>
   )
 ```
 
-## Annual Updates
-
-When RSF publishes new data (typically in spring), update the package with:
-
-```r
-# Auto-detects missing years, downloads, and processes
-result <- update_rwb_data()
-
-# View the result
-print(result)
-```
-
-The function automatically:
-
-1. Detects which years are missing
-2. Downloads CSV files from RSF
-3. Normalizes column names across periods
-4. Combines into a unified structure
-5. Standardizes country names and ISO codes
-6. Validates the output
-7. (Optionally) Commits changes to git
-
-### Manual Control
-
-For fine-grained control, you can run specific phases:
-
-```r
-# Skip download and cleaning, just recombine and standardize
-result <- update_rwb_data(
-  download = FALSE,
-  clean = FALSE,
-  standardize = TRUE,
-  validate = TRUE
-)
-
-# Download and clean specific years
-result <- update_rwb_data(
-  years = c(2027),
-  combine = TRUE,
-  standardize = TRUE
-)
-```
-
-See `?update_rwb_data` for all options and return values.
-
 ## FAQ & Troubleshooting
 
 ### Q: Why is 2011 missing?
@@ -245,7 +200,5 @@ And cite RSF:
 - For chart-based examples using this package,
 see the companion vignette `vignette("visualizing-trends", package =
 "pressfreedom.data")`. 
-- Full function documentation will be available on the
-package website, <https://www.peter-baumgartner.net/pressfreedom.data> (once
-published); until then, use `?function_name` in R or browse the README on
-GitHub.
+- For a full description of the dataset's columns and how it was built, see
+`?rwb_standardized` in R or browse the README on GitHub.
