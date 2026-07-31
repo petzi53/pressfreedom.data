@@ -10,6 +10,15 @@
   package and are still fully documented, but no longer appear in
   `NAMESPACE`, the public help index, or are callable via `::`.
 
+  The same demotion applies to 12 lower-level Phase B/D helper functions
+  that these higher-level functions call internally: `clean_period_1()`,
+  `clean_period_2()`, `clean_period_3()`, `convert_factors_to_character()`,
+  `detect_csv_encoding()`, `detect_score_column()`, `get_period()`,
+  `get_period_encoding()`, `get_years_to_download()`,
+  `normalize_column_names()`, `resolve_percent_scaling()`, and
+  `standardize_decimal_separators()`. `validate_standardization()` was
+  already unexported and is now consistently marked internal as well.
+
   Rationale: these functions cannot work correctly against an installed/CRAN
   copy of the package (they hard-code `here::here()` paths that only resolve
   inside a development checkout, and `update_rwb_data()` performs a `git
