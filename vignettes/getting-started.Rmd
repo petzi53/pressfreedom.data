@@ -241,7 +241,7 @@ And cite RSF:
 **A:** There are different places to learn more about the data:
 
 - For background information on the RSF Press Freedom Index itself, visit
-<https://rsf.org>. 
+<https://rsf.org/en/index>. 
 - For chart-based examples using this package,
 see the companion vignette `vignette("visualizing-trends", package =
 "pressfreedom.data")`. 
