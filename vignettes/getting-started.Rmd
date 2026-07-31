@@ -49,6 +49,21 @@ inside the package source, though it is not part of the exported
 Every row in the exported dataset has a valid ISO 3166-1 alpha-3 country
 code, so you can join it with other datasets without extra cleanup.
 
+### Data Quality: A Critical Fix
+
+During package development, we discovered a significant scaling bug in the RSF
+source data: RSF exports percentage scores as bare digits with 2 implied decimal
+places (e.g., "9189" means 91.89%), with trailing zeros silently dropped (e.g.,
+"844" means 84.40%, not 8.44%). Worse, some 2025 rows used 3 decimal places
+instead. Previous cleaning pipelines only converted commas to periods, leaving
+many 2013-2026 scores **100x too large** (e.g., 91.89 became 9189).
+
+We implemented `resolve_percent_scaling()`, a rank-based disambiguation algorithm
+that detects the correct scaling per year and column by analyzing the distribution
+of values and matching them against expected percentile patterns. This ensures
+that all exported scores are on the correct 0-100 scale. The fix is automatic
+and transparent to users.
+
 This package handles all of the above automatically, providing a single,
 clean dataset ready for analysis.
 
@@ -187,6 +202,26 @@ platforms.
 2002-2012 are not directly comparable to 2013-2026. When analyzing trends
 over time, restrict comparisons to the 2013-2026 period unless you are
 specifically studying methodology effects.
+
+### Q: Why are the scores on a 0-100 scale? Was this always the case?
+
+**A:** During package development, we discovered a critical scaling bug in
+the RSF source data. RSF exports percentage scores as bare digit strings with
+2 implied decimal places (e.g., "9189" = 91.89%), and trailing zeros are
+silently dropped in many cells (e.g., "844" = 84.40%, not 8.44%). Some 2025
+rows even use 3 decimal places.
+
+Previous cleaning pipelines only converted commas to periods, leaving scores
+from 2013-2026 up to **100x too large**. For example, Germany's 2024 score
+was stored as "8239" but was being read as 8239 instead of 82.39.
+
+We implemented `resolve_percent_scaling()`, an algorithm that detects the
+correct scaling per year and column by analyzing the distribution of values
+and matching them against expected percentile patterns. This ensures that
+all exported scores are on the correct 0-100 scale. **The fix is automatic
+and was applied to all 2013-2026 data** during package assembly. Scores
+from 2002-2012 use a different (non-comparable) methodology entirely and are
+not affected by this bug.
 
 ### Q: How do I contribute corrections or suggestions?
 

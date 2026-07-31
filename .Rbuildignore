@@ -27,3 +27,5 @@
 # Intermediate data processing files (Phase B, C; kept in git for reproducibility)
 ^data/cleaned$
 ^data/processed$
+^doc$
+^Meta$
