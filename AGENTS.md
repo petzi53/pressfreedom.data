@@ -533,6 +533,17 @@ auto-deploy (Phase 2 of the documentation strategy, see below).
 - GitHub Pages repo setting itself was not (and cannot be) toggled by
   the assistant -- confirm this is enabled on your end.
 
+**GitHub Pages activation gotcha (2026-08-01):** the `gh-pages` branch does
+NOT exist until `.github/workflows/pkgdown.yaml` runs successfully at least
+once on a push to `main` -- it's created automatically by
+`JamesIves/github-pages-deploy-action`, not by hand. If Settings -> Pages ->
+"Deploy from a branch" only shows `main` (no `gh-pages` option), that means
+the workflow hasn't run yet (commits pending push, or the Actions run
+failed/hasn't completed). Fix: `git push origin main`, confirm the
+"pkgdown.yaml" Actions run succeeds, then set Pages to branch `gh-pages`,
+folder `/ (root)` (not `docs` on `main` -- the built site only lives on
+`gh-pages`, `docs/` on `main` is never committed).
+
 ### R CMD Check Fixes ✅ COMPLETE & COMMITTED
 
 **Status:** All 5 actionable issues fixed (2026-07-29)  
