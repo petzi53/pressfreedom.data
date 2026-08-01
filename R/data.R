@@ -1,7 +1,10 @@
-#' Standardized Reporters Sans Frontieres Press Freedom Index (2002-2026)
+#' Standardized Reporters Without Borders Press Freedom Index (2002-2026)
 #'
-#' A comprehensive dataset of press freedom indicators from Reporters Sans Frontieres (RSF),
-#' standardized and cleaned by the pressfreedom.data package pipeline.
+#' A comprehensive dataset of press freedom indicators from Reporters Without Borders
+#' (RSF: Reporters Sans Frontieres, the organization's French name and legal identity;
+#' RWB: Reporters Without Borders, its common English name -- used for the `rwb_` prefix
+#' throughout this package), standardized and cleaned by the pressfreedom.data package
+#' pipeline.
 #'
 #' @format A data frame with 4,192 rows and 20 columns:
 #' \describe{

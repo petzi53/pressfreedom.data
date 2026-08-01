@@ -4,20 +4,34 @@ An R package for downloading, cleaning, and standardizing press freedom data fro
 
 ## Overview
 
-The Reporters Without Borders Press Freedom Index ranks countries by press freedom on an annual basis. This package automates the complete data pipeline:
-
-1. **Download** — Fetch CSV files from RSF for years 2002–2026
-2. **Normalize** — Standardize column names across three distinct RSF methodological periods
-3. **Combine** — Merge periods into a unified 20-column structure
-4. **Standardize** — Consolidate duplicate country entities and assign ISO 3166 codes
-
-The result is a single, clean dataset ready for analysis: `rwb_standardized` with 4,192 rows, 191 countries, and 20 standardized columns.
+The Reporters Without Borders Press Freedom Index ranks countries by press
+freedom on an annual basis. This package automates the download, cleaning,
+and standardization of that index, providing a single clean dataset —
+`rwb_standardized` (4,192 rows, 191 countries, 20 columns) — ready for
+analysis. See `vignette("getting-started", package = "pressfreedom.data")`
+for the full pipeline story.
 
 ## Installation
 
+**From GitHub (recommended pre-CRAN):**
+
 ```r
-# Install development version from source
+pak::pak("petzi53/pressfreedom.data")
+
+# or, using the classic alternative:
+remotes::install_github("petzi53/pressfreedom.data")
+```
+
+**From source / local clone (development):**
+
+```r
 devtools::install()
+```
+
+**From CRAN** (once available):
+
+```r
+# install.packages("pressfreedom.data")
 ```
 
 ## Quick Start
@@ -55,17 +69,14 @@ rwb_standardized |>
   dplyr::select(year_n, country_en, score, rank)
 ```
 
-## Annual Updates
-
-Updating the dataset with new RSF data is a maintainer-only task, not part of
-the package's public API (see [Functions](#functions) below). It is
-performed via the runbook script `data-raw/update-data.R`, which requires a
-full development checkout (`devtools::load_all()`) rather than an installed
-copy of the package.
+See `vignette("getting-started", package = "pressfreedom.data")` for a full
+walkthrough and FAQ.
 
 ## Data Structure
 
 ### Main Dataset: `rwb_standardized`
+
+Key columns at a glance:
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -74,56 +85,36 @@ copy of the package.
 | `country_en` | character | Country name (English, ASCII) |
 | `score` | numeric | Press freedom score (0–100; higher = less free) |
 | `rank` | integer | Rank among countries this year |
-| `political_context` | numeric | Score for political context dimension |
-| `rank_pol` | integer | Rank on political dimension |
-| `economic_context` | numeric | Score for economic context dimension |
-| `rank_eco` | integer | Rank on economic dimension |
-| `legal_context` | numeric | Score for legal context dimension |
-| `rank_leg` | integer | Rank on legal dimension |
-| `social_context` | numeric | Score for social context dimension |
-| `rank_soc` | integer | Rank on social dimension |
-| `safety` | numeric | Score for safety of journalists dimension |
-| `rank_saf` | integer | Rank on safety dimension |
-| `zone` | character | Geographical zone (available for earlier years only) |
-| `rank_n_1` | integer | Rank in previous year (NA for 2002) |
-| `rank_evolution` | integer | Change in rank vs. previous year |
-| `score_n_1` | numeric | Score in previous year (NA for 2002) |
-| `score_evolution` | numeric | Change in score vs. previous year |
+
+See `?rwb_standardized` for the complete data dictionary (all 20 columns).
 
 ### Data Notes
 
-- **Year 2011:** Not published by RSF; no imputation performed
-- **Periods:** Three distinct methodological periods (2002-2012, 2013-2021, 2022-2026) with different available dimensions
-- **Country Consolidation:** 14 countries consolidated due to official name changes or RSF methodology updates (e.g., Turkey → Turkiye, Ivory Coast → Cote d'Ivoire)
-- **Territorial Variants:** Cyprus and Northern Cyprus kept separate (different entities)
-- **ISO Codes:** All 4,192 rows assigned valid ISO 3166-1 alpha-3 codes
-
-## Functions
-
-The package's public API is limited to the `rwb_standardized` dataset
-itself:
-
-```r
-?rwb_standardized
-```
-
-Data collection and update tooling (downloading, cleaning, combining, and
-standardizing new RSF releases) are internal (maintainer-only) functions,
-not part of the documented user-facing interface. They cannot run against an
-installed copy of this package -- they hard-code paths that only resolve
-inside a development checkout, and the update workflow performs a `git
-commit`. See `data-raw/update-data.R` for the maintainer runbook, or
-`pressfreedom.data:::update_rwb_data` etc. for advanced/development use.
+Scores are only comparable from 2013 onward (RSF changed its scoring
+methodology that year), and dimension columns (political/economic/legal/
+social/safety) only exist from 2022 onward. See `vignette("getting-started",
+package = "pressfreedom.data")` for the full FAQ, including country
+consolidation and ISO code coverage.
 
 ## Data Source
 
 **Reporters Without Borders (RSF)**  
 URL: https://rsf.org/  
-Press Freedom Index: https://rsf.org/en/ranking
+Press Freedom Index: https://rsf.org/en/index
 
 Data available for 24 years (2002–2026, with 2011 missing due to RSF not publishing that year).
 
 ## Development
+
+This package's public interface is just the `rwb_standardized` dataset
+(`?rwb_standardized`). Data collection and update tooling (downloading,
+cleaning, combining, standardizing new RSF releases) are internal,
+maintainer-only functions -- they hard-code paths that only resolve inside a
+development checkout and the update workflow performs a `git commit`, so
+they cannot run against an installed copy of the package. Annual updates are
+performed via the runbook script `data-raw/update-data.R`, which requires
+`devtools::load_all()`. See `pressfreedom.data:::update_rwb_data` etc. for
+advanced/development use.
 
 After cloning, enable the versioned git hooks (blocks accidental non-ASCII
 characters in R source/documentation, which break `R CMD check` portability):
@@ -144,19 +135,15 @@ ORCID: 0000-0003-4526-8791
 
 ## Citation
 
-If you use this package in research, please cite:
+If you use this package in research, please cite it:
 
-```
-@software{baumgartner2026pressfreedom,
-  author = {Baumgartner, Peter},
-  title = {pressfreedom.data: Download and Process Reporters Without Borders Press Freedom Index Data},
-  year = {2026},
-  url = {https://github.com/petzi53/pressfreedom.data},
-  note = {R package version 0.1.0}
-}
+```r
+citation("pressfreedom.data")
 ```
 
 ## Related Projects
 
-- {pressfreedom} — Interactive Shiny dashboard built on this package
-- RSF Official Rankings: https://rsf.org/en/ranking
+- {pressfreedom} — Interactive Shiny dashboard built on this package (in
+  development, not yet published; will be at
+  github.com/petzi53/pressfreedom and peter-baumgartner.net/pressfreedom)
+- RSF Official Data: https://rsf.org/en/index

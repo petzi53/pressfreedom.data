@@ -1,5 +1,33 @@
 # pressfreedom.data 0.2.0
 
+## Package logo
+
+* Replaced the hex sticker logo. The package now uses a gold circular badge
+  containing a small white-on-teal data-grid icon, layered on the existing
+  choropleth world map, to signal "data package" rather than "interactive
+  tool." The previous design (same map, paired with a microphone icon) has
+  been handed off to the companion `pressfreedom` Shiny app, which now shows
+  the microphone inside an orange square badge instead. Both logos keep the
+  same gold border, teal background, white text, and font so the two
+  packages read as a family while remaining visually distinct -- including
+  at favicon/thumbnail size, where the circular gold badge and the square
+  orange badge are still easy to tell apart even when icon-level detail is
+  no longer legible.
+
+## Documentation
+
+* Clarified the `rwb_` naming convention in `?rwb_standardized`: RSF
+  (Reporters Sans Frontieres) is the organization's French legal name, while
+  RWB (Reporters Without Borders) is its common English name -- the package
+  uses the `rwb_` prefix throughout since it targets English-speaking users.
+
+* De-duplicated README.md and `vignette("getting-started")`: each now owns
+  a distinct job (README = install + minimal example; vignette = full
+  walkthrough + FAQ), with the column dictionary consolidated at
+  `?rwb_standardized` and citation information consolidated in a new
+  `inst/CITATION` file (`citation("pressfreedom.data")`) instead of
+  duplicated BibTeX blocks.
+
 ## Breaking changes
 
 * The ETL/update functions are no longer part of the public API:

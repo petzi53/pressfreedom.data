@@ -55,28 +55,8 @@ details).
 This package handles all of the above automatically, providing a single,
 clean dataset ready for analysis.
 
-## Installation
-
-**From GitHub (recommended pre-CRAN):**
-
-```r
-pak::pak("petzi53/pressfreedom.data")
-
-# or, using the classic alternative:
-remotes::install_github("petzi53/pressfreedom.data")
-```
-
-**From source / local clone (development):**
-
-```r
-devtools::install()
-```
-
-**From CRAN** (once available):
-
-```r
-# install.packages("pressfreedom.data")
-```
+If you haven't installed the package yet, see the
+[README's Installation section](https://github.com/petzi53/pressfreedom.data#installation).
 
 ## Quick Start
 
@@ -89,17 +69,7 @@ data(rwb_standardized)
 dplyr::glimpse(rwb_standardized)
 ```
 
-**Key columns:**
-
-- `year_n` - Year (2002-2026; 2011 missing)
-- `iso` - ISO 3166-1 alpha-3 country code
-- `country_en` - Country name (English, ASCII-normalized)
-- `score` - Press freedom score (0-100; lower = less free)
-- `rank` - Ranking among countries that year (lower = more free)
-- Dimension columns (available 2022+): `political_context`,
-  `economic_context`, `legal_context`, `social_context`, `safety`
-- Evolution columns: `rank_evolution`, `score_evolution` (change vs.
-  previous year)
+See `?rwb_standardized` for the full column reference.
 
 ### Check Data Availability
 
@@ -163,29 +133,14 @@ these purposes. See the next entry for citation templates.
 
 ### Q: How should I cite this data?
 
-**A:** Please cite both the package and the original data source:
+**A:** Please cite the package:
 
-```
-@software{baumgartner2026pressfreedom,
-  author = {Baumgartner, Peter},
-  title = {pressfreedom.data: Download and Process Reporters Without Borders
-           Press Freedom Index Data},
-  year = {2026},
-  url = {https://github.com/petzi53/pressfreedom.data},
-  note = {R package version 0.1.0}
-}
+```r
+citation("pressfreedom.data")
 ```
 
-And cite RSF:
-
-```
-@organization{rsf2026,
-  title = {Press Freedom Index 2026},
-  author = {Reporters Without Borders},
-  year = {2026},
-  url = {https://rsf.org/en/ranking}
-}
-```
+This also includes a pointer to citing RSF's original Press Freedom Index
+data, since the package citation does not cover the underlying dataset.
 
 ### Q: How do I contribute corrections or suggestions?
 
@@ -201,4 +156,4 @@ And cite RSF:
 see the companion vignette `vignette("visualizing-trends", package =
 "pressfreedom.data")`. 
 - For a full description of the dataset's columns and how it was built, see
-`?rwb_standardized` in R or browse the README on GitHub.
+`?rwb_standardized` in R.
