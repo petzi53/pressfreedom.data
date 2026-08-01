@@ -480,10 +480,11 @@ include this credit wherever the logo is displayed:
 <a href="https://www.flaticon.com/free-icons/microphone" title="microphone icons">Microphone icons created by Magnific - Flaticon</a>
 ```
 
-### pkgdown Website ✅ COMPLETE (2026-08-01)
+### pkgdown Website ✅ COMPLETE & VERIFIED LIVE (2026-08-01)
 
-**Status:** Site scaffolded, built locally, and wired for GitHub Actions
-auto-deploy (Phase 2 of the documentation strategy, see below).
+**Status:** Site scaffolded, deployed via GitHub Actions, GitHub Pages
+enabled, and verified live at https://petzi53.github.io/pressfreedom.data/
+(Phase 2 of the documentation strategy, see below). Plan closed out.
 **Plan:** `.posit/assistant/plans/2026-08-01-pkgdown-website.md`
 
 **What was done:**
@@ -530,8 +531,6 @@ auto-deploy (Phase 2 of the documentation strategy, see below).
 **Not done in this pass (deliberately out of scope per plan):**
 - No footer link to the companion Quarto book yet (placeholder comment
   left in `_pkgdown.yml`) -- add once that separate repo's site is live.
-- GitHub Pages repo setting itself was not (and cannot be) toggled by
-  the assistant -- confirm this is enabled on your end.
 
 **GitHub Pages activation gotcha (2026-08-01):** the `gh-pages` branch does
 NOT exist until `.github/workflows/pkgdown.yaml` runs successfully at least
@@ -543,6 +542,29 @@ failed/hasn't completed). Fix: `git push origin main`, confirm the
 "pkgdown.yaml" Actions run succeeds, then set Pages to branch `gh-pages`,
 folder `/ (root)` (not `docs` on `main` -- the built site only lives on
 `gh-pages`, `docs/` on `main` is never committed).
+
+**`ggbump` archived-from-CRAN gotcha (2026-08-01):** the first Actions run
+failed at the `pak` dependency-install step because `visualizing-trends.Rmd`
+uses `ggbump` for a bump chart, and `ggbump` was archived from CRAN on
+2025-12-04 -- `pak` can no longer resolve it as a regular CRAN dependency.
+Fixed by adding `Remotes: davidsjoberg/ggbump` to `DESCRIPTION` so `pak`
+installs it from GitHub instead. Verified locally with
+`pak::pkg_deps_tree()` before pushing. If other vignette dependencies get
+archived from CRAN in the future, the same `Remotes:` pattern applies.
+
+**GitHub Pages activation and live verification (2026-08-01):** Peter
+enabled Settings -> Pages -> Deploy from branch `gh-pages`, folder
+`/ (root)`, after the `ggbump` fix let the workflow run succeed. Site
+confirmed live and fully functional:
+- Homepage renders (https://petzi53.github.io/pressfreedom.data/)
+- Both vignettes (`getting-started`, `visualizing-trends`) return 200
+- Reference page (`rwb_standardized`) returns 200
+- `AGENTS.html` correctly returns 404 -- confirms the CI `rm -f` workaround
+  strips the internal memory file from the deployed site as intended
+
+This closes out `.posit/assistant/plans/2026-08-01-pkgdown-website.md`.
+Remaining pkgdown-adjacent work (footer link to the Quarto book) is
+tracked separately under "Next Steps" and is not part of this plan's scope.
 
 ### R CMD Check Fixes ✅ COMPLETE & COMMITTED
 
