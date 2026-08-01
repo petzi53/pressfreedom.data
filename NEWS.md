@@ -85,3 +85,19 @@
   This also permanently resolves the recurring `zone` mojibake/encoding
   issue: none of the six English names contain diacritics, so there is
   nothing left for an upstream encoding glitch to corrupt.
+
+* Fixed a data bug in `score_n_1` for 2023-2026 (720 rows): values were
+  about 100x too large (e.g. `9265` instead of `92.65`). RSF's raw CSVs
+  store `Score N-1` in the same implied-2-decimal digit format as `Score`
+  from 2023 onward, but `clean_period_3()` rescaled `score` and the five
+  dimension columns via `resolve_percent_scaling()` while leaving
+  `score_n_1` unconverted. `score_n_1` is now on the same 0-100 scale as
+  `score` and `score_evolution`.
+
+  `score_n_1` for 2022 (`NA`, since that year's export has no history
+  column) and for 2002-2021 (handled by `clean_period_1()`/
+  `clean_period_2()`) was already correct and is unaffected.
+
+  If you previously worked around this -- e.g. by rescaling `score_n_1`
+  yourself, or deriving it from `score - score_evolution` -- that
+  workaround is no longer needed for 2023-2026 and should be removed.

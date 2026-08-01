@@ -338,21 +338,20 @@ clean_period_3 <- function(filepath, year) {
   # Convert factor columns to character
   df <- convert_factors_to_character(df, c("iso", "country_en", "zone"))
 
-  # "score" and the five dimension columns are stored as bare digit strings
-  # with an implied 2-decimal scaling (e.g. "9189" = 91.89) and need
-  # trailing-zero resolution before generic numeric conversion. score_n_1
-  # (2022 only, carried from 2021's Period 2 comparable scale via
-  # normalize_column_names) is left to the generic path below: it's either
-  # already NA (2022) or, for later years, a full 4-digit raw string
-  # resolved the same way as "score" -- but keeping it out of this block
-  # avoids double-processing when it's still a raw character copy of a
-  # prior clean_period_2() output rather than this file's own raw column.
+  # "score", "score_n_1", and the five dimension columns are stored as bare
+  # digit strings with an implied 2-decimal scaling (e.g. "9189" = 91.89)
+  # and need trailing-zero resolution before generic numeric conversion.
+  # score_n_1 is NA for 2022 (no history columns in that year's export;
+  # normalize_column_names already sets it to NA) and a raw 4/5-digit
+  # string for 2023+, exactly like "score" -- resolve_percent_scaling()
+  # handles NA input safely (returns NA), so it's included unconditionally
+  # rather than branching on year.
   percent_cols <- c(
-    "score", "political_context", "economic_context",
+    "score", "score_n_1", "political_context", "economic_context",
     "legal_context", "social_context", "safety"
   )
   rank_for_col <- c(
-    score = "rank", political_context = "rank_pol",
+    score = "rank", score_n_1 = "rank_n_1", political_context = "rank_pol",
     economic_context = "rank_eco", legal_context = "rank_leg",
     social_context = "rank_soc", safety = "rank_saf"
   )
@@ -362,9 +361,10 @@ clean_period_3 <- function(filepath, year) {
     }
   }
 
-  # Convert numeric columns to numeric type
+  # Convert numeric columns to numeric type (score/score_n_1 and dimension
+  # columns already resolved above)
   numeric_target_cols <- c(
-    "year_n", "rank", "rank_n_1", "score_n_1", "rank_evolution",
+    "year_n", "rank", "rank_n_1", "rank_evolution",
     "rank_pol", "rank_eco", "rank_leg", "rank_soc", "rank_saf",
     "score_evolution"
   )
