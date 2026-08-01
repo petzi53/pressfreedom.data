@@ -1,4 +1,4 @@
-# pressfreedom.data — AI Agent Preferences
+Y# pressfreedom.data — AI Agent Preferences
 
 **Author:** Peter Baumgartner (petzi53@gmail.com)  
 **Project:** pressfreedom.data  
@@ -746,6 +746,42 @@ had missed entirely.
 **Documentation files:**
 - `.posit/assistant/plans/2026-07-30-1310-documentation-strategy.md` — Strategic overview & product definitions
 - `.posit/assistant/plans/2026-07-30-1400-implementation-plan.md` — Detailed task list, timeline, checklist
+
+### pressfreedom Shiny App Integration ✅ COMPLETE (2026-08-02)
+
+**Companion repo:** https://github.com/petzi53/pressfreedom (separate repository)
+
+**What was done (this session):**
+
+#### Smoke Test (confirmed compatibility)
+- Loaded `pressfreedom.data::rwb_standardized` into the pressfreedom app's R session
+- Verified column names, zone values (English post-translation), and row counts match app expectations
+- All 7 app files (`app.R`, `mod_inputs.R`, `mod_chart.R`, `mod_map.R`, `mod_country.R`, `helpers.R`, `flags.R`) confirmed compatible
+
+#### Data Refresh (commit `3b8fa5d` in pressfreedom)
+- Rebuilt `pressfreedom/data/rwb.rda` from current `pressfreedom.data::rwb_standardized` v0.2.0
+- Updated `R/data.R` roxygen docs: row count (4,192 -> 4,183) and zone description (French -> English)
+- Fixed `df_chart()` helper: added `year_n >= 2013` filter when `var == "score"` to prevent pre/post-2013 methodology-discontinuity artifacts in trend charts
+
+#### Live-Dependency Refactor (commit `f810dc4` in pressfreedom)
+**Architecture decision:** pressfreedom now loads `pressfreedom.data::rwb_standardized` directly at runtime; no bundled dataset maintained.
+
+**Why:** eliminates stale-data risk; single source of truth; app gets updated data automatically when pressfreedom.data is reinstalled.
+
+**Changes:**
+- Renamed all `rwb` references to `rwb_standardized` (word-boundary rename) across all 7 app files
+- Deleted 4 tracked files: `R/data.R`, `man/rwb.Rd`, `data/rwb.rda`, `data-raw/rwb.R`
+- Removed `LazyData: true` from `DESCRIPTION` (no longer ships data)
+- `pressfreedom.data` was already in `Imports`; no DESCRIPTION dep change needed
+
+#### renv Setup (pressfreedom)
+- `devtools::install("/path/to/pressfreedom.data")` required for proper build (renv's binary path skipped `Meta/package.rds`, causing `loadNamespace` failure)
+- `renv::snapshot(prompt = FALSE, force = TRUE)` used to record the local-path install in `renv.lock` with `"Source": "Local"`
+- **Warning:** renv cannot auto-restore pressfreedom.data on a fresh clone unless the local source is present. Long-term fix: push pressfreedom.data to GitHub and use `renv::record("petzi53/pressfreedom.data")` so renv.lock gets a reproducible GitHub source.
+
+**App status:** running cleanly against live `pressfreedom.data::rwb_standardized`
+
+---
 
 ### Documentation
 
