@@ -125,7 +125,7 @@ Always use explicit print commands to avoid truncation:
 - **Personas:** Default to Data Scientist (unless explicitly requested: Bayesian or Coder)
 - **Memory files:** This file serves as the project-level memory
 - **Do not reference:** Contents of `_archive/` folder unless explicitly asked
-- **Posit Assistant Configuration:** `.posit/assistant/` is intentionally tracked in git (dev history, kept until package is done). If Posit Assistant re-adds `.posit/assistant` to `.gitignore` or `.Rbuildignore`, just revert: `git checkout .Rbuildignore .gitignore`. See `.posit/assistant/docs/2026-07-30-preventing-rbuildignore-gitignore-interference.md`.
+- **Posit Assistant Configuration:** `.posit/assistant/` is intentionally tracked in git (dev history, kept until package is done). If Posit Assistant re-adds `.posit/assistant` to `.gitignore` or `.Rbuildignore`, just revert: `git checkout .Rbuildignore .gitignore`. See `.posit/assistant/docs/2026-07-30-preventing-rbuildignore-gitignore-interference.md`. **This bug recurred a second time on 2026-08-01** (see "Gitignore Guard Hook" below) — a `.pre-commit` hook now blocks it at commit time instead of relying on manual vigilance.
 
 ---
 
@@ -610,8 +610,9 @@ real violations could slip through unnoticed. The hook also only lived in
    "bad" characters. Reports line/column, Unicode name, and a suggested ASCII
    replacement for each violation. Checks staged content via `git show :path`
    so partially-staged files are validated correctly.
-2. **`.githooks/pre-commit`** - thin wrapper (`exec python3 ... --staged`),
-   versioned in the repo. Enable per-clone with:
+2. **`.githooks/pre-commit`** - thin wrapper running `check_ascii.py --staged`
+   (and, since 2026-08-01, `check_gitignore.py --staged` -- see "Gitignore
+   Guard Hook" below), versioned in the repo. Enable per-clone with:
    ```bash
    git config core.hooksPath .githooks
    ```
@@ -633,6 +634,26 @@ had missed entirely.
 - Use `Phase A - Download` (ASCII dash)
 - Use `->` for arrows, not the Unicode arrow character
 - Use straight quotes `"..."`, not curly quotes
+
+### Gitignore Guard Hook - COMPLETE & COMMITTED (2026-08-01)
+
+**Status:** `.githooks/check_gitignore.py` added and wired into `.githooks/pre-commit`, alongside the existing `check_ascii.py` check.
+
+**Why:** the `.posit/assistant` gitignore bug (see "Posit Assistant Configuration" under Workflow, above) recurred a **second time** on 2026-08-01, discovered only because a routine "verify no files are silently gitignored" pass happened to run `git status --ignored`. Between the first fix and this discovery, `.gitignore` had re-accumulated a bare `.posit/assistant` line, which silently blocked six new `.posit/assistant/plans/*.md` files and one `.posit/assistant/docs/*.Rmd` file from ever being tracked -- no error, no warning, they simply never showed up in `git status`. The same pass also found a second, previously-undocumented bug of the same shape: a bare `docs` line (intended only to ignore the root-level pkgdown build output) had no leading slash, so it matched `.posit/assistant/docs/` too, not just the intended `/docs`.
+
+**Root cause pattern:** both bugs share the same failure mode as the original non-ASCII hook problem -- a rule that silently discards affected files rather than erroring, so nothing surfaces the mistake until someone thinks to run `git status --ignored` by hand. Manual vigilance (re-reading `AGENTS.md`, remembering to check) had already failed once.
+
+**Fix (this pass):**
+1. Removed `.posit/assistant` and the unanchored `docs` line from `.gitignore`; replaced the latter with `/docs` (root-only).
+2. Force-added and committed the 7 files that had been silently untracked as a result.
+3. **New:** `.githooks/check_gitignore.py` -- reads the *staged* `.gitignore` (via `git show :.gitignore`, so it reflects what will actually be committed) and fails the commit if either forbidden rule (`.posit/assistant`, bare `docs`) reappears, printing the offending line and why it's forbidden. Intentionally narrow: it is an explicit blocklist of the two rules that have actually bitten this repo, not a general "detect broad gitignore patterns" linter.
+4. Wired into `.githooks/pre-commit` as a second check, run after `check_ascii.py`.
+
+**Also found (not a bug, informational):** a global `~/.gitignore` rule (`test-*`, under "my test files") was independently blocking `tests/testthat/test-*.R` from ever being tracked -- this is why `test-clean.R` (51+ pre-existing tests) had never actually made it into git despite being referenced in earlier commit messages. Fixed with a local override (`!/tests/testthat/test-*`) in this repo's `.gitignore`, since the global rule lives outside this repo and can't be edited from here. Verified the rest of the repo has no other files matching `test-*` that would be affected.
+
+**Verification:** simulated re-adding both forbidden lines and confirmed `check_gitignore.py` blocks with the correct diagnostic; confirmed it passes on the corrected `.gitignore`; ran the full `.githooks/pre-commit` wrapper end-to-end; confirmed via `git status --ignored` that only legitimate build/OS artifacts remain ignored (`.Rcheck`, `.DS_Store`, `.Rhistory`, `.Rproj.user`, `Meta/`, `doc/`, `docs/`).
+
+**If this ever needs a third rule added:** extend the `FORBIDDEN_EXACT` dict in `.githooks/check_gitignore.py` with the new pattern and a one-line reason; no other wiring needed.
 
 ### Documentation & Publishing Strategy ✅ PLANNED & APPROVED (2026-07-30)
 
