@@ -72,6 +72,11 @@
 </tr></tbody></table><p>Any downstream code that filters or joins on the old French <code>zone</code> values (e.g. <code>zone == "MENA"</code>) will need to be updated to use the new English names. The translation is applied during standardization (<code><a href="../reference/consolidate_and_standardize_countries.html">consolidate_and_standardize_countries()</a></code>), with the mapping stored in <code>inst/extdata/zone_mapping.csv</code>. A validation check now aborts the pipeline if any unrecognized <code>zone</code> value appears after translation.</p>
 <p>This also permanently resolves the recurring <code>zone</code> mojibake/encoding issue: none of the six English names contain diacritics, so there is nothing left for an upstream encoding glitch to corrupt.</p>
 </li>
+<li>
+<p>Fixed a data bug in <code>score_n_1</code> for 2023-2026 (720 rows): values were about 100x too large (e.g. <code>9265</code> instead of <code>92.65</code>). RSF’s raw CSVs store <code>Score N-1</code> in the same implied-2-decimal digit format as <code>Score</code> from 2023 onward, but <code><a href="../reference/clean_period_3.html">clean_period_3()</a></code> rescaled <code>score</code> and the five dimension columns via <code><a href="../reference/resolve_percent_scaling.html">resolve_percent_scaling()</a></code> while leaving <code>score_n_1</code> unconverted. <code>score_n_1</code> is now on the same 0-100 scale as <code>score</code> and <code>score_evolution</code>.</p>
+<p><code>score_n_1</code> for 2022 (<code>NA</code>, since that year’s export has no history column) and for 2002-2021 (handled by <code><a href="../reference/clean_period_1.html">clean_period_1()</a></code>/ <code><a href="../reference/clean_period_2.html">clean_period_2()</a></code>) was already correct and is unaffected.</p>
+<p>If you previously worked around this – e.g. by rescaling <code>score_n_1</code> yourself, or deriving it from <code>score - score_evolution</code> – that workaround is no longer needed for 2023-2026 and should be removed.</p>
+</li>
 </ul></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
