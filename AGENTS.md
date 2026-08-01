@@ -427,6 +427,112 @@ detect-and-repair heuristic for `zone` specifically (still used for
 headers), `data/processed/rwb_standardized.rds`,
 `data/rwb_standardized.rda`, `NEWS.md` (new).
 
+### Package Logo: Sibling-Brand Redesign ✅ COMPLETE (2026-08-01)
+
+**What:** `man/figures/logo.png` was redesigned so `pressfreedom.data` and
+its companion Shiny app (`pressfreedom`, separate repo) read as a visual
+family without being confusable with each other:
+
+| Package | Badge shape | Badge color | Icon |
+|---|---|---|---|
+| `pressfreedom.data` (this repo) | Circle | Gold (`#E9C46A`, same as hex border) | White-on-teal 4x4 data-grid glyph (bold header row) |
+| `pressfreedom` (Shiny app, separate repo) | Square | Orange (`#E76F51`) | White microphone |
+
+Both badges sit at the same position/size (110px, centered in the empty
+band between the title text and the world map -- roughly row 228 of the
+518x600 hex canvas) on top of an identical gold-border/teal-background
+choropleth world map hex, with the same white title text and font. The
+shared map + border + text keeps the family resemblance; the differing
+badge *shape and color* (not just icon content) keeps them distinguishable
+even at favicon/thumbnail size, where fine icon linework is no longer
+legible but a colored circle vs. square silhouette still reads clearly.
+
+**Why a shape + color change, not just a different icon:** the original
+approach (same map, only the small overlaid icon swapped between
+microphone and data-grid) was legible at full size but collapsed to
+indistinguishable at thumbnail scale -- the only differentiator was
+exactly the detail that disappears first when downscaled. Putting each
+icon on its own colored geometric plate gives a second, more robust
+differentiator (silhouette) that survives scaling even when the icon
+itself doesn't.
+
+**Ownership going forward:**
+- The **map + gold circle + data-grid** design belongs to
+  `pressfreedom.data` -- this is now `man/figures/logo.png` in this repo.
+- The **map + orange square + microphone** design belongs to the
+  `pressfreedom` Shiny app -- handed off (with title text corrected from
+  "pressfreedom.data" to "pressfreedom") for use in that package's separate
+  repo. Do not reuse the orange-square-microphone combination for anything
+  in this repo; do not reuse the gold-circle-grid combination in the
+  `pressfreedom` app repo.
+
+**Documented in:** `NEWS.md` (0.2.0, "Package logo" section).
+
+**Icon attribution (hand-off requirement):** the microphone icon (used in
+`logo-candidate-app-square.png`, now handed off to the `pressfreedom` app
+repo) is a Flaticon icon requiring attribution under its free-tier license.
+This package's own `logo.png` no longer uses the microphone (its gold
+circle badge uses an original data-grid glyph, not a third-party icon), so
+no attribution is owed here. The `pressfreedom` app repo's README **must**
+include this credit wherever the logo is displayed:
+
+```html
+<a href="https://www.flaticon.com/free-icons/microphone" title="microphone icons">Microphone icons created by Magnific - Flaticon</a>
+```
+
+### pkgdown Website ✅ COMPLETE (2026-08-01)
+
+**Status:** Site scaffolded, built locally, and wired for GitHub Actions
+auto-deploy (Phase 2 of the documentation strategy, see below).
+**Plan:** `.posit/assistant/plans/2026-08-01-pkgdown-website.md`
+
+**What was done:**
+- `_pkgdown.yml`: `url: https://petzi53.github.io/pressfreedom.data`,
+  default Bootstrap 5 theme (no bootswatch override), navbar with
+  "Get Started" (`getting-started` vignette) and "Articles" ->
+  "Visualizing Trends" (`visualizing-trends` vignette).
+- **Reference index intentionally lists only `rwb_standardized`.** All
+  other functions are internal maintainer tooling (download/clean/combine/
+  standardize pipeline, `update_rwb_data()`) and are not part of the
+  public API -- they are not exported in `NAMESPACE` either, so this
+  matches the package's actual design, not just a pkgdown display choice.
+- `usethis::use_github_action("pkgdown")` added
+  `.github/workflows/pkgdown.yaml`: builds on push to `main` and deploys
+  to the `gh-pages` branch (folder `docs`) via
+  `JamesIves/github-pages-deploy-action`. GitHub Pages must be enabled
+  once on the repo (Settings -> Pages -> Deploy from branch -> `gh-pages`)
+  after the first successful workflow run -- **manual one-time step, not
+  done by this session.**
+- `inst/CITATION` had a pre-existing syntax error (missing commas, a
+  stray non-ASCII character in "Frontieres") that broke
+  `pkgdown::build_site()` entirely (it installs the package into a temp
+  library, which parses `inst/CITATION`); fixed as part of getting the
+  build to run, independent of pkgdown-specific config.
+- `DESCRIPTION` `URL` field: added the pkgdown site URL alongside the
+  existing GitHub repo URL (`pkgdown::build_site()`'s URL check requires
+  this).
+- **Known pkgdown limitation (2.2.1) -- no config to exclude root
+  `.md` files from the home page:** `build_home()` auto-renders every
+  `*.md` in the repo root (and `.github/`) except README/LICENSE/NEWS,
+  which means `AGENTS.md` (this file -- internal memory/working notes,
+  not public-facing) gets published as `AGENTS.html` with no way to
+  suppress it via `_pkgdown.yml`. Worked around by adding a
+  `rm -f docs/AGENTS.html docs/AGENTS.md` step to
+  `.github/workflows/pkgdown.yaml` right after the build step, before
+  deploy. If a future pkgdown version adds a proper exclude option
+  (check `home:` config docs), switch to that instead of the rm hack.
+- `pkgdown/favicon/` (favicons generated from `man/figures/logo.png` via
+  realfavicongenerator.net) is committed per pkgdown convention, to avoid
+  an external API call on every rebuild.
+- `docs/` (the rendered site) is gitignored/buildignored -- built fresh
+  by CI on every push, never committed manually.
+
+**Not done in this pass (deliberately out of scope per plan):**
+- No footer link to the companion Quarto book yet (placeholder comment
+  left in `_pkgdown.yml`) -- add once that separate repo's site is live.
+- GitHub Pages repo setting itself was not (and cannot be) toggled by
+  the assistant -- confirm this is enabled on your end.
+
 ### R CMD Check Fixes ✅ COMPLETE & COMMITTED
 
 **Status:** All 5 actionable issues fixed (2026-07-29)  

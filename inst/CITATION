@@ -1,0 +1,17 @@
+bibentry(
+  bibtype  = "Manual",
+  title    = "pressfreedom.data: Download and Process Reporters Without Borders Press Freedom Index Data",
+  author   = person("Peter", "Baumgartner", email = "petzi53@gmail.com"),
+  year     = "2026",
+  note     = paste("R package version", meta$Version),
+  url      = "https://github.com/petzi53/pressfreedom.data",
+  header   = "To cite pressfreedom.data in publications use:",
+  footer   = paste(
+    "The underlying Press Freedom Index data is produced by",
+    "Reporters Sans Frontieres (RSF, or Reporters Without Borders)",
+    "and is not covered by this citation. When using the data",
+    "itself (not just this package), please also cite RSF directly, e.g.:",
+    "Reporters Without Borders (RSF), 'Press Freedom Index',",
+    "<https://rsf.org/en/index>."
+  )
+)

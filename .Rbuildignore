@@ -29,3 +29,7 @@
 ^data/processed$
 ^doc$
 ^Meta$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

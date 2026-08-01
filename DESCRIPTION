@@ -11,7 +11,7 @@ Description: Download press freedom index data from Reporters Without Borders (R
     with period-aware encoding handling. Provides infrastructure for data cleaning
     and ISO 3166 standardization in downstream phases.
 License: MIT + file LICENSE
-URL: https://github.com/petzi53/pressfreedom.data
+URL: https://github.com/petzi53/pressfreedom.data, https://petzi53.github.io/pressfreedom.data
 BugReports: https://github.com/petzi53/pressfreedom.data/issues
 Encoding: UTF-8
 LazyData: true
@@ -36,7 +36,9 @@ Suggests:
     ggbump,
     tidyr,
     patchwork,
-    scales
+    scales,
+    sf,
+    rnaturalearth
 VignetteBuilder: knitr
 Config/roxygen2/version: 8.0.0
 Depends: 

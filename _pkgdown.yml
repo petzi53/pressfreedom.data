@@ -1,0 +1,31 @@
+url: https://petzi53.github.io/pressfreedom.data
+
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left: [intro, articles, reference, news]
+    right: [github]
+  components:
+    intro:
+      text: Get Started
+      href: articles/getting-started.html
+    articles:
+      text: Articles
+      menu:
+      - text: Visualizing Trends
+        href: articles/visualizing-trends.html
+
+reference:
+- title: Data
+  desc: >
+    The only exported object. All other functions in this package are
+    internal implementation details for the maintainer's data pipeline
+    (download, clean, combine, standardize) and are not part of the
+    public API.
+  contents:
+  - rwb_standardized
+
+# Future: add a footer link to the companion Quarto book
+# (https://petzi53.github.io/pressfreedom.data-book) once that site is live.
