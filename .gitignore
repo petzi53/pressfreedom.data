@@ -4,7 +4,12 @@
 .Ruserdata
 .DS_Store
 Icon*
-.posit/assistant
 /doc/
 /Meta/
-docs
+/docs
+
+# Override a global ~/.gitignore rule ("test-*") that would otherwise hide
+# every testthat file in this repo (tests/testthat/test-*.R is the standard
+# testthat naming convention). See AGENTS.md for the 2026-08-01 discovery
+# that test-clean.R went untracked for this reason.
+!/tests/testthat/test-*

@@ -1,0 +1,219 @@
+---
+title: "OLD REFERENCE -- Visualizing Press Freedom Trends (not built, not shipped)"
+author: "Peter Baumgartner"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+---
+
+> **This file is a reference copy only.** It is being replaced by a
+> rewritten `vignettes/visualizing-trends.Rmd`. The `%\Vignette...` engine
+> tags have been removed so R CMD check does not try to build it as a
+> vignette. Once the new vignette is finished, move this file out of
+> `vignettes/` (e.g. into `.posit/assistant/docs/`) or delete it.
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 5
+)
+```
+
+This vignette walks through common charts built on `rwb_standardized`. Each
+example uses **ggplot2**, with **ggbump** for rank-crossing charts and
+**tidyr** for reshaping. See `vignette("getting-started")` for an
+introduction to the dataset and its columns.
+
+```{r load}
+library(pressfreedom.data)
+library(dplyr)
+library(ggplot2)
+
+data(rwb_standardized)
+```
+
+**A reminder before plotting:** `score` (and, from 2022 on, the dimension
+columns) is only comparable from 2013 onward -- RSF changed its scoring
+methodology that year. Charts below that compare scores across years filter
+to `year_n >= 2013`.
+
+## Track a Specific Country
+
+`rank` and `score` tell complementary stories: `rank` is always comparable
+across the full 2002-2026 span (it is just a country's position among that
+year's countries), while `score` is only comparable within the 2013+ period.
+
+```{r germany_setup}
+germany <- rwb_standardized |>
+  filter(country_en == "Germany") |>
+  arrange(year_n)
+```
+
+```{r germany_score, fig.alt = "Line chart of Germany's press freedom score from 2002 to 2026, showing a sharp jump around 2013."}
+ggplot(germany, aes(x = year_n, y = score)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Year",
+    y = "Score (0 = most free, 100 = least free)",
+    title = "Germany: Press Freedom Score Over Time"
+  )
+```
+
+The visible jump between 2012 and 2013 is the methodology change, not a real
+improvement in press freedom -- another reminder not to read this chart's
+pre-2013 and post-2013 halves as one continuous trend.
+
+`rank` does not have this problem, since it is always relative to the other
+countries scored that year:
+
+```{r germany_rank, fig.alt = "Line chart of Germany's press freedom rank from 2002 to 2026 with a reversed y-axis so rank 1 is at the top."}
+ggplot(germany, aes(x = year_n, y = rank)) +
+  geom_line() +
+  geom_point() +
+  scale_y_reverse() +
+  labs(
+    x = "Year",
+    y = "Rank (1 = most free)",
+    title = "Germany: Press Freedom Rank Over Time"
+  )
+```
+
+## Compare Countries Over Time
+
+To compare multiple countries, filter to the comparable-score period
+(2013-2026) and map `color` to `country_en`.
+
+```{r compare_setup}
+countries <- c("Germany", "France", "United States", "China")
+
+compare_df <- rwb_standardized |>
+  filter(country_en %in% countries, year_n >= 2013) |>
+  arrange(country_en, year_n)
+```
+
+```{r compare_score, fig.alt = "Line chart comparing press freedom scores for Germany, France, the United States, and China from 2013 to 2026."}
+ggplot(compare_df, aes(x = year_n, y = score, color = country_en)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Year",
+    y = "Score (0 = most free, 100 = least free)",
+    color = "Country",
+    title = "Press Freedom Score, 2013-2026"
+  )
+```
+
+For rank, a bump chart (`ggbump::geom_bump()`) is a better fit than a plain
+line chart, since it is purpose-built for showing how several entities'
+ranks cross over time:
+
+```{r compare_rank, fig.alt = "Bump chart comparing press freedom rank for Germany, France, the United States, and China from 2013 to 2026, with a reversed y-axis."}
+ggplot(compare_df, aes(x = year_n, y = rank, color = country_en)) +
+  ggbump::geom_bump(linewidth = 1) +
+  geom_point(size = 2) +
+  scale_y_reverse() +
+  labs(
+    x = "Year",
+    y = "Rank (1 = most free)",
+    color = "Country",
+    title = "Press Freedom Rank, 2013-2026"
+  )
+```
+
+## Analyze Global Trends
+
+Averaging `score` across all countries by year -- restricted to 2013-2026 for
+the same comparability reason -- gives a sense of the global trend.
+
+```{r global_trend_table}
+yearly_mean <- rwb_standardized |>
+  filter(year_n >= 2013, !is.na(score)) |>
+  group_by(year_n) |>
+  summarise(
+    mean_score = mean(score),
+    n_countries = n_distinct(country_en),
+    .groups = "drop"
+  )
+
+yearly_mean
+```
+
+```{r global_trend_chart, fig.alt = "Line chart of the mean press freedom score across all countries from 2013 to 2026, showing a decline especially from 2022 onward."}
+ggplot(yearly_mean, aes(x = year_n, y = mean_score)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Year",
+    y = "Mean score across all countries",
+    title = "Global Mean Press Freedom Score, 2013-2026"
+  )
+```
+
+The mean score declines gradually through the 2010s and then more steeply
+from 2022, coinciding with RSF's introduction of the five sub-dimensions
+that year -- worth keeping in mind as a possible methodology effect rather
+than treating the whole 2013-2026 span as a single comparable trend.
+
+## Work with Dimensions (2022+)
+
+From 2022 onward, RSF also reports five sub-dimensions (Political, Economic,
+Legal, Social, Safety) alongside the overall `score`. Reshaping with
+`tidyr::pivot_longer()` makes it easy to plot them together for one country.
+
+```{r dimensions_setup}
+germany_dims <- rwb_standardized |>
+  filter(country_en == "Germany", year_n >= 2022) |>
+  select(
+    year_n, score, political_context, economic_context,
+    legal_context, social_context, safety
+  ) |>
+  tidyr::pivot_longer(
+    cols = -"year_n",
+    names_to = "dimension",
+    values_to = "value"
+  )
+```
+
+```{r dimensions_chart, fig.alt = "Line chart of Germany's overall score and five sub-dimensions from 2022 to 2026."}
+ggplot(germany_dims, aes(x = year_n, y = value, color = dimension)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Year",
+    y = "Score",
+    color = "Dimension",
+    title = "Germany: Overall Score and Sub-Dimensions, 2022-2026"
+  )
+```
+
+## Regional Analysis
+
+`zone` groups countries into six RSF-defined regions. Averaging `score` by
+`zone` and `year_n` (again restricted to 2013+) shows how regions have
+diverged.
+
+```{r zones_setup}
+zone_means <- rwb_standardized |>
+  filter(year_n >= 2013, !is.na(zone), !is.na(score)) |>
+  group_by(zone, year_n) |>
+  summarise(mean_score = mean(score), .groups = "drop")
+```
+
+```{r zones_chart, fig.alt = "Line chart of mean press freedom score by geographic zone from 2013 to 2026."}
+ggplot(zone_means, aes(x = year_n, y = mean_score, color = zone)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Year",
+    y = "Mean score",
+    color = "Zone",
+    title = "Mean Press Freedom Score by Region, 2013-2026"
+  )
+```
+
+MENA and EEAC show the steepest declines from 2022 onward, while UE Balkans
+remains the highest-scoring region throughout -- though as above, some of the
+post-2022 shift across all zones may reflect RSF's 2022 methodology change
+rather than a real change in conditions.
