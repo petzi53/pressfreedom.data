@@ -36,6 +36,18 @@ FORBIDDEN_EXACT = {
         "(see AGENTS.md). Remove this line; .Rbuildignore already excludes "
         "it from the built package."
     ),
+    ".posit": (
+        "a bare '.posit' rule ignores the whole .posit/ tree, including "
+        ".posit/assistant/ -- that directory is meant to be fully tracked "
+        "as dev history (see AGENTS.md). Remove this line; .Rbuildignore "
+        "already excludes .posit from the built package."
+    ),
+    ".posit/*": (
+        "ignores everything under .posit/ (including .posit/assistant/), "
+        "same bug as a bare '.posit' rule -- see AGENTS.md. Remove this "
+        "line; .Rbuildignore already excludes .posit from the built "
+        "package."
+    ),
     "docs": (
         "unanchored 'docs' matches any directory named docs at any depth "
         "(e.g. .posit/assistant/docs/), not just the root-level pkgdown "
