@@ -1,8 +1,5 @@
 # pressfreedom.data
 
-[![pressfreedom.data
-logo](reference/figures/logo.png)](https://www.peter-baumgartner.net/pressfreedom.data/man/figures/logo.png)
-
 An R package for downloading, cleaning, and standardizing press freedom
 data from Reporters Without Borders (Reporters Sans Frontières, RSF).
 
