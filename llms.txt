@@ -1,5 +1,8 @@
 # pressfreedom.data
 
+[![pressfreedom.data
+logo](reference/figures/logo.png)](https://petzi53.github.io/pressfreedom.data/man/figures/logo.png)
+
 An R package for downloading, cleaning, and standardizing press freedom
 data from Reporters Without Borders (Reporters Sans Frontières, RSF).
 
