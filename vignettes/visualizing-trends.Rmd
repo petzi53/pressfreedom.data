@@ -31,9 +31,9 @@ None of the charts below are meant to support a substantive conclusion about pre
 
 ## Setup
 
-The charts in this vignette use {ggplot2} for standard line/point charts,
-{ggbump} for rank-crossing ("bump") charts, and {tidyr} for reshaping
-wide dimension columns into a long format for plotting. {dplyr} is used
+The charts in this vignette use {ggplot2} for line/point charts, including
+rank-crossing ("bump") comparisons, and {tidyr} for reshaping wide
+dimension columns into a long format for plotting. {dplyr} is used
 throughout for filtering, grouping, and summarizing.
 
 ```{r setup}
@@ -41,7 +41,6 @@ library(pressfreedom.data)
 library(dplyr)
 library(ggplot2)
 library(tidyr)
-library(ggbump)
 library(patchwork)
 library(sf)
 
@@ -128,13 +127,13 @@ ggplot(compare_score, aes(x = year_n, y = score, color = country_en)) +
   )
 ```
 
-For rank, a bump chart (`ggbump::geom_bump()`) shows how the six countries'
-relative positions cross over the full 2002-2026 span, since `rank` does not
-share `score`'s 2013 comparability limit:
+For rank, a bump chart shows how the six countries' relative positions
+cross over the full 2002-2026 span, since `rank` does not share `score`'s
+2013 comparability limit:
 
 ```{r compare-rank-chart, fig.alt = "Bump chart comparing press freedom rank for the United States, China, Brazil, Nigeria, Japan, and Germany from 2002 to 2026, with a reversed y-axis.", fig.height = 6}
 ggplot(compare_rank, aes(x = year_n, y = rank, color = country_en)) +
-  ggbump::geom_bump(linewidth = 1) +
+  geom_line(linewidth = 1) +
   geom_point(size = 2) +
   scale_y_reverse() +
   labs(
