@@ -3,8 +3,8 @@
 <a href="man/figures/logo.png"><img src="man/figures/logo.png" align="right" height="139" alt="pressfreedom.data logo" /></a>
 
 <!-- badges: start -->
-<!-- Revisit once published to CRAN and test coverage is more mature:
 [![R-CMD-check](https://github.com/petzi53/pressfreedom.data/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/petzi53/pressfreedom.data/actions/workflows/R-CMD-check.yaml)
+<!-- Revisit once published to CRAN and test coverage is more mature:
 [![Codecov test coverage](https://codecov.io/gh/petzi53/pressfreedom.data/graph/badge.svg)](https://app.codecov.io/gh/petzi53/pressfreedom.data)
 [![CRAN status](https://www.r-pkg.org/badges/version/pressfreedom.data)](https://CRAN.R-project.org/package=pressfreedom.data)
 -->
