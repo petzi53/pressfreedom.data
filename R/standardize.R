@@ -193,9 +193,10 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
   # slip through silently.
   approved_zones <- zone_mapping$new_name
   unexpected_zones <- result$zone[!is.na(result$zone) & !(result$zone %in% approved_zones)]
+  n_unexpected <- dplyr::n_distinct(unexpected_zones)
   if (length(unexpected_zones) > 0) {
     cli::cli_abort(c(
-      "Unexpected {.field zone} value{?s} found after translation.",
+      "{cli::qty(n_unexpected)}Unexpected {.field zone} value{?s} found after translation.",
       "x" = "Unrecognized: {unique(unexpected_zones)}",
       "i" = "Approved values: {approved_zones}"
     ))
