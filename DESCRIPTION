@@ -33,6 +33,7 @@ Suggests:
     rmarkdown,
     ggplot2,
     tidyr,
+    forcats,
     patchwork,
     scales,
     sf,
