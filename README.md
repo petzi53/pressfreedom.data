@@ -1,7 +1,5 @@
 # pressfreedom.data
 
-<a href="man/figures/logo.png"><img src="man/figures/logo.png" align="right" height="139" alt="pressfreedom.data logo" /></a>
-
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/petzi53/pressfreedom.data/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/petzi53/pressfreedom.data/actions/workflows/R-CMD-check.yaml)
 <!-- Revisit once published to CRAN and test coverage is more mature:
