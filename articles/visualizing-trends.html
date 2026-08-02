@@ -93,10 +93,10 @@ vignette(“getting-started”).</p>
 <div class="section level2">
 <h2 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
 </h2>
-<p>The charts in this vignette use {ggplot2} for standard line/point
-charts, {ggbump} for rank-crossing (“bump”) charts, and {tidyr} for
-reshaping wide dimension columns into a long format for plotting.
-{dplyr} is used throughout for filtering, grouping, and summarizing.</p>
+<p>The charts in this vignette use {ggplot2} for line/point charts,
+including rank-crossing (“bump”) comparisons, and {tidyr} for reshaping
+wide dimension columns into a long format for plotting. {dplyr} is used
+throughout for filtering, grouping, and summarizing.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/petzi53/pressfreedom.data" class="external-link">pressfreedom.data</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
@@ -110,7 +110,6 @@ reshaping wide dimension columns into a long format for plotting.
 <span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/davidsjoberg/ggbump" class="external-link">ggbump</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE</span></span>
@@ -198,13 +197,12 @@ trajectories.</p>
 <span>    title <span class="op">=</span> <span class="st">"Press Freedom Score, 2013-2026"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="visualizing-trends_files/figure-html/compare-score-chart-1.png" class="r-plt" alt="Line chart comparing press freedom scores for the United States, China, Brazil, Nigeria, Japan, and Germany from 2013 to 2026." width="672"></p>
-<p>For rank, a bump chart (<code><a href="https://rdrr.io/pkg/ggbump/man/geom_bump.html" class="external-link">ggbump::geom_bump()</a></code>) shows how
-the six countries’ relative positions cross over the full 2002-2026
-span, since <code>rank</code> does not share <code>score</code>’s 2013
-comparability limit:</p>
+<p>For rank, a bump chart shows how the six countries’ relative
+positions cross over the full 2002-2026 span, since <code>rank</code>
+does not share <code>score</code>’s 2013 comparability limit:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">compare_rank</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year_n</span>, y <span class="op">=</span> <span class="va">rank</span>, color <span class="op">=</span> <span class="va">country_en</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">ggbump</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggbump/man/geom_bump.html" class="external-link">geom_bump</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_reverse</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>

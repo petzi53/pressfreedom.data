@@ -21,10 +21,10 @@ vignette(“getting-started”).
 
 ## Setup
 
-The charts in this vignette use {ggplot2} for standard line/point
-charts, {ggbump} for rank-crossing (“bump”) charts, and {tidyr} for
-reshaping wide dimension columns into a long format for plotting.
-{dplyr} is used throughout for filtering, grouping, and summarizing.
+The charts in this vignette use {ggplot2} for line/point charts,
+including rank-crossing (“bump”) comparisons, and {tidyr} for reshaping
+wide dimension columns into a long format for plotting. {dplyr} is used
+throughout for filtering, grouping, and summarizing.
 
 ``` r
 
@@ -40,7 +40,6 @@ library(dplyr)
 #>     intersect, setdiff, setequal, union
 library(ggplot2)
 library(tidyr)
-library(ggbump)
 library(patchwork)
 library(sf)
 #> Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE
@@ -142,16 +141,14 @@ ggplot(compare_score, aes(x = year_n, y = score, color = country_en)) +
 China, Brazil, Nigeria, Japan, and Germany from 2013 to
 2026.](visualizing-trends_files/figure-html/compare-score-chart-1.png)
 
-For rank, a bump chart
-([`ggbump::geom_bump()`](https://rdrr.io/pkg/ggbump/man/geom_bump.html))
-shows how the six countries’ relative positions cross over the full
-2002-2026 span, since `rank` does not share `score`’s 2013 comparability
-limit:
+For rank, a bump chart shows how the six countries’ relative positions
+cross over the full 2002-2026 span, since `rank` does not share
+`score`’s 2013 comparability limit:
 
 ``` r
 
 ggplot(compare_rank, aes(x = year_n, y = rank, color = country_en)) +
-  ggbump::geom_bump(linewidth = 1) +
+  geom_line(linewidth = 1) +
   geom_point(size = 2) +
   scale_y_reverse() +
   labs(
