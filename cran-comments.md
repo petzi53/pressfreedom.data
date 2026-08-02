@@ -15,8 +15,8 @@ This is a new submission (first release of pressfreedom.data to CRAN).
     "Possibly misspelled words ... RSF") remain. Confirms both real issues
     were resolved.
 * GitHub Actions R-CMD-check matrix (macOS release, Windows release,
-  Ubuntu devel/release/oldrel-1): PENDING -- update once workflow run for
-  commit 8188670 completes.
+  Ubuntu devel/release/oldrel-1): all 5 jobs passed
+  (https://github.com/petzi53/pressfreedom.data/actions/runs/30748471422).
 
 ## R CMD check results
 
