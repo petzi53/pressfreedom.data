@@ -13,3 +13,7 @@ Icon*
 # testthat naming convention). See AGENTS.md for the 2026-08-01 discovery
 # that test-clean.R went untracked for this reason.
 !/tests/testthat/test-*
+
+# Same global "test-*" rule also silently hid .github/workflows/test-coverage.yaml
+# (discovered 2026-08-02, third occurrence of this bug class -- see AGENTS.md).
+!/.github/workflows/test-*
