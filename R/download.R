@@ -14,8 +14,9 @@
 #'   indicate success/failure status. Called for side effects (downloading files).
 #'
 #' @details
-#' RSF publishes press freedom index data at:
-#' \url{https://rsf.org/sites/default/files/import_classement/<year>.csv}
+#' RSF publishes press freedom index data at a per-year URL template (not a
+#' literal link, since \code{<year>} must be substituted, e.g. \code{2024}):
+#' \verb{https://rsf.org/sites/default/files/import_classement/<year>.csv}
 #'
 #' **Encoding Handling:**
 #' Files are downloaded as raw bytes (\code{utils::download.file(mode = "wb")})
