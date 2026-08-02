@@ -8,6 +8,11 @@ Icon*
 /Meta/
 /docs
 
+# AI-assistant scratch/working notes (ephemeral by design; anything worth
+# keeping gets promoted into AGENTS.md, which stays tracked). See AGENTS.md
+# "Posit Assistant Configuration" for the policy this replaced.
+.posit/
+
 # Override a global ~/.gitignore rule ("test-*") that would otherwise hide
 # every testthat file in this repo (tests/testthat/test-*.R is the standard
 # testthat naming convention). See AGENTS.md for the 2026-08-01 discovery

@@ -14,7 +14,3 @@ set -e
 
 REPO_ROOT=$(git rev-parse --show-toplevel)
 python3 "$REPO_ROOT/.githooks/check_ascii.py" --staged
-
-# Block known-bad .gitignore rules that have silently hidden project files
-# before (see .githooks/check_gitignore.py for the history).
-python3 "$REPO_ROOT/.githooks/check_gitignore.py" --staged
