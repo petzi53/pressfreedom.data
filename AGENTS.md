@@ -481,6 +481,41 @@ include this credit wherever the logo is displayed:
 <a href="https://www.flaticon.com/free-icons/microphone" title="microphone icons">Microphone icons created by Magnific - Flaticon</a>
 ```
 
+### CRAN Submission v0.2.0 ✅ SUBMITTED (2026-08-02)
+
+**Status:** Package uploaded and verified, awaiting email confirmation link
+
+**Submission details:**
+- **Date/time:** 2026-08-02 14:02:36 UTC
+- **Commit:** fbe31d0 (trimmed NEWS.md to standard concise style)
+- **Command:** `devtools::release()` (interactive console submission)
+- **Result:** ✅ "Package submission successful" — confirmation link sent to petzi53@gmail.com
+
+**Post-submission actions taken:**
+1. ✅ Committed `.Rbuildignore` update (excludes `CRAN-SUBMISSION` from build)
+2. ✅ Committed `CRAN-SUBMISSION` metadata file (submission record)
+3. ✅ Pushed both `main` and `v0.2.0` tag to `origin`
+
+**Next steps (waiting on CRAN):**
+- Check email for confirmation link (must click to activate submission)
+- CRAN will begin automated checks within 24 hours
+- Typical review time: 1-3 days
+- Possible outcomes:
+  - ✅ **Accept:** Package published to CRAN, visible in package archive
+  - 🔄 **Fix & resubmit:** CRAN flags issues requiring rework
+  - ❌ **Reject:** Fundamental issues; requires major redesign
+
+**Estimated arrival timeline:**
+- T+0 (2026-08-02): Submitted
+- T+24h: CRAN automated checks run
+- T+48-72h: Human reviewer processes
+- T+72h+: Published (if accepted) or feedback email (if fixes needed)
+
+**Notes:**
+- `devtools::release()` is deprecated; future releases should use `usethis::use_release_issue()`
+- Package is frozen at tag `v0.2.0` pending acceptance
+- Do not push further changes until CRAN decision arrives
+
 ### pkgdown Website ✅ COMPLETE & VERIFIED LIVE (2026-08-01)
 
 **Status:** Site scaffolded, deployed via GitHub Actions, GitHub Pages
