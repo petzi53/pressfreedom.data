@@ -1,7 +1,7 @@
 # pressfreedom.data
 
 [![pressfreedom.data
-logo](reference/figures/logo.png)](https://petzi53.github.io/pressfreedom.data/man/figures/logo.png)
+logo](reference/figures/logo.png)](https://www.peter-baumgartner.net/pressfreedom.data/man/figures/logo.png)
 
 An R package for downloading, cleaning, and standardizing press freedom
 data from Reporters Without Borders (Reporters Sans Frontières, RSF).
@@ -13,7 +13,7 @@ press freedom on an annual basis. This package automates the download,
 cleaning, and standardization of that index, providing a single clean
 dataset — `rwb_standardized` (4,192 rows, 191 countries, 20 columns) —
 ready for analysis. See
-[`vignette("getting-started", package = "pressfreedom.data")`](https://petzi53.github.io/pressfreedom.data/articles/getting-started.md)
+[`vignette("getting-started", package = "pressfreedom.data")`](https://www.peter-baumgartner.net/pressfreedom.data/articles/getting-started.md)
 for the full pipeline story.
 
 ## Installation
@@ -80,7 +80,7 @@ rwb_standardized |>
 ```
 
 See
-[`vignette("getting-started", package = "pressfreedom.data")`](https://petzi53.github.io/pressfreedom.data/articles/getting-started.md)
+[`vignette("getting-started", package = "pressfreedom.data")`](https://www.peter-baumgartner.net/pressfreedom.data/articles/getting-started.md)
 for a full walkthrough and FAQ.
 
 ## Data Structure
@@ -98,7 +98,7 @@ Key columns at a glance:
 | `rank`       | integer   | Rank among countries this year                  |
 
 See
-[`?rwb_standardized`](https://petzi53.github.io/pressfreedom.data/reference/rwb_standardized.md)
+[`?rwb_standardized`](https://www.peter-baumgartner.net/pressfreedom.data/reference/rwb_standardized.md)
 for the complete data dictionary (all 20 columns).
 
 ### Data Notes
@@ -106,7 +106,7 @@ for the complete data dictionary (all 20 columns).
 Scores are only comparable from 2013 onward (RSF changed its scoring
 methodology that year), and dimension columns (political/economic/legal/
 social/safety) only exist from 2022 onward. See
-[`vignette("getting-started", package = "pressfreedom.data")`](https://petzi53.github.io/pressfreedom.data/articles/getting-started.md)
+[`vignette("getting-started", package = "pressfreedom.data")`](https://www.peter-baumgartner.net/pressfreedom.data/articles/getting-started.md)
 for the full FAQ, including country consolidation and ISO code coverage.
 
 ## Data Source
@@ -121,7 +121,7 @@ publishing that year).
 ## Development
 
 This package’s public interface is just the `rwb_standardized` dataset
-([`?rwb_standardized`](https://petzi53.github.io/pressfreedom.data/reference/rwb_standardized.md)).
+([`?rwb_standardized`](https://www.peter-baumgartner.net/pressfreedom.data/reference/rwb_standardized.md)).
 Data collection and update tooling (downloading, cleaning, combining,
 standardizing new RSF releases) are internal, maintainer-only functions
 – they hard-code paths that only resolve inside a development checkout
@@ -175,7 +175,7 @@ internal implementation details for the maintainer’s data pipeline
 (download, clean, combine, standardize) and are not part of the public
 API.
 
-- [`rwb_standardized`](https://petzi53.github.io/pressfreedom.data/reference/rwb_standardized.md)
+- [`rwb_standardized`](https://www.peter-baumgartner.net/pressfreedom.data/reference/rwb_standardized.md)
   : Standardized Reporters Without Borders Press Freedom Index
   (2002-2026)
 
@@ -184,6 +184,6 @@ API.
 ### All vignettes
 
 - [Getting
-  Started](https://petzi53.github.io/pressfreedom.data/articles/getting-started.md):
+  Started](https://www.peter-baumgartner.net/pressfreedom.data/articles/getting-started.md):
 - [Visualizing Press Freedom
-  Trends](https://petzi53.github.io/pressfreedom.data/articles/visualizing-trends.md):
+  Trends](https://www.peter-baumgartner.net/pressfreedom.data/articles/visualizing-trends.md):

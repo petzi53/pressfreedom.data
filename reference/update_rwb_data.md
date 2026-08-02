@@ -25,7 +25,7 @@ update_rwb_data(
 
   Integer vector. Years to download and clean. Defaults to `NULL`:
   auto-detect missing years via
-  [`get_years_to_download()`](https://petzi53.github.io/pressfreedom.data/reference/get_years_to_download.md).
+  [`get_years_to_download()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/get_years_to_download.md).
 
 - download:
 
@@ -81,7 +81,7 @@ always run because evolution columns depend on year N-1's data.
 
 1\. \*\*Detection (Phase A pre-check)\*\* - If `years = NULL`, detect
 missing years via
-[`get_years_to_download()`](https://petzi53.github.io/pressfreedom.data/reference/get_years_to_download.md) -
+[`get_years_to_download()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/get_years_to_download.md) -
 If no years missing, report and return early (unless
 `standardize = TRUE`)
 
@@ -91,19 +91,19 @@ before saving - On download failure: aborts update with error message
 
 3\. \*\*Clean (Phase B)\*\* - Only if `clean = TRUE` and years
 detected - Cleans newly downloaded years via
-[`clean_rwb_single()`](https://petzi53.github.io/pressfreedom.data/reference/clean_rwb_single.md) -
+[`clean_rwb_single()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/clean_rwb_single.md) -
 Outputs normalized RDS to `data/cleaned/period_X/` - On cleaning
 failure: aborts update and reports which year failed
 
 4\. \*\*Combine (Phase C)\*\* - Always runs (required) - Recombines all
 cleaned periods via
-[`combine_cleaned_periods()`](https://petzi53.github.io/pressfreedom.data/reference/combine_cleaned_periods.md) -
+[`combine_cleaned_periods()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/combine_cleaned_periods.md) -
 Recalculates evolution columns (rank_n_1, score_n_1, etc.) - Output:
 `data/processed/rwb_combined.rds` - Cost: ~1-2 seconds
 
 5\. \*\*Standardize (Phase D)\*\* - Always runs (required) -
 Re-standardizes all rows via
-[`standardize_rwb_countries()`](https://petzi53.github.io/pressfreedom.data/reference/standardize_rwb_countries.md) -
+[`standardize_rwb_countries()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/standardize_rwb_countries.md) -
 Applies consolidation rules from
 `inst/extdata/consolidation_mapping.csv` - Output:
 `data/processed/rwb_standardized.rds` - Cost: ~2-3 seconds
@@ -144,13 +144,13 @@ update_rwb_data(years = NULL, download = FALSE, clean = FALSE) “\`
 ## See also
 
 \-
-[`download_rwb_data`](https://petzi53.github.io/pressfreedom.data/reference/download_rwb_data.md)
+[`download_rwb_data`](https://www.peter-baumgartner.net/pressfreedom.data/reference/download_rwb_data.md)
 for Phase A details -
-[`clean_rwb_single`](https://petzi53.github.io/pressfreedom.data/reference/clean_rwb_single.md)
+[`clean_rwb_single`](https://www.peter-baumgartner.net/pressfreedom.data/reference/clean_rwb_single.md)
 for Phase B details -
-[`combine_cleaned_periods`](https://petzi53.github.io/pressfreedom.data/reference/combine_cleaned_periods.md)
+[`combine_cleaned_periods`](https://www.peter-baumgartner.net/pressfreedom.data/reference/combine_cleaned_periods.md)
 for Phase C details -
-[`standardize_rwb_countries`](https://petzi53.github.io/pressfreedom.data/reference/standardize_rwb_countries.md)
+[`standardize_rwb_countries`](https://www.peter-baumgartner.net/pressfreedom.data/reference/standardize_rwb_countries.md)
 for Phase D details -
-[`get_years_to_download`](https://petzi53.github.io/pressfreedom.data/reference/get_years_to_download.md)
+[`get_years_to_download`](https://www.peter-baumgartner.net/pressfreedom.data/reference/get_years_to_download.md)
 for missing year detection

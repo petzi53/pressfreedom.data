@@ -3,7 +3,7 @@
 for specified years. Files are saved as-is (unmodified) with consistent
 naming (rwb&amp;lt;year&amp;gt;.csv)."><meta property="og:description" content="Downloads press freedom index CSV files from Reporters Without Borders (RSF)
 for specified years. Files are saved as-is (unmodified) with consistent
-naming (rwb&amp;lt;year&amp;gt;.csv)."><meta property="og:image" content="https://petzi53.github.io/pressfreedom.data/logo.png"></head><body>
+naming (rwb&amp;lt;year&amp;gt;.csv)."><meta property="og:image" content="https://www.peter-baumgartner.net/pressfreedom.data/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -79,8 +79,9 @@ Defaults to <code>"inst/extdata"</code>. Directory is created if it doesn't exis
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>RSF publishes press freedom index data at:
-<a href="https://rsf.org/sites/default/files/import_classement/&lt;year&gt;.csv" class="external-link">https://rsf.org/sites/default/files/import_classement/&lt;year&gt;.csv</a></p>
+    <p>RSF publishes press freedom index data at a per-year URL, e.g. for 2024:
+<a href="https://rsf.org/sites/default/files/import_classement/2024.csv" class="external-link">https://rsf.org/sites/default/files/import_classement/2024.csv</a>
+Substitute the target year for <code>2024</code> to get other years' data.</p>
 <p>**Encoding Handling:**
 Files are downloaded as raw bytes (<code>utils::download.file(mode = "wb")</code>)
 and written to disk unmodified. No parsing, re-encoding, or re-serialization

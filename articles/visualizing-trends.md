@@ -126,6 +126,11 @@ compare_rank <- rwb_standardized |>
 
 ``` r
 
+# Order the legend to match each country's end-of-series score, top to
+# bottom, instead of the alphabetical default
+compare_score <- compare_score |>
+  mutate(country_en = forcats::fct_reorder2(country_en, year_n, score))
+
 ggplot(compare_score, aes(x = year_n, y = score, color = country_en)) +
   geom_line() +
   geom_point() +
@@ -146,6 +151,15 @@ cross over the full 2002-2026 span, since `rank` does not share
 `score`’s 2013 comparability limit:
 
 ``` r
+
+# `.desc = FALSE` because the y-axis is reversed below (rank 1 = best, drawn
+# at the top); ordering the legend ascending by rank keeps it in the same
+# top-to-bottom order as the lines at their right-hand endpoints
+compare_rank <- compare_rank |>
+  mutate(country_en = forcats::fct_reorder2(
+    country_en, year_n, rank,
+    .desc = FALSE
+  ))
 
 ggplot(compare_rank, aes(x = year_n, y = rank, color = country_en)) +
   geom_line(linewidth = 1) +
@@ -188,6 +202,10 @@ us_dims <- rwb_standardized |>
 
 ``` r
 
+# Order the legend to match each dimension's end-of-series value
+us_dims <- us_dims |>
+  mutate(dimension = forcats::fct_reorder2(dimension, year_n, value))
+
 ggplot(us_dims, aes(x = year_n, y = value, color = dimension)) +
   geom_line() +
   geom_point() +
@@ -229,6 +247,19 @@ zone_colors <- c(
   "Global mean" = "black"
 )
 
+# Order the legend (via `breaks`) to match each line's end-of-series value,
+# combining the zones and the global mean into one ranking
+legend_order <- bind_rows(
+  zone_means |>
+    filter(year_n == max(year_n)) |>
+    select("zone", "mean_score"),
+  global_mean |>
+    filter(year_n == max(year_n)) |>
+    transmute(zone = "Global mean", mean_score)
+) |>
+  arrange(desc(mean_score)) |>
+  pull(zone)
+
 ggplot(mapping = aes(x = year_n, y = mean_score, color = zone)) +
   geom_line(data = zone_means) +
   geom_point(data = zone_means) +
@@ -238,7 +269,7 @@ ggplot(mapping = aes(x = year_n, y = mean_score, color = zone)) +
     linewidth = 1
   ) +
   geom_point(data = global_mean, aes(color = "Global mean")) +
-  scale_color_manual(values = zone_colors) +
+  scale_color_manual(values = zone_colors, breaks = legend_order) +
   labs(
     x = "Year",
     y = "Mean score",

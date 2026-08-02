@@ -37,8 +37,9 @@ success/failure status. Called for side effects (downloading files).
 
 ## Details
 
-RSF publishes press freedom index data at:
-<https://rsf.org/sites/default/files/import_classement/%3Cyear%3E.csv>
+RSF publishes press freedom index data at a per-year URL, e.g. for 2024:
+<https://rsf.org/sites/default/files/import_classement/2024.csv>
+Substitute the target year for `2024` to get other years' data.
 
 \*\*Encoding Handling:\*\* Files are downloaded as raw bytes
 (`utils::download.file(mode = "wb")`) and written to disk unmodified. No
@@ -47,7 +48,7 @@ whatever bytes RSF serves (RSF has used both UTF-8 and
 ISO-8859-1/Latin-1 depending on the year, without warning) are preserved
 exactly as-is. Encoding is detected later, per file, when the data is
 cleaned (see
-[`detect_csv_encoding()`](https://petzi53.github.io/pressfreedom.data/reference/detect_csv_encoding.md)).
+[`detect_csv_encoding()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/detect_csv_encoding.md)).
 
 An earlier version of this function read each file with
 [`readr::read_delim()`](https://readr.tidyverse.org/reference/read_delim.html)

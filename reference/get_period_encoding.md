@@ -6,7 +6,7 @@ and unreliable in general, since RSF has switched encodings within a
 period without notice (e.g. 2025-2026 arrived as ISO-8859-1 while
 2022-2024 were UTF-8). The cleaning pipeline now detects the encoding of
 each downloaded file directly with
-[`detect_csv_encoding()`](https://petzi53.github.io/pressfreedom.data/reference/detect_csv_encoding.md)
+[`detect_csv_encoding()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/detect_csv_encoding.md)
 instead of guessing from the year. This function is kept only for
 backward compatibility and should not be used for new code.
 

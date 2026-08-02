@@ -79,7 +79,7 @@ dplyr::glimpse(rwb_standardized)
 ```
 
 See
-[`?rwb_standardized`](https://petzi53.github.io/pressfreedom.data/reference/rwb_standardized.md)
+[`?rwb_standardized`](https://www.peter-baumgartner.net/pressfreedom.data/reference/rwb_standardized.md)
 for the full column reference.
 
 ### Check Data Availability
@@ -141,7 +141,7 @@ implied decimals (e.g., “9189” means 91.89%) and drop trailing zeros
 inconsistently, which had left many 2013-2026 scores up to 100x too
 large in earlier cleaning attempts. This is now corrected automatically
 via
-[`resolve_percent_scaling()`](https://petzi53.github.io/pressfreedom.data/reference/resolve_percent_scaling.md)
+[`resolve_percent_scaling()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/resolve_percent_scaling.md)
 before export, so the `score` values you see are already on the correct
 0-100 scale.
 
@@ -188,8 +188,8 @@ dataset.
   visit <https://rsf.org/en/index>.
 - For chart-based examples using this package, see the companion
   vignette
-  [`vignette("visualizing-trends", package = "pressfreedom.data")`](https://petzi53.github.io/pressfreedom.data/articles/visualizing-trends.md).
+  [`vignette("visualizing-trends", package = "pressfreedom.data")`](https://www.peter-baumgartner.net/pressfreedom.data/articles/visualizing-trends.md).
 - For a full description of the dataset’s columns and how it was built,
   see
-  [`?rwb_standardized`](https://petzi53.github.io/pressfreedom.data/reference/rwb_standardized.md)
+  [`?rwb_standardized`](https://www.peter-baumgartner.net/pressfreedom.data/reference/rwb_standardized.md)
   in R.
