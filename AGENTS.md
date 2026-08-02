@@ -1,4 +1,4 @@
-Y# pressfreedom.data — AI Agent Preferences
+# pressfreedom.data — AI Agent Preferences
 
 **Author:** Peter Baumgartner (petzi53@gmail.com)  
 **Project:** pressfreedom.data  
@@ -610,9 +610,8 @@ real violations could slip through unnoticed. The hook also only lived in
    "bad" characters. Reports line/column, Unicode name, and a suggested ASCII
    replacement for each violation. Checks staged content via `git show :path`
    so partially-staged files are validated correctly.
-2. **`.githooks/pre-commit`** - thin wrapper running `check_ascii.py --staged`
-   (and, since 2026-08-01, `check_gitignore.py --staged` -- see "Gitignore
-   Guard Hook" below), versioned in the repo. Enable per-clone with:
+2. **`.githooks/pre-commit`** - thin wrapper (`exec python3 ... --staged`),
+   versioned in the repo. Enable per-clone with:
    ```bash
    git config core.hooksPath .githooks
    ```
@@ -634,26 +633,6 @@ had missed entirely.
 - Use `Phase A - Download` (ASCII dash)
 - Use `->` for arrows, not the Unicode arrow character
 - Use straight quotes `"..."`, not curly quotes
-
-### Gitignore Guard Hook - COMPLETE & COMMITTED (2026-08-01)
-
-**Status:** `.githooks/check_gitignore.py` added and wired into `.githooks/pre-commit`, alongside the existing `check_ascii.py` check.
-
-**Why:** the `.posit/assistant` gitignore bug (see "Posit Assistant Configuration" under Workflow, above) recurred a **second time** on 2026-08-01, discovered only because a routine "verify no files are silently gitignored" pass happened to run `git status --ignored`. Between the first fix and this discovery, `.gitignore` had re-accumulated a bare `.posit/assistant` line, which silently blocked six new `.posit/assistant/plans/*.md` files and one `.posit/assistant/docs/*.Rmd` file from ever being tracked -- no error, no warning, they simply never showed up in `git status`. The same pass also found a second, previously-undocumented bug of the same shape: a bare `docs` line (intended only to ignore the root-level pkgdown build output) had no leading slash, so it matched `.posit/assistant/docs/` too, not just the intended `/docs`.
-
-**Root cause pattern:** both bugs share the same failure mode as the original non-ASCII hook problem -- a rule that silently discards affected files rather than erroring, so nothing surfaces the mistake until someone thinks to run `git status --ignored` by hand. Manual vigilance (re-reading `AGENTS.md`, remembering to check) had already failed once.
-
-**Fix (this pass):**
-1. Removed `.posit/assistant` and the unanchored `docs` line from `.gitignore`; replaced the latter with `/docs` (root-only).
-2. Force-added and committed the 7 files that had been silently untracked as a result.
-3. **New:** `.githooks/check_gitignore.py` -- reads the *staged* `.gitignore` (via `git show :.gitignore`, so it reflects what will actually be committed) and fails the commit if either forbidden rule (`.posit/assistant`, bare `docs`) reappears, printing the offending line and why it's forbidden. Intentionally narrow: it is an explicit blocklist of the two rules that have actually bitten this repo, not a general "detect broad gitignore patterns" linter.
-4. Wired into `.githooks/pre-commit` as a second check, run after `check_ascii.py`.
-
-**Also found (not a bug, informational):** a global `~/.gitignore` rule (`test-*`, under "my test files") was independently blocking `tests/testthat/test-*.R` from ever being tracked -- this is why `test-clean.R` (51+ pre-existing tests) had never actually made it into git despite being referenced in earlier commit messages. Fixed with a local override (`!/tests/testthat/test-*`) in this repo's `.gitignore`, since the global rule lives outside this repo and can't be edited from here. Verified the rest of the repo has no other files matching `test-*` that would be affected.
-
-**Verification:** simulated re-adding both forbidden lines and confirmed `check_gitignore.py` blocks with the correct diagnostic; confirmed it passes on the corrected `.gitignore`; ran the full `.githooks/pre-commit` wrapper end-to-end; confirmed via `git status --ignored` that only legitimate build/OS artifacts remain ignored (`.Rcheck`, `.DS_Store`, `.Rhistory`, `.Rproj.user`, `Meta/`, `doc/`, `docs/`).
-
-**If this ever needs a third rule added:** extend the `FORBIDDEN_EXACT` dict in `.githooks/check_gitignore.py` with the new pattern and a one-line reason; no other wiring needed.
 
 ### Documentation & Publishing Strategy ✅ PLANNED & APPROVED (2026-07-30)
 
@@ -746,42 +725,6 @@ had missed entirely.
 **Documentation files:**
 - `.posit/assistant/plans/2026-07-30-1310-documentation-strategy.md` — Strategic overview & product definitions
 - `.posit/assistant/plans/2026-07-30-1400-implementation-plan.md` — Detailed task list, timeline, checklist
-
-### pressfreedom Shiny App Integration ✅ COMPLETE (2026-08-02)
-
-**Companion repo:** https://github.com/petzi53/pressfreedom (separate repository)
-
-**What was done (this session):**
-
-#### Smoke Test (confirmed compatibility)
-- Loaded `pressfreedom.data::rwb_standardized` into the pressfreedom app's R session
-- Verified column names, zone values (English post-translation), and row counts match app expectations
-- All 7 app files (`app.R`, `mod_inputs.R`, `mod_chart.R`, `mod_map.R`, `mod_country.R`, `helpers.R`, `flags.R`) confirmed compatible
-
-#### Data Refresh (commit `3b8fa5d` in pressfreedom)
-- Rebuilt `pressfreedom/data/rwb.rda` from current `pressfreedom.data::rwb_standardized` v0.2.0
-- Updated `R/data.R` roxygen docs: row count (4,192 -> 4,183) and zone description (French -> English)
-- Fixed `df_chart()` helper: added `year_n >= 2013` filter when `var == "score"` to prevent pre/post-2013 methodology-discontinuity artifacts in trend charts
-
-#### Live-Dependency Refactor (commit `f810dc4` in pressfreedom)
-**Architecture decision:** pressfreedom now loads `pressfreedom.data::rwb_standardized` directly at runtime; no bundled dataset maintained.
-
-**Why:** eliminates stale-data risk; single source of truth; app gets updated data automatically when pressfreedom.data is reinstalled.
-
-**Changes:**
-- Renamed all `rwb` references to `rwb_standardized` (word-boundary rename) across all 7 app files
-- Deleted 4 tracked files: `R/data.R`, `man/rwb.Rd`, `data/rwb.rda`, `data-raw/rwb.R`
-- Removed `LazyData: true` from `DESCRIPTION` (no longer ships data)
-- `pressfreedom.data` was already in `Imports`; no DESCRIPTION dep change needed
-
-#### renv Setup (pressfreedom)
-- `devtools::install("/path/to/pressfreedom.data")` required for proper build (renv's binary path skipped `Meta/package.rds`, causing `loadNamespace` failure)
-- `renv::snapshot(prompt = FALSE, force = TRUE)` used to record the local-path install in `renv.lock` with `"Source": "Local"`
-- **Warning:** renv cannot auto-restore pressfreedom.data on a fresh clone unless the local source is present. Long-term fix: push pressfreedom.data to GitHub and use `renv::record("petzi53/pressfreedom.data")` so renv.lock gets a reproducible GitHub source.
-
-**App status:** running cleanly against live `pressfreedom.data::rwb_standardized`
-
----
 
 ### Documentation
 
