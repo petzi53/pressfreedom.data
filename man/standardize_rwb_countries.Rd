@@ -4,16 +4,15 @@
 \alias{standardize_rwb_countries}
 \title{Standardize RSF Country Data}
 \usage{
-standardize_rwb_countries(
-  input_file = here::here("data", "processed", "rwb_combined.rds"),
-  output_file = here::here("data", "processed", "rwb_standardized.rds"),
-  mapping_file = NULL
-)
+standardize_rwb_countries(input_file, output_file, mapping_file = NULL)
 }
 \arguments{
-\item{input_file}{Path to combined RDS file}
+\item{input_file}{Path to combined RDS file. Required (no default) so the
+function never reads from a package or home directory implicitly.}
 
-\item{output_file}{Path to write standardized RDS file}
+\item{output_file}{Path to write standardized RDS file. Required (no
+default) so the function never writes to a package or home directory
+implicitly.}
 
 \item{mapping_file}{Path to consolidation mapping CSV}
 }

@@ -160,7 +160,7 @@ update_rwb_data <- function(
 
     # Auto-detect missing years if not specified
     if (is.null(years)) {
-      years <- get_years_to_download()
+      years <- get_years_to_download(input_dir = here::here("inst/extdata"))
 
       msg_detected <- sprintf(
         "Detected %d missing year(s): %s",
@@ -444,6 +444,10 @@ update_rwb_data <- function(
 #'
 #' @param x Object of class \code{rwb_update}
 #' @param ... Additional arguments (unused)
+#'
+#' @return The input object \code{x}, returned invisibly. Called for its
+#'   side effect of printing a formatted summary of the update report to
+#'   the console.
 #'
 #' @keywords internal
 #' @exportS3Method

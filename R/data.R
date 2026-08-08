@@ -63,7 +63,6 @@
 #' @source Reporters Sans Frontieres, https://rsf.org
 #'
 #' @examples
-#' \dontrun{
 #' # Load the dataset
 #' data(rwb_standardized)
 #'
@@ -75,7 +74,6 @@
 #'
 #' # Years covered
 #' range(rwb_standardized$year_n)
-#' }
 #'
 #' @keywords datasets
 "rwb_standardized"

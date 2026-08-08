@@ -35,13 +35,6 @@ NULL
 #'
 #' @keywords internal
 #'
-#' @examples
-#' \dontrun{
-#' get_period(2005)   # "period_1"
-#' get_period(2015)   # "period_2"
-#' get_period(2024)   # "period_3"
-#' get_period(2011)   # NA
-#' }
 get_period <- function(year) {
   if (year == 2011) {
     return(NA_character_)
@@ -94,7 +87,8 @@ get_period_encoding <- function(year) {
 #' (no official RSF data).
 #'
 #' @param input_dir Character. Directory path containing downloaded CSV files.
-#'   Defaults to \code{"inst/extdata"}.
+#'   Required (no default) so the function never reads from a package or
+#'   home directory implicitly.
 #' @param all_years Integer vector. All years to check for.
 #'   Defaults to \code{2002:2026}.
 #'
@@ -111,13 +105,7 @@ get_period_encoding <- function(year) {
 #'
 #' @keywords internal
 #'
-#' @examples
-#' \dontrun{
-#' # Check which years are missing locally
-#' missing_years <- get_years_to_download()
-#' missing_years
-#' }
-get_years_to_download <- function(input_dir = "inst/extdata", all_years = 2002:2026) {
+get_years_to_download <- function(input_dir, all_years = 2002:2026) {
   # Exclude 2011 (no official RSF data)
   all_years <- setdiff(all_years, 2011)
 

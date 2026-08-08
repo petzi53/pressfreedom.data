@@ -4,17 +4,14 @@
 \alias{download_rwb_data}
 \title{Download RSF Press Freedom Index Data}
 \usage{
-download_rwb_data(
-  years = 2002:2026,
-  output_dir = "inst/extdata",
-  skip_missing = TRUE
-)
+download_rwb_data(years = 2002:2026, output_dir, skip_missing = TRUE)
 }
 \arguments{
 \item{years}{Integer vector. Years to download. Defaults to \code{2002:2026}.}
 
 \item{output_dir}{Character. Directory path where CSV files will be saved.
-Defaults to \code{"inst/extdata"}. Directory is created if it doesn't exist.}
+Required (no default) so the function never writes to a package or
+home directory implicitly. Directory is created if it doesn't exist.}
 
 \item{skip_missing}{Logical. If \code{TRUE}, automatically skips year 2011
 (no official RSF data published). Defaults to \code{TRUE}.}
@@ -57,15 +54,5 @@ Error Handling:
 - Connection failures are logged but don't stop the function
 - HTTP 404 errors (missing years) are logged as warnings
 - File write permission errors are caught and reported
-}
-\examples{
-\dontrun{
-# Download all years (excluding 2011) to default directory
-download_rwb_data()
-
-# Download specific years to custom directory
-download_rwb_data(years = 2020:2026, output_dir = "inst/extdata")
-}
-
 }
 \keyword{internal}

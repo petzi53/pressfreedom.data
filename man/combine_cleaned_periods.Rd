@@ -4,15 +4,16 @@
 \alias{combine_cleaned_periods}
 \title{Combine Cleaned RDS Files from All Periods}
 \usage{
-combine_cleaned_periods(
-  input_dir = here::here("data", "cleaned"),
-  output_file = here::here("data", "processed", "rwb_combined.rds")
-)
+combine_cleaned_periods(input_dir, output_file)
 }
 \arguments{
-\item{input_dir}{Directory containing period subdirectories (period_1, period_2, period_3)}
+\item{input_dir}{Directory containing period subdirectories (period_1, period_2, period_3).
+Required (no default) so the function never reads from a package or
+home directory implicitly.}
 
-\item{output_file}{Path where combined RDS file should be saved}
+\item{output_file}{Path where combined RDS file should be saved.
+Required (no default) so the function never writes to a package or
+home directory implicitly.}
 }
 \value{
 Invisibly returns the path to the output file

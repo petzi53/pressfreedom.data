@@ -73,7 +73,6 @@ are only available in Period 3 (2022-2026). Periods 1-2 have NA values for these
 - "Northern Cyprus" (ISO: CXX) - Turkish Republic of Northern Cyprus
 }
 \examples{
-\dontrun{
 # Load the dataset
 data(rwb_standardized)
 
@@ -85,7 +84,6 @@ length(unique(rwb_standardized$country_en))
 
 # Years covered
 range(rwb_standardized$year_n)
-}
 
 }
 \keyword{datasets}

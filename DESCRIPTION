@@ -7,7 +7,8 @@ Authors@R: person("Peter", "Baumgartner",
                 comment = c(ORCID = "0000-0003-4526-8791"))
 Maintainer: Peter Baumgartner <petzi53@gmail.com>
 Description: Download press freedom index data from Reporters Without Borders (RSF)
-    with period-aware encoding handling. Provides infrastructure for data cleaning
+    with period-aware encoding handling. Data are downloaded from the RSF
+    website (<https://rsf.org/en/index>). Provides infrastructure for data cleaning
     and ISO 3166 standardization in downstream phases.
 License: MIT + file LICENSE
 URL: https://github.com/petzi53/pressfreedom.data, https://www.peter-baumgartner.net/pressfreedom.data/

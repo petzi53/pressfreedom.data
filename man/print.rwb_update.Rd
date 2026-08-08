@@ -11,6 +11,11 @@
 
 \item{...}{Additional arguments (unused)}
 }
+\value{
+The input object \code{x}, returned invisibly. Called for its
+  side effect of printing a formatted summary of the update report to
+  the console.
+}
 \description{
 Print Method for rwb_update Results
 }

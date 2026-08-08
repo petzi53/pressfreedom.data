@@ -52,6 +52,45 @@ addition to the two expected NOTEs above):
 
 `urlchecker::url_check()` confirms all URLs now resolve correctly.
 
+## Resubmission (2026-08-08): issues fixed from CRAN feedback
+
+CRAN's initial review of 0.2.0 (Konstanze Lauseker) flagged five issues,
+all now fixed:
+
+1. **Missing web service link in `Description:`** -- added a sentence
+   citing the RSF website in angle-bracket form
+   (`<https://rsf.org>`).
+2. **Missing `\value` tag** -- added to `print.rwb_update.Rd` (the
+   exported S3 method), describing the invisible return and its side
+   effect.
+3. **Examples for unexported functions** (`download_rwb_data()`,
+   `get_period()`, `get_years_to_download()`) -- removed their
+   `\examples` blocks rather than exporting them; they are internal
+   maintainer-only ETL helpers, not part of the public API.
+4. **`\dontrun{}` usage** -- all `\dontrun{}` in the package lived inside
+   the three `\examples` blocks removed in (3), plus one unnecessary
+   `\dontrun{}` around the trivial, instant `rwb_standardized` dataset
+   example, which has been unwrapped. The package now has zero
+   `\dontrun{}` usage.
+5. **Unconditional `cat()`/`print()` console output** -- `download_rwb_data()`
+   now uses `message()` (suppressible via `suppressMessages()`) instead of
+   `cat()`. `update_rwb_data()` already used `cli::cli_inform()`/`cli_warn()`
+   gated by a `verbose` argument. `print.rwb_update()`'s `cat()` calls are
+   unchanged, per CRAN's own carve-out for print methods.
+6. **Functions writing to the package/home directory by default** --
+   removed package-relative default arguments (e.g. `"inst/extdata"`,
+   `here::here("data", "cleaned")`) from `download_rwb_data()`,
+   `get_years_to_download()`, `clean_all_rwb_years()`,
+   `combine_cleaned_periods()`, and
+   `standardize_rwb_countries()`. These path arguments are now required
+   (no default), so the functions never write to or read from a package
+   or home directory implicitly. All internal call sites were updated to
+   pass explicit paths. (`clean_rwb_single()` was already
+   required-argument-only and needed no change.)
+
+Verified locally: `devtools::check(cran = TRUE)` -- 0 errors | 0 warnings |
+0 notes.
+
 ## Downstream dependencies
 
 This is a new package with no reverse dependencies.

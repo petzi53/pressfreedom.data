@@ -244,15 +244,18 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
 #' Loads combined data, applies consolidations, assigns ISO codes,
 #' and saves standardized output.
 #'
-#' @param input_file Path to combined RDS file
-#' @param output_file Path to write standardized RDS file
+#' @param input_file Path to combined RDS file. Required (no default) so the
+#'   function never reads from a package or home directory implicitly.
+#' @param output_file Path to write standardized RDS file. Required (no
+#'   default) so the function never writes to a package or home directory
+#'   implicitly.
 #' @param mapping_file Path to consolidation mapping CSV
 #'
 #' @return Invisibly returns the path to the output file
 #' @keywords internal
 standardize_rwb_countries <- function(
-    input_file = here::here("data", "processed", "rwb_combined.rds"),
-    output_file = here::here("data", "processed", "rwb_standardized.rds"),
+    input_file,
+    output_file,
     mapping_file = NULL
 ) {
   # Load combined data

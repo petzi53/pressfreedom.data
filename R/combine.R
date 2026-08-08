@@ -3,15 +3,19 @@
 #' Reads all cleaned RDS files from period_1, period_2, and period_3
 #' directories and combines them into a single data frame.
 #'
-#' @param input_dir Directory containing period subdirectories (period_1, period_2, period_3)
-#' @param output_file Path where combined RDS file should be saved
+#' @param input_dir Directory containing period subdirectories (period_1, period_2, period_3).
+#'   Required (no default) so the function never reads from a package or
+#'   home directory implicitly.
+#' @param output_file Path where combined RDS file should be saved.
+#'   Required (no default) so the function never writes to a package or
+#'   home directory implicitly.
 #'
 #' @return Invisibly returns the path to the output file
 #'
 #' @keywords internal
 combine_cleaned_periods <- function(
-    input_dir = here::here("data", "cleaned"),
-    output_file = here::here("data", "processed", "rwb_combined.rds")
+    input_dir,
+    output_file
 ) {
   # Ensure output directory exists
   output_dir <- dirname(output_file)

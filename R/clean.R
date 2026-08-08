@@ -464,9 +464,11 @@ clean_rwb_single <- function(filepath, year, output_dir) {
 #' Automatically detects period for each year and applies appropriate transformations.
 #'
 #' @param input_dir Character. Directory containing raw CSV files.
-#'   Defaults to inst/extdata
+#'   Required (no default) so the function never reads from a package or
+#'   home directory implicitly.
 #' @param output_dir Character. Directory to save cleaned RDS files.
-#'   Defaults to data/cleaned
+#'   Required (no default) so the function never writes to a package or
+#'   home directory implicitly.
 #'
 #' @return Data frame with processing summary:
 #'   - year: Year processed
@@ -489,8 +491,8 @@ clean_rwb_single <- function(filepath, year, output_dir) {
 #'
 #' @keywords internal
 clean_all_rwb_years <- function(
-    input_dir = here::here("inst/extdata"),
-    output_dir = here::here("data/cleaned")) {
+    input_dir,
+    output_dir) {
   # List all raw CSV files
   raw_files <- list.files(
     input_dir,

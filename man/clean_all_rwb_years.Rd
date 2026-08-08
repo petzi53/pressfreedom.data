@@ -4,17 +4,16 @@
 \alias{clean_all_rwb_years}
 \title{Batch Clean All RSF Years}
 \usage{
-clean_all_rwb_years(
-  input_dir = here::here("inst/extdata"),
-  output_dir = here::here("data/cleaned")
-)
+clean_all_rwb_years(input_dir, output_dir)
 }
 \arguments{
 \item{input_dir}{Character. Directory containing raw CSV files.
-Defaults to inst/extdata}
+Required (no default) so the function never reads from a package or
+home directory implicitly.}
 
 \item{output_dir}{Character. Directory to save cleaned RDS files.
-Defaults to data/cleaned}
+Required (no default) so the function never writes to a package or
+home directory implicitly.}
 }
 \value{
 Data frame with processing summary:

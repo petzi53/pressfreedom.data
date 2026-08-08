@@ -6,7 +6,8 @@
 #'
 #' @param years Integer vector. Years to download. Defaults to \code{2002:2026}.
 #' @param output_dir Character. Directory path where CSV files will be saved.
-#'   Defaults to \code{"inst/extdata"}. Directory is created if it doesn't exist.
+#'   Required (no default) so the function never writes to a package or
+#'   home directory implicitly. Directory is created if it doesn't exist.
 #' @param skip_missing Logical. If \code{TRUE}, automatically skips year 2011
 #'   (no official RSF data published). Defaults to \code{TRUE}.
 #'
@@ -43,19 +44,10 @@
 #' - HTTP 404 errors (missing years) are logged as warnings
 #' - File write permission errors are caught and reported
 #'
-#' @examples
-#' \dontrun{
-#' # Download all years (excluding 2011) to default directory
-#' download_rwb_data()
-#'
-#' # Download specific years to custom directory
-#' download_rwb_data(years = 2020:2026, output_dir = "inst/extdata")
-#' }
-#'
 #' @keywords internal
 #'
 download_rwb_data <- function(years = 2002:2026,
-                              output_dir = "inst/extdata",
+                              output_dir,
                               skip_missing = TRUE) {
   # Validate inputs
   if (!is.numeric(years) || !all(years == as.integer(years))) {
@@ -97,7 +89,7 @@ download_rwb_data <- function(years = 2002:2026,
           quiet = TRUE
         )
 
-        cat("[OK] Downloaded:", filename, "\n")
+        message("[OK] Downloaded: ", filename)
         results[[as.character(year)]] <- TRUE
       },
       error = function(e) {
@@ -115,9 +107,9 @@ download_rwb_data <- function(years = 2002:2026,
   # Print summary
   successful <- sum(unlist(results))
   total <- length(results)
-  cat("\n=== Download Summary ===\n")
-  cat("Successful:", successful, "/", total, "\n")
-  cat("Location:", output_dir, "\n")
+  message("\n=== Download Summary ===")
+  message("Successful: ", successful, "/", total)
+  message("Location: ", output_dir)
 
   invisible(results)
 }

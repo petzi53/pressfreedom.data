@@ -4,11 +4,12 @@
 \alias{get_years_to_download}
 \title{Get Years That Need Downloading}
 \usage{
-get_years_to_download(input_dir = "inst/extdata", all_years = 2002:2026)
+get_years_to_download(input_dir, all_years = 2002:2026)
 }
 \arguments{
 \item{input_dir}{Character. Directory path containing downloaded CSV files.
-Defaults to \code{"inst/extdata"}.}
+Required (no default) so the function never reads from a package or
+home directory implicitly.}
 
 \item{all_years}{Integer vector. All years to check for.
 Defaults to \code{2002:2026}.}
@@ -29,12 +30,5 @@ which years need downloading without re-downloading existing data.
 
 Note: Year 2011 is never included in the returned vector, even if it's
 in the \code{all_years} range.
-}
-\examples{
-\dontrun{
-# Check which years are missing locally
-missing_years <- get_years_to_download()
-missing_years
-}
 }
 \keyword{internal}
