@@ -481,40 +481,42 @@ include this credit wherever the logo is displayed:
 <a href="https://www.flaticon.com/free-icons/microphone" title="microphone icons">Microphone icons created by Magnific - Flaticon</a>
 ```
 
-### CRAN Submission v0.2.0 ✅ SUBMITTED (2026-08-02)
+### CRAN Submission v0.2.0 ❌ REJECTED → v0.2.1 RESUBMISSION (2026-08-02 → 2026-08-08)
 
-**Status:** Package uploaded and verified, awaiting email confirmation link
+**v0.2.0 Submission Timeline:**
+- **2026-08-02:** Submitted via `devtools::release()`
+- **2026-08-08:** Rejected by CRAN reviewer Konstanze Lauseker (5 categories of feedback)
 
-**Submission details:**
-- **Date/time:** 2026-08-02 14:02:36 UTC
-- **Commit:** fbe31d0 (trimmed NEWS.md to standard concise style)
-- **Command:** `devtools::release()` (interactive console submission)
-- **Result:** ✅ "Package submission successful" — confirmation link sent to petzi53@gmail.com
+**v0.2.1 Resubmission Status:** ✅ READY TO SUBMIT (CRAN OFFLINE Aug 5–19)
 
-**Post-submission actions taken:**
-1. ✅ Committed `.Rbuildignore` update (excludes `CRAN-SUBMISSION` from build)
-2. ✅ Committed `CRAN-SUBMISSION` metadata file (submission record)
-3. ✅ Pushed both `main` and `v0.2.0` tag to `origin`
+**Resubmission Commits:**
+- **c1073c4** (2026-08-08): Fix CRAN feedback: DESCRIPTION URL, print method @return tag, removed unexported function examples, eliminated all `\dontrun{}`, replaced `cat()` with `message()`, removed package-relative path defaults from 6 internal functions
+- **f3c3145** (2026-08-08): Version bump to 0.2.1
 
-**Next steps (waiting on CRAN):**
-- Check email for confirmation link (must click to activate submission)
-- CRAN will begin automated checks within 24 hours
-- Typical review time: 1-3 days
-- Possible outcomes:
-  - ✅ **Accept:** Package published to CRAN, visible in package archive
-  - 🔄 **Fix & resubmit:** CRAN flags issues requiring rework
-  - ❌ **Reject:** Fundamental issues; requires major redesign
+**Issues Fixed (all 6 categories addressed):**
+1. ✅ DESCRIPTION missing RSF web service link → added `<https://rsf.org/en/index>` (canonical non-redirect URL)
+2. ✅ `print.rwb_update()` missing `\value` tag → added full documentation of invisible return
+3. ✅ Examples for unexported functions → removed `@examples` from `download_rwb_data()`, `get_period()`, `get_years_to_download()`
+4. ✅ `\dontrun{}` usage → eliminated all instances (were in removed examples blocks + one redundant wrapper on dataset)
+5. ✅ Unconditional `cat()` output → replaced in `download_rwb_data()` with suppressible `message()`; left `print.rwb_update()` cat() untouched per CRAN carve-out
+6. ✅ Functions writing to package/home directory by default → removed defaults from 6 functions, all internal call sites updated to pass explicit paths
 
-**Estimated arrival timeline:**
-- T+0 (2026-08-02): Submitted
-- T+24h: CRAN automated checks run
-- T+48-72h: Human reviewer processes
-- T+72h+: Published (if accepted) or feedback email (if fixes needed)
+**Verification:**
+- `devtools::check(cran = TRUE)`: 0 errors | 0 warnings | 0 notes ✅
+- `urlchecker::url_check()`: All URLs correct ✅
+- Package tarball built: `pressfreedom.data_0.2.1.tar.gz` (716.1 KB) ✅
+
+**Next Steps (After CRAN Reopens Aug 20+):**
+- Manual submission via https://cran.r-project.org/submit.html (automated endpoint had intermittent 404 errors, likely due to maintenance window)
+- Upload tarball + paste `cran-comments.md` into form
+- Click confirmation email link
+- Wait for CRAN automated checks (24–72 hours) + human review
+- If accepted: `usethis::use_github_release()` + `usethis::use_dev_version()`
 
 **Notes:**
-- `devtools::release()` is deprecated; future releases should use `usethis::use_release_issue()`
-- Package is frozen at tag `v0.2.0` pending acceptance
-- Do not push further changes until CRAN decision arrives
+- CRAN submissions are **offline Aug 5–19, 2026** (team vacation + maintenance) — no submissions can be processed during this window
+- `usethis::use_release_issue()` created GitHub issue #1 with release checklist (all "Prepare for release" tasks completed)
+- Exported API unchanged (still only `rwb_standardized` dataset + `print.rwb_update()` S3 method)
 
 ### pkgdown Website ✅ COMPLETE & VERIFIED LIVE (2026-08-01)
 
