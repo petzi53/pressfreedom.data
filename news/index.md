@@ -38,6 +38,36 @@
 - De-duplicated content between `README.md` and
   [`vignette("getting-started")`](https://www.peter-baumgartner.net/pressfreedom.data/articles/getting-started.md);
   consolidated citation info into `inst/CITATION`.
+- Added a `\value` tag to
+  [`print.rwb_update()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/print.rwb_update.md)’s
+  documentation and cited the RSF web service in the `Description:`
+  field, addressing CRAN feedback on the initial 0.2.0 submission.
+
+### Internal (CRAN feedback, 0.2.0 resubmission)
+
+- Removed `\examples` from the unexported helpers
+  [`download_rwb_data()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/download_rwb_data.md),
+  [`get_period()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/get_period.md),
+  and
+  [`get_years_to_download()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/get_years_to_download.md)
+  rather than exporting them, eliminating the package’s only
+  `\dontrun{}` usage.
+- [`download_rwb_data()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/download_rwb_data.md)
+  now uses [`message()`](https://rdrr.io/r/base/message.html) instead of
+  unconditional [`cat()`](https://rdrr.io/r/base/cat.html) for
+  progress/summary output, so it can be suppressed with
+  [`suppressMessages()`](https://rdrr.io/r/base/message.html).
+- Removed package-relative default paths (e.g. `"inst/extdata"`,
+  `here::here("data", "cleaned")`) from
+  [`download_rwb_data()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/download_rwb_data.md),
+  [`get_years_to_download()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/get_years_to_download.md),
+  [`clean_rwb_single()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/clean_rwb_single.md),
+  [`clean_all_rwb_years()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/clean_all_rwb_years.md),
+  [`combine_cleaned_periods()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/combine_cleaned_periods.md),
+  and
+  [`standardize_rwb_countries()`](https://www.peter-baumgartner.net/pressfreedom.data/reference/standardize_rwb_countries.md).
+  These arguments are now required with no default, so the functions
+  never write to (or read from) a package or home directory implicitly.
 
 ### Other
 

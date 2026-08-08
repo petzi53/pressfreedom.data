@@ -7,15 +7,16 @@ of years to identify which years are missing. Automatically excludes
 ## Usage
 
 ``` r
-get_years_to_download(input_dir = "inst/extdata", all_years = 2002:2026)
+get_years_to_download(input_dir, all_years = 2002:2026)
 ```
 
 ## Arguments
 
 - input_dir:
 
-  Character. Directory path containing downloaded CSV files. Defaults to
-  `"inst/extdata"`.
+  Character. Directory path containing downloaded CSV files. Required
+  (no default) so the function never reads from a package or home
+  directory implicitly.
 
 - all_years:
 
@@ -35,13 +36,3 @@ data.
 
 Note: Year 2011 is never included in the returned vector, even if it's
 in the `all_years` range.
-
-## Examples
-
-``` r
-if (FALSE) { # \dontrun{
-# Check which years are missing locally
-missing_years <- get_years_to_download()
-missing_years
-} # }
-```

@@ -46,6 +46,14 @@
 <h3 id="documentation-0-2-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-2-0"></a></h3>
 <ul><li>Clarified the <code>rwb_</code> naming convention (RSF vs. RWB) in <code><a href="../reference/rwb_standardized.html">?rwb_standardized</a></code>.</li>
 <li>De-duplicated content between <code>README.md</code> and <code><a href="../articles/getting-started.html">vignette("getting-started")</a></code>; consolidated citation info into <code>inst/CITATION</code>.</li>
+<li>Added a <code>\value</code> tag to <code><a href="../reference/print.rwb_update.html">print.rwb_update()</a></code>’s documentation and cited the RSF web service in the <code>Description:</code> field, addressing CRAN feedback on the initial 0.2.0 submission.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="internal-cran-feedback-resubmission-0-2-0">Internal (CRAN feedback, 0.2.0 resubmission)<a class="anchor" aria-label="anchor" href="#internal-cran-feedback-resubmission-0-2-0"></a></h3>
+<ul><li>Removed <code>\examples</code> from the unexported helpers <code><a href="../reference/download_rwb_data.html">download_rwb_data()</a></code>, <code><a href="../reference/get_period.html">get_period()</a></code>, and <code><a href="../reference/get_years_to_download.html">get_years_to_download()</a></code> rather than exporting them, eliminating the package’s only <code>\dontrun{}</code> usage.</li>
+<li>
+<code><a href="../reference/download_rwb_data.html">download_rwb_data()</a></code> now uses <code><a href="https://rdrr.io/r/base/message.html" class="external-link">message()</a></code> instead of unconditional <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> for progress/summary output, so it can be suppressed with <code><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressMessages()</a></code>.</li>
+<li>Removed package-relative default paths (e.g. <code>"inst/extdata"</code>, <code>here::here("data", "cleaned")</code>) from <code><a href="../reference/download_rwb_data.html">download_rwb_data()</a></code>, <code><a href="../reference/get_years_to_download.html">get_years_to_download()</a></code>, <code><a href="../reference/clean_rwb_single.html">clean_rwb_single()</a></code>, <code><a href="../reference/clean_all_rwb_years.html">clean_all_rwb_years()</a></code>, <code><a href="../reference/combine_cleaned_periods.html">combine_cleaned_periods()</a></code>, and <code><a href="../reference/standardize_rwb_countries.html">standardize_rwb_countries()</a></code>. These arguments are now required with no default, so the functions never write to (or read from) a package or home directory implicitly.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="other-0-2-0">Other<a class="anchor" aria-label="anchor" href="#other-0-2-0"></a></h3>

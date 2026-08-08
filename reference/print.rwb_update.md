@@ -18,3 +18,8 @@ print(x, ...)
 - ...:
 
   Additional arguments (unused)
+
+## Value
+
+The input object `x`, returned invisibly. Called for its side effect of
+printing a formatted summary of the update report to the console.

@@ -7,23 +7,22 @@ transformations.
 ## Usage
 
 ``` r
-clean_all_rwb_years(
-  input_dir = here::here("inst/extdata"),
-  output_dir = here::here("data/cleaned")
-)
+clean_all_rwb_years(input_dir, output_dir)
 ```
 
 ## Arguments
 
 - input_dir:
 
-  Character. Directory containing raw CSV files. Defaults to
-  inst/extdata
+  Character. Directory containing raw CSV files. Required (no default)
+  so the function never reads from a package or home directory
+  implicitly.
 
 - output_dir:
 
-  Character. Directory to save cleaned RDS files. Defaults to
-  data/cleaned
+  Character. Directory to save cleaned RDS files. Required (no default)
+  so the function never writes to a package or home directory
+  implicitly.
 
 ## Value
 

@@ -7,22 +7,20 @@ standardized output.
 ## Usage
 
 ``` r
-standardize_rwb_countries(
-  input_file = here::here("data", "processed", "rwb_combined.rds"),
-  output_file = here::here("data", "processed", "rwb_standardized.rds"),
-  mapping_file = NULL
-)
+standardize_rwb_countries(input_file, output_file, mapping_file = NULL)
 ```
 
 ## Arguments
 
 - input_file:
 
-  Path to combined RDS file
+  Path to combined RDS file. Required (no default) so the function never
+  reads from a package or home directory implicitly.
 
 - output_file:
 
-  Path to write standardized RDS file
+  Path to write standardized RDS file. Required (no default) so the
+  function never writes to a package or home directory implicitly.
 
 - mapping_file:
 

@@ -35,14 +35,3 @@ across years (new calculation method introduced)
 Encoding: UTF-8 - Delimiter: semicolon (;) - Major restructuring:
 columns reordered, score dimensions added - Column names vary by year
 (e.g., "Score" vs "Score 2026")
-
-## Examples
-
-``` r
-if (FALSE) { # \dontrun{
-get_period(2005)   # "period_1"
-get_period(2015)   # "period_2"
-get_period(2024)   # "period_3"
-get_period(2011)   # NA
-} # }
-```
