@@ -1,5 +1,7 @@
 # Changelog
 
+## pressfreedom.data 0.2.1
+
 ## pressfreedom.data 0.2.0
 
 ### Breaking changes
