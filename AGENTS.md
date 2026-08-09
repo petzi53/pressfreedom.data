@@ -672,9 +672,101 @@ had missed entirely.
 - Use `->` for arrows, not the Unicode arrow character
 - Use straight quotes `"..."`, not curly quotes
 
-### Documentation & Publishing Strategy ✅ PLANNED & APPROVED (2026-07-30)
+### Documentation & Publishing Strategy ✅ FINALIZED & ACTIONABLE PLAN CREATED (2026-08-12)
 
-**Status:** Multi-level documentation architecture approved, implementation plan created
+**Status:** All decisions locked; comprehensive prep plan created for Aug 12–Oct 12 execution
+
+#### Book Timeline REVISED (2026-08-12): Vacation Aug 25–Oct 12
+
+Peter announced: **"I can't work for 3 weeks, from 25 August to 12 October."**
+
+**New timeline (locked):**
+- **Weeks 1–2 (Aug 12–25):** Conversation organization + Posit Assistant model testing
+  - Week 1 checklist: 7 hours total work (1 hr/day Mon–Fri)
+  - Deliverables: 20–25 conversation index entries + model decision
+  - Files created: 6 new actionable documents (QUICK-START, revised timeline, model testing guide, Week 1 checklist, conversation starter, session summary)
+  
+- **Aug 25–Oct 12:** VACATION (fully offline, no work)
+  
+- **Weeks 3–6 (Oct 13–Nov 16):** Write & publish 4 blogs (1/week)
+  - Each blog gets peer review + Grammarly before publishing
+  - Peer reviewer: Peter to identify this week (optional; Grammarly as backup)
+  
+- **Weeks 7–20 (Nov 17–Late Feb 2027):** Draft 10 book chapters
+
+#### Book Title ✅ FINALIZED (2026-08-09)
+
+**Title:** "Reliable Data Through Iteration: How AI Helped Me Build a Data Pipeline"
+
+**Key attributes:**
+- Personal voice ("How **I** learned...")
+- Emphasizes AI collaboration ("**AI** Helped Me")
+- Generalizable scope (not pressfreedom.data-specific)
+- Learner's narrative, not expert manual
+
+#### Strategy: Blog-First (Oct 13–Nov 16), Then Book Chapters (Nov 17+) — EXECUTION PLAN READY (2026-08-12)
+
+**Peter's answers (2026-08-12):**
+1. **Conversation organizing:** Yes, starting this week (Aug 12)
+2. **LLM for summarization:** Posit Assistant + test fast/medium/high models (testing Wed–Thu this week)
+3. **Blog pace:** 1/week is tight but will try (now Oct 13–Nov 16, after vacation)
+4. **Peer review:** Yes, with Grammarly backup (identify reviewer by Fri Aug 18)
+5. **Book timing:** Start immediately after blogs end Nov 16 (Nov 17–Feb 2027)
+
+**New documents created (2026-08-12) — ready to use immediately:**
+1. **`2026-08-12-QUICK-START.md`** — 3-minute briefing for Monday morning
+2. **`2026-08-12-revised-timeline.md`** — Full Aug 12–Feb 2027 schedule (with vacation)
+3. **`2026-08-12-model-testing-guide.md`** — How to test Posit Assistant models (3 scenarios, all 3 tiers)
+4. **`2026-08-12-week1-checklist.md`** — Daily breakdown for Aug 12–18 (7 hours total)
+5. **`2026-08-12-conversation-index-starter.csv`** — Pre-populated spreadsheet (16 examples, expand to 20–25)
+6. **`2026-08-12-SESSION-SUMMARY.md`** — Complete record of all decisions + timeline
+7. **`2026-08-12-PETER-ANSWERS.md`** — Peter's exact answers documented
+8. **`README.md`** (updated) — Refocused on Week 1 documents
+
+**Concrete tools created (2026-08-09) — still reference:
+- **`2026-08-09-blog-posts-strategy.md`** — Full 4-blog plan with sequencing, structure, content
+- **`2026-08-09-conversation-index-template.md`** — Spreadsheet template to organize 50+ conversations
+- **`2026-08-09-llm-prompts-for-summarization.md`** — 8 concrete LLM prompts for extracting insights
+- **`2026-08-09-blog-post-draft-template.md`** — Structure & word counts for each blog
+- **`2026-08-09-voice-guide-learners-perspective.md`** — How to write in learner's voice (before/after)
+- **`2026-08-09-next-steps-checklist.md`** — Week-by-week actionable checklist
+- **`README.md`** — Project index and quick-start guide
+
+#### Strategy: Blog-First (Weeks 3–6), Then Book Chapters (Weeks 7+)
+
+**4 Blog Posts (published to peter-baumgartner.net):**
+
+1. **Blog 1: "Encoding Resilience: Why Per-File Detection Beats Heuristics"** (Week 3)
+   - How a learner discovers and iterates toward solving mojibake
+   - Length: ~1,500 words
+   - Tone: Detective story + learning arc
+   - Hook: "I thought my data were clean. I was wrong. Silently."
+
+2. **Blog 2: "Writing Better Prompts: Learning to Ask AI the Right Questions"** (Week 4)
+   - How prompts evolved from vague to specific through iteration
+   - Includes: when to change models, RStudio/Positron UI details, shell commands
+   - Length: ~1,400 words
+   - Tone: Practical metacognition, candid about mistakes
+   - Hook: "My first prompts were terrible. I didn't realize it."
+
+3. **Blog 3: "Consolidating Messy Categories: When Data Cleaning is Actually Decision-Making"** (Week 5)
+   - How a learner navigates the human/technical boundary
+   - Includes: 6-step framework, edge cases (Cyprus, Kosovo), political context
+   - Length: ~1,600 words
+   - Tone: Honest about ambiguity, iterative discovery of principles
+   - Hook: "Consolidation isn't a technical problem; it's a thinking problem."
+
+4. **Blog 4: "Orchestrating Multi-Phase Pipelines: Making Iteration Repeatable"** (Week 6)
+   - How a learner moves from one-off solutions to repeatable workflows
+   - Includes: 5-phase design, error handling, automation boundaries
+   - Length: ~1,500 words
+   - Tone: Pragmatic, honest about "good enough" vs. "perfect"
+   - Hook: "I solved everything by hand. Now what?"
+
+**Timeline:**
+- Weeks 1–2: Conversation organization & summarization (prep)
+- Weeks 3–6: Blog posts (one per week, published)
+- Weeks 7–8+: Book chapters (parallel, drawing on blog content)
 
 #### Phase 1: Package Vignette ✅ COMPLETE & COMMITTED (2026-07-30)
 
