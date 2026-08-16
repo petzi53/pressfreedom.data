@@ -11,9 +11,13 @@ normalize_column_names(df, period, year, mapping)
 
 \item{period}{Character. One of "1", "2", or "3"}
 
-\item{year}{Numeric. Year of the data (used for Period 3 score detection)}
+\item{year}{Numeric. Year of the data (unused directly here; kept for a
+consistent call signature across periods -- callers resolve any
+year-specific raw column names, e.g. via `load_column_overrides()`,
+before building `mapping`)}
 
-\item{mapping}{List. Column mapping dictionary}
+\item{mapping}{List. Column mapping dictionary, already resolved (e.g.
+any overrides from `apply_column_overrides()` applied)}
 }
 \value{
 Data frame with normalized column names in target order
@@ -24,9 +28,8 @@ Renames columns and adds NA columns for missing data.
 }
 \details{
 This function:
-1. Detects the score column name for Period 3
-2. Renames raw columns to target names
-3. Adds NA columns for missing data
-4. Reorders to match target column order
+1. Renames raw columns to target names
+2. Adds NA columns for missing data
+3. Reorders to match target column order
 }
 \keyword{internal}

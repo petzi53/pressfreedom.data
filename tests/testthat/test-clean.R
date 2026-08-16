@@ -151,24 +151,6 @@ test_that("target_columns has correct length and order", {
 # Test: Utility Functions
 # ============================================================================
 
-test_that("detect_score_column finds generic 'Score'", {
-  df <- create_mock_period_3_recent()
-  result <- detect_score_column(df, 2023)
-  expect_equal(result, "Score")
-})
-
-test_that("detect_score_column finds year-specific score name", {
-  df <- create_mock_period_3_year_score(2025)
-  result <- detect_score_column(df, 2025)
-  expect_equal(result, "Score 2025")
-})
-
-test_that("detect_score_column returns NA when score not found", {
-  df <- tibble::tibble(x = 1, y = 2)
-  result <- detect_score_column(df, 2023)
-  expect_true(is.na(result))
-})
-
 test_that("standardize_decimal_separators converts comma to period", {
   df <- tibble::tibble(
     value = c("82,50", "81,75", "80,25")
@@ -217,9 +199,15 @@ test_that("normalize_column_names adds NA columns for Period 1", {
   expect_true(all(is.na(result$score_evolution)))
 })
 
-test_that("normalize_column_names detects year-specific score for Period 3", {
+test_that("normalize_column_names renames a year-specific score column once resolved in mapping", {
+  # normalize_column_names() no longer resolves "Score YYYY" itself --
+  # clean_period_3() resolves it first via load_column_overrides()/
+  # apply_column_overrides(). Simulate that resolution here.
   df <- create_mock_period_3_year_score(2026)
-  mapping <- get_period_mapping("3", 2026)
+  mapping <- apply_column_overrides(
+    get_period_mapping("3", 2026),
+    list(score = "Score 2026")
+  )
   result <- normalize_column_names(df, "3", 2026, mapping)
 
   expect_equal(ncol(result), 20)

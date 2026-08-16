@@ -73,11 +73,18 @@ test_that("load_column_overrides returns a named list for a matching year", {
   expect_equal(result, list(score = "Score 2025"))
 })
 
-test_that("load_column_overrides reads the shipped demo row for 2025", {
+test_that("load_column_overrides reads the shipped Score override for 2025", {
   # Exercises the real inst/extdata/period3_column_overrides.csv shipped
-  # with the package, demonstrating the Score -> Score 2025 example
+  # with the package: RSF renamed "Score" to "Score 2025" starting that
+  # year, resolved here via the general override mechanism (not a
+  # dedicated detection function -- see period_3_mapping's docs)
   result <- load_column_overrides(2025)
   expect_equal(result, list(score = "Score 2025"))
+})
+
+test_that("load_column_overrides reads the shipped Score override for 2026", {
+  result <- load_column_overrides(2026)
+  expect_equal(result, list(score = "Score 2026"))
 })
 
 

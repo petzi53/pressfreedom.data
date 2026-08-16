@@ -14,21 +14,26 @@ NULL
 #'   year 2011 (no official RSF data).
 #'
 #' @details
+#' This function determines the structural period a year belongs to, which
+#' drives column mapping and normalization logic.
+#'
+#' **Important:** Encoding is NOT period-based. Use \code{detect_csv_encoding()}
+#' to determine per-file encoding. Period 1-2 (2002-2021) are UTF-8 despite
+#' the structural naming; Period 3 (2022-2026) mixed UTF-8 (2022-2024) and
+#' ISO-8859-1 (2025-2026) without warning.
+#'
 #' **Period 1 (2002-2012):**
 #' - 16 columns with fixed structure
-#' - Encoding: ISO-8859-1
 #' - Delimiter: semicolon (;)
 #' - Scores not comparable across years (within-year ranks only)
 #'
 #' **Period 2 (2013-2021):**
 #' - 16 columns, same structure as Period 1
-#' - Encoding: ISO-8859-1
 #' - Delimiter: semicolon (;)
 #' - Scores comparable across years (new calculation method introduced)
 #'
 #' **Period 3 (2022-2026):**
 #' - 22-25 columns (varies by year)
-#' - Encoding: UTF-8
 #' - Delimiter: semicolon (;)
 #' - Major restructuring: columns reordered, score dimensions added
 #' - Column names vary by year (e.g., "Score" vs "Score 2026")
@@ -49,35 +54,6 @@ get_period <- function(year) {
   }
 }
 
-
-#' Get Encoding for RSF Data by Period (Deprecated)
-#'
-#' \strong{Deprecated:} this period-based heuristic turned out to be wrong
-#' for Period 1-2 (2002-2021 RSF exports are actually UTF-8, not
-#' ISO-8859-1) and unreliable in general, since RSF has switched encodings
-#' within a period without notice (e.g. 2025-2026 arrived as ISO-8859-1
-#' while 2022-2024 were UTF-8). The cleaning pipeline now detects the
-#' encoding of each downloaded file directly with \code{detect_csv_encoding()}
-#' instead of guessing from the year. This function is kept only for
-#' backward compatibility and should not be used for new code.
-#'
-#' @param year Integer. Year to check.
-#'
-#' @return Character. Encoding string: \code{"ISO-8859-1"} for Period 1-2,
-#'   \code{"UTF-8"} for Period 3.
-#'
-#' @keywords internal
-get_period_encoding <- function(year) {
-  period <- get_period(year)
-  if (is.na(period)) {
-    return(NA_character_)
-  }
-  if (period %in% c("period_1", "period_2")) {
-    "ISO-8859-1"
-  } else {
-    "UTF-8"
-  }
-}
 
 
 #' Get Years That Need Downloading
@@ -172,41 +148,6 @@ convert_factors_to_character <- function(df, cols) {
 }
 
 
-#' Detect Score Column Name for Period 3
-#'
-#' Period 3 (2022-2026) uses varying score column names.
-#' Some years use "Score", others use "Score YYYY".
-#' This function detects which pattern is present.
-#'
-#' @param df Data frame to inspect
-#' @param year Numeric. Year of the data
-#'
-#' @return Character. Name of the score column (e.g., "Score" or "Score 2026")
-#'
-#' @details
-#' Detection logic:
-#' - Check for "Score YYYY" pattern first (e.g., "Score 2026")
-#' - Fall back to "Score" if year-specific name not found
-#' - Return NA if neither found
-#'
-#' @keywords internal
-detect_score_column <- function(df, year) {
-  # Try year-specific name first (e.g., "Score 2026")
-  year_col <- paste("Score", year)
-  if (year_col %in% names(df)) {
-    return(year_col)
-  }
-
-  # Fall back to generic "Score"
-  if ("Score" %in% names(df)) {
-    return("Score")
-  }
-
-  # Not found
-  NA_character_
-}
-
-
 #' Normalize Column Names to Target Structure
 #'
 #' Applies period-specific column mappings to raw data.
@@ -214,28 +155,23 @@ detect_score_column <- function(df, year) {
 #'
 #' @param df Data frame to normalize
 #' @param period Character. One of "1", "2", or "3"
-#' @param year Numeric. Year of the data (used for Period 3 score detection)
-#' @param mapping List. Column mapping dictionary
+#' @param year Numeric. Year of the data (unused directly here; kept for a
+#'   consistent call signature across periods -- callers resolve any
+#'   year-specific raw column names, e.g. via `load_column_overrides()`,
+#'   before building `mapping`)
+#' @param mapping List. Column mapping dictionary, already resolved (e.g.
+#'   any overrides from `apply_column_overrides()` applied)
 #'
 #' @return Data frame with normalized column names in target order
 #'
 #' @details
 #' This function:
-#' 1. Detects the score column name for Period 3
-#' 2. Renames raw columns to target names
-#' 3. Adds NA columns for missing data
-#' 4. Reorders to match target column order
+#' 1. Renames raw columns to target names
+#' 2. Adds NA columns for missing data
+#' 3. Reorders to match target column order
 #'
 #' @keywords internal
 normalize_column_names <- function(df, period, year, mapping) {
-  # Handle Period 3 score column detection
-  if (period == "3") {
-    score_col <- detect_score_column(df, year)
-    if (!is.na(score_col)) {
-      mapping$score <- score_col
-    }
-  }
-
   # Separate NA mappings from real mappings
   all_mapping_values <- unlist(mapping)
   real_cols <- names(mapping)[!is.na(all_mapping_values)]

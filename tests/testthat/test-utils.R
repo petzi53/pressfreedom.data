@@ -19,13 +19,6 @@ test_that("get_period returns NA outside the known range", {
   expect_true(is.na(get_period(2027)))
 })
 
-test_that("get_period_encoding maps periods to the expected (deprecated) encodings", {
-  expect_equal(get_period_encoding(2005), "ISO-8859-1")
-  expect_equal(get_period_encoding(2015), "ISO-8859-1")
-  expect_equal(get_period_encoding(2024), "UTF-8")
-  expect_true(is.na(get_period_encoding(2011)))
-})
-
 test_that("get_years_to_download returns all years when input_dir doesn't exist", {
   result <- get_years_to_download(
     input_dir = fs::path_temp("does-not-exist-12345"),
@@ -95,21 +88,6 @@ test_that("convert_factors_to_character converts factor columns to character", {
   expect_true(is.numeric(result$n))
 })
 
-test_that("detect_score_column finds year-specific column name first", {
-  df <- tibble::tibble("Score 2026" = 75, "Score" = 70)
-  expect_equal(detect_score_column(df, 2026), "Score 2026")
-})
-
-test_that("detect_score_column falls back to generic 'Score'", {
-  df <- tibble::tibble("Score" = 70)
-  expect_equal(detect_score_column(df, 2024), "Score")
-})
-
-test_that("detect_score_column returns NA if neither column is found", {
-  df <- tibble::tibble(other = 1)
-  expect_true(is.na(detect_score_column(df, 2024)))
-})
-
 test_that("normalize_column_names renames and reorders Period 1 columns", {
   df <- tibble::tibble(
     "Year (N)" = 2005,
@@ -130,7 +108,10 @@ test_that("normalize_column_names renames and reorders Period 1 columns", {
   expect_true(is.na(result$political_context))
 })
 
-test_that("normalize_column_names detects the year-specific score column for Period 3", {
+test_that("normalize_column_names renames Period 3 columns using an already-resolved mapping", {
+  # normalize_column_names() no longer resolves year-specific score names
+  # itself -- callers (clean_period_3()) resolve the mapping first via
+  # load_column_overrides()/apply_column_overrides(). Simulate that here.
   df <- tibble::tibble(
     "Year (N)" = 2026,
     "ISO" = "DEU",
@@ -154,7 +135,8 @@ test_that("normalize_column_names detects the year-specific score column for Per
     "Score evolution" = 0.7
   )
 
-  result <- normalize_column_names(df, period = "3", year = 2026, mapping = period_3_mapping)
+  mapping <- apply_column_overrides(period_3_mapping, list(score = "Score 2026"))
+  result <- normalize_column_names(df, period = "3", year = 2026, mapping = mapping)
 
   expect_equal(names(result), target_columns)
   expect_equal(result$score, 75)

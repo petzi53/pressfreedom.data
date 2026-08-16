@@ -16,8 +16,9 @@ Data frame with 20 columns, standardized types (character, numeric)
 }
 \description{
 Normalizes Period 3 raw data to the unified 20-column structure.
-Handles UTF-8 encoding, year-specific score column naming,
-dimension columns, and decimal separator conversion for score_evolution.
+Handles UTF-8 encoding, RSF column renames (including year-specific
+score column naming), dimension columns, and decimal separator
+conversion for score_evolution.
 }
 \details{
 Processing steps:
@@ -25,9 +26,8 @@ Processing steps:
    ISO-8859-1 across Period 3 years, e.g. 2025-2026 exports arrived as
    Latin-1 even though 2022-2024 were UTF-8) and read accordingly
 2. Drop problematic columns (Situation, etc.)
-3. Detect score column name (Score, Score YYYY, etc.) and apply any
-   user-provided overrides for columns RSF has renamed unpredictably
-   (see `load_column_overrides()`)
+3. Apply any column-name overrides for years where RSF renamed a raw
+   column (e.g. "Score" -> "Score 2025"; see `load_column_overrides()`)
 4. Validate that every expected raw column is present, aborting with a
    clear error (rather than silently producing all-NA columns) if RSF
    has renamed something not covered by an override

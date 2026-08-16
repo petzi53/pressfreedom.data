@@ -1,2 +1,3 @@
 year,target_col,expected_col,actual_col,note
-2025,score,Score,Score 2025,"Demo row: RSF renamed Score to Score 2025 for this year. Already handled automatically by detect_score_column(), so this row is redundant in practice -- it is kept here as a worked example of the override mechanism for future column renames that detect_score_column() cannot anticipate (e.g. a complete rename like Economic Context -> Economy). Append new rows below for future years; do not create a new file per year."
+2025,score,Score,Score 2025,"RSF appended the year to the Score column name starting in 2025. period_3_mapping defaults score to plain 'Score' (used 2022-2024); this override supplies the actual 2025 raw name. Add a new row (not a new file) if a future year follows the same pattern, or for any other unpredicted RSF column rename."
+2026,score,Score,Score 2026,"Same year-suffixed Score pattern as 2025 (see note above), continued into 2026."

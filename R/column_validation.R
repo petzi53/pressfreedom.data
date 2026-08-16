@@ -62,11 +62,13 @@ validate_column_names_exist <- function(df, expected_raw_cols, year) {
 #'   `year`, or `NULL` if the file doesn't exist or has no rows for `year`.
 #'
 #' @details
-#' This is the safety net for RSF column renames that cannot be predicted
-#' ahead of time (unlike the year-specific "Score"/"Score YYYY" pattern,
-#' which is handled directly by `detect_score_column()`). When
-#' `validate_column_names_exist()` aborts because an expected column is
-#' missing, add a row to the CSV:
+#' This is the general-purpose safety net for RSF column renames -- both
+#' the ones already seen (e.g. `"Score"` -> `"Score 2025"`) and any future,
+#' unpredictable ones (e.g. `"Economic Context"` -> `"Economy"`). There is
+#' no special-cased detection logic for any single column, including
+#' `score`: every rename, however likely, is handled the same way, via
+#' this override file. When `validate_column_names_exist()` aborts because
+#' an expected column is missing, add a row to the CSV:
 #'
 #' ```
 #' year,target_col,expected_col,actual_col
@@ -121,9 +123,8 @@ load_column_overrides <- function(year, overrides_file = NULL) {
 #' Updates a period column mapping (target_col -> raw_col) with
 #' user-provided overrides, so a renamed raw column can still be found.
 #'
-#' @param mapping List. Period column mapping (as returned by
-#'   `get_period_mapping()`), possibly already adjusted by
-#'   `detect_score_column()`.
+#' @param mapping List. Period column mapping, as returned by
+#'   `get_period_mapping()`.
 #' @param overrides Named list as returned by `load_column_overrides()`
 #'   (`target_col = "actual_col"`), or `NULL`.
 #'

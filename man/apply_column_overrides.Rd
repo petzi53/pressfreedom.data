@@ -7,9 +7,8 @@
 apply_column_overrides(mapping, overrides)
 }
 \arguments{
-\item{mapping}{List. Period column mapping (as returned by
-`get_period_mapping()`), possibly already adjusted by
-`detect_score_column()`.}
+\item{mapping}{List. Period column mapping, as returned by
+`get_period_mapping()`.}
 
 \item{overrides}{Named list as returned by `load_column_overrides()`
 (`target_col = "actual_col"`), or `NULL`.}
