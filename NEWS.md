@@ -1,5 +1,24 @@
 # pressfreedom.data 0.2.1
 
+## Internal changes
+
+* Unified RSF column rename handling: all year-specific and period-specific
+  column renames (including the Score → Score YYYY pattern introduced in 2025)
+  now flow through a single, transparent override mechanism
+  (`inst/extdata/period3_column_overrides.csv` + `load_column_overrides()` +
+  `apply_column_overrides()`) instead of special-cased functions. This simplifies
+  the code path and makes future RSF format changes maintainable without code
+  edits.
+* Removed `detect_score_column()` function (replaced by the override mechanism).
+* Simplified `normalize_column_names()` signature: removed unused `period` and
+  `year` parameters. The function now takes only `df` and `mapping`, with all
+  period/year-specific resolution happening in the caller before the `mapping`
+  is built.
+* Test harness: suppressed console output from validation failure cases in the
+  test suite, so only the success message ("All validation checks passed!")
+  appears during `R CMD check`, avoiding false suspicion of package quality
+  issues during CRAN review.
+
 # pressfreedom.data 0.2.0
 
 ## Breaking changes

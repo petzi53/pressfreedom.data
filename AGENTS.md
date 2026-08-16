@@ -223,6 +223,64 @@ score_n_1, score_evolution
 
 **Functions:** `clean_period_1/2/3()`, `clean_rwb_single()`, `clean_all_rwb_years()`
 
+#### Column Rename Safety Net Architecture (Complete & Committed Aug 16, 2026)
+
+**Problem:** RSF renames columns unpredictably (e.g., 2025–2026 changed "Score" → "Score 2025"/"Score 2026"). Without detection, the old system silently produced all-NA columns with no error.
+
+**Solution: Three layers**
+
+1. **`validate_column_names_exist(df, expected_raw_cols, year)`** — called immediately after reading the raw CSV
+   - Verifies every expected raw column exists
+   - Fails loud with clear error showing available columns if a column is missing
+
+2. **`load_column_overrides(year)`** — reads `inst/extdata/period3_column_overrides.csv`
+   - Returns user-provided column name corrections for that year
+   - CSV format: `year | target_col | expected_col | actual_col | note`
+   - Example row: `2025 | score | Score | Score 2025 | RSF appended the year...`
+
+3. **`apply_column_overrides(mapping, overrides)`** — patches the column mapping
+   - Called *before* validation
+   - Unified with all other RSF column renames (not special-cased to score)
+
+**Integration into `clean_period_3()`:**
+1. Load mapping via `get_period_mapping("3", year)`
+2. Load and apply overrides via `load_column_overrides()` + `apply_column_overrides()`
+3. Validate all expected columns exist via `validate_column_names_exist()`
+4. Rename via `normalize_column_names(df, mapping)` (now simplified to 2 params)
+
+**When a future column rename occurs (e.g., 2027: "Economic Context" → "Economy"):**
+- User appends a new row to `inst/extdata/period3_column_overrides.csv`
+- No code changes needed
+- `update_rwb_data(2027)` succeeds
+
+**Tested & Verified:**
+- ✅ 136 tests pass (added 16 new tests in `tests/testthat/test-column_validation.R`)
+- ✅ Real data verified: `rwb2025.csv`/`rwb2026.csv` clean correctly
+- ✅ Failure path verified: Simulated unmapped rename aborts with helpful error
+
+#### Signature Simplification: `normalize_column_names()` (Committed Aug 16, 2026)
+
+**Old signature:** `normalize_column_names(df, period, year, mapping)`  
+**New signature:** `normalize_column_names(df, mapping)`
+
+**Why:** The `period` and `year` parameters were never used in the function body. All period/year-specific resolution (`get_period_mapping()`, `load_column_overrides()`, `apply_column_overrides()`, `validate_column_names_exist()`) now happens *before* the call, so the mapping arrives pre-resolved. The function became a pure mechanical rename/reorder operation.
+
+**Changes:**
+- Deleted `detect_score_column()` function (~10 lines)
+- Removed score detection logic from `clean_period_3()` (~3 lines)
+- Simplified `normalize_column_names()` roxygen + signature (~5 lines)
+- Updated 9 call sites (3 production in `R/clean.R` + 6 test sites)
+
+**Code savings:** ~22 lines + ~162 characters. All 131 tests pass; R CMD check 0/0/0.
+
+#### Test Harness Cleanup: Suppressed Validation Failure Output (Committed Aug 16, 2026)
+
+**Problem:** Three tests deliberately trigger validation failures (missing ISO codes, duplicate year/country pairs, row count increase) to verify error detection works. However, the `cli::cli_alert_danger()` calls inside `validate_standardization()` printed formatted error messages to the console during `R CMD check`, which could appear suspicious during CRAN review despite being intentional test output.
+
+**Solution:** Wrapped those three test calls with `suppressMessages()` to silence `cli::cli_alert_*()` output while preserving the underlying `warning()` that `expect_warning()` catches.
+
+**Result:** Test logic unchanged (validation still runs, still fails as expected, return values still verified); only console formatting suppressed. Test output now clean: only "All validation checks passed!" appears, not error messages from deliberately-broken test fixtures.
+
 ### Phase C: Combination
 
 **Output:** `data/processed/rwb_combined.rds`
@@ -489,9 +547,13 @@ include this credit wherever the logo is displayed:
 
 **v0.2.1 Resubmission Status:** ✅ READY TO SUBMIT (CRAN OFFLINE Aug 5–19)
 
-**Resubmission Commits:**
+**Resubmission Commits (Initial Fixes):**
 - **c1073c4** (2026-08-08): Fix CRAN feedback: DESCRIPTION URL, print method @return tag, removed unexported function examples, eliminated all `\dontrun{}`, replaced `cat()` with `message()`, removed package-relative path defaults from 6 internal functions
 - **f3c3145** (2026-08-08): Version bump to 0.2.1
+
+**Code Maintenance Commits (Aug 16):**
+- **04f0385** (2026-08-16): Refactor: Simplify `normalize_column_names()` signature (removed unused `period` and `year` parameters; unified all RSF column renames under override CSV mechanism)
+- **69bc8ed** (2026-08-16): Test: Suppress validation error output in failure-case tests (wrapped tests with `suppressMessages()` to prevent false suspicion during CRAN review)
 
 **Issues Fixed (all 6 categories addressed):**
 1. ✅ DESCRIPTION missing RSF web service link → added `<https://rsf.org/en/index>` (canonical non-redirect URL)
