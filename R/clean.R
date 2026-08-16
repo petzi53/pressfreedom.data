@@ -300,14 +300,19 @@ detect_csv_encoding <- function(filepath) {
 #' 1. Detect file encoding (RSF has silently switched between UTF-8 and
 #'    ISO-8859-1 across Period 3 years, e.g. 2025-2026 exports arrived as
 #'    Latin-1 even though 2022-2024 were UTF-8) and read accordingly
-#' 2. Detect score column name (Score, Score YYYY, etc.)
-#' 3. Drop problematic columns (Situation, etc.)
-#' 4. Rename columns per Period 3 mapping
-#' 5. Convert iso, country_en, zone to character
-#' 6. Convert numeric columns to numeric type
-#' 7. Apply decimal separator conversion to all numeric columns (handles score_evolution)
-#' 8. Set score_n_1 and score_evolution to NA for 2022
-#' 9. Reorder to target 20-column structure
+#' 2. Drop problematic columns (Situation, etc.)
+#' 3. Detect score column name (Score, Score YYYY, etc.) and apply any
+#'    user-provided overrides for columns RSF has renamed unpredictably
+#'    (see `load_column_overrides()`)
+#' 4. Validate that every expected raw column is present, aborting with a
+#'    clear error (rather than silently producing all-NA columns) if RSF
+#'    has renamed something not covered by an override
+#' 5. Rename columns per Period 3 mapping
+#' 6. Convert iso, country_en, zone to character
+#' 7. Convert numeric columns to numeric type
+#' 8. Apply decimal separator conversion to all numeric columns (handles score_evolution)
+#' 9. Set score_n_1 and score_evolution to NA for 2022
+#' 10. Reorder to target 20-column structure
 #'
 #' @keywords internal
 clean_period_3 <- function(filepath, year) {
@@ -333,6 +338,29 @@ clean_period_3 <- function(filepath, year) {
 
   # Apply Period 3 column mapping
   mapping <- get_period_mapping("3", year)
+
+  # Resolve the score column the same way normalize_column_names() will,
+  # so the validation below checks against the actual expected raw name
+  # rather than the NA placeholder in period_3_mapping
+  score_col <- detect_score_column(df, year)
+  if (!is.na(score_col)) {
+    mapping$score <- score_col
+  }
+
+  # Safety net for column renames that can't be predicted ahead of time
+  # (unlike "Score"/"Score YYYY", which detect_score_column() already
+  # handles). If RSF renames e.g. "Economic Context" to "Economy", add a
+  # row to inst/extdata/period3_column_overrides.csv instead of editing
+  # code -- see load_column_overrides() for the file format.
+  overrides <- load_column_overrides(year)
+  mapping <- apply_column_overrides(mapping, overrides)
+
+  # Fail loud here if an expected raw column is missing, before any
+  # renaming happens -- otherwise normalize_column_names() would silently
+  # fill the target column with NA for every row
+  expected_raw_cols <- unique(unlist(mapping)[!is.na(unlist(mapping))])
+  validate_column_names_exist(df, expected_raw_cols, year)
+
   df <- normalize_column_names(df, "3", year, mapping)
 
   # Convert factor columns to character

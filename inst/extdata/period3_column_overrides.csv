@@ -1,0 +1,2 @@
+year,target_col,expected_col,actual_col,note
+2025,score,Score,Score 2025,"Demo row: RSF renamed Score to Score 2025 for this year. Already handled automatically by detect_score_column(), so this row is redundant in practice -- it is kept here as a worked example of the override mechanism for future column renames that detect_score_column() cannot anticipate (e.g. a complete rename like Economic Context -> Economy). Append new rows below for future years; do not create a new file per year."

@@ -24,13 +24,18 @@ Processing steps:
 1. Detect file encoding (RSF has silently switched between UTF-8 and
    ISO-8859-1 across Period 3 years, e.g. 2025-2026 exports arrived as
    Latin-1 even though 2022-2024 were UTF-8) and read accordingly
-2. Detect score column name (Score, Score YYYY, etc.)
-3. Drop problematic columns (Situation, etc.)
-4. Rename columns per Period 3 mapping
-5. Convert iso, country_en, zone to character
-6. Convert numeric columns to numeric type
-7. Apply decimal separator conversion to all numeric columns (handles score_evolution)
-8. Set score_n_1 and score_evolution to NA for 2022
-9. Reorder to target 20-column structure
+2. Drop problematic columns (Situation, etc.)
+3. Detect score column name (Score, Score YYYY, etc.) and apply any
+   user-provided overrides for columns RSF has renamed unpredictably
+   (see `load_column_overrides()`)
+4. Validate that every expected raw column is present, aborting with a
+   clear error (rather than silently producing all-NA columns) if RSF
+   has renamed something not covered by an override
+5. Rename columns per Period 3 mapping
+6. Convert iso, country_en, zone to character
+7. Convert numeric columns to numeric type
+8. Apply decimal separator conversion to all numeric columns (handles score_evolution)
+9. Set score_n_1 and score_evolution to NA for 2022
+10. Reorder to target 20-column structure
 }
 \keyword{internal}
