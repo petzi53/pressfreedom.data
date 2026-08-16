@@ -8,6 +8,7 @@
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/authors.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/index.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/news/index.html</loc></url>
+<url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/apply_column_overrides.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/clean_all_rwb_years.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/clean_period_1.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/clean_period_2.html</loc></url>
@@ -17,15 +18,14 @@
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/consolidate_and_standardize_countries.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/convert_factors_to_character.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/detect_csv_encoding.html</loc></url>
-<url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/detect_score_column.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/dot-commit_update.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/dot-validate_update.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/download_rwb_data.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/get_period.html</loc></url>
-<url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/get_period_encoding.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/get_period_mapping.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/get_years_to_download.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/index.html</loc></url>
+<url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/load_column_overrides.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/normalize_column_names.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/period_1_mapping.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/period_2_mapping.html</loc></url>
@@ -38,6 +38,7 @@
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/standardize_rwb_countries.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/target_columns.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/update_rwb_data.html</loc></url>
+<url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/validate_column_names_exist.html</loc></url>
 <url><loc>https://www.peter-baumgartner.net/pressfreedom.data/reference/validate_standardization.html</loc></url>
 </urlset>
 

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">pressfreedom.data</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,22 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.2.1" id="pressfreedomdata-021">pressfreedom.data 0.2.1<a class="anchor" aria-label="anchor" href="#pressfreedomdata-021"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.3.0" id="pressfreedomdata-030">pressfreedom.data 0.3.0<a class="anchor" aria-label="anchor" href="#pressfreedomdata-030"></a></h2>
+<div class="section level3">
+<h3 id="major-changes-0-3-0">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-3-0"></a></h3>
+<ul><li><p><strong>Unified column rename mechanism:</strong> RSF periodically renames columns in their exports (e.g., 2025–2026: “Score” → “Score 2025”/“Score 2026”). All such renames now flow through a single, transparent override system (<code>inst/extdata/period3_column_overrides.csv</code> + three validation/override functions) instead of special-cased detection logic. This makes future RSF format changes maintainable without code edits — just append a row to the CSV. Includes three new safety net functions for per-column validation, override loading, and mapping patching.</p></li>
+<li><p><strong>Improved encoding robustness:</strong> Each raw RSF CSV is now scanned per-file for encoding (UTF-8 vs. ISO-8859-1 inherited from RSF’s silent 2025 switch), preventing mojibake that would otherwise propagate silently into RDS datasets. Detection happens at download time; data are converted to UTF-8 during cleaning.</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="internal-refactoring-0-3-0">Internal refactoring<a class="anchor" aria-label="anchor" href="#internal-refactoring-0-3-0"></a></h3>
+<ul><li>Removed <code>detect_score_column()</code> function (functionality moved to override mechanism, making score renames no longer special).</li>
+<li>Simplified <code><a href="../reference/normalize_column_names.html">normalize_column_names()</a></code> signature: dropped unused <code>period</code> and <code>year</code> parameters. Function now does pure mechanical rename/reorder; all period/year-specific logic moved to caller. This removes ~22 lines of code and clarifies the API boundary.</li>
+<li>Test harness: suppressed console output from validation failure-case tests, so only “All validation checks passed!” appears in <code>R CMD check</code> output, avoiding false suspicion of package issues during CRAN review.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="compliance-0-3-0">Compliance<a class="anchor" aria-label="anchor" href="#compliance-0-3-0"></a></h3>
+<ul><li>Addressed all feedback from CRAN v0.2.0 rejection (Aug 8, 2026): DESCRIPTION URL, print method documentation, removal of unexported function examples, elimination of <code>\dontrun{}</code>, replacement of <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> with <code><a href="https://rdrr.io/r/base/message.html" class="external-link">message()</a></code>, removal of package-relative path defaults from internal functions.</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="pressfreedomdata-020">pressfreedom.data 0.2.0<a class="anchor" aria-label="anchor" href="#pressfreedomdata-020"></a></h2>

@@ -9,7 +9,7 @@ changes in RSF's data format and calculation methodology."><meta property="og:im
 
     <a class="navbar-brand me-2" href="../index.html">pressfreedom.data</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,19 +63,22 @@ changes in RSF's data format and calculation methodology.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>**Period 1 (2002-2012):**
+    <p>This function determines the structural period a year belongs to, which
+drives column mapping and normalization logic.</p>
+<p>**Important:** Encoding is NOT period-based. Use <code><a href="detect_csv_encoding.html">detect_csv_encoding()</a></code>
+to determine per-file encoding. Period 1-2 (2002-2021) are UTF-8 despite
+the structural naming; Period 3 (2022-2026) mixed UTF-8 (2022-2024) and
+ISO-8859-1 (2025-2026) without warning.</p>
+<p>**Period 1 (2002-2012):**
 - 16 columns with fixed structure
-- Encoding: ISO-8859-1
 - Delimiter: semicolon (;)
 - Scores not comparable across years (within-year ranks only)</p>
 <p>**Period 2 (2013-2021):**
 - 16 columns, same structure as Period 1
-- Encoding: ISO-8859-1
 - Delimiter: semicolon (;)
 - Scores comparable across years (new calculation method introduced)</p>
 <p>**Period 3 (2022-2026):**
 - 22-25 columns (varies by year)
-- Encoding: UTF-8
 - Delimiter: semicolon (;)
 - Major restructuring: columns reordered, score dimensions added
 - Column names vary by year (e.g., "Score" vs "Score 2026")</p>
