@@ -177,7 +177,7 @@ test_that("convert_factors_to_character converts factors", {
 
 test_that("normalize_column_names applies Period 1 mapping", {
   df <- create_mock_period_1(2005)
-  result <- normalize_column_names(df, "1", 2005, period_1_mapping)
+  result <- normalize_column_names(df, period_1_mapping)
 
   # Check output has 20 columns in correct order
   expect_equal(ncol(result), 20)
@@ -191,7 +191,7 @@ test_that("normalize_column_names applies Period 1 mapping", {
 
 test_that("normalize_column_names adds NA columns for Period 1", {
   df <- create_mock_period_1(2005)
-  result <- normalize_column_names(df, "1", 2005, period_1_mapping)
+  result <- normalize_column_names(df, period_1_mapping)
 
   # Dimension columns should be NA
   expect_true(all(is.na(result$political_context)))
@@ -208,7 +208,7 @@ test_that("normalize_column_names renames a year-specific score column once reso
     get_period_mapping("3", 2026),
     list(score = "Score 2026")
   )
-  result <- normalize_column_names(df, "3", 2026, mapping)
+  result <- normalize_column_names(df, mapping)
 
   expect_equal(ncol(result), 20)
   expect_identical(names(result), target_columns)

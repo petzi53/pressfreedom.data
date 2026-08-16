@@ -4,20 +4,14 @@
 \alias{normalize_column_names}
 \title{Normalize Column Names to Target Structure}
 \usage{
-normalize_column_names(df, period, year, mapping)
+normalize_column_names(df, mapping)
 }
 \arguments{
 \item{df}{Data frame to normalize}
 
-\item{period}{Character. One of "1", "2", or "3"}
-
-\item{year}{Numeric. Year of the data (unused directly here; kept for a
-consistent call signature across periods -- callers resolve any
-year-specific raw column names, e.g. via `load_column_overrides()`,
-before building `mapping`)}
-
 \item{mapping}{List. Column mapping dictionary, already resolved (e.g.
-any overrides from `apply_column_overrides()` applied)}
+any period/year-specific overrides from `apply_column_overrides()`
+applied) before this function is called}
 }
 \value{
 Data frame with normalized column names in target order

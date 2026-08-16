@@ -101,7 +101,7 @@ test_that("normalize_column_names renames and reorders Period 1 columns", {
     "Score N-1" = "81.75"
   )
 
-  result <- normalize_column_names(df, period = "1", year = 2005, mapping = period_1_mapping)
+  result <- normalize_column_names(df, mapping = period_1_mapping)
 
   expect_equal(names(result), target_columns)
   expect_equal(result$country_en, "France")
@@ -136,7 +136,7 @@ test_that("normalize_column_names renames Period 3 columns using an already-reso
   )
 
   mapping <- apply_column_overrides(period_3_mapping, list(score = "Score 2026"))
-  result <- normalize_column_names(df, period = "3", year = 2026, mapping = mapping)
+  result <- normalize_column_names(df, mapping = mapping)
 
   expect_equal(names(result), target_columns)
   expect_equal(result$score, 75)

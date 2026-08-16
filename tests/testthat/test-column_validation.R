@@ -195,6 +195,6 @@ test_that("clean_period_3 succeeds for a renamed column when an override is appl
   expected_raw_cols <- unique(unlist(mapping)[!is.na(unlist(mapping))])
   expect_no_error(validate_column_names_exist(df, expected_raw_cols, 2027))
 
-  result <- normalize_column_names(df, "3", 2027, mapping)
+  result <- normalize_column_names(df, mapping)
   expect_false(all(is.na(result$economic_context)))
 })

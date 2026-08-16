@@ -54,7 +54,7 @@ clean_period_1 <- function(filepath, year) {
 
   # Apply Period 1 column mapping
   mapping <- get_period_mapping("1", year)
-  df <- normalize_column_names(df, "1", year, mapping)
+  df <- normalize_column_names(df, mapping)
 
   # Convert factor columns to character
   df <- convert_factors_to_character(df, c("iso", "country_en", "zone"))
@@ -207,7 +207,7 @@ clean_period_2 <- function(filepath, year) {
 
   # Apply Period 2 column mapping
   mapping <- get_period_mapping("2", year)
-  df <- normalize_column_names(df, "2", year, mapping)
+  df <- normalize_column_names(df, mapping)
 
   # Convert factor columns to character
   df <- convert_factors_to_character(df, c("iso", "country_en", "zone"))
@@ -353,7 +353,7 @@ clean_period_3 <- function(filepath, year) {
   expected_raw_cols <- unique(unlist(mapping)[!is.na(unlist(mapping))])
   validate_column_names_exist(df, expected_raw_cols, year)
 
-  df <- normalize_column_names(df, "3", year, mapping)
+  df <- normalize_column_names(df, mapping)
 
   # Convert factor columns to character
   df <- convert_factors_to_character(df, c("iso", "country_en", "zone"))

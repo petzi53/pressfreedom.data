@@ -154,13 +154,9 @@ convert_factors_to_character <- function(df, cols) {
 #' Renames columns and adds NA columns for missing data.
 #'
 #' @param df Data frame to normalize
-#' @param period Character. One of "1", "2", or "3"
-#' @param year Numeric. Year of the data (unused directly here; kept for a
-#'   consistent call signature across periods -- callers resolve any
-#'   year-specific raw column names, e.g. via `load_column_overrides()`,
-#'   before building `mapping`)
 #' @param mapping List. Column mapping dictionary, already resolved (e.g.
-#'   any overrides from `apply_column_overrides()` applied)
+#'   any period/year-specific overrides from `apply_column_overrides()`
+#'   applied) before this function is called
 #'
 #' @return Data frame with normalized column names in target order
 #'
@@ -171,7 +167,7 @@ convert_factors_to_character <- function(df, cols) {
 #' 3. Reorders to match target column order
 #'
 #' @keywords internal
-normalize_column_names <- function(df, period, year, mapping) {
+normalize_column_names <- function(df, mapping) {
   # Separate NA mappings from real mappings
   all_mapping_values <- unlist(mapping)
   real_cols <- names(mapping)[!is.na(all_mapping_values)]
