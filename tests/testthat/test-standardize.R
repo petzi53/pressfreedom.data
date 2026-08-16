@@ -153,8 +153,9 @@ test_that("validate_standardization flags missing ISO codes", {
     consolidation_flag = FALSE
   )
 
+  # Suppress console output from cli alerts; the warning() call is still caught
   expect_warning(
-    result <- validate_standardization(standardized, original_row_count = 1)
+    result <- suppressMessages(validate_standardization(standardized, original_row_count = 1))
   )
   expect_false(result)
 })
@@ -170,8 +171,9 @@ test_that("validate_standardization flags duplicate year/country pairs", {
     consolidation_flag = c(FALSE, FALSE)
   )
 
+  # Suppress console output from cli alerts; the warning() call is still caught
   expect_warning(
-    result <- validate_standardization(standardized, original_row_count = 2)
+    result <- suppressMessages(validate_standardization(standardized, original_row_count = 2))
   )
   expect_false(result)
 })
@@ -187,8 +189,9 @@ test_that("validate_standardization flags an increase in row count", {
     consolidation_flag = c(FALSE, FALSE)
   )
 
+  # Suppress console output from cli alerts; the warning() call is still caught
   expect_warning(
-    result <- validate_standardization(standardized, original_row_count = 1)
+    result <- suppressMessages(validate_standardization(standardized, original_row_count = 1))
   )
   expect_false(result)
 })
