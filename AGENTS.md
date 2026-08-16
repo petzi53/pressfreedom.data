@@ -539,13 +539,13 @@ include this credit wherever the logo is displayed:
 <a href="https://www.flaticon.com/free-icons/microphone" title="microphone icons">Microphone icons created by Magnific - Flaticon</a>
 ```
 
-### CRAN Submission v0.2.0 ❌ REJECTED → v0.2.1 RESUBMISSION (2026-08-02 → 2026-08-08)
+### CRAN Submission v0.2.0 ❌ REJECTED → v0.3.0 RESUBMISSION (2026-08-02 → 2026-08-08)
 
 **v0.2.0 Submission Timeline:**
 - **2026-08-02:** Submitted via `devtools::release()`
 - **2026-08-08:** Rejected by CRAN reviewer Konstanze Lauseker (5 categories of feedback)
 
-**v0.2.1 Resubmission Status:** ✅ READY TO SUBMIT (CRAN OFFLINE Aug 5–19)
+**v0.3.0 Resubmission Status:** ✅ READY TO SUBMIT (CRAN OFFLINE Aug 5–19)
 
 **Resubmission Commits (Initial Fixes):**
 - **c1073c4** (2026-08-08): Fix CRAN feedback: DESCRIPTION URL, print method @return tag, removed unexported function examples, eliminated all `\dontrun{}`, replaced `cat()` with `message()`, removed package-relative path defaults from 6 internal functions

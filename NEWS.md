@@ -1,23 +1,40 @@
-# pressfreedom.data 0.2.1
+# pressfreedom.data 0.3.0
 
-## Internal changes
+## Major changes
 
-* Unified RSF column rename handling: all year-specific and period-specific
-  column renames (including the Score → Score YYYY pattern introduced in 2025)
-  now flow through a single, transparent override mechanism
-  (`inst/extdata/period3_column_overrides.csv` + `load_column_overrides()` +
-  `apply_column_overrides()`) instead of special-cased functions. This simplifies
-  the code path and makes future RSF format changes maintainable without code
-  edits.
-* Removed `detect_score_column()` function (replaced by the override mechanism).
-* Simplified `normalize_column_names()` signature: removed unused `period` and
-  `year` parameters. The function now takes only `df` and `mapping`, with all
-  period/year-specific resolution happening in the caller before the `mapping`
-  is built.
-* Test harness: suppressed console output from validation failure cases in the
-  test suite, so only the success message ("All validation checks passed!")
-  appears during `R CMD check`, avoiding false suspicion of package quality
-  issues during CRAN review.
+* **Unified column rename mechanism:** RSF periodically renames columns in their
+  exports (e.g., 2025–2026: "Score" → "Score 2025"/"Score 2026"). All such
+  renames now flow through a single, transparent override system
+  (`inst/extdata/period3_column_overrides.csv` + three validation/override
+  functions) instead of special-cased detection logic. This makes future RSF
+  format changes maintainable without code edits — just append a row to the
+  CSV. Includes three new safety net functions for per-column validation,
+  override loading, and mapping patching.
+
+* **Improved encoding robustness:** Each raw RSF CSV is now scanned per-file
+  for encoding (UTF-8 vs. ISO-8859-1 inherited from RSF's silent 2025 switch),
+  preventing mojibake that would otherwise propagate silently into RDS datasets.
+  Detection happens at download time; data are converted to UTF-8 during
+  cleaning.
+
+## Internal refactoring
+
+* Removed `detect_score_column()` function (functionality moved to override
+  mechanism, making score renames no longer special).
+* Simplified `normalize_column_names()` signature: dropped unused `period` and
+  `year` parameters. Function now does pure mechanical rename/reorder; all
+  period/year-specific logic moved to caller. This removes ~22 lines of code
+  and clarifies the API boundary.
+* Test harness: suppressed console output from validation failure-case tests,
+  so only "All validation checks passed!" appears in `R CMD check` output,
+  avoiding false suspicion of package issues during CRAN review.
+
+## Compliance
+
+* Addressed all feedback from CRAN v0.2.0 rejection (Aug 8, 2026): DESCRIPTION
+  URL, print method documentation, removal of unexported function examples,
+  elimination of `\dontrun{}`, replacement of `cat()` with `message()`, removal
+  of package-relative path defaults from internal functions.
 
 # pressfreedom.data 0.2.0
 
