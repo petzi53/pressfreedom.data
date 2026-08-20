@@ -539,13 +539,13 @@ include this credit wherever the logo is displayed:
 <a href="https://www.flaticon.com/free-icons/microphone" title="microphone icons">Microphone icons created by Magnific - Flaticon</a>
 ```
 
-### CRAN Submission v0.2.0 ❌ REJECTED → v0.3.0 RESUBMISSION (2026-08-02 → 2026-08-08)
+### CRAN Submission v0.2.0 ❌ REJECTED → v0.3.0 RESUBMISSION ✅ READY (2026-08-02 → 2026-08-20)
 
 **v0.2.0 Submission Timeline:**
 - **2026-08-02:** Submitted via `devtools::release()`
-- **2026-08-08:** Rejected by CRAN reviewer Konstanze Lauseker (5 categories of feedback)
+- **2026-08-08:** Rejected by CRAN reviewer Konstanze Lauseker (6 categories of feedback)
 
-**v0.3.0 Resubmission Status:** ✅ READY TO SUBMIT (CRAN OFFLINE Aug 5–19)
+**v0.3.0 Resubmission Status:** ✅ READY TO SUBMIT (Aug 20, 2026 — CRAN reopened)
 
 **Resubmission Commits (Initial Fixes):**
 - **c1073c4** (2026-08-08): Fix CRAN feedback: DESCRIPTION URL, print method @return tag, removed unexported function examples, eliminated all `\dontrun{}`, replaced `cat()` with `message()`, removed package-relative path defaults from 6 internal functions
@@ -555,6 +555,12 @@ include this credit wherever the logo is displayed:
 - **04f0385** (2026-08-16): Refactor: Simplify `normalize_column_names()` signature (removed unused `period` and `year` parameters; unified all RSF column renames under override CSV mechanism)
 - **69bc8ed** (2026-08-16): Test: Suppress validation error output in failure-case tests (wrapped tests with `suppressMessages()` to prevent false suspicion during CRAN review)
 
+**Final Submission Prep (Aug 20, 2026):**
+- **cd535ac** (2026-08-20): Harden `detect_csv_encoding()` to fail loudly on unexpected encodings; added 6 comprehensive tests (all 137 tests pass)
+- **77d6578** (2026-08-20): Prepare v0.3.0 for CRAN submission: updated `cran-comments.md`, regenerated docs, cleaned up stale artifacts
+- Tarball built: `pressfreedom.data_0.3.0.tar.gz` (723 KB)
+- Remote checks: ✅ Win-builder submitted (devel); ⚠️ Rhub service issue (fallback not needed)
+
 **Issues Fixed (all 6 categories addressed):**
 1. ✅ DESCRIPTION missing RSF web service link → added `<https://rsf.org/en/index>` (canonical non-redirect URL)
 2. ✅ `print.rwb_update()` missing `\value` tag → added full documentation of invisible return
@@ -563,20 +569,29 @@ include this credit wherever the logo is displayed:
 5. ✅ Unconditional `cat()` output → replaced in `download_rwb_data()` with suppressible `message()`; left `print.rwb_update()` cat() untouched per CRAN carve-out
 6. ✅ Functions writing to package/home directory by default → removed defaults from 6 functions, all internal call sites updated to pass explicit paths
 
-**Verification:**
-- `devtools::check(cran = TRUE)`: 0 errors | 0 warnings | 0 notes ✅
-- `urlchecker::url_check()`: All URLs correct ✅
-- Package tarball built: `pressfreedom.data_0.2.1.tar.gz` (716.1 KB) ✅
+**v0.3.0 Verification (Aug 20):**
+- Local check: `devtools::check(cran = TRUE)` — 0 errors | 0 warnings | 0 notes ✅
+- Tests: `devtools::test()` — 137 tests pass (63 clean + 6 encoding + 68 others) ✅
+- URLs: `urlchecker::url_check()` — All 7 URLs resolve ✅
+- Tarball: `pressfreedom.data_0.3.0.tar.gz` (723 KB) ✅
+- Documentation: Regenerated, cran-comments.md updated with v0.3.0 context ✅
 
-**Next Steps (After CRAN Reopens Aug 20+):**
-- Manual submission via https://cran.r-project.org/submit.html (automated endpoint had intermittent 404 errors, likely due to maintenance window)
-- Upload tarball + paste `cran-comments.md` into form
-- Click confirmation email link
-- Wait for CRAN automated checks (24–72 hours) + human review
-- If accepted: `usethis::use_github_release()` + `usethis::use_dev_version()`
+**Submission Readiness (Aug 20, 2026):**
+- ✅ All checklist items complete (see `.posit/assistant/docs/2026-08-20-submission-readiness-checklist.md`)
+- ✅ Tarball ready for upload
+- ✅ `cran-comments.md` documents resubmission context and v0.3.0 changes
+- ✅ Win-builder check submitted (results expected ~12:25 PM)
+
+**Next Steps:**
+1. Monitor `petzi53@gmail.com` for win-builder results
+2. Submit via https://cran.r-project.org/submit.html or `devtools::release()`
+3. Upload `pressfreedom.data_0.3.0.tar.gz` + paste `cran-comments.md` content
+4. Click confirmation email link CRAN sends
+5. Wait for CRAN automated checks (24–72 hours) + human review
+6. If accepted: `usethis::use_github_release()` + `usethis::use_dev_version()`
 
 **Notes:**
-- CRAN submissions are **offline Aug 5–19, 2026** (team vacation + maintenance) — no submissions can be processed during this window
+- CRAN reopened Aug 20 after team vacation (Aug 5–19)
 - `usethis::use_release_issue()` created GitHub issue #1 with release checklist (all "Prepare for release" tasks completed)
 - Exported API unchanged (still only `rwb_standardized` dataset + `print.rwb_update()` S3 method)
 
