@@ -53,7 +53,7 @@ all now fixed:
 
 1. **Missing web service link in `Description:`** -- added a sentence
    citing the RSF website in angle-bracket form
-   (`<https://rsf.org>`).
+   (`<https://rsf.org/en/index>`).
 2. **Missing `\value` tag** -- added to `print.rwb_update.Rd` (the
    exported S3 method), describing the invisible return and its side
    effect.
