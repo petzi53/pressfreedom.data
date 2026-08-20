@@ -21,7 +21,16 @@ RSF has switched export encoding across years without notice (e.g.
 }
 \details{
 Uses readr::guess_encoding(), which ranks candidate encodings by
-confidence. Falls back to "UTF-8" if detection is inconclusive, since
-that has been the more common case historically.
+confidence. Explicitly detects UTF-8/US-ASCII and the ISO-8859-1 family
+(ISO-8859-1, windows-1252, latin1) and normalizes all to one of these
+two outcomes. Raises an error if:
+- readr::guess_encoding() returns zero candidates (truly indeterminate), or
+- the top candidate is neither UTF-8/ASCII nor the ISO-8859-1 family
+  (an unexpected encoding, typically indicating data corruption or a
+  source format change).
+
+This explicit design prevents silent misidentification: if RSF ever
+introduces a third encoding, or a file is corrupted, the error is
+visible at parse time rather than allowing bad data downstream.
 }
 \keyword{internal}

@@ -1,22 +1,17 @@
-# CRAN Submission Comments
+# CRAN Submission Comments — v0.3.0
 
 ## Submission type
 
-This is a new submission (first release of pressfreedom.data to CRAN).
+This is a resubmission (second submission) following CRAN feedback on v0.2.0
+(2026-08-02, rejected 2026-08-08). All issues were addressed in v0.2.1 and
+v0.3.0 adds internal robustness improvements (see "Since previous submission"
+section below).
 
 ## Test environments
 
 * local macOS (aarch64-apple-darwin23), R 4.6.1 -- 0 errors | 0 warnings | 0 notes
-* win-builder (R-devel, x86_64-w64-mingw32) -- checked twice:
-  * First run: 2 NOTEs (see "NOTEs addressed before this submission" below);
-    both real issues have since been fixed.
-  * Second run (after fixes): 1 NOTE (no errors, no warnings) -- only the
-    two expected NOTEs listed below ("New submission",
-    "Possibly misspelled words ... RSF") remain. Confirms both real issues
-    were resolved.
 * GitHub Actions R-CMD-check matrix (macOS release, Windows release,
-  Ubuntu devel/release/oldrel-1): all 5 jobs passed
-  (https://github.com/petzi53/pressfreedom.data/actions/runs/30748471422).
+  Ubuntu devel/release/oldrel-1): all 5 jobs passed (most recent: Aug 20, 2026)
 
 ## R CMD check results
 
@@ -24,7 +19,6 @@ This is a new submission (first release of pressfreedom.data to CRAN).
 
 ### Expected NOTEs on CRAN's incoming checks
 
-* "New submission" -- expected for a first release.
 * "Possibly misspelled words in DESCRIPTION: RSF" -- false positive.
   RSF (Reporters Sans Frontieres) is the organization's real legal
   abbreviation, spelled out and explained in the Description field.
@@ -90,6 +84,27 @@ all now fixed:
 
 Verified locally: `devtools::check(cran = TRUE)` -- 0 errors | 0 warnings |
 0 notes.
+
+## Since previous submission (v0.2.1 → v0.3.0)
+
+Internal robustness improvements, no external API changes:
+
+1. **Encoding detection hardening** -- rewrote `detect_csv_encoding()`
+   to fail loudly with informative error messages when it encounters
+   unexpected encodings or cannot detect encoding at all, instead of
+   silently defaulting to UTF-8. This prevents silent data corruption
+   if RSF changes their export format. Added 6 comprehensive tests
+   covering UTF-8, ISO-8859-1, ASCII, indeterminate, and normalization
+   scenarios.
+
+2. **Column mapping simplification** (Aug 16 commit) -- removed unused
+   `period` and `year` parameters from `normalize_column_names()`
+   signature (all period/year-specific logic now pre-resolved via
+   override CSV mechanism). Updated 9 call sites; no functional change.
+
+3. **Test output cleanup** (Aug 16 commit) -- wrapped three
+   intentional validation-failure tests with `suppressMessages()` to
+   prevent false suspicion of failure output during CRAN review.
 
 ## Downstream dependencies
 
