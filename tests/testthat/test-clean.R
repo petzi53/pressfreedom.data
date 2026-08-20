@@ -362,3 +362,127 @@ test_that("clean_rwb_single rejects invalid year", {
 
   unlink(temp_input)
 })
+
+# ============================================================================
+# Test: Encoding Detection (detect_csv_encoding)
+# ============================================================================
+
+test_that("detect_csv_encoding identifies UTF-8 files correctly", {
+  # Create a CSV with UTF-8 text (e.g. French accents)
+  df <- tibble::tibble(
+    country = "France",
+    comment = "Fran\u00E7ais avec acc\u00E9nts: caf\u00E9, c\u00F4t\u00E9, C\u00F4te d'Azur"
+  )
+  temp_file <- tempfile(fileext = ".csv")
+  readr::write_csv(df, temp_file)
+
+  result <- detect_csv_encoding(temp_file)
+
+  expect_equal(result, "UTF-8")
+  unlink(temp_file)
+})
+
+test_that("detect_csv_encoding identifies ISO-8859-1 files correctly", {
+  # Create a CSV with ISO-8859-1 text (raw bytes for Western European accents)
+  # Write as raw bytes to force ISO-8859-1 encoding
+  temp_file <- tempfile(fileext = ".csv")
+
+  # "Fran\u00E7ais" in ISO-8859-1: F(46) r(72) a(61) n(6E) \u00E7(E7) a(61) i(69) s(73)
+  lines <- c(
+    "country,comment",
+    "France,Fran\u00E7ais avec accents"  # \u00E7 = \u00E7 in ISO-8859-1
+  )
+  con <- file(temp_file, "w", encoding = "ISO-8859-1")
+  writeLines(lines, con)
+  close(con)
+
+  result <- detect_csv_encoding(temp_file)
+
+  expect_equal(result, "ISO-8859-1")
+  unlink(temp_file)
+})
+
+test_that("detect_csv_encoding handles pure ASCII (subset of UTF-8)", {
+  # Create a CSV with only ASCII characters
+  df <- tibble::tibble(
+    year = c(2023, 2024, 2025),
+    country = c("France", "Germany", "Italy"),
+    rank = c(26, 32, 30)
+  )
+  temp_file <- tempfile(fileext = ".csv")
+  readr::write_csv(df, temp_file)
+
+  result <- detect_csv_encoding(temp_file)
+
+  # readr may detect pure ASCII as "ASCII" or "US-ASCII", but we normalize to UTF-8
+  expect_equal(result, "UTF-8")
+  unlink(temp_file)
+})
+
+test_that("detect_csv_encoding raises informative error on indeterminate file (no candidates)", {
+  # Create a file with content that readr cannot confidently detect.
+  # A very short file with only digits/ASCII has minimal entropy for detection.
+  # We'll create a file with non-text binary content that causes readr to fail.
+  temp_file <- tempfile(fileext = ".csv")
+
+  # Write raw bytes that are not valid text in any common encoding
+  # (e.g. null bytes, control characters)
+  writeBin(c(0x00, 0x01, 0x02, 0xFF, 0xFE), temp_file)
+
+  # readr::guess_encoding() on such a file typically returns no candidates
+  # or errors internally; detect_csv_encoding() should catch this and raise
+  # an informative error about indeterminate encoding
+  expect_error(
+    detect_csv_encoding(temp_file),
+    class = "error"
+  )
+
+  unlink(temp_file)
+})
+
+test_that("detect_csv_encoding with tab-separated ISO-8859-1 file", {
+  # Create a tab-separated file with ISO-8859-1 encoding to further
+  # exercise the encoding detection logic in a realistic RSF-like scenario.
+  # RSF data typically uses semicolon or comma delimiters, but we test
+  # robustness to other delimiters.
+
+  temp_file <- tempfile(fileext = ".csv")
+
+  # Write a tab-separated file with accented characters in ISO-8859-1
+  lines <- c(
+    "country\tcomment",
+    "France\tcaf\u00E9 et c\u00F4t\u00E9"  # Accented words in ISO-8859-1
+  )
+  con <- file(temp_file, "w", encoding = "ISO-8859-1")
+  writeLines(lines, con, sep = "\n")
+  close(con)
+
+  result <- detect_csv_encoding(temp_file)
+
+  # Should detect as ISO-8859-1 family
+  expect_equal(result, "ISO-8859-1")
+  unlink(temp_file)
+})
+
+test_that("detect_csv_encoding normalizes both UTF-8 and ASCII to UTF-8", {
+  # Verify that pure ASCII (7-bit) is correctly identified and normalized
+  # to UTF-8 (since ASCII is a strict subset).
+
+  temp_file <- tempfile(fileext = ".csv")
+
+  # Pure ASCII: no accents or special characters beyond 0x7F
+  lines <- c(
+    "Year,Country,Rank,Score",
+    "2023,Germany,8,75.50",
+    "2024,France,26,68.80"
+  )
+  con <- file(temp_file, "w", encoding = "ASCII")
+  writeLines(lines, con)
+  close(con)
+
+  result <- detect_csv_encoding(temp_file)
+
+  # readr may detect this as ASCII or US-ASCII, but we normalize to UTF-8
+  expect_equal(result, "UTF-8")
+  unlink(temp_file)
+})

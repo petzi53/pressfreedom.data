@@ -260,27 +260,49 @@ clean_period_2 <- function(filepath, year) {
 #'
 #' @details
 #' Uses readr::guess_encoding(), which ranks candidate encodings by
-#' confidence. Falls back to "UTF-8" if detection is inconclusive, since
-#' that has been the more common case historically.
+#' confidence. Explicitly detects UTF-8/US-ASCII and the ISO-8859-1 family
+#' (ISO-8859-1, windows-1252, latin1) and normalizes all to one of these
+#' two outcomes. Raises an error if:
+#' - readr::guess_encoding() returns zero candidates (truly indeterminate), or
+#' - the top candidate is neither UTF-8/ASCII nor the ISO-8859-1 family
+#'   (an unexpected encoding, typically indicating data corruption or a
+#'   source format change).
+#'
+#' This explicit design prevents silent misidentification: if RSF ever
+#' introduces a third encoding, or a file is corrupted, the error is
+#' visible at parse time rather than allowing bad data downstream.
 #'
 #' @keywords internal
 detect_csv_encoding <- function(filepath) {
   guesses <- readr::guess_encoding(filepath)
 
   if (nrow(guesses) == 0) {
-    return("UTF-8")
+    stop(
+      "Could not detect encoding for: ", filepath, "\n",
+      "readr::guess_encoding() returned no candidates. ",
+      "File may be corrupted or in an unexpected format."
+    )
   }
 
   top_guess <- guesses$encoding[1]
 
-  # Normalize any Latin-1/Windows-1252 family guess to ISO-8859-1, which
-  # readr's locale() understands and which covers the accented characters
-  # RSF's exports use
+  # Explicitly check for UTF-8 / US-ASCII / ASCII family
+  # (ASCII is a subset of UTF-8, and readr sometimes detects pure-ASCII text as ASCII)
+  if (grepl("^(UTF-8|US-ASCII|ASCII)$", top_guess, ignore.case = TRUE)) {
+    return("UTF-8")
+  }
+
+  # Explicitly check for ISO-8859-1 / Windows-1252 / Latin-1 family
   if (grepl("^(ISO-8859-1|windows-1252|latin1)$", top_guess, ignore.case = TRUE)) {
     return("ISO-8859-1")
   }
 
-  "UTF-8"
+  # Neither UTF-8 nor Latin-1 family: raise an error instead of silently guessing
+  stop(
+    "Unexpected encoding '", top_guess, "' detected for: ", filepath, "\n",
+    "Expected UTF-8 or ISO-8859-1 family. ",
+    "If RSF has changed their export format, the pipeline requires an update."
+  )
 }
 
 
