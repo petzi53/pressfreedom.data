@@ -31,11 +31,11 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/petzi53/pressfreedom.data/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/petzi53/pressfreedom.data/blob/v0.3.0/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.3.0" id="pressfreedomdata-030">pressfreedom.data 0.3.0<a class="anchor" aria-label="anchor" href="#pressfreedomdata-030"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.3.0" id="pressfreedomdata-030">pressfreedom.data 0.3.0<a class="anchor" aria-label="anchor" href="#pressfreedomdata-030"></a></h2><p class="text-muted">CRAN release: 2026-08-24</p>
 <div class="section level3">
 <h3 id="major-changes-0-3-0">Major changes<a class="anchor" aria-label="anchor" href="#major-changes-0-3-0"></a></h3>
 <ul><li><p><strong>Unified column rename mechanism:</strong> RSF periodically renames columns in their exports (e.g., 2025–2026: “Score” → “Score 2025”/“Score 2026”). All such renames now flow through a single, transparent override system (<code>inst/extdata/period3_column_overrides.csv</code> + three validation/override functions) instead of special-cased detection logic. This makes future RSF format changes maintainable without code edits — just append a row to the CSV. Includes three new safety net functions for per-column validation, override loading, and mapping patching.</p></li>

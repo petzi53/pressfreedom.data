@@ -2,6 +2,8 @@
 
 ## pressfreedom.data 0.3.0
 
+CRAN release: 2026-08-24
+
 ### Major changes
 
 - **Unified column rename mechanism:** RSF periodically renames columns

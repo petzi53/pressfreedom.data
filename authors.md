@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/petzi53/pressfreedom.data/blob/main/inst/CITATION)
+[`inst/CITATION`](https://github.com/petzi53/pressfreedom.data/blob/v0.3.0/inst/CITATION)
 
 Baumgartner P (2026). *pressfreedom.data: Download and Process Reporters
 Without Borders Press Freedom Index Data*. R package version 0.3.0,
