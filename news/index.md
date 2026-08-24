@@ -1,5 +1,7 @@
 # Changelog
 
+## pressfreedom.data (development version)
+
 ## pressfreedom.data 0.3.0
 
 CRAN release: 2026-08-24
