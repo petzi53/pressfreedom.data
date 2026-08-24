@@ -933,11 +933,71 @@ Peter announced: **"I can't work for 3 weeks, from 25 August to 12 October."**
 - `.posit/assistant/plans/2026-07-30-1310-documentation-strategy.md` — Strategic overview & product definitions
 - `.posit/assistant/plans/2026-07-30-1400-implementation-plan.md` — Detailed task list, timeline, checklist
 
-### Documentation
 
-- `README.md` — User-facing package documentation with quick start, API reference, and annual update workflow
-- `.posit/assistant/docs/2026-07-29-non-ascii-prevention-policy.md` — Non-ASCII prevention policy and infrastructure
-- `2026-07-28-phase-b-normalization.md` — Phase B details
-- `2026-07-28-phase-c-combination.md` — Phase C completion
-- `2026-07-28-phase-d-standardization.md` — Phase D plan
-- `2026-07-28-workflow.md` — Complete workflow overview
+## Submission Milestone ✅ CRAN ACCEPTANCE (2026-08-24)
+
+- **2026-08-20:** Successfully submitted v0.3.0 to CRAN.
+  - Passed automated pretests on Windows and Debian.
+  - Only one benign NOTE regarding "RSF" acronym (preemptively addressed in `cran-comments.md`).
+- **2026-08-24:** ✅ **ACCEPTED AND PUBLISHED TO CRAN**
+  - Package is now live on CRAN: https://cran.r-project.org/package=pressfreedom.data
+  - Installable via `install.packages("pressfreedom.data")`
+  - Documentation live on pkgdown site: https://www.peter-baumgartner.net/pressfreedom.data/
+  - GitHub repo: https://github.com/petzi53/pressfreedom.data
+
+## Post-CRAN Next Steps (2026-08-24 onwards)
+
+### Immediate (this week: Aug 24–30)
+
+1. **Create GitHub Release** (`usethis::use_github_release()` or web UI)
+   - Tag: `v0.3.0`
+   - Title: "v0.3.0 — CRAN Release"
+   - Release notes: Copy from `cran-comments.md` + add "Now on CRAN!"
+   - Assets: Upload `pressfreedom.data_0.3.0.tar.gz`
+
+2. **Announce on Social Media / Blog** (optional but good practice)
+   - Peter's blog: https://www.peter-baumgartner.net/
+   - Mastodon / LinkedIn / R-bloggers if desired
+   - Suggested angle: "Building a Data Pipeline with AI assistance"
+
+3. **Update Package Version to Dev** (`usethis::use_dev_version()`)
+   - Bumps DESCRIPTION version to 0.3.0.9000
+   - Adds a line to NEWS.md: "# pressfreedom.data (development version)"
+   - Readies repo for next development cycle
+
+4. **Monitor CRAN Package Page**
+   - Should appear within 24 hours: https://cran.r-project.org/package=pressfreedom.data
+   - Check that documentation, NEWS, vignettes all render correctly
+
+### Short-term (Aug 31–Sep 30, before vacation Aug 25–Oct 12)
+
+**Wait:** Peter announced vacation from Aug 25–Oct 12. This work fits the Aug 24–25 window OR resumes Oct 13.
+
+1. **Blog Post #1: "Building a Data Pipeline with AI Assistance"** (if time permits before vacation)
+   - Or defer to Oct 13 post-vacation per the blogging schedule
+   - See memory: `2026-08-12-blog-posts-strategy.md`
+
+2. **Set up Quarto Book Repo** (deferred to post-vacation if needed)
+   - Separate GitHub repo: `pressfreedom.data-book`
+   - See memory: `2026-07-30-1310-documentation-strategy.md`
+
+### Medium-term (Oct 13 onwards, after vacation)
+
+1. **Blog Posts (Weeks 3–6 of overall timeline = Oct 13–Nov 16)**
+   - Blog 1: "Encoding Resilience" (~1,500 words)
+   - Blog 2: "Writing Better Prompts" (~1,400 words)
+   - Blog 3: "Consolidating Messy Categories" (~1,600 words)
+   - Blog 4: "Orchestrating Multi-Phase Pipelines" (~1,500 words)
+   - Each with peer review + Grammarly before publishing
+
+2. **Quarto Book (Chapters 1–10, Nov 17–Feb 2027)**
+   - Start immediately after blogs end Nov 16
+   - 10 chapters, ~15,000–20,000 words
+   - Deployment via GitHub Actions to GitHub Pages
+
+### Key Files for Reference
+- Blogging strategy: `.posit/assistant/docs/2026-08-09-blog-posts-strategy.md`
+- Conversation index (to organize 50+ conversations for book): `.posit/assistant/docs/2026-08-09-conversation-index-template.md`
+- Full timeline: `.posit/assistant/docs/2026-08-12-revised-timeline.md`
+- Week 1 checklist (if pre-vacation work desired): `.posit/assistant/docs/2026-08-12-week1-checklist.md`
+
