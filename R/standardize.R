@@ -76,12 +76,14 @@ consolidate_and_standardize_countries <- function(combined_df, consolidation_map
       country_en_clean = dplyr::case_when(
         # DELETE: Israel occupied territories
         .data$country_en == "Israel (occupied territories)" ~ NA_character_,
+        # DELETE: Israel outside Israeli territory (diplomatic/military reporting abroad)
+        .data$country_en == "Israel (outside Israeli territory)" ~ NA_character_,
         # DELETE: US in Iraq (raw RSF label spells it "Irak", not "Iraq")
         .data$country_en == "United States (in Irak)" ~ NA_character_,
         # DELETE: US outside territory
         .data$country_en == "United States (outside US territory)" ~ NA_character_,
-        # CONSOLIDATE: Israel variants to "Israel"
-        .data$country_en %in% c("Israel (Israeli territory)", "Israel (outside Israeli territory)") ~ "Israel",
+        # CONSOLIDATE: Israel proper (Israeli territory variant) to "Israel"
+        .data$country_en == "Israel (Israeli territory)" ~ "Israel",
         # CONSOLIDATE: US variants to "United States"
         .data$country_en == "United States (US territory)" ~ "United States",
         # Keep all others as-is for now

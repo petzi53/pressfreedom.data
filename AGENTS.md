@@ -945,6 +945,10 @@ Peter announced: **"I can't work for 3 weeks, from 25 August to 12 October."**
   - Documentation live on pkgdown site: https://www.peter-baumgartner.net/pressfreedom.data/
   - GitHub repo: https://github.com/petzi53/pressfreedom.data
 
+### Post-CRAN Code Improvement: Israel Territorial Variants (2026-08-26)
+
+Discovered during Blog 3 writing that `R/standardize.R` was implicitly (via deduplication) rather than explicitly deleting "Israel (outside Israeli territory)". Fixed: now explicitly deleted with clearer intent in the `case_when()` block. Behavior unchanged; output identical. Not submitted to CRAN (already accepted v0.3.0). Documented in `.posit/assistant/docs/2026-08-26-israel-territorial-variants-fix.md` for inclusion in next development version (v0.4.0 or later).
+
 ## Post-CRAN Next Steps (2026-08-24 onwards)
 
 ### Immediate (this week: Aug 24–30)
