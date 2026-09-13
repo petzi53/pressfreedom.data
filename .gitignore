@@ -22,3 +22,6 @@ Icon*
 # Same global "test-*" rule also silently hid .github/workflows/test-coverage.yaml
 # (discovered 2026-08-02, third occurrence of this bug class -- see AGENTS.md).
 !/.github/workflows/test-*
+
+# LibreOffice lock files (created when a file is open; not meaningful to track)
+.~lock.*#
