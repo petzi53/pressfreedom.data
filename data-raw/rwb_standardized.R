@@ -1,7 +1,7 @@
 # Prepare standardized RSF dataset for export as package data
 #
 # This script loads the standardized RDS file (with 22 columns including audit trails)
-# and exports a clean 20-column version as rwb_standardized.rda for package users.
+# and exports a clean 21-column version as rwb_standardized.rda for package users.
 #
 # The full 22-column version (with country_name_original and consolidation_flag)
 # remains available in data/processed/rwb_standardized.rds for researchers who need
@@ -10,7 +10,7 @@
 # Load the standardized RDS file (with audit columns)
 rwb_standardized <- readRDS(here::here("data", "processed", "rwb_standardized.rds"))
 
-# Remove audit columns (keep only the 20-column structure for export)
+# Remove audit columns (keep only the core columns for export)
 # Columns removed: country_name_original, consolidation_flag
 rwb_standardized <- rwb_standardized |>
   dplyr::select(-country_name_original, -consolidation_flag)
@@ -23,6 +23,10 @@ rwb_standardized <- rwb_standardized |>
     zone = as.character(zone)
   )
 
+# Add EU membership column (logical; TRUE = EU member in that year)
+# Covers accession/withdrawal events 2002-2026; see R/eu_membership.R for details.
+rwb_standardized <- add_eu_column(rwb_standardized)
+
 # Save as package data: data/rwb_standardized.rda
 usethis::use_data(rwb_standardized, overwrite = TRUE)
 
@@ -32,3 +36,4 @@ cat("  Rows:", nrow(rwb_standardized), "\n")
 cat("  Columns:", ncol(rwb_standardized), "\n")
 cat("  Unique countries:", dplyr::n_distinct(rwb_standardized$country_en), "\n")
 cat("  Years:", min(rwb_standardized$year_n), "–", max(rwb_standardized$year_n), "\n")
+cat("  EU members (2026):", sum(rwb_standardized$EU[rwb_standardized$year_n == 2026]), "\n")

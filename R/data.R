@@ -6,7 +6,7 @@
 #' throughout this package), standardized and cleaned by the pressfreedom.data package
 #' pipeline.
 #'
-#' @format A data frame with 4,192 rows and 20 columns:
+#' @format A data frame with 4,192 rows and 21 columns:
 #' \describe{
 #'   \item{year_n}{Numeric year (2002-2026, excluding 2011)}
 #'   \item{iso}{ISO 3166-1 alpha-3 country code}
@@ -28,6 +28,12 @@
 #'   \item{rank_evolution}{Change in rank from previous year}
 #'   \item{score_n_1}{Previous year's score (year_n - 1)}
 #'   \item{score_evolution}{Change in score from previous year}
+#'   \item{EU}{Logical; \code{TRUE} if the country was an EU member in that year.
+#'     Accession events: EU-15 baseline (2002), 2004 enlargement (CYP CZE EST HUN
+#'     LVA LTU MLT POL SVK SVN), 2007 enlargement (BGR ROU), 2013 enlargement
+#'     (HRV). Withdrawal: United Kingdom (GBR) from 2020 (Brexit). Northern Cyprus
+#'     (CXX) is \code{FALSE} for all years. See \code{R/eu_membership.R} for
+#'     implementation details.}
 #' }
 #'
 #' @details
