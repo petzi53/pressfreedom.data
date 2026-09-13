@@ -146,7 +146,7 @@ data(rwb_standardized)
 
 # Basic summary
 head(rwb_standardized)
-#> # A tibble: 6 × 20
+#> # A tibble: 6 × 21
 #>   year_n iso   score  rank political_context rank_pol economic_context rank_eco
 #>    <dbl> <chr> <dbl> <dbl>             <dbl>    <dbl>            <dbl>    <dbl>
 #> 1   2002 AFG    35.5   104                NA       NA               NA       NA
@@ -155,10 +155,10 @@ head(rwb_standardized)
 #> 4   2002 ARG    12      42                NA       NA               NA       NA
 #> 5   2002 AUS     3.5    12                NA       NA               NA       NA
 #> 6   2002 AUT     7.5    27                NA       NA               NA       NA
-#> # ℹ 12 more variables: legal_context <dbl>, rank_leg <dbl>,
+#> # ℹ 13 more variables: legal_context <dbl>, rank_leg <dbl>,
 #> #   social_context <dbl>, rank_soc <dbl>, safety <dbl>, rank_saf <dbl>,
 #> #   zone <chr>, rank_n_1 <dbl>, rank_evolution <dbl>, score_n_1 <dbl>,
-#> #   score_evolution <dbl>, country_en <chr>
+#> #   score_evolution <dbl>, country_en <chr>, EU <lgl>
 
 # Countries included
 length(unique(rwb_standardized$country_en))
