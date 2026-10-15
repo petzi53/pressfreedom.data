@@ -84,7 +84,8 @@ add_oecd_column <- function(data) {
   data |>
     dplyr::left_join(oecd_events, by = "iso") |>
     dplyr::mutate(
-      OECD = !is.na(from) & year_n >= from & (is.na(until) | year_n < until)
+      OECD = !is.na(.data$from) & .data$year_n >= .data$from &
+        (is.na(.data$until) | .data$year_n < .data$until)
     ) |>
-    dplyr::select(-from, -until)
+    dplyr::select(-"from", -"until")
 }

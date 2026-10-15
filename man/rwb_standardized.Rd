@@ -5,7 +5,7 @@
 \alias{rwb_standardized}
 \title{Standardized Reporters Without Borders Press Freedom Index (2002-2026)}
 \format{
-A data frame with 4,192 rows and 20 columns:
+A data frame with 4,192 rows and 21 columns:
 \describe{
   \item{year_n}{Numeric year (2002-2026, excluding 2011)}
   \item{iso}{ISO 3166-1 alpha-3 country code}
@@ -27,6 +27,12 @@ A data frame with 4,192 rows and 20 columns:
   \item{rank_evolution}{Change in rank from previous year}
   \item{score_n_1}{Previous year's score (year_n - 1)}
   \item{score_evolution}{Change in score from previous year}
+  \item{EU}{Logical; \code{TRUE} if the country was an EU member in that year.
+    Accession events: EU-15 baseline (2002), 2004 enlargement (CYP CZE EST HUN
+    LVA LTU MLT POL SVK SVN), 2007 enlargement (BGR ROU), 2013 enlargement
+    (HRV). Withdrawal: United Kingdom (GBR) from 2020 (Brexit). Northern Cyprus
+    (CXX) is \code{FALSE} for all years. See \code{R/eu_membership.R} for
+    implementation details.}
 }
 }
 \source{
@@ -58,7 +64,7 @@ in the pressfreedom.data package:
 **Audit Trail:** The full audit trail (including `country_name_original` and
 `consolidation_flag` columns) is preserved in the source RDS file
 (`data/processed/rwb_standardized.rds`) within the pressfreedom.data package.
-This exported dataset contains only the 20 core columns for analysis.
+This exported dataset contains only the 21 core columns for analysis.
 
 **Score Comparability:** Scores are only comparable within their respective periods:
 - **Period 1 (2002-2012):** Non-comparable scores; use ranks for trends

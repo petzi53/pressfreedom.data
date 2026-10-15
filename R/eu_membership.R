@@ -74,7 +74,8 @@ add_eu_column <- function(data) {
   data |>
     dplyr::left_join(eu_events, by = "iso") |>
     dplyr::mutate(
-      EU = !is.na(from) & year_n >= from & (is.na(until) | year_n < until)
+      EU = !is.na(.data$from) & .data$year_n >= .data$from &
+        (is.na(.data$until) | .data$year_n < .data$until)
     ) |>
-    dplyr::select(-from, -until)
+    dplyr::select(-"from", -"until")
 }

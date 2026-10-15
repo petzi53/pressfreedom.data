@@ -52,7 +52,7 @@
 #' **Audit Trail:** The full audit trail (including `country_name_original` and
 #' `consolidation_flag` columns) is preserved in the source RDS file
 #' (`data/processed/rwb_standardized.rds`) within the pressfreedom.data package.
-#' This exported dataset contains only the 20 core columns for analysis.
+#' This exported dataset contains only the 21 core columns for analysis.
 #'
 #' **Score Comparability:** Scores are only comparable within their respective periods:
 #' - **Period 1 (2002-2012):** Non-comparable scores; use ranks for trends
