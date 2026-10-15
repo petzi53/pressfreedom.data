@@ -1,0 +1,250 @@
+iso,un_region,un_subregion,un_intermediate_region,LLDC,SIDS
+DZA,Africa,Northern Africa,Northern Africa,FALSE,FALSE
+EGY,Africa,Northern Africa,Northern Africa,FALSE,FALSE
+LBY,Africa,Northern Africa,Northern Africa,FALSE,FALSE
+MAR,Africa,Northern Africa,Northern Africa,FALSE,FALSE
+SDN,Africa,Northern Africa,Northern Africa,FALSE,FALSE
+TUN,Africa,Northern Africa,Northern Africa,FALSE,FALSE
+ESH,Africa,Northern Africa,Northern Africa,FALSE,FALSE
+IOT,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+BDI,Africa,Sub-Saharan Africa,Eastern Africa,TRUE,FALSE
+COM,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,TRUE
+DJI,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+ERI,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+ETH,Africa,Sub-Saharan Africa,Eastern Africa,TRUE,FALSE
+ATF,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+KEN,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+MDG,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+MWI,Africa,Sub-Saharan Africa,Eastern Africa,TRUE,FALSE
+MUS,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,TRUE
+MYT,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+MOZ,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+REU,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+RWA,Africa,Sub-Saharan Africa,Eastern Africa,TRUE,FALSE
+SYC,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,TRUE
+SOM,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+SSD,Africa,Sub-Saharan Africa,Eastern Africa,TRUE,FALSE
+UGA,Africa,Sub-Saharan Africa,Eastern Africa,TRUE,FALSE
+TZA,Africa,Sub-Saharan Africa,Eastern Africa,FALSE,FALSE
+ZMB,Africa,Sub-Saharan Africa,Eastern Africa,TRUE,FALSE
+ZWE,Africa,Sub-Saharan Africa,Eastern Africa,TRUE,FALSE
+AGO,Africa,Sub-Saharan Africa,Middle Africa,FALSE,FALSE
+CMR,Africa,Sub-Saharan Africa,Middle Africa,FALSE,FALSE
+CAF,Africa,Sub-Saharan Africa,Middle Africa,TRUE,FALSE
+TCD,Africa,Sub-Saharan Africa,Middle Africa,TRUE,FALSE
+COG,Africa,Sub-Saharan Africa,Middle Africa,FALSE,FALSE
+COD,Africa,Sub-Saharan Africa,Middle Africa,FALSE,FALSE
+GNQ,Africa,Sub-Saharan Africa,Middle Africa,FALSE,FALSE
+GAB,Africa,Sub-Saharan Africa,Middle Africa,FALSE,FALSE
+STP,Africa,Sub-Saharan Africa,Middle Africa,FALSE,TRUE
+BWA,Africa,Sub-Saharan Africa,Southern Africa,TRUE,FALSE
+SWZ,Africa,Sub-Saharan Africa,Southern Africa,TRUE,FALSE
+LSO,Africa,Sub-Saharan Africa,Southern Africa,TRUE,FALSE
+NAM,Africa,Sub-Saharan Africa,Southern Africa,FALSE,FALSE
+ZAF,Africa,Sub-Saharan Africa,Southern Africa,FALSE,FALSE
+BEN,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+BFA,Africa,Sub-Saharan Africa,Western Africa,TRUE,FALSE
+CPV,Africa,Sub-Saharan Africa,Western Africa,FALSE,TRUE
+CIV,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+GMB,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+GHA,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+GIN,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+GNB,Africa,Sub-Saharan Africa,Western Africa,FALSE,TRUE
+LBR,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+MLI,Africa,Sub-Saharan Africa,Western Africa,TRUE,FALSE
+MRT,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+NER,Africa,Sub-Saharan Africa,Western Africa,TRUE,FALSE
+NGA,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+SHN,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+SEN,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+SLE,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+TGO,Africa,Sub-Saharan Africa,Western Africa,FALSE,FALSE
+AIA,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+ATG,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+ABW,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+BHS,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+BRB,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+BES,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+VGB,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+CYM,Americas,Latin America and the Caribbean,Caribbean,FALSE,FALSE
+CUB,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+CUW,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+DMA,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+DOM,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+GRD,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+GLP,Americas,Latin America and the Caribbean,Caribbean,FALSE,FALSE
+HTI,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+JAM,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+MTQ,Americas,Latin America and the Caribbean,Caribbean,FALSE,FALSE
+MSR,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+PRI,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+BLM,Americas,Latin America and the Caribbean,Caribbean,FALSE,FALSE
+KNA,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+LCA,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+MAF,Americas,Latin America and the Caribbean,Caribbean,FALSE,FALSE
+VCT,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+SXM,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+TTO,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+TCA,Americas,Latin America and the Caribbean,Caribbean,FALSE,FALSE
+VIR,Americas,Latin America and the Caribbean,Caribbean,FALSE,TRUE
+BLZ,Americas,Latin America and the Caribbean,Central America,FALSE,TRUE
+CRI,Americas,Latin America and the Caribbean,Central America,FALSE,FALSE
+SLV,Americas,Latin America and the Caribbean,Central America,FALSE,FALSE
+GTM,Americas,Latin America and the Caribbean,Central America,FALSE,FALSE
+HND,Americas,Latin America and the Caribbean,Central America,FALSE,FALSE
+MEX,Americas,Latin America and the Caribbean,Central America,FALSE,FALSE
+NIC,Americas,Latin America and the Caribbean,Central America,FALSE,FALSE
+PAN,Americas,Latin America and the Caribbean,Central America,FALSE,FALSE
+ARG,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+BOL,Americas,Latin America and the Caribbean,South America,TRUE,FALSE
+BVT,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+BRA,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+CHL,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+COL,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+ECU,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+FLK,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+GUF,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+GUY,Americas,Latin America and the Caribbean,South America,FALSE,TRUE
+PRY,Americas,Latin America and the Caribbean,South America,TRUE,FALSE
+PER,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+SGS,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+SUR,Americas,Latin America and the Caribbean,South America,FALSE,TRUE
+URY,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+VEN,Americas,Latin America and the Caribbean,South America,FALSE,FALSE
+BMU,Americas,Northern America,Northern America,FALSE,FALSE
+CAN,Americas,Northern America,Northern America,FALSE,FALSE
+GRL,Americas,Northern America,Northern America,FALSE,FALSE
+SPM,Americas,Northern America,Northern America,FALSE,FALSE
+USA,Americas,Northern America,Northern America,FALSE,FALSE
+KAZ,Asia,Central Asia,Central Asia,TRUE,FALSE
+KGZ,Asia,Central Asia,Central Asia,TRUE,FALSE
+TJK,Asia,Central Asia,Central Asia,TRUE,FALSE
+TKM,Asia,Central Asia,Central Asia,TRUE,FALSE
+UZB,Asia,Central Asia,Central Asia,TRUE,FALSE
+CHN,Asia,Eastern Asia,Eastern Asia,FALSE,FALSE
+HKG,Asia,Eastern Asia,Eastern Asia,FALSE,FALSE
+MAC,Asia,Eastern Asia,Eastern Asia,FALSE,FALSE
+PRK,Asia,Eastern Asia,Eastern Asia,FALSE,FALSE
+JPN,Asia,Eastern Asia,Eastern Asia,FALSE,FALSE
+MNG,Asia,Eastern Asia,Eastern Asia,TRUE,FALSE
+KOR,Asia,Eastern Asia,Eastern Asia,FALSE,FALSE
+BRN,Asia,South-eastern Asia,South-eastern Asia,FALSE,FALSE
+KHM,Asia,South-eastern Asia,South-eastern Asia,FALSE,FALSE
+IDN,Asia,South-eastern Asia,South-eastern Asia,FALSE,FALSE
+LAO,Asia,South-eastern Asia,South-eastern Asia,TRUE,FALSE
+MYS,Asia,South-eastern Asia,South-eastern Asia,FALSE,FALSE
+MMR,Asia,South-eastern Asia,South-eastern Asia,FALSE,FALSE
+PHL,Asia,South-eastern Asia,South-eastern Asia,FALSE,FALSE
+SGP,Asia,South-eastern Asia,South-eastern Asia,FALSE,TRUE
+THA,Asia,South-eastern Asia,South-eastern Asia,FALSE,FALSE
+TLS,Asia,South-eastern Asia,South-eastern Asia,FALSE,TRUE
+VNM,Asia,South-eastern Asia,South-eastern Asia,FALSE,FALSE
+AFG,Asia,Southern Asia,Southern Asia,TRUE,FALSE
+BGD,Asia,Southern Asia,Southern Asia,FALSE,FALSE
+BTN,Asia,Southern Asia,Southern Asia,TRUE,FALSE
+IND,Asia,Southern Asia,Southern Asia,FALSE,FALSE
+IRN,Asia,Southern Asia,Southern Asia,FALSE,FALSE
+MDV,Asia,Southern Asia,Southern Asia,FALSE,TRUE
+NPL,Asia,Southern Asia,Southern Asia,TRUE,FALSE
+PAK,Asia,Southern Asia,Southern Asia,FALSE,FALSE
+LKA,Asia,Southern Asia,Southern Asia,FALSE,FALSE
+ARM,Asia,Western Asia,Western Asia,TRUE,FALSE
+AZE,Asia,Western Asia,Western Asia,TRUE,FALSE
+BHR,Asia,Western Asia,Western Asia,FALSE,FALSE
+CYP,Asia,Western Asia,Western Asia,FALSE,FALSE
+GEO,Asia,Western Asia,Western Asia,FALSE,FALSE
+IRQ,Asia,Western Asia,Western Asia,FALSE,FALSE
+ISR,Asia,Western Asia,Western Asia,FALSE,FALSE
+JOR,Asia,Western Asia,Western Asia,FALSE,FALSE
+KWT,Asia,Western Asia,Western Asia,FALSE,FALSE
+LBN,Asia,Western Asia,Western Asia,FALSE,FALSE
+OMN,Asia,Western Asia,Western Asia,FALSE,FALSE
+QAT,Asia,Western Asia,Western Asia,FALSE,FALSE
+SAU,Asia,Western Asia,Western Asia,FALSE,FALSE
+PSE,Asia,Western Asia,Western Asia,FALSE,FALSE
+SYR,Asia,Western Asia,Western Asia,FALSE,FALSE
+TUR,Asia,Western Asia,Western Asia,FALSE,FALSE
+ARE,Asia,Western Asia,Western Asia,FALSE,FALSE
+YEM,Asia,Western Asia,Western Asia,FALSE,FALSE
+BLR,Europe,Eastern Europe,Eastern Europe,FALSE,FALSE
+BGR,Europe,Eastern Europe,Eastern Europe,FALSE,FALSE
+CZE,Europe,Eastern Europe,Eastern Europe,FALSE,FALSE
+HUN,Europe,Eastern Europe,Eastern Europe,FALSE,FALSE
+POL,Europe,Eastern Europe,Eastern Europe,FALSE,FALSE
+MDA,Europe,Eastern Europe,Eastern Europe,TRUE,FALSE
+ROU,Europe,Eastern Europe,Eastern Europe,FALSE,FALSE
+RUS,Europe,Eastern Europe,Eastern Europe,FALSE,FALSE
+SVK,Europe,Eastern Europe,Eastern Europe,FALSE,FALSE
+UKR,Europe,Eastern Europe,Eastern Europe,FALSE,FALSE
+ALA,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+DNK,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+EST,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+FRO,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+FIN,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+GGY,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+ISL,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+IRL,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+IMN,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+JEY,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+LVA,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+LTU,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+NOR,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+SJM,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+SWE,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+GBR,Europe,Northern Europe,Northern Europe,FALSE,FALSE
+ALB,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+AND,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+BIH,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+HRV,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+GIB,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+GRC,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+VAT,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+ITA,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+MLT,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+MNE,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+MKD,Europe,Southern Europe,Southern Europe,TRUE,FALSE
+PRT,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+SMR,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+SRB,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+SVN,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+ESP,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+AUT,Europe,Western Europe,Western Europe,FALSE,FALSE
+BEL,Europe,Western Europe,Western Europe,FALSE,FALSE
+FRA,Europe,Western Europe,Western Europe,FALSE,FALSE
+DEU,Europe,Western Europe,Western Europe,FALSE,FALSE
+LIE,Europe,Western Europe,Western Europe,FALSE,FALSE
+LUX,Europe,Western Europe,Western Europe,FALSE,FALSE
+MCO,Europe,Western Europe,Western Europe,FALSE,FALSE
+NLD,Europe,Western Europe,Western Europe,FALSE,FALSE
+CHE,Europe,Western Europe,Western Europe,FALSE,FALSE
+AUS,Oceania,Australia and New Zealand,Australia and New Zealand,FALSE,FALSE
+CXR,Oceania,Australia and New Zealand,Australia and New Zealand,FALSE,FALSE
+CCK,Oceania,Australia and New Zealand,Australia and New Zealand,FALSE,FALSE
+HMD,Oceania,Australia and New Zealand,Australia and New Zealand,FALSE,FALSE
+NZL,Oceania,Australia and New Zealand,Australia and New Zealand,FALSE,FALSE
+NFK,Oceania,Australia and New Zealand,Australia and New Zealand,FALSE,FALSE
+FJI,Oceania,Melanesia,Melanesia,FALSE,TRUE
+NCL,Oceania,Melanesia,Melanesia,FALSE,TRUE
+PNG,Oceania,Melanesia,Melanesia,FALSE,TRUE
+SLB,Oceania,Melanesia,Melanesia,FALSE,TRUE
+VUT,Oceania,Melanesia,Melanesia,FALSE,TRUE
+GUM,Oceania,Micronesia,Micronesia,FALSE,TRUE
+KIR,Oceania,Micronesia,Micronesia,FALSE,TRUE
+MHL,Oceania,Micronesia,Micronesia,FALSE,TRUE
+FSM,Oceania,Micronesia,Micronesia,FALSE,TRUE
+NRU,Oceania,Micronesia,Micronesia,FALSE,TRUE
+MNP,Oceania,Micronesia,Micronesia,FALSE,TRUE
+PLW,Oceania,Micronesia,Micronesia,FALSE,TRUE
+UMI,Oceania,Micronesia,Micronesia,FALSE,FALSE
+ASM,Oceania,Polynesia,Polynesia,FALSE,TRUE
+COK,Oceania,Polynesia,Polynesia,FALSE,TRUE
+PYF,Oceania,Polynesia,Polynesia,FALSE,TRUE
+NIU,Oceania,Polynesia,Polynesia,FALSE,TRUE
+PCN,Oceania,Polynesia,Polynesia,FALSE,FALSE
+WSM,Oceania,Polynesia,Polynesia,FALSE,TRUE
+TKL,Oceania,Polynesia,Polynesia,FALSE,FALSE
+TON,Oceania,Polynesia,Polynesia,FALSE,TRUE
+TUV,Oceania,Polynesia,Polynesia,FALSE,TRUE
+WLF,Oceania,Polynesia,Polynesia,FALSE,FALSE
+XXK,Europe,Southern Europe,Southern Europe,FALSE,FALSE
+TWN,Asia,Eastern Asia,Eastern Asia,FALSE,FALSE
