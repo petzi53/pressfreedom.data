@@ -15,7 +15,7 @@ rwb_standardized
 
 ## Format
 
-A data frame with 4,192 rows and 20 columns:
+A data frame with 4,192 rows and 21 columns:
 
 - year_n:
 
@@ -98,6 +98,15 @@ A data frame with 4,192 rows and 20 columns:
 
   Change in score from previous year
 
+- EU:
+
+  Logical; `TRUE` if the country was an EU member in that year.
+  Accession events: EU-15 baseline (2002), 2004 enlargement (CYP CZE EST
+  HUN LVA LTU MLT POL SVK SVN), 2007 enlargement (BGR ROU), 2013
+  enlargement (HRV). Withdrawal: United Kingdom (GBR) from 2020
+  (Brexit). Northern Cyprus (CXX) is `FALSE` for all years. See
+  `R/eu_membership.R` for implementation details.
+
 ## Source
 
 Reporters Sans Frontieres, https://rsf.org
@@ -121,7 +130,7 @@ consolidated, ISO codes assigned, duplicates resolved
 \`country_name_original\` and \`consolidation_flag\` columns) is
 preserved in the source RDS file
 (\`data/processed/rwb_standardized.rds\`) within the pressfreedom.data
-package. This exported dataset contains only the 20 core columns for
+package. This exported dataset contains only the 21 core columns for
 analysis.
 
 \*\*Score Comparability:\*\* Scores are only comparable within their

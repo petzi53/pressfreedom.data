@@ -58,7 +58,7 @@ pipeline.</p>
 
     <div class="section level2">
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
-    <p>A data frame with 4,192 rows and 20 columns:</p><dl><dt>year_n</dt>
+    <p>A data frame with 4,192 rows and 21 columns:</p><dl><dt>year_n</dt>
 <dd><p>Numeric year (2002-2026, excluding 2011)</p></dd>
 
   <dt>iso</dt>
@@ -118,6 +118,14 @@ pipeline.</p>
   <dt>score_evolution</dt>
 <dd><p>Change in score from previous year</p></dd>
 
+  <dt>EU</dt>
+<dd><p>Logical; <code>TRUE</code> if the country was an EU member in that year.
+    Accession events: EU-15 baseline (2002), 2004 enlargement (CYP CZE EST HUN
+    LVA LTU MLT POL SVK SVN), 2007 enlargement (BGR ROU), 2013 enlargement
+    (HRV). Withdrawal: United Kingdom (GBR) from 2020 (Brexit). Northern Cyprus
+    (CXX) is <code>FALSE</code> for all years. See <code>R/eu_membership.R</code> for
+    implementation details.</p></dd>
+
 
 </dl></div>
     <div class="section level2">
@@ -137,7 +145,7 @@ in the pressfreedom.data package:</p>
 <p>**Audit Trail:** The full audit trail (including `country_name_original` and
 `consolidation_flag` columns) is preserved in the source RDS file
 (`data/processed/rwb_standardized.rds`) within the pressfreedom.data package.
-This exported dataset contains only the 20 core columns for analysis.</p>
+This exported dataset contains only the 21 core columns for analysis.</p>
 <p>**Score Comparability:** Scores are only comparable within their respective periods:
 - **Period 1 (2002-2012):** Non-comparable scores; use ranks for trends
 - **Period 2 (2013-2021):** Comparable scores (0-100 scale)
