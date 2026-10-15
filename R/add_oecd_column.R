@@ -24,10 +24,7 @@
 #' @return The input data frame with an additional logical column `OECD`:
 #'   `TRUE` if the country was an OECD member in that year, `FALSE` otherwise.
 #'
-#' @examples
-#' library(pressfreedom.data)
-#' rwb_standardized |> add_oecd_column()
-#'
+#' @noRd
 add_oecd_column <- function(data) {
   # Membership events: `from` = first year as OECD member,
   #                    `until` = first year NO LONGER an OECD member (NA = still member)
