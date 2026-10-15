@@ -8,15 +8,12 @@
 #'
 #' @param data A data frame containing at least the column `iso` (character,
 #'   ISO 3166-1 alpha-3 country code). Designed for use with
-#'   `pressfreedom.data::rbw_standardized`.
+#'   `pressfreedom.data::rwb_standardized`.
 #'
 #' @return The input data frame with an additional character column `Continent`:
 #'   the name of the continent for each country.
 #'
-#' @examples
-#' library(pressfreedom.data)
-#' rbw_standardized |> add_continent_column()
-#'
+#' @noRd
 add_continent_column <- function(data) {
   # Mapping of ISO codes to continents
   continent_mapping <- tibble::tribble(
