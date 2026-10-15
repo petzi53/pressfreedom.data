@@ -25,3 +25,6 @@ Icon*
 
 # LibreOffice lock files (created when a file is open; not meaningful to track)
 .~lock.*#
+
+# Local scratch/test material; project inputs live in data-raw/source/
+_archive/
