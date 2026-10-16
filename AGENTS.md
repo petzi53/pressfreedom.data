@@ -949,59 +949,85 @@ Peter announced: **"I can't work for 3 weeks, from 25 August to 12 October."**
 
 Discovered during Blog 3 writing that `R/standardize.R` was implicitly (via deduplication) rather than explicitly deleting "Israel (outside Israeli territory)". Fixed: now explicitly deleted with clearer intent in the `case_when()` block. Behavior unchanged; output identical. Not submitted to CRAN (already accepted v0.3.0). Documented in `.posit/assistant/docs/2026-08-26-israel-territorial-variants-fix.md` for inclusion in next development version (v0.4.0 or later).
 
-## Post-CRAN Next Steps (2026-08-24 onwards)
+## Plan Execution: Add UN/WB Columns (Phase 1: Build Lookup Data Files)
 
-### Immediate (this week: Aug 24–30)
+**Plan Document:** `.posit/assistant/plans/2026-09-13-add-un-wb-columns.md`  
+**Status:** In Progress — Phase 1 (data-raw scripts building lookup CSVs)
 
-1. **Create GitHub Release** (`usethis::use_github_release()` or web UI)
-   - Tag: `v0.3.0`
-   - Title: "v0.3.0 — CRAN Release"
-   - Release notes: Copy from `cran-comments.md` + add "Now on CRAN!"
-   - Assets: Upload `pressfreedom.data_0.3.0.tar.gz`
+### Completed Steps
 
-2. **Announce on Social Media / Blog** (optional but good practice)
-   - Peter's blog: https://www.peter-baumgartner.net/
-   - Mastodon / LinkedIn / R-bloggers if desired
-   - Suggested angle: "Building a Data Pipeline with AI assistance"
+#### Step 1.5 ✅ `data-raw/wb_income_history.R` (2026-09-??)
 
-3. **Update Package Version to Dev** (`usethis::use_dev_version()`)
-   - Bumps DESCRIPTION version to 0.3.0.9000
-   - Adds a line to NEWS.md: "# pressfreedom.data (development version)"
-   - Readies repo for next development cycle
+**What:** Reads OGHIST CSV (World Bank income group history) → `inst/extdata/wb_income_history.csv`
 
-4. **Monitor CRAN Package Page**
-   - Should appear within 24 hours: https://cran.r-project.org/package=pressfreedom.data
-   - Check that documentation, NEWS, vignettes all render correctly
+**File created:** `data-raw/wb_income_history.R` (46 lines)  
+**Output CSV:** `inst/extdata/wb_income_history.csv`
 
-### Short-term (Aug 31–Sep 30, before vacation Aug 25–Oct 12)
+**Verification:**
+- ✅ 5,352 rows (223 countries × 24 years, 2011 excluded as expected)
+- ✅ Year range: 2002–2026
+- ✅ 4 income categories:
+  - High income: 1,717 rows
+  - Low income: 972 rows
+  - Lower middle income: 1,264 rows
+  - Upper middle income: 1,181 rows
+- ✅ 218 NA values (countries unclassified in certain years — expected)
 
-**Wait:** Peter announced vacation from Aug 25–Oct 12. This work fits the Aug 24–25 window OR resumes Oct 13.
+**Technical notes:**
+- OGHIST structure: metadata in rows 1–4, fiscal year codes in row 5 (FY89–FY27)
+- Fiscal year FY20XX → `year_n = 20XX`
+- Income codes mapped: L → "Low income", LM → "Lower middle income", UM → "Upper middle income", H → "High income"
+- Unused file: `OGHIST_2026_07_15-Operational Category Change.csv` (obsolete Roman numeral codes)
 
-1. **Blog Post #1: "Building a Data Pipeline with AI Assistance"** (if time permits before vacation)
-   - Or defer to Oct 13 post-vacation per the blogging schedule
-   - See memory: `2026-08-12-blog-posts-strategy.md`
+#### Step 1.6 ✅ `data-raw/wb_socioeconomic_lookup.R` (2026-10-16)
 
-2. **Set up Quarto Book Repo** (deferred to post-vacation if needed)
-   - Separate GitHub repo: `pressfreedom.data-book`
-   - See memory: `2026-07-30-1310-documentation-strategy.md`
+**What:** Reads WB population, WB GDP, and UNSD SYB68 area files → 3 CSVs in `inst/extdata/`
 
-### Medium-term (Oct 13 onwards, after vacation)
+**File created:** `data-raw/wb_socioeconomic_lookup.R` (94 lines)  
+**Output CSVs:**
+- `inst/extdata/wb_population.csv` — 4,248 rows (191 countries × 24 years + forward-fill 2025–2026)
+- `inst/extdata/wb_gdp.csv` — 4,137 rows (covered years × countries + forward-fill 2024–2026)
+- `inst/extdata/unsd_syb_area.csv` — 169 rows (static, one per country)
 
-1. **Blog Posts (Weeks 3–6 of overall timeline = Oct 13–Nov 16)**
-   - Blog 1: "Encoding Resilience" (~1,500 words)
-   - Blog 2: "Writing Better Prompts" (~1,400 words)
-   - Blog 3: "Consolidating Messy Categories" (~1,600 words)
-   - Blog 4: "Orchestrating Multi-Phase Pipelines" (~1,500 words)
-   - Each with peer review + Grammarly before publishing
+**Verification:**
+- ✅ **Population:** 177 countries with 2024 data; all 177 forward-filled to 2026
+- ✅ **GDP:** 164 countries with 2023 data; all 164 forward-filled to 2024–2026
+- ✅ **Area:** 169 countries; static snapshot from SYB68 reference year 2023
+- ✅ Expected coverage gaps match plan:
+  - Missing population: YUG, TWN, SCG, CXX, XXK, XXX (6 countries)
+  - Missing GDP: PRK, YUG, TWN, SCG, CXX, XXK, XXX (7 countries, adds PRK)
+  - Missing area: BOL, PRK, YUG, LAO, SDN, TWN, TZA, COD, VEN, SCG, CXX, XXK, XXX, SSD (14 countries)
 
-2. **Quarto Book (Chapters 1–10, Nov 17–Feb 2027)**
-   - Start immediately after blogs end Nov 16
-   - 10 chapters, ~15,000–20,000 words
-   - Deployment via GitHub Actions to GitHub Pages
+**Technical notes:**
+- Population/GDP: Filtered to 3-letter ISO codes in `rwb_standardized`, then to RSF years
+- Area: M49 codes converted to ISO-3 (strip leading zeros); series filtered to "Surface area", reference year 2023; unit converted from thousand km² to km²
+- UNSD SYB68: Read with `skip=2` + custom col_names (skip title + header row); latin1 encoding; commas in numeric values replaced with periods
+- All three outputs filtered to only `rwb_standardized$iso` values (no extraneous countries)
 
-### Key Files for Reference
-- Blogging strategy: `.posit/assistant/docs/2026-08-09-blog-posts-strategy.md`
-- Conversation index (to organize 50+ conversations for book): `.posit/assistant/docs/2026-08-09-conversation-index-template.md`
-- Full timeline: `.posit/assistant/docs/2026-08-12-revised-timeline.md`
-- Week 1 checklist (if pre-vacation work desired): `.posit/assistant/docs/2026-08-12-week1-checklist.md`
+**Next step:** Phase 1 complete; proceed to Phase 2 (build R functions in `R/add_classifications.R`)
+
+## CRAN Acceptance & Post-Release Status ✅ (2026-08-24 — completed)
+
+**Package v0.3.0:** ✅ Accepted and published to CRAN (2026-08-24)
+- Live on CRAN: https://cran.r-project.org/package=pressfreedom.data
+- Installable: `install.packages("pressfreedom.data")`
+- Documentation: https://www.peter-baumgartner.net/pressfreedom.data/
+- GitHub: https://github.com/petzi53/pressfreedom.data
+
+**Post-CRAN milestone:** Package is now stable, v0.3.0.9000 in dev version.
+
+## Current Work (Oct 2026)
+
+Peter returned from vacation Oct 13. Current focus: **Phase 1 of UN/WB columns expansion** (`2026-09-13-add-un-wb-columns.md`).
+
+**Completed Phase 1 steps:**
+- Step 1.5: ✅ `wb_income_history.R` (2026-10-16)
+
+**Pending Phase 1 steps:**
+- Step 1.6: `wb_socioeconomic_lookup.R` (population, GDP, area)
+
+**Deferred work (future sessions):**
+- Blog posts (Oct 13–Nov 16 window: "Encoding Resilience", "Writing Better Prompts", "Consolidating Categories", "Orchestrating Pipelines")
+- Quarto book (Nov 17–Feb 2027: 10 chapters)
+- See `.posit/assistant/docs/2026-08-12-revised-timeline.md` for full schedule
 
