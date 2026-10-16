@@ -1,0 +1,219 @@
+iso,wb_region,wb_region2,wb_region2_code,wb_lending_category,arab_world,central_europe_baltics,small_states,IDA_IBRD_total,IDA_total,IDA_only,IDA_blend,IBRD_only
+AFG,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+ALB,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+DZA,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IBRD,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+ASM,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+AND,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+AGO,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+ATG,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE
+ARG,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+ARM,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+ABW,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+AUS,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+AUT,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+AZE,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+BHS,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+BHR,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,NA,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+BGD,South Asia,South Asia,SAS,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+BRB,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE
+BLR,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+BEL,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+BLZ,Latin America & Caribbean,Latin America & Caribbean,LCN,Blend,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+BEN,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+BMU,North America,North America,NAC,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+BTN,South Asia,South Asia,SAS,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+BOL,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+BIH,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+BWA,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+BRA,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+VGB,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+BRN,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+BGR,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+BFA,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+BDI,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+CPV,Sub-Saharan Africa,Western and Central Africa,AFW,Blend,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+KHM,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+CMR,Sub-Saharan Africa,Western and Central Africa,AFW,Blend,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE
+CAN,North America,North America,NAC,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+CYM,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+CAF,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+TCD,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+CHI,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+CHL,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+CHN,East Asia & Pacific,East Asia & Pacific,EAS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+COL,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+COM,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+COD,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+COG,Sub-Saharan Africa,Western and Central Africa,AFW,Blend,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE
+CRI,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+CIV,Sub-Saharan Africa,Western and Central Africa,AFW,Blend,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE
+HRV,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+CUB,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+CUW,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+CYP,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+CZE,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+DNK,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+DJI,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IDA,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+DMA,Latin America & Caribbean,Latin America & Caribbean,LCN,Blend,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+DOM,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+ECU,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+EGY,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IBRD,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+SLV,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+GNQ,Sub-Saharan Africa,Western and Central Africa,AFW,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+ERI,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+EST,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+SWZ,Sub-Saharan Africa,Eastern and Southern Africa,AFE,Blend,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+ETH,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+FRO,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+FJI,East Asia & Pacific,East Asia & Pacific,EAS,Blend,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+FIN,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+FRA,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+PYF,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+GAB,Sub-Saharan Africa,Western and Central Africa,AFW,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+GMB,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+GEO,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+DEU,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+GHA,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+GIB,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+GRC,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+GRL,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+GRD,Latin America & Caribbean,Latin America & Caribbean,LCN,Blend,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+GUM,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+GTM,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+GIN,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+GNB,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+GUY,Latin America & Caribbean,Latin America & Caribbean,LCN,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+HTI,Latin America & Caribbean,Latin America & Caribbean,LCN,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+HND,Latin America & Caribbean,Latin America & Caribbean,LCN,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+HKG,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+HUN,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+ISL,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+IND,South Asia,South Asia,SAS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+IDN,East Asia & Pacific,East Asia & Pacific,EAS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+IRN,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+IRQ,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IBRD,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+IRL,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+IMN,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+ISR,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+ITA,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+JAM,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+JPN,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+JOR,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IBRD,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+KAZ,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+KEN,Sub-Saharan Africa,Eastern and Southern Africa,AFE,Blend,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE
+KIR,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+PRK,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+KOR,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+XXK,Europe & Central Asia,Europe & Central Asia,ECS,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+KWT,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,NA,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+KGZ,Europe & Central Asia,Europe & Central Asia,ECS,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+LAO,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+LVA,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+LBN,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IBRD,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+LSO,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+LBR,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+LBY,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IBRD,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+LIE,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+LTU,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+LUX,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+MAC,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+MDG,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+MWI,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+MYS,East Asia & Pacific,East Asia & Pacific,EAS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+MDV,South Asia,South Asia,SAS,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+MLI,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+MLT,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,NA,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+MHL,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+MRT,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+MUS,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IBRD,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE
+MEX,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+FSM,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+MDA,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+MCO,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+MNG,East Asia & Pacific,East Asia & Pacific,EAS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+MNE,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE
+MAR,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IBRD,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+MOZ,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+MMR,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+NAM,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+NRU,East Asia & Pacific,East Asia & Pacific,EAS,IBRD,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE
+NPL,South Asia,South Asia,SAS,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+NLD,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+NCL,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+NZL,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+NIC,Latin America & Caribbean,Latin America & Caribbean,LCN,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+NER,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+NGA,Sub-Saharan Africa,Western and Central Africa,AFW,Blend,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE
+MKD,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+MNP,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+NOR,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+OMN,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,NA,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+PAK,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,Blend,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE
+PLW,East Asia & Pacific,East Asia & Pacific,EAS,IBRD,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE
+PAN,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+PNG,East Asia & Pacific,East Asia & Pacific,EAS,Blend,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE
+PRY,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+PER,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+PHL,East Asia & Pacific,East Asia & Pacific,EAS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+POL,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+PRT,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+PRI,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+QAT,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,NA,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+ROU,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+RUS,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+RWA,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+WSM,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+SMR,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+STP,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+SAU,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,NA,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+SEN,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+SRB,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+SYC,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IBRD,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE
+SLE,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+SGP,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+SXM,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+SVK,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+SVN,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+SLB,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+SOM,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+ZAF,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+SSD,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+ESP,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+LKA,South Asia,South Asia,SAS,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+KNA,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE
+LCA,Latin America & Caribbean,Latin America & Caribbean,LCN,Blend,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+MAF,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+VCT,Latin America & Caribbean,Latin America & Caribbean,LCN,Blend,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+SDN,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+SUR,Latin America & Caribbean,Latin America & Caribbean,LCN,Blend,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+SWE,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+CHE,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+SYR,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IDA,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+TWN,East Asia & Pacific,East Asia & Pacific,EAS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+TJK,Europe & Central Asia,Europe & Central Asia,ECS,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+TZA,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+THA,East Asia & Pacific,East Asia & Pacific,EAS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+TLS,East Asia & Pacific,East Asia & Pacific,EAS,Blend,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+TGO,Sub-Saharan Africa,Western and Central Africa,AFW,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+TON,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+TTO,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE
+TUN,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IBRD,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+TUR,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+TKM,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+TCA,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+TUV,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+UGA,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+UKR,Europe & Central Asia,Europe & Central Asia,ECS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+ARE,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,NA,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+GBR,Europe & Central Asia,Europe & Central Asia,ECS,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+USA,North America,North America,NAC,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+URY,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+UZB,Europe & Central Asia,Europe & Central Asia,ECS,Blend,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE
+VUT,East Asia & Pacific,East Asia & Pacific,EAS,IDA,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+VEN,Latin America & Caribbean,Latin America & Caribbean,LCN,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+VNM,East Asia & Pacific,East Asia & Pacific,EAS,IBRD,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE
+VIR,Latin America & Caribbean,Latin America & Caribbean,LCN,NA,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+PSE,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,NA,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+YEM,"Middle East, North Africa, Afghanistan & Pakistan","Middle East, North Africa, Afghanistan & Pakistan",MNA,IDA,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+ZMB,Sub-Saharan Africa,Eastern and Southern Africa,AFE,IDA,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
+ZWE,Sub-Saharan Africa,Eastern and Southern Africa,AFE,Blend,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE
