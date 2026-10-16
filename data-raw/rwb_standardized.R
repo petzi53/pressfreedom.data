@@ -27,6 +27,9 @@ rwb_standardized <- rwb_standardized |>
 # Covers accession/withdrawal events 2002-2026; see R/eu_membership.R for details.
 rwb_standardized <- add_eu_column(rwb_standardized)
 
+# Add OECD membership status (time-varying)
+rwb_standardized <- add_oecd_column(rwb_standardized)
+
 # Add UN/M49 classifications: un_region, un_subregion, un_intermediate_region, LLDC, SIDS
 rwb_standardized <- add_m49_columns(rwb_standardized)
 

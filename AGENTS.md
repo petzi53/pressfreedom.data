@@ -1018,13 +1018,27 @@ Discovered during Blog 3 writing that `R/standardize.R` was implicitly (via dedu
 
 ## Current Work (Oct 2026)
 
-Peter returned from vacation Oct 13. Current focus: **Phase 1 of UN/WB columns expansion** (`2026-09-13-add-un-wb-columns.md`).
+Peter returned from vacation Oct 13. Current focus: **Completing UN/WB columns expansion** (`2026-09-13-add-un-wb-columns.md`).
 
-**Completed Phase 1 steps:**
-- Step 1.5: ✅ `wb_income_history.R` (2026-10-16)
+### Completed Phases
+- **Phase 1: ✅ Build Lookup Data Files** — All data-raw scripts complete; CSVs in `inst/extdata/`
+  - Step 1.5: ✅ `wb_income_history.R` (2026-10-16)
+  - Step 1.6: ✅ `wb_socioeconomic_lookup.R` (2026-10-16)
+  - Step 1.1–1.4: ✅ All helper scripts (ldc, fcs, m49, wb_static)
+  
+- **Phase 2: ✅ Build R Functions** — All functions in `R/add_classifications.R` complete
+  - 9 internal `@noRd` functions + 1 exported `add_oecd_column()` = 10 functions total
+  - Verified: all functions present and working
+  
+- **Phase 3: ✅ Wire Up the Pipeline** — JUST COMPLETED (2026-10-16)
+  - Fixed: Added missing `add_oecd_column()` call to `data-raw/rwb_standardized.R`
+  - Result: Dataset now 51 columns (was 50)
+  - Verification: All columns present, data exports correctly
+  - Documentation: `.posit/assistant/docs/2026-10-16-phase-3-completion-verification.md`
 
-**Pending Phase 1 steps:**
-- Step 1.6: `wb_socioeconomic_lookup.R` (population, GDP, area)
+### Pending Phases
+- **Phase 4: Update Documentation** — Add 30 column descriptions to `R/data.R`
+- **Phase 5: Regression Tests** — Add ~30 new tests to `tests/testthat/test-data.R`
 
 **Deferred work (future sessions):**
 - Blog posts (Oct 13–Nov 16 window: "Encoding Resilience", "Writing Better Prompts", "Consolidating Categories", "Orchestrating Pipelines")
