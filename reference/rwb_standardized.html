@@ -58,7 +58,28 @@ pipeline.</p>
 
     <div class="section level2">
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
-    <p>A data frame with 4,192 rows and 21 columns:</p><dl><dt>year_n</dt>
+    <p>A data frame with 4,183 rows and 51 columns:</p>
+<p>**Core RSF press freedom (columns 1-20):**
+year_n, iso, country_en, score, rank, political_context, rank_pol,
+economic_context, rank_eco, legal_context, rank_leg, social_context,
+rank_soc, safety, rank_saf, zone, rank_n_1, rank_evolution, score_n_1,
+score_evolution</p>
+<p>**EU membership (column 21):**
+EU</p>
+<p>**OECD membership (column 22):**
+OECD</p>
+<p>**UN M49 regional classifications (columns 23-29):**
+un_region, un_subregion, un_intermediate_region, LLDC, SIDS, LDC, UN</p>
+<p>**World Bank static classifications (columns 30-41):**
+wb_region, wb_region2, wb_region2_code, wb_lending_category, arab_world,
+central_europe_baltics, small_states, IDA_only, IDA_blend, IBRD_only,
+IDA_total, IDA_IBRD_total</p>
+<p>**World Bank time-varying classifications (columns 42-46):**
+wb_income_group, middle_income, low_middle_income, euro_area, fragile_state</p>
+<p>**UN development &amp; debt relief (column 47):**
+HIPC</p>
+<p>**Socioeconomic data (columns 48-51):**
+population_mn, gdp_usd_mn, area_km2, gdp_pc_usd</p><dl><dt>year_n</dt>
 <dd><p>Numeric year (2002-2026, excluding 2011)</p></dd>
 
   <dt>iso</dt>
@@ -68,63 +89,148 @@ pipeline.</p>
 <dd><p>Standardized country name in English</p></dd>
 
   <dt>score</dt>
-<dd><p>Press freedom score (0-100; higher = more free). Comparable only within periods.</p></dd>
+<dd><p>Press freedom score (0-100); higher = more free</p></dd>
 
   <dt>rank</dt>
-<dd><p>Rank within the year (1 = most free)</p></dd>
+<dd><p>Rank within year (1 = most free)</p></dd>
 
   <dt>political_context</dt>
-<dd><p>Sub-index: Political context (if available)</p></dd>
+<dd><p>Political context sub-index (2022-2026 only)</p></dd>
 
   <dt>rank_pol</dt>
-<dd><p>Rank within political context (if available)</p></dd>
+<dd><p>Political context rank (2022-2026 only)</p></dd>
 
   <dt>economic_context</dt>
-<dd><p>Sub-index: Economic context (if available)</p></dd>
+<dd><p>Economic context sub-index (2022-2026 only)</p></dd>
 
   <dt>rank_eco</dt>
-<dd><p>Rank within economic context (if available)</p></dd>
+<dd><p>Economic context rank (2022-2026 only)</p></dd>
 
   <dt>legal_context</dt>
-<dd><p>Sub-index: Legal context (if available)</p></dd>
+<dd><p>Legal context sub-index (2022-2026 only)</p></dd>
 
   <dt>rank_leg</dt>
-<dd><p>Rank within legal context (if available)</p></dd>
+<dd><p>Legal context rank (2022-2026 only)</p></dd>
 
   <dt>social_context</dt>
-<dd><p>Sub-index: Social context (if available)</p></dd>
+<dd><p>Social context sub-index (2022-2026 only)</p></dd>
 
   <dt>rank_soc</dt>
-<dd><p>Rank within social context (if available)</p></dd>
+<dd><p>Social context rank (2022-2026 only)</p></dd>
 
   <dt>safety</dt>
-<dd><p>Sub-index: Safety (if available)</p></dd>
+<dd><p>Safety sub-index (2022-2026 only)</p></dd>
 
   <dt>rank_saf</dt>
-<dd><p>Rank within safety (if available)</p></dd>
+<dd><p>Safety rank (2022-2026 only)</p></dd>
 
   <dt>zone</dt>
-<dd><p>Geographic zone assigned by RSF</p></dd>
+<dd><p>RSF geographic zone (English)</p></dd>
 
   <dt>rank_n_1</dt>
-<dd><p>Previous year's rank (year_n - 1)</p></dd>
+<dd><p>Previous year's rank</p></dd>
 
   <dt>rank_evolution</dt>
-<dd><p>Change in rank from previous year</p></dd>
+<dd><p>Rank change from previous year</p></dd>
 
   <dt>score_n_1</dt>
-<dd><p>Previous year's score (year_n - 1)</p></dd>
+<dd><p>Previous year's score</p></dd>
 
   <dt>score_evolution</dt>
-<dd><p>Change in score from previous year</p></dd>
+<dd><p>Score change from previous year</p></dd>
 
   <dt>EU</dt>
-<dd><p>Logical; <code>TRUE</code> if the country was an EU member in that year.
-    Accession events: EU-15 baseline (2002), 2004 enlargement (CYP CZE EST HUN
-    LVA LTU MLT POL SVK SVN), 2007 enlargement (BGR ROU), 2013 enlargement
-    (HRV). Withdrawal: United Kingdom (GBR) from 2020 (Brexit). Northern Cyprus
-    (CXX) is <code>FALSE</code> for all years. See <code>R/eu_membership.R</code> for
-    implementation details.</p></dd>
+<dd><p>Logical; EU member in that year</p></dd>
+
+  <dt>OECD</dt>
+<dd><p>Logical; OECD member (time-varying)</p></dd>
+
+  <dt>un_region</dt>
+<dd><p>UN M49 region (5 regions: Africa, Americas, Asia, Europe, Oceania)</p></dd>
+
+  <dt>un_subregion</dt>
+<dd><p>UN M49 sub-region; ~17 subregions</p></dd>
+
+  <dt>un_intermediate_region</dt>
+<dd><p>UN M49 intermediate region; zero NAs (replaced with sub-region where missing)</p></dd>
+
+  <dt>LLDC</dt>
+<dd><p>Logical; landlocked developing country (static geopolitical classification)</p></dd>
+
+  <dt>SIDS</dt>
+<dd><p>Logical; small island developing state (static geopolitical classification)</p></dd>
+
+  <dt>LDC</dt>
+<dd><p>Logical; least developed country (time-varying); based on UN CDP triennial reviews (2000-2024) with nearest-prior interpolation</p></dd>
+
+  <dt>UN</dt>
+<dd><p>Logical; UN member (time-varying); FALSE for PSE (observer), TWN, XXK; MNE TRUE from 2006; SSD TRUE from 2012; all others TRUE</p></dd>
+
+  <dt>wb_region</dt>
+<dd><p>World Bank region (7 regions; July 2026 classification snapshot)</p></dd>
+
+  <dt>wb_region2</dt>
+<dd><p>World Bank region with Sub-Saharan Africa split into AFE/AFW (8 groups; July 2026 snapshot)</p></dd>
+
+  <dt>wb_region2_code</dt>
+<dd><p>World Bank region code (e.g., AFE, AFW, EAS, LCN; July 2026 snapshot)</p></dd>
+
+  <dt>wb_lending_category</dt>
+<dd><p>World Bank lending category (IBRD, IDA, Blend, or NA; July 2026 snapshot)</p></dd>
+
+  <dt>arab_world</dt>
+<dd><p>Logical; Arab World group member (22 countries; July 2026 snapshot)</p></dd>
+
+  <dt>central_europe_baltics</dt>
+<dd><p>Logical; Central Europe &amp; Baltics member (11 countries; July 2026 snapshot)</p></dd>
+
+  <dt>small_states</dt>
+<dd><p>Logical; World Bank small states group (July 2026 snapshot)</p></dd>
+
+  <dt>IDA_only</dt>
+<dd><p>Logical; IDA-only borrower (derived from wb_lending_category)</p></dd>
+
+  <dt>IDA_blend</dt>
+<dd><p>Logical; Blend (IDA + IBRD) borrower (derived from wb_lending_category)</p></dd>
+
+  <dt>IBRD_only</dt>
+<dd><p>Logical; IBRD-only borrower (derived from wb_lending_category)</p></dd>
+
+  <dt>IDA_total</dt>
+<dd><p>Logical; IDA borrower (IDA only or Blend; derived from wb_lending_category)</p></dd>
+
+  <dt>IDA_IBRD_total</dt>
+<dd><p>Logical; IBRD borrower (IBRD or Blend; derived from wb_lending_category)</p></dd>
+
+  <dt>wb_income_group</dt>
+<dd><p>World Bank income classification (time-varying; FY2002-FY2026); one of "High income", "Upper middle income", "Lower middle income", "Low income"</p></dd>
+
+  <dt>middle_income</dt>
+<dd><p>Logical; Upper or Lower middle income (derived from wb_income_group)</p></dd>
+
+  <dt>low_middle_income</dt>
+<dd><p>Logical; not High income (derived from wb_income_group)</p></dd>
+
+  <dt>euro_area</dt>
+<dd><p>Logical; eurozone member (time-varying); 12 founding members from 2002; 8 countries joined 2007-2023</p></dd>
+
+  <dt>fragile_state</dt>
+<dd><p>Logical; World Bank Fragile and Conflict-Affected Situations (time-varying; NA for 2002-2005; FY2006-FY2026 classified); methodology changed 4 times: LICUS (FY2006-2009), Fragile States List (FY2009-2010), Harmonized List (FY2011-2020), FCS List (FY2020-2026)</p></dd>
+
+  <dt>HIPC</dt>
+<dd><p>Logical; HIPC Initiative completion point reached (time-varying); 34 countries total; TRUE from completion year onward</p></dd>
+
+  <dt>population_mn</dt>
+<dd><p>Total mid-year population in millions (WB SP.POP.TOTL); annual 2002-2024; 2025-2026 forward-filled from 2024; NA for YUG, SCG, CXX, XXK, XXX, TWN</p></dd>
+
+  <dt>area_km2</dt>
+<dd><p>Surface area in km^2 (UNSD SYB68, reference year 2023); static; NA for historical entities and non-UN territories</p></dd>
+
+  <dt>gdp_usd_mn</dt>
+<dd><p>GDP in current USD, in millions (WB NY.GDP.MKTP.CD); annual 2002-2023; 2024-2026 forward-filled from 2023; coverage thins in recent years; NA for historical entities and some countries with unreported recent data</p></dd>
+
+  <dt>gdp_pc_usd</dt>
+<dd><p>GDP per capita in current USD (derived as gdp_usd_mn / population_mn); NA wherever either component is NA</p></dd>
 
 
 </dl></div>
@@ -145,7 +251,8 @@ in the pressfreedom.data package:</p>
 <p>**Audit Trail:** The full audit trail (including `country_name_original` and
 `consolidation_flag` columns) is preserved in the source RDS file
 (`data/processed/rwb_standardized.rds`) within the pressfreedom.data package.
-This exported dataset contains only the 21 core columns for analysis.</p>
+The exported dataset in `data/rwb_standardized.rda` contains 51 columns: 20 core RSF
+press freedom indicators, plus EU membership and 30 UN/World Bank classifications.</p>
 <p>**Score Comparability:** Scores are only comparable within their respective periods:
 - **Period 1 (2002-2012):** Non-comparable scores; use ranks for trends
 - **Period 2 (2013-2021):** Comparable scores (0-100 scale)
@@ -164,7 +271,7 @@ are only available in Period 3 (2022-2026). Periods 1-2 have NA values for these
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Basic summary</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">rwb_standardized</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 21</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 51</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   year_n iso   score  rank political_context rank_pol economic_context rank_eco</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>   <span style="text-decoration: underline;">2</span>002 AFG    35.5   104                <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>               <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span></span>
@@ -173,10 +280,13 @@ are only available in Period 3 (2022-2026). Periods 1-2 have NA values for these
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>   <span style="text-decoration: underline;">2</span>002 ARG    12      42                <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>               <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>   <span style="text-decoration: underline;">2</span>002 AUS     3.5    12                <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>               <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>   <span style="text-decoration: underline;">2</span>002 AUT     7.5    27                <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>               <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more variables: legal_context &lt;dbl&gt;, rank_leg &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 43 more variables: legal_context &lt;dbl&gt;, rank_leg &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   social_context &lt;dbl&gt;, rank_soc &lt;dbl&gt;, safety &lt;dbl&gt;, rank_saf &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   zone &lt;chr&gt;, rank_n_1 &lt;dbl&gt;, rank_evolution &lt;dbl&gt;, score_n_1 &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   score_evolution &lt;dbl&gt;, country_en &lt;chr&gt;, EU &lt;lgl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   score_evolution &lt;dbl&gt;, country_en &lt;chr&gt;, EU &lt;lgl&gt;, OECD &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   un_region &lt;chr&gt;, un_subregion &lt;chr&gt;, un_intermediate_region &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LLDC &lt;lgl&gt;, SIDS &lt;lgl&gt;, LDC &lt;lgl&gt;, wb_region &lt;chr&gt;, wb_region2 &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   wb_region2_code &lt;chr&gt;, wb_lending_category &lt;chr&gt;, arab_world &lt;lgl&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Countries included</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">rwb_standardized</span><span class="op">$</span><span class="va">country_en</span><span class="op">)</span><span class="op">)</span></span></span>
