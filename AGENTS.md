@@ -1030,15 +1030,63 @@ Peter returned from vacation Oct 13. Current focus: **Completing UN/WB columns e
   - 9 internal `@noRd` functions + 1 exported `add_oecd_column()` = 10 functions total
   - Verified: all functions present and working
   
-- **Phase 3: ✅ Wire Up the Pipeline** — JUST COMPLETED (2026-10-16)
+- **Phase 3: ✅ Wire Up the Pipeline** — COMPLETED (2026-10-16)
   - Fixed: Added missing `add_oecd_column()` call to `data-raw/rwb_standardized.R`
   - Result: Dataset now 51 columns (was 50)
   - Verification: All columns present, data exports correctly
   - Documentation: `.posit/assistant/docs/2026-10-16-phase-3-completion-verification.md`
 
-### Pending Phases
-- **Phase 4: Update Documentation** — Add 30 column descriptions to `R/data.R`
-- **Phase 5: Regression Tests** — Add ~30 new tests to `tests/testthat/test-data.R`
+- **Phase 4: ✅ Update Documentation** — COMPLETED (2026-10-16)
+  - Updated `R/data.R` with all 51 column documentation
+  - Corrected row count (4,192 → 4,183) and column count (50 → 51)
+  - Restructured format section with 8 clear groupings
+  - Enhanced descriptions for all UN M49, World Bank, and socioeconomic columns
+  - Added source details, coverage periods, NA patterns, and time-varying specifications
+  - Verified `R/add_continent_column.R` note about `un_region` superseding it
+  - Regenerated `man/rwb_standardized.Rd` via `devtools::document()`
+  - All 137 tests pass; no documentation build errors
+  - Documentation: `.posit/assistant/docs/2026-10-16-phase-4-completion-verification.md`
+
+### Completed Phases (cont'd)
+- **Phase 5: ✅ Regression Tests** — COMPLETED (2026-10-16)
+  - Added 23 `test_that()` blocks (~71 assertions) to `tests/testthat/test-data.R`
+    covering: column count (51), presence of all 29 new columns, types
+    (logical/character/double), `UN` membership, M49 regions, `LDC`
+    time-variation, `euro_area` accession, `fragile_state` (incl. pre-2006
+    `NA`), `HIPC` completion transitions, WB static groups (`wb_region2_code`,
+    `small_states`, `central_europe_baltics`), WB time-varying income groups,
+    and socioeconomic columns (`population_mn`, `area_km2`, `gdp_pc_usd`).
+  - **Verified against live data before writing, not copied blindly from the
+    plan** — the plan's draft tests (lines 1178-1360) contained three
+    assumptions that don't hold against the actual dataset:
+    1. `rwb_standardized` has **no row for MNE in 2005** (Montenegro appears
+       as part of Serbia and Montenegro/`SCG` until 2007) — the plan's
+       `MNE`/2005 `UN == FALSE` assertion can't be evaluated; replaced with a
+       comment explaining why, keeping only the post-accession 2007 `TRUE`
+       check.
+    2. **`IRQ`/2011 doesn't exist** (2011 is absent from RSF entirely) — the
+       plan's fragile_state check used 2011; changed to 2012 (first year IRQ's
+       FY2011 FCS listing is actually observable).
+    3. **`ATG` (Antigua and Barbuda) has zero rows** in `rwb_standardized`
+       (RSF doesn't cover it) — `any(logical(0))` silently evaluates to
+       `FALSE`, so the plan's `small_states` assertion would have passed
+       vacuously without testing anything. Replaced with `MUS` (Mauritius),
+       which is both `small_states == TRUE` in the WB lookup and present in
+       the dataset.
+    4. `un_region`/`un_intermediate_region` "no NA" assertions needed to
+       exclude 4 documented-gap ISOs (`YUG`, `SCG`, `CXX`, `XXX` — historical
+       entities/non-standard codes absent from the UNSD M49 source), matching
+       the existing documented gap pattern already used for `population_mn`
+       in `R/data.R`.
+  - All 206 tests pass (0 failures); `devtools::check(cran = TRUE)`: 0
+    errors, 0 warnings, 0 notes.
+  - **Lesson for future "write tests from a plan" work:** a plan's draft
+    tests are a specification of *intent*, not a verified fixture — always
+    run each assertion's inputs against the live object first (checking
+    `nrow()` isn't zero, the specific iso/year combination actually exists)
+    before transcribing it verbatim, since `any()`/`all()` on an empty or
+    all-`NA` vector silently return a non-informative `FALSE`/`TRUE` rather
+    than erroring.
 
 **Deferred work (future sessions):**
 - Blog posts (Oct 13–Nov 16 window: "Encoding Resilience", "Writing Better Prompts", "Consolidating Categories", "Orchestrating Pipelines")

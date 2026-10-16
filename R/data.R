@@ -6,7 +6,7 @@
 #' throughout this package), standardized and cleaned by the pressfreedom.data package
 #' pipeline.
 #'
-#' @format A data frame with 4,192 rows and 50 columns:
+#' @format A data frame with 4,183 rows and 51 columns:
 #'
 #' **Core RSF press freedom (columns 1-20):**
 #' year_n, iso, country_en, score, rank, political_context, rank_pol,
@@ -14,22 +14,28 @@
 #' rank_soc, safety, rank_saf, zone, rank_n_1, rank_evolution, score_n_1,
 #' score_evolution
 #'
-#' **Membership & regional classifications (columns 21-30):**
-#' EU, un_region, un_subregion, un_intermediate_region, LLDC, SIDS, LDC, UN
+#' **EU membership (column 21):**
+#' EU
 #'
-#' **World Bank static classifications (columns 31-42):**
+#' **OECD membership (column 22):**
+#' OECD
+#'
+#' **UN M49 regional classifications (columns 23-29):**
+#' un_region, un_subregion, un_intermediate_region, LLDC, SIDS, LDC, UN
+#'
+#' **World Bank static classifications (columns 30-41):**
 #' wb_region, wb_region2, wb_region2_code, wb_lending_category, arab_world,
 #' central_europe_baltics, small_states, IDA_only, IDA_blend, IBRD_only,
 #' IDA_total, IDA_IBRD_total
 #'
-#' **World Bank time-varying classifications (columns 43-47):**
+#' **World Bank time-varying classifications (columns 42-46):**
 #' wb_income_group, middle_income, low_middle_income, euro_area, fragile_state
 #'
-#' **UN development & debt relief (column 48):**
+#' **UN development & debt relief (column 47):**
 #' HIPC
 #'
-#' **Socioeconomic data (columns 49-50):**
-#' population_mn, area_km2, gdp_usd_mn, gdp_pc_usd
+#' **Socioeconomic data (columns 48-51):**
+#' population_mn, gdp_usd_mn, area_km2, gdp_pc_usd
 #' \describe{
 #'   \item{year_n}{Numeric year (2002-2026, excluding 2011)}
 #'   \item{iso}{ISO 3166-1 alpha-3 country code}
@@ -52,35 +58,36 @@
 #'   \item{score_n_1}{Previous year's score}
 #'   \item{score_evolution}{Score change from previous year}
 #'   \item{EU}{Logical; EU member in that year}
-#'   \item{un_region}{UN M49 region}
-#'   \item{un_subregion}{UN M49 sub-region}
-#'   \item{un_intermediate_region}{UN M49 intermediate region}
-#'   \item{LLDC}{Logical; landlocked developing country}
-#'   \item{SIDS}{Logical; small island developing state}
-#'   \item{LDC}{Logical; least developed country (time-varying)}
-#'   \item{UN}{Logical; UN member (time-varying)}
-#'   \item{wb_region}{World Bank region (7 regions; July 2026)}
-#'   \item{wb_region2}{World Bank region with Sub-Saharan Africa split (8 groups)}
-#'   \item{wb_region2_code}{World Bank region code}
-#'   \item{wb_lending_category}{World Bank lending category (IBRD, IDA, Blend, NA)}
-#'   \item{arab_world}{Logical; Arab World group member}
-#'   \item{central_europe_baltics}{Logical; Central Europe & Baltics member}
-#'   \item{small_states}{Logical; World Bank small state}
-#'   \item{IDA_only}{Logical; IDA-only borrower}
-#'   \item{IDA_blend}{Logical; Blend (IDA + IBRD) borrower}
-#'   \item{IBRD_only}{Logical; IBRD-only borrower}
-#'   \item{IDA_total}{Logical; IDA borrower (IDA only or Blend)}
-#'   \item{IDA_IBRD_total}{Logical; Both IBRD and IDA (IBRD or Blend)}
-#'   \item{wb_income_group}{World Bank income classification (time-varying)}
-#'   \item{middle_income}{Logical; Upper or Lower middle income}
-#'   \item{low_middle_income}{Logical; not High income}
-#'   \item{euro_area}{Logical; eurozone member (time-varying)}
-#'   \item{fragile_state}{Logical; fragile/conflict-affected (time-varying; NA for 2002-2005)}
-#'   \item{HIPC}{Logical; HIPC Initiative completed (time-varying)}
-#'   \item{population_mn}{Population in millions (WB; 2025-2026 forward-filled)}
-#'   \item{area_km2}{Land area in square kilometers (static; UNSD SYB68)}
-#'   \item{gdp_usd_mn}{GDP in millions USD (WB; 2024-2026 forward-filled)}
-#'   \item{gdp_pc_usd}{GDP per capita in USD (derived)}
+#'   \item{OECD}{Logical; OECD member (time-varying)}
+#'   \item{un_region}{UN M49 region (5 regions: Africa, Americas, Asia, Europe, Oceania)}
+#'   \item{un_subregion}{UN M49 sub-region; ~17 subregions}
+#'   \item{un_intermediate_region}{UN M49 intermediate region; zero NAs (replaced with sub-region where missing)}
+#'   \item{LLDC}{Logical; landlocked developing country (static geopolitical classification)}
+#'   \item{SIDS}{Logical; small island developing state (static geopolitical classification)}
+#'   \item{LDC}{Logical; least developed country (time-varying); based on UN CDP triennial reviews (2000-2024) with nearest-prior interpolation}
+#'   \item{UN}{Logical; UN member (time-varying); FALSE for PSE (observer), TWN, XXK; MNE TRUE from 2006; SSD TRUE from 2012; all others TRUE}
+#'   \item{wb_region}{World Bank region (7 regions; July 2026 classification snapshot)}
+#'   \item{wb_region2}{World Bank region with Sub-Saharan Africa split into AFE/AFW (8 groups; July 2026 snapshot)}
+#'   \item{wb_region2_code}{World Bank region code (e.g., AFE, AFW, EAS, LCN; July 2026 snapshot)}
+#'   \item{wb_lending_category}{World Bank lending category (IBRD, IDA, Blend, or NA; July 2026 snapshot)}
+#'   \item{arab_world}{Logical; Arab World group member (22 countries; July 2026 snapshot)}
+#'   \item{central_europe_baltics}{Logical; Central Europe & Baltics member (11 countries; July 2026 snapshot)}
+#'   \item{small_states}{Logical; World Bank small states group (July 2026 snapshot)}
+#'   \item{IDA_only}{Logical; IDA-only borrower (derived from wb_lending_category)}
+#'   \item{IDA_blend}{Logical; Blend (IDA + IBRD) borrower (derived from wb_lending_category)}
+#'   \item{IBRD_only}{Logical; IBRD-only borrower (derived from wb_lending_category)}
+#'   \item{IDA_total}{Logical; IDA borrower (IDA only or Blend; derived from wb_lending_category)}
+#'   \item{IDA_IBRD_total}{Logical; IBRD borrower (IBRD or Blend; derived from wb_lending_category)}
+#'   \item{wb_income_group}{World Bank income classification (time-varying; FY2002-FY2026); one of "High income", "Upper middle income", "Lower middle income", "Low income"}
+#'   \item{middle_income}{Logical; Upper or Lower middle income (derived from wb_income_group)}
+#'   \item{low_middle_income}{Logical; not High income (derived from wb_income_group)}
+#'   \item{euro_area}{Logical; eurozone member (time-varying); 12 founding members from 2002; 8 countries joined 2007-2023}
+#'   \item{fragile_state}{Logical; World Bank Fragile and Conflict-Affected Situations (time-varying; NA for 2002-2005; FY2006-FY2026 classified); methodology changed 4 times: LICUS (FY2006-2009), Fragile States List (FY2009-2010), Harmonized List (FY2011-2020), FCS List (FY2020-2026)}
+#'   \item{HIPC}{Logical; HIPC Initiative completion point reached (time-varying); 34 countries total; TRUE from completion year onward}
+#'   \item{population_mn}{Total mid-year population in millions (WB SP.POP.TOTL); annual 2002-2024; 2025-2026 forward-filled from 2024; NA for YUG, SCG, CXX, XXK, XXX, TWN}
+#'   \item{area_km2}{Surface area in km^2 (UNSD SYB68, reference year 2023); static; NA for historical entities and non-UN territories}
+#'   \item{gdp_usd_mn}{GDP in current USD, in millions (WB NY.GDP.MKTP.CD); annual 2002-2023; 2024-2026 forward-filled from 2023; coverage thins in recent years; NA for historical entities and some countries with unreported recent data}
+#'   \item{gdp_pc_usd}{GDP per capita in current USD (derived as gdp_usd_mn / population_mn); NA wherever either component is NA}
 #' }
 #'
 #' @details
