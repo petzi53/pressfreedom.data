@@ -6,6 +6,10 @@
 #' The function uses the `iso` (ISO 3166-1 alpha-3) column to map countries to their
 #' respective continents: Africa, Americas, Asia, Europe, or Oceania.
 #'
+#' **Note:** `rwb_standardized` now includes the `un_region` column from UN M49 classifications.
+#' For most use cases, `un_region` is preferred as it represents the official UN regional
+#' classification. `add_continent_column()` is retained for backward compatibility.
+#'
 #' @param data A data frame containing at least the column `iso` (character,
 #'   ISO 3166-1 alpha-3 country code). Designed for use with
 #'   `pressfreedom.data::rwb_standardized`.

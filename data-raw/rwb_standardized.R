@@ -27,6 +27,33 @@ rwb_standardized <- rwb_standardized |>
 # Covers accession/withdrawal events 2002-2026; see R/eu_membership.R for details.
 rwb_standardized <- add_eu_column(rwb_standardized)
 
+# Add UN/M49 classifications: un_region, un_subregion, un_intermediate_region, LLDC, SIDS
+rwb_standardized <- add_m49_columns(rwb_standardized)
+
+# Add time-varying LDC status (Least Developed Country)
+rwb_standardized <- add_ldc_timevary_column(rwb_standardized)
+
+# Add World Bank static classifications
+rwb_standardized <- add_wb_static_columns(rwb_standardized)
+
+# Add time-varying World Bank income classifications
+rwb_standardized <- add_wb_timevary_columns(rwb_standardized)
+
+# Add UN membership status (time-varying)
+rwb_standardized <- add_un_timevary_column(rwb_standardized)
+
+# Add euro area membership (time-varying)
+rwb_standardized <- add_euro_area_timevary_column(rwb_standardized)
+
+# Add fragile and conflict-affected states status (time-varying)
+rwb_standardized <- add_fcs_timevary_column(rwb_standardized)
+
+# Add HIPC Initiative completion status (time-varying)
+rwb_standardized <- add_hipc_timevary_column(rwb_standardized)
+
+# Add World Bank socioeconomic data: population, GDP, area, GDP per capita
+rwb_standardized <- add_wb_socioeconomic_columns(rwb_standardized)
+
 # Save as package data: data/rwb_standardized.rda
 usethis::use_data(rwb_standardized, overwrite = TRUE)
 

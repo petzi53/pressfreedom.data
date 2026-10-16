@@ -5,34 +5,81 @@
 \alias{rwb_standardized}
 \title{Standardized Reporters Without Borders Press Freedom Index (2002-2026)}
 \format{
-A data frame with 4,192 rows and 21 columns:
+A data frame with 4,192 rows and 50 columns:
+
+**Core RSF press freedom (columns 1-20):**
+year_n, iso, country_en, score, rank, political_context, rank_pol,
+economic_context, rank_eco, legal_context, rank_leg, social_context,
+rank_soc, safety, rank_saf, zone, rank_n_1, rank_evolution, score_n_1,
+score_evolution
+
+**Membership & regional classifications (columns 21-30):**
+EU, un_region, un_subregion, un_intermediate_region, LLDC, SIDS, LDC, UN
+
+**World Bank static classifications (columns 31-42):**
+wb_region, wb_region2, wb_region2_code, wb_lending_category, arab_world,
+central_europe_baltics, small_states, IDA_only, IDA_blend, IBRD_only,
+IDA_total, IDA_IBRD_total
+
+**World Bank time-varying classifications (columns 43-47):**
+wb_income_group, middle_income, low_middle_income, euro_area, fragile_state
+
+**UN development & debt relief (column 48):**
+HIPC
+
+**Socioeconomic data (columns 49-50):**
+population_mn, area_km2, gdp_usd_mn, gdp_pc_usd
 \describe{
   \item{year_n}{Numeric year (2002-2026, excluding 2011)}
   \item{iso}{ISO 3166-1 alpha-3 country code}
   \item{country_en}{Standardized country name in English}
-  \item{score}{Press freedom score (0-100; higher = more free). Comparable only within periods.}
-  \item{rank}{Rank within the year (1 = most free)}
-  \item{political_context}{Sub-index: Political context (if available)}
-  \item{rank_pol}{Rank within political context (if available)}
-  \item{economic_context}{Sub-index: Economic context (if available)}
-  \item{rank_eco}{Rank within economic context (if available)}
-  \item{legal_context}{Sub-index: Legal context (if available)}
-  \item{rank_leg}{Rank within legal context (if available)}
-  \item{social_context}{Sub-index: Social context (if available)}
-  \item{rank_soc}{Rank within social context (if available)}
-  \item{safety}{Sub-index: Safety (if available)}
-  \item{rank_saf}{Rank within safety (if available)}
-  \item{zone}{Geographic zone assigned by RSF}
-  \item{rank_n_1}{Previous year's rank (year_n - 1)}
-  \item{rank_evolution}{Change in rank from previous year}
-  \item{score_n_1}{Previous year's score (year_n - 1)}
-  \item{score_evolution}{Change in score from previous year}
-  \item{EU}{Logical; \code{TRUE} if the country was an EU member in that year.
-    Accession events: EU-15 baseline (2002), 2004 enlargement (CYP CZE EST HUN
-    LVA LTU MLT POL SVK SVN), 2007 enlargement (BGR ROU), 2013 enlargement
-    (HRV). Withdrawal: United Kingdom (GBR) from 2020 (Brexit). Northern Cyprus
-    (CXX) is \code{FALSE} for all years. See \code{R/eu_membership.R} for
-    implementation details.}
+  \item{score}{Press freedom score (0-100); higher = more free}
+  \item{rank}{Rank within year (1 = most free)}
+  \item{political_context}{Political context sub-index (2022-2026 only)}
+  \item{rank_pol}{Political context rank (2022-2026 only)}
+  \item{economic_context}{Economic context sub-index (2022-2026 only)}
+  \item{rank_eco}{Economic context rank (2022-2026 only)}
+  \item{legal_context}{Legal context sub-index (2022-2026 only)}
+  \item{rank_leg}{Legal context rank (2022-2026 only)}
+  \item{social_context}{Social context sub-index (2022-2026 only)}
+  \item{rank_soc}{Social context rank (2022-2026 only)}
+  \item{safety}{Safety sub-index (2022-2026 only)}
+  \item{rank_saf}{Safety rank (2022-2026 only)}
+  \item{zone}{RSF geographic zone (English)}
+  \item{rank_n_1}{Previous year's rank}
+  \item{rank_evolution}{Rank change from previous year}
+  \item{score_n_1}{Previous year's score}
+  \item{score_evolution}{Score change from previous year}
+  \item{EU}{Logical; EU member in that year}
+  \item{un_region}{UN M49 region}
+  \item{un_subregion}{UN M49 sub-region}
+  \item{un_intermediate_region}{UN M49 intermediate region}
+  \item{LLDC}{Logical; landlocked developing country}
+  \item{SIDS}{Logical; small island developing state}
+  \item{LDC}{Logical; least developed country (time-varying)}
+  \item{UN}{Logical; UN member (time-varying)}
+  \item{wb_region}{World Bank region (7 regions; July 2026)}
+  \item{wb_region2}{World Bank region with Sub-Saharan Africa split (8 groups)}
+  \item{wb_region2_code}{World Bank region code}
+  \item{wb_lending_category}{World Bank lending category (IBRD, IDA, Blend, NA)}
+  \item{arab_world}{Logical; Arab World group member}
+  \item{central_europe_baltics}{Logical; Central Europe & Baltics member}
+  \item{small_states}{Logical; World Bank small state}
+  \item{IDA_only}{Logical; IDA-only borrower}
+  \item{IDA_blend}{Logical; Blend (IDA + IBRD) borrower}
+  \item{IBRD_only}{Logical; IBRD-only borrower}
+  \item{IDA_total}{Logical; IDA borrower (IDA only or Blend)}
+  \item{IDA_IBRD_total}{Logical; Both IBRD and IDA (IBRD or Blend)}
+  \item{wb_income_group}{World Bank income classification (time-varying)}
+  \item{middle_income}{Logical; Upper or Lower middle income}
+  \item{low_middle_income}{Logical; not High income}
+  \item{euro_area}{Logical; eurozone member (time-varying)}
+  \item{fragile_state}{Logical; fragile/conflict-affected (time-varying; NA for 2002-2005)}
+  \item{HIPC}{Logical; HIPC Initiative completed (time-varying)}
+  \item{population_mn}{Population in millions (WB; 2025-2026 forward-filled)}
+  \item{area_km2}{Land area in square kilometers (static; UNSD SYB68)}
+  \item{gdp_usd_mn}{GDP in millions USD (WB; 2024-2026 forward-filled)}
+  \item{gdp_pc_usd}{GDP per capita in USD (derived)}
 }
 }
 \source{
@@ -64,7 +111,8 @@ in the pressfreedom.data package:
 **Audit Trail:** The full audit trail (including `country_name_original` and
 `consolidation_flag` columns) is preserved in the source RDS file
 (`data/processed/rwb_standardized.rds`) within the pressfreedom.data package.
-This exported dataset contains only the 21 core columns for analysis.
+The exported dataset in `data/rwb_standardized.rda` contains 51 columns: 20 core RSF
+press freedom indicators, plus EU membership and 30 UN/World Bank classifications.
 
 **Score Comparability:** Scores are only comparable within their respective periods:
 - **Period 1 (2002-2012):** Non-comparable scores; use ranks for trends
